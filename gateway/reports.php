@@ -1,5 +1,5 @@
 <?php
-	require_once ('../functions.php');
+	require_once ('../inc/functions.php');
 	require_once('fpdf.php');
 
 	class phpork_reports extends FPDF
