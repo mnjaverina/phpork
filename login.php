@@ -59,12 +59,12 @@
                   <img src="<?php echo HOST;?>/phpork/css/images/logo.jpg" class="img-responsive">
                   <div class="form-group form-group-sm input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input class="form-control" type="username" name='username' placeholder="Username"/>     
+                    <input class="form-control" type="username" name='username' placeholder="Username" required/>     
                   </div>
                     
                   <div class="form-group form-group-sm input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input class="form-control" type="password" name='password' placeholder="Password"/>     
+                    <input class="form-control" type="password" name='password' placeholder="Password" required/>     
                   </div>
 
                   <button type="submit" class="submit" name="loginFlag">
