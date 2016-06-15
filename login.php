@@ -3,10 +3,9 @@
     <?php 
    session_start(); 
    if(isset($_SESSION['username']) && isset($_SESSION['password'])){
-         header("Location: index.php"); 
+         header("Location: pages/index.php"); 
    } 
    require_once "connect.php"; 
-   require_once "/inc/dbinfo.inc"; 
    require_once "/inc/dbinfo.inc"; 
 
    if(count($_POST)>0){
@@ -16,7 +15,7 @@
          $_SESSION["user_id"] = $row[0]; 
          $_SESSION["username"] = $row[1]; 
          $_SESSION["password"] = $row[2]; 
-         header("Location: index.php"); 
+         header("Location: pages/index.php"); 
       }else{
          echo "<script> alert('Invalid username/password!'); </script>"; 
       } 
