@@ -53,26 +53,28 @@
             </div>
           </div>
 
-           <div class="row row-centered pos1">
-              <div class="col-sm-6 col-md-4 col-centered" style="background-color: #bb1d24; border-radius: 25px; padding-top: 1%">
-                <img src="<?php echo HOST;?>/phpork/css/images/logo.jpg" class="img-responsive">
-                <div class="form-group form-group-sm input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input class="form-control" type="username" name='username' placeholder="Username"/>     
-                </div>
-                  
-                <div class="form-group form-group-sm input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                  <input class="form-control" type="password" name='password' placeholder="Password"/>     
-                </div>
+            <form  method = "post"  autocomplete = "off">
+             <div class="row row-centered pos1">
+                <div class="col-sm-6 col-md-4 col-centered" style="background-color: #bb1d24; border-radius: 25px; padding-top: 1%">
+                  <img src="<?php echo HOST;?>/phpork/css/images/logo.jpg" class="img-responsive">
+                  <div class="form-group form-group-sm input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input class="form-control" type="username" name='username' placeholder="Username"/>     
+                  </div>
+                    
+                  <div class="form-group form-group-sm input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input class="form-control" type="password" name='password' placeholder="Password"/>     
+                  </div>
 
-                <button type="submit" class="submit" name="loginFlag">
-                  <i class="fa fa-long-arrow-right">
-                    <img src="<?php echo HOST;?>/phpork/css/images/arrow.png" id="arrow_img">
-                  </i>
-                </button>    
+                  <button type="submit" class="submit" name="loginFlag">
+                    <i class="fa fa-long-arrow-right">
+                      <img src="<?php echo HOST;?>/phpork/css/images/arrow.png" id="arrow_img">
+                    </i>
+                  </button>    
+                </div>
               </div>
-            </div>
+            </form>
             
           <div class="row row-centered pos2">
             <div class="col-md-2 col-centered" style="height: 10%; width: 10%;">
