@@ -24,6 +24,35 @@
 			$pdf->Output('I', "Feed-Intake-Report.pdf", true);
 		}
 
+		public function generateExcelReport($pig){
+
+			$excel = new \PHPExcel();
+			$excel->getProperties()
+				  ->setCretor(&username)
+				  ->setLastModifiedBy(&username)
+				  ->setDescription('An excel file about feed-intake-report')
+				  ->setSubject('Feed-Intake-Report')
+				  ->setKeywords('feed quantity production')
+				  ->setCategory('programming');
+
+			$excelWorkSheet = $excel->getSheet(0);
+			$excelWorkSheet->setTitle(Feed-Intake-Report);
+
+			$excelWorkSheet->setCellValue('a1', 'Feed Name'); 
+			$excelWorkSheet->setCellValue('b1', 'Feed Type');
+			$excelWorkSheet->setCellValue('c1', 'Quantity'); 
+			$excelWorkSheet->setCellValue('d1', 'Unit');
+			$excelWorkSheet->setCellValue('e1', 'Date Given'); 
+			$excelWorkSheet->setCellValue('f1', 'Time Given');
+			$excelWorkSheet->setCellValue('g1', 'Production Date');
+
+		   	$data = ddl_feedRecord($pig);
+		    $excelWorkSheet->fromArray($data, ' ', 'A2');
+
+		    $writer = \PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
+			$writer->save('Feed-Intake-Report.xlsx');
+		}
+
 
 		
 			
