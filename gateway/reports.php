@@ -2,32 +2,28 @@
 	require_once ('../inc/functions.php');
 	require_once('pdf.php');
 
-	class phpork_reports 
-
+	class phpork_reports
 	{
 		/*
 			generate report functions for feeds
 		*/
+		
 		public function generatePDFReport($pig)
 		{
-			$pdf = new PDF();
-			PDF_open_file($pdf, "Feed-Intake-Report.pdf");
-			PDF_begin_page($pdf, (72*8.5), (72*11));
-			$fontstyle = PDF_findfont($pdf, "Arial", "host", 1);
-			PDF_setfont($pdf, $fontstyle, 12);
-
-			//text area
-			PDF_show($pdf, "Feed Intake Report");
-			PDF_show($pdf, "Location: ");
-
-
+			$pdf = new PDF('P', 'in', array(8.5,11));
 			$label = array("Feed Name", "Feed Type", "Quantity", "Unit", "Date Given", "Time Given","Production Date");
 			$data = ddl_feedRecord($pig);
 
 			$pdf->AddPage();
+			$pdf->setFont("Arial", 12);
+			$pdf->Cell("Feed Intake Report", 0, 1, 'C');
+			$pdf->Cell("Current Location:");
+			$pdf->Cell("Pig ID:");
+
 			$pdf->createPDFTable($label, $data);
-			$pdf->Output();
+			$pdf->Output('I', "Feed-Intake-Report.pdf", true);
 		}
+
 
 		
 			
