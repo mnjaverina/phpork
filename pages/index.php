@@ -1,12 +1,16 @@
-<?php
-session_start();
-  if(!isset($_SESSION['userid'])){
-    header("location: login.php");
-  }
-  include '../inc/functions.php';
-?>
+
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+   session_start(); 
+  require_once "../connect.php"; 
+  require_once "../inc/dbinfo.inc"; 
+  if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+    header("Location: login.php"); 
+  }
+  include "../inc/functions.php"; 
+  $db = new phpork_functions (); 
+?> 
 
 <head> 
     <meta charset="utf-8"> 
@@ -16,7 +20,7 @@ session_start();
     <link rel="stylesheet" href="../css/bootstrap.min.css"> 
     <link rel="stylesheet" href="../css/bootstrap-theme.css"> 
     <link rel="stylesheet" href="../css/bootstrap-theme.min.css"> 
-    <link rel="stylesheet" href="../css/style2_nonnavbar.css"> 
+    <link rel="stylesheet" href="../css/style3.css"> 
     <script src="../js/jquery-latest.min.js" type="text/javascript"></script> 
   </head> 
   <body> 
@@ -25,7 +29,7 @@ session_start();
     </div> 
     <form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="logout.php" style="width:50%;float:right;"> 
       <div class="form-group logout" > 
-        <input type="text" class="col-xs-6 col-sm-5" readonly style="text-align: left; border: 2px solid; border-color: #83b26a;" value="<?php echo $_SESSION['uname'];?>"> 
+        <input type="text" class="col-xs-6 col-sm-5" readonly style="text-align: left; border: 2px solid; border-color: #83b26a;" value="<?php echo $_SESSION['username'];?>"> 
         <div class="col-xs-1 col-sm-1" style="left: -1%;"> 
           <button type="submit" class="btn btn-primary btn-sm" >Logout</button> 
         </div> 
@@ -33,7 +37,7 @@ session_start();
     </form> 
     <div class="menu"> 
       <div class="menu_view"> 
-        <a href="/phpork/farm">
+        <a href="select_farm.php">
           <img class="img-responsive" src="../css/images/View.png">
         </a> 
       </div> 

@@ -1,0 +1,140 @@
+body{
+     margin-bottom: 10px;
+}
+
+.container{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-height: 100%;
+}
+
+
+.page-header { 
+  margin-top:-10px;
+  margin-bottom: 0;
+  padding: 0;
+  border: #b44230;
+  width: 100%;
+}
+
+.page-header img{
+  width: 100%;
+}
+
+.page-footer {
+    background-color: #bb1d24;
+    text-align: center;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    height: 30px;
+    position: fixed;
+    overflow: hidden;
+}
+
+.page-footer img{
+  width: 100%;
+}
+
+.row-centered {
+  text-align:center;
+}
+
+.pos{
+  position: relative;
+  top: 80px;
+}
+
+.pos1{
+  position: relative;
+  top: 100px;
+}
+
+.col-centered {
+  display:inline-block;
+  float:none;
+  text-align:left;
+  margin-right:-4px;
+}
+
+form{
+  margin-top: 1%;
+  margin-left: 50%;
+}
+
+form .logout{
+  font-size: .9em;
+  margin: 0 5% 0 0;
+}
+
+.custom-dropdown2 {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 3% 27% 0 ;
+  width: 46%;
+}
+
+.custom-dropdown2 select {
+  background-color: white;
+  color: black;
+  font-size: inherit;
+  padding: .5em;
+  padding-right: 2.5em; 
+  border: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+  width: 100%;
+}
+
+.custom-dropdown2::before,
+.custom-dropdown2::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown2::after { /*  Custom dropdown arrow */
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.custom-dropdown2::before { /*  Custom dropdown arrow cover */
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.custom-dropdown2 select[disabled] {
+  color: rgba(0,0,0,.3);
+}
+
+.custom-dropdown2 select[disabled]::after {
+  color: rgba(0,0,0,.1);
+}
+
+.custom-dropdown2::before {
+  background-color: #8fb786;
+}
+
+.custom-dropdown2::after {
+  color: rgba(0,0,0,.4);
+}
+
+.bs-example{
+      margin: 20px;
+    }
+
+.text-center { 
+    text-align: center; 
+  }
