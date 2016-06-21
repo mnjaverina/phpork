@@ -1,0 +1,13 @@
+RewriteEngine On
+
+
+RewriteRule ^out pages/logout.php [L]
+RewriteRule ^addpig insertPig.php [L]
+RewriteRule ^checkdata gateway.php [L]
+RewriteRule ^choose pages/choose.php [L]
+
+RewriteRule ^pages/farm pages/select_farm.php [L]
+RewriteRule ^farm/([0-9]+) pages/select_house.php?location=$1 [L]
+RewriteRule ^farm/house/([0-9]+)/([0-9]+) pages/select_pen.php?location=$1&house=$2 [L]
+RewriteRule ^farm/house/pen/([0-9]+)/([0-9]+)/([0-9]+) pages/select_pig.php?location=$1&house=$2&pen=$3 [L]
+RewriteRule ^farm/house/pen/pig/([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+) pages/select_done.php?location=$1&house=$2&pen=$3&pig=$4 [L]
