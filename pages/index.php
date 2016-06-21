@@ -8,7 +8,7 @@
   if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
     header("Location: login.php"); 
   }
-  include "../inc/functions.php"; 
+  include "../functions.php"; 
   $db = new phpork_functions (); 
 ?> 
 
@@ -27,7 +27,7 @@
     <div class="page-header"> 
       <img class="img-responsive" src="../css/images/Header1.png"> 
     </div> 
-    <form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="logout.php" style="width:50%;float:right;"> 
+    <form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="/phpork/out" style="width:50%;float:right;"> 
       <div class="form-group logout" > 
         <input type="text" class="col-xs-6 col-sm-5" readonly style="text-align: left; border: 2px solid; border-color: #83b26a;" value="<?php echo $_SESSION['username'];?>"> 
         <div class="col-xs-1 col-sm-1" style="left: -1%;"> 
@@ -37,7 +37,8 @@
     </form> 
     <div class="menu"> 
       <div class="menu_view"> 
-        <a href="select_farm.php">
+        <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
+        <a href="/phpork/pages/farm">
           <img class="img-responsive" src="../css/images/View.png">
         </a> 
       </div> 

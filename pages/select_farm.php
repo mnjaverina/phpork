@@ -7,7 +7,7 @@
   if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
     header("Location: login.php"); 
   }
-  include "../inc/functions.php"; 
+  include "../functions.php"; 
   $db = new phpork_functions (); 
 ?> 
 
@@ -30,11 +30,13 @@
     <link rel="stylesheet" href="../css/select.css"> 
   </head> 
   <body> 
-    <div class="page-header"> 
-      <img class="img-responsive" src="../css/images/header1.png"> 
+  <div class="page-header"> 
+      <a href="<?php echo HOST;?>/phpork/pages/index.php">
+      <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
+    </a>
     </div>
 
-    <form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="logout.php" style="width:50%;float:right;"> 
+    <form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="/phpork/out" style="width:50%;float:right;"> 
       <div class="form-group logout" > 
         <input type="text" class="col-xs-6 col-sm-5" readonly style="text-align: left; border: 2px solid; border-color: #83b26a;" value="<?php echo $_SESSION['username'];?>"> 
         <div class="col-xs-1 col-sm-1" style="left: -1%;"> 
@@ -61,22 +63,26 @@
             </div>
       </div>
 
+
+
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
        <div style="max-width: 50%; height: 230px; margin-left: 25%; margin-top: 30px; padding: 20px; border-radius: 30px; border: 5px solid; border-color: #9ecf95;">
         <span class="custom-dropdown2"> 
-            <select id="dropdown"> 
-                <?php 
-                  $arr_house = $db->ddl_house($_GET['location']); 
-                  foreach ($arr_house as $key => $array) {
-                    echo "<option value='".$array['house_id']."' id='h_id' >House  ".$array['house_no']." </option>"; 
-                  } 
-                ?> 
+             <select id="dropdown"> 
+                 <?php 
+                    $arr_farm = $db->ddl_location(); 
+                    echo "<option selected=\"true\" disabled=\"disabled\">Select farm</option>"; 
+                    foreach ($arr_farm as $key => $array) {
+                      echo "<option value='".$array['loc_id']."'> ".$array['loc_name']." </option>";  
+                    }
+                    echo "<option value=\"Farm\">Add farm</option>";   
+                  ?> 
               </select> 
             </span> 
             <br/> <br/>  <br/> <br/>
-            <button type="button" class="btn btn-default btn-md" onclick="window.location.href='select_house.php'">
-            Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" data-toggle="modal" data-target="#myModal"></span>
-          </button>
+            <button type="button" class="btn btn-default btn-md" id="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" data-toggle="modal" data-target="#myModal">Next</span>
+            </button>
         </div>
     </div>
     
@@ -84,6 +90,25 @@
     <div class="page-footer"> 
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
     </div>
+
+     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
+    <script type="text/javascript"> 
+      $(document).ready(function () {
+        $('#next').on("click",function() {
+          var location = $("#dropdown").val(); 
+
+          if(location == null){
+            alert("Select an option");
+          }else if(location != "Farm"){ 
+            window.location = "/phpork/farm/" +location;
+          }else{
+            console.log("add farm" +location);
+          }
+
+         
+        });
+      });
+    </script>
 
     
 </body>

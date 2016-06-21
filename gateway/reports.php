@@ -26,9 +26,9 @@
 
 		public function generateExcelReport($pig){
 
-			$excel = new \PHPExcel();
+			$excel = new PHPExcel();
 			$excel->getProperties()
-				  ->setCretor(&username)
+				  ->setCreator(&username)
 				  ->setLastModifiedBy(&username)
 				  ->setDescription('An excel file about feed-intake-report')
 				  ->setSubject('Feed-Intake-Report')

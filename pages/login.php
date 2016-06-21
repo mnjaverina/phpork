@@ -3,7 +3,7 @@
     <?php 
    session_start(); 
    if(isset($_SESSION['username']) && isset($_SESSION['password'])){
-         header("Location: index.php"); 
+         header("Location: indesx.php"); 
    } 
    require_once "../connect.php"; 
    require_once "../inc/dbinfo.inc"; 
