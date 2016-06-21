@@ -51,15 +51,15 @@
             </div>
 
             <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%;">
-              <img src="<?php echo HOST;?>/phpork/images/Select House.png" class="img-responsive">
+              <img src="<?php echo HOST;?>/phpork/images/icons/feeds.png" class="img-responsive">
             </div>
 
             <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%;">
-              <img src="<?php echo HOST;?>/phpork/images/Select Pen.png" class="img-responsive">
+              <img src="<?php echo HOST;?>/phpork/images/icons/feeds.png" class="img-responsive">
             </div>
 
             <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 0px;">
-              <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
+              <img src="<?php echo HOST;?>/phpork/images/icons/feeds.png" class="img-responsive">
             </div>
       </div>
 
