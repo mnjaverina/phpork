@@ -11,7 +11,7 @@ body{
 
 
 .page-header { 
-  margin-top:-10px;
+  margin-top:0px;
   margin-bottom: 0;
   padding: 0;
   border: #b44230;
@@ -49,6 +49,7 @@ body{
 .pos1{
   position: relative;
   top: 100px;
+  bottom: 50px;
 }
 
 .col-centered {
@@ -74,6 +75,7 @@ form .logout{
   vertical-align: middle;
   margin: 3% 27% 0 ;
   width: 46%;
+
 }
 
 .custom-dropdown2 select {
@@ -82,8 +84,9 @@ form .logout{
   font-size: inherit;
   padding: .5em;
   padding-right: 2.5em; 
-  border: 0;
+  border: 2px solid;
   border-radius: 3px;
+  border-color: black;
   text-indent: 0.01px;
   text-overflow: '';
   -webkit-appearance: button; /* hide default arrow in chrome OSX */
@@ -95,6 +98,7 @@ form .logout{
   content: "";
   position: absolute;
   pointer-events: none;
+  
 }
 
 .custom-dropdown2::after { /*  Custom dropdown arrow */

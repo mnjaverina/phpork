@@ -31,7 +31,7 @@
   </head> 
   <body> 
     <div class="page-header"> 
-      <img class="img-responsive" src="../css/images/Header1.png"> 
+      <img class="img-responsive" src="../css/images/header1.png"> 
     </div>
 
     <form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="logout.php" style="width:50%;float:right;"> 
@@ -43,27 +43,27 @@
       </div> 
     </form> 
 
-     <div class="row row-centered pos">
-            <div class="col-md-2 col-centered" style="height: 9%; width: 9%; margin-right: 2%;">
+     <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%; margin-left: 0px;">
               <img src="../images/Select Farm.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 9%; width: 9%; margin-right: 2%;">
+            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%;">
               <img src="../images/Select House.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 9%; width: 9%; margin-right: 2%;">
+            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%;">
               <img src="../images/Select Pen.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 9%; width: 9%; margin-right: 2%;">
+            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 0px;">
               <img src="../images/Select Pig.png" class="img-responsive">
             </div>
       </div>
 
-      <div class="row row-centered pos1">
-        <div style="background-color: #efe8bd; max-width: 30%; max-height: 100%; margin-left: 33%; margin-bottom: 50px; margin-top: 30px; padding: 30px; border-radius: 30px;">
-            <span class="custom-dropdown2"> 
+    <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+       <div style="max-width: 50%; height: 230px; margin-left: 25%; margin-top: 30px; padding: 20px; border-radius: 30px; border: 5px solid; border-color: #9ecf95;">
+        <span class="custom-dropdown2"> 
             <select id="dropdown"> 
                 <?php 
                   $arr_house = $db->ddl_house($_GET['location']); 
@@ -73,12 +73,12 @@
                 ?> 
               </select> 
             </span> 
-            <br/> <br/>
+            <br/> <br/>  <br/> <br/>
             <button type="button" class="btn btn-default btn-md" onclick="window.location.href='select_house.php'">
             Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" data-toggle="modal" data-target="#myModal"></span>
           </button>
         </div>
-
+    </div>
     
 
     <div class="page-footer"> 

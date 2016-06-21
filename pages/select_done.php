@@ -44,34 +44,33 @@
       </div> 
     </form> 
 
-     <div class="row row-centered pos">
-            <div class="col-md-2 col-centered" style="height: 9%; width: 9%; margin-right: 2%;">
+    <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%; margin-left: 0px;">
               <img src="../images/icons/feeds.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 9%; width: 9%; margin-right: 2%;">
+            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%;">
               <img src="../images/icons/feeds.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 9%; width: 9%; margin-right: 2%;">
+            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%;">
               <img src="../images/icons/feeds.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 9%; width: 9%; margin-right: 2%;">
+            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 0px;">
               <img src="../images/icons/feeds.png" class="img-responsive">
             </div>
       </div>
 
-      <div class="row row-centered pos1">
-       <div style="max-width: 30%; max-height: 100%; margin-left: 33%; margin-bottom: 50px; margin-top: 30px; padding: 30px; border-radius: 30px; border: 2px solid; border-color: #9ecf95;">
-         <button type="button" class="btn btn-default btn-md" onclick="window.location.href='view_details.php'">
-
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> View Pig Details
-          </button> 
-          <br /><br/>
-            <button type="button" class="btn btn-default btn-md" onclick="window.location.href='select_pig.php'">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Back
-          </button>
+    <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+       <div style="max-width: 50%; height: 230px; margin-left: 25%; margin-top: 30px; padding: 50px; border-radius: 30px; border: 5px solid; border-color: #9ecf95;">
+          <button type="button" class="btn btn-default btn-lg" onclick="window.location.href='view_pig_details.php'">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> View Pig Details
+            </button> 
+            <br /><br/>  <br />
+              <button type="button" class="btn btn-default btn-md" onclick="window.location.href='select_pig.php'">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Back
+            </button>
         </div>
     </div>
 
