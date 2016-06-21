@@ -10,7 +10,7 @@
 		echo json_encode($db->addLocationName($lname,$addr)); 
 		//localhost/phpork2/gateway/location.php?addLocationName=1&lname=Farm4&addr=antipolo
 	} 
-	if(isset($_GET['ddl_location'])){
+	if(isset($_POST['ddl_location'])){
 		$arr_house = $db->ddl_location(); 
 		echo json_encode($arr_house);
 		//localhost/phpork2/gateway/location.php?ddl_location=1

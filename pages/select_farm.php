@@ -69,14 +69,8 @@
        <div style="max-width: 50%; height: 230px; margin-left: 25%; margin-top: 30px; padding: 20px; border-radius: 30px; border: 5px solid; border-color: #9ecf95;">
         <span class="custom-dropdown2"> 
              <select id="dropdown"> 
-                 <?php 
-                    $arr_farm = $db->ddl_location(); 
-                    echo "<option selected=\"true\" disabled=\"disabled\">Select farm</option>"; 
-                    foreach ($arr_farm as $key => $array) {
-                      echo "<option value='".$array['loc_id']."'> ".$array['loc_name']." </option>";  
-                    }
-                    echo "<option value=\"Farm\">Add farm</option>";   
-                  ?> 
+                <option selected="true" disabled="disabled">Select Farm</option>
+                
               </select> 
             </span> 
             <br/> <br/>  <br/> <br/>
@@ -108,6 +102,27 @@
          
         });
       });
+    </script>
+    <script>
+        $.ajax({
+          url: '/phpork/gateway/location.php',
+          type: 'post',
+          data : {
+            ddl_location: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data); 
+                for(i=0;i<data.length;i++){
+                  $("#dropdown").append($("<option></option>").attr("value",data[i].loc_id)
+                    .attr("name","location")
+                    .text(data[i].loc_name)); 
+                }
+                $("#dropdown").append($("<option></option>").attr("value","Location")
+                    .attr("name","addLoc")
+                    .text("Add location"));   
+              } 
+          
+        });
     </script>
 
     
