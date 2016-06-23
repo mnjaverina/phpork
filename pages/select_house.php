@@ -46,19 +46,19 @@
     </form> 
 
     <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%; margin-left: 0px;">
-              <img src="<?php echo HOST;?>/phpork/images/icons/feeds.png" class="img-responsive">
+            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 11%; margin-left: 0px;">
+              <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%;">
+            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 11%;">
               <img src="<?php echo HOST;?>/phpork/images/Select House.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 11%;">
+            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 11%;">
               <img src="<?php echo HOST;?>/phpork/images/Select Pen.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 8%; width: 8%; margin-right: 0px;">
+            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 0px;">
               <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
             </div>
       </div>
@@ -67,11 +67,11 @@
         <?php 
           $l = $_GET['location']; 
           echo "<input type='hidden' value='$l' name='loc' id='locid'/>"; 
-        ?>
-      </div>
+        ?> 
+      </div> 
 
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-       <div style="max-width: 50%; height: 230px; margin-left: 25%; margin-top: 30px; padding: 20px; border-radius: 30px; border: 5px solid; border-color: #9ecf95;">
+       <div class="lowerPanel">
         <span class="custom-dropdown2"> 
             <select id="dropdown"> 
                 <?php 
@@ -85,12 +85,12 @@
                 ?> 
               </select> 
             </span> 
-            <br/> <br/>  <br/> <br/>
-             <button type="button" class="btn btn-default btn-md" id="back">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" data-toggle="modal" data-target="#myModal">Back</span>
+            <br/> <br/>  <br/>
+             <button type="button" class="btn1" id="back">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" data-toggle="modal" data-target="#myModal"></span> Back
           </button>
-         <button type="button" class="btn btn-default btn-md" id="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" data-toggle="modal" data-target="#myModal">Next</span>
+         <button type="button" class="btn1" id="next">
+                Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" data-toggle="modal" data-target="#myModal"></span>
             </button>
         </div>
     </div>
