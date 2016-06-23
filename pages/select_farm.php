@@ -117,7 +117,7 @@
             }else if(location != "Farm"){ 
               window.location = "/phpork/farm/" +location;
             }else{
-                   $('#next').attr("data-toggle", "modal")
+                   $('#nextF').attr("data-toggle", "modal")
                              .attr("data-target", "#myModal"); 
             }
            
