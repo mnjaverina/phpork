@@ -63,7 +63,51 @@
             </div>
       </div>
 
-      <div class="step-content active col-xs-12"> 
+    <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+       <div class="lowerPanel">
+        <span class="custom-dropdown2"> 
+            <select id="dropdown"> 
+                  echo "<option selected="true" disabled="disabled">Select Pen</option>"; 
+              </select> 
+            </span> 
+            <br/> <br/>  <br/> <br/>
+            <button type="button" class="btn1" id="backP">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">Back</span> 
+          </button>
+         <button type="button" class="btn1" id="nextP">
+                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="page-footer"> 
+      Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
+    </div>
+
+     
+
+     <div class="step-content active col-xs-12"> 
         <?php 
           $h = $_GET['house'];
           $l = $_GET['location']; 
@@ -72,38 +116,10 @@
         ?>
       </div>
 
-    <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-       <div class="lowerPanel">
-        <span class="custom-dropdown2"> 
-            <select id="dropdown"> 
-               <?php 
-                  $arr_pen = $db->getPenByHouse($_GET['house']); 
-                  echo "<option selected=\"true\" disabled=\"disabled\">Select Pen</option>"; 
-                   echo "<option value=\"Pen\">Add Pen</option>";  
-                  foreach ($arr_pen as $key => $array) {
-                    echo "<option value='".$array['pen_id']."' id='h_id' >Pen ".$array['pen_no']." </option>"; 
-                  } 
-                ?> 
-              </select> 
-            </span> 
-            <br/> <br/>  <br/>
-             <button type="button" class="btn1" id="back">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" data-toggle="modal" data-target="#myModal"></span> Back
-          </button>
-         <button type="button" class="btn1" id="next">
-                Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" data-toggle="modal" data-target="#myModal"></span>
-            </button>
-        </div>
-    </div>
-
-    <div class="page-footer"> 
-      Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
-    </div>
-
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script type="text/javascript"> 
       $(document).ready(function () {
-        $('#next').on("click",function() {
+        $('#nextP').on("click",function() {
           var penno = $('#dropdown').val();
           var houseno = $("#houseid").val(); 
           var location = $("#locid").val(); 
@@ -113,15 +129,39 @@
           }else if(penno != "Pen"){ 
              window.location = "/phpork/farm/house/pen/" +location+ "/" +houseno+ "/" +penno; 
           }else{
-            console.log("add pen" +penno);
+            $('#nextP').attr("data-toggle", "modal")
+                      .attr("data-target", "#myModal"); 
           }
         }); 
-        $('#back').on("click",function() {
+        $('#backP').on("click",function() {
            var location = $("#locid").val();
           window.location = "/phpork/farm/" +location; 
         }); 
       }); 
-    </script> 
+    </script>
+
+     <script>
+        $.ajax({
+          url: '/phpork/gateway/pen.php',
+          type: 'post',
+          data : {
+            getPenByHouse: '1',
+            house: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data); 
+                for(i=0;i<data.length;i++){
+                  $("#dropdown").append($("<option></option>").attr("value",data[i].pen_id)
+                    .attr("name","pen")
+                    .text("Pen " +data[i].pen_no)); 
+                }
+                $("#dropdown").append($("<option></option>").attr("value","Pen")
+                    .attr("name","addPen")
+                    .text("<--Add Pen-->"));   
+              } 
+          
+        });
+    </script>
 
 </body>
 

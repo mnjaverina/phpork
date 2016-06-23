@@ -49,19 +49,19 @@
 
      <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
-              <img src="../images/Select Farm.png" class="img-responsive">
+              <img src="<?php echo HOST;?>/phpork/images/Select Farm.png" class="img-responsive">
             </div>
 
             <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
-              <img src="../images/Select House.png" class="img-responsive">
+              <img src="<?php echo HOST;?>/phpork/images/Select House.png" class="img-responsive">
             </div>
 
             <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
-              <img src="../images/Select Pen.png" class="img-responsive">
+              <img src="<?php echo HOST;?>/phpork/images/Select Pen.png" class="img-responsive">
             </div>
 
             <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 0px;">
-              <img src="../images/Select Pig.png" class="img-responsive">
+              <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
             </div>
       </div>
 
@@ -71,25 +71,13 @@
        <div class="lowerPanel">
         <span class="custom-dropdown2"> 
              <select id="dropdown"> 
-                 <?php 
-                    $arr_farm = $db->ddl_location(); 
-                    echo "<option selected=\"true\" disabled=\"disabled\">Select farm</option>"; 
-                    foreach ($arr_farm as $key => $array) {
-                      echo "<option value='".$array['loc_id']."'> ".$array['loc_name']." </option>";  
-                    }
-                    echo "<option value=\"Farm\">Add farm</option>";   
-                  ?> 
+                    <option selected="true" disabled="disabled">Select farm</option> 
               </select> 
             </span> 
             <br/> <br/> <br/>
-            <button type="button" class="btn1" id="next">
+            <button type="button" class="btn1" id="nextF">
                  Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </button>
-
-         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-title="Feedback">Feedback</button> -->
-          <!-- Trigger the modal with a button -->
-          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
         </div>
     </div>
 
@@ -121,7 +109,7 @@
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
       <script type="text/javascript"> 
         $(document).ready(function () {
-          $('#next').on("click",function() {
+          $('#nextF').on("click",function() {
             var location = $("#dropdown").val(); 
 
             if(location == null){
@@ -129,18 +117,33 @@
             }else if(location != "Farm"){ 
               window.location = "/phpork/farm/" +location;
             }else{
-              console.log("add farm" +location);
+                   $('#next').attr("data-toggle", "modal")
+                             .attr("data-target", "#myModal"); 
             }
            
           });
         });
+      </script>
 
-        $(document).ready(function(){
-          $("#myModal").on('show.bs.modal', function(event){
-            var button = $(event.relatedTarget);  // Button that triggered the modal
-            var titleData = button.data('title'); // Extract value from data-* attributes
-                $(this).find('.modal-title').text(titleData + ' Form');
-          });
+      <script>
+        $.ajax({
+          url: '/phpork/gateway/location.php',
+          type: 'post',
+          data : {
+            ddl_location: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data); 
+                for(i=0;i<data.length;i++){
+                  $("#dropdown").append($("<option></option>").attr("value",data[i].loc_id)
+                    .attr("name","location")
+                    .text(data[i].loc_name)); 
+                }
+                $("#dropdown").append($("<option></option>").attr("value","Farm")
+                    .attr("name","addLoc")
+                    .text("<--Add Farm-->"));   
+              } 
+          
         });
       </script>
 

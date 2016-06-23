@@ -78,8 +78,8 @@
 		//http://localhost/phpork2/gateway/pig.php?getPigMedsDetails=1&pig_id=1
 	}
 	
-	if(isset($_GET['getPigsByPen'])){
-		$pid = $_GET['pen'];
+	if(isset($_POST['getPigsByPen'])){
+		$pid = $_POST['pen'];
 		echo json_encode($db->getPigsByPen($pid));
 		//http://localhost/phpork2/gateway/pig.php?getPigsByPen=1&pen=5
 	}

@@ -63,34 +63,20 @@
             </div>
       </div>
 
-      <div class="step-content active col-xs-12"> 
-        <?php 
-          $l = $_GET['location']; 
-          echo "<input type='hidden' value='$l' name='loc' id='locid'/>"; 
-        ?> 
-      </div> 
-
+      
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
        <div class="lowerPanel">
         <span class="custom-dropdown2"> 
             <select id="dropdown"> 
-                <?php 
-                  $arr_house = $db->getHouseByLoc($_GET['location']);
-                   echo "<option selected=\"true\" disabled=\"disabled\">Select House</option>"; 
-                  foreach ($arr_house as $key => $array) {
-                    echo "<option value='".$array['h_id']."' id='h_id' >House  ".$array['h_no']." </option>";
-
-                  } 
-                  echo "<option value=\"House\">Add House</option>";  
-                ?> 
+                <option selected="true" disabled="disabled">Select House</option>
               </select> 
             </span> 
             <br/> <br/>  <br/>
-             <button type="button" class="btn1" id="back">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" data-toggle="modal" data-target="#myModal"></span> Back
+             <button type="button" class="btn1" id="backH">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">Back</span> 
           </button>
-         <button type="button" class="btn1" id="next">
-                Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" data-toggle="modal" data-target="#myModal"></span>
+         <button type="button" class="btn1" id="nextH">
+                 Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </button>
         </div>
     </div>
@@ -100,29 +86,82 @@
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
     </div>
 
+     <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="step-content active col-xs-12"> 
+        <?php 
+          $l = $_GET['location']; 
+          echo "<input type='hidden' value='$l' name='loc' id='locid'/>"; 
+        ?> 
+      </div> 
+
 
      <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script type="text/javascript"> 
       $(document).ready(function () {
-        $('#next').on("click",function() {
+
+        $('#nextH').on("click",function() {
           var house = $("#dropdown").val(); 
           var location = $('#locid').val();
-
-           if(house == null){
+          
+          if(house == null){
             alert("Select an option");
           }else if(house != "House"){ 
             window.location = "/phpork/farm/house/"+location+"/"+house; 
           }else{
-            console.log("Bahay Kubo kahit munti.. " +house);
+            $('#nextH').attr("data-toggle", "modal")
+                      .attr("data-target", "#myModal"); 
           }
-
-
         }); 
-        $('#back').on("click",function() {
+
+        $('#backH').on("click",function() {
           window.location = "/phpork/pages/farm"; 
         }); 
+
       }); 
     </script> 
+
+    <script>
+        $.ajax({
+          url: '/phpork/gateway/house.php',
+          type: 'post',
+          data : {
+            getHouseByLoc: '1',
+            loc: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data); 
+                for(i=0;i<data.length;i++){
+                  $("#dropdown").append($("<option></option>").attr("value",data[i].h_id)
+                    .attr("name","house")
+                    .text("House " +data[i].h_no)); 
+                }
+                $("#dropdown").append($("<option></option>").attr("value","House")
+                    .attr("name","addHouse")
+                    .text("<--Add House-->"));   
+              } 
+          
+        });
+    </script>
 </body>
 
 </html>

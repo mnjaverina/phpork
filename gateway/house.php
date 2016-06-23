@@ -18,8 +18,8 @@
 		//localhost/phpork2/gateway/house.php?ddl_house=1
 						
 	}
-	if(isset($_GET['getHouseByLoc'])){
-		$loc_id = $_GET['loc'];
+	if(isset($_POST['getHouseByLoc'])){
+		$loc_id = $_POST['loc'];
 		$arr_house = $db->getHouseByLoc($loc_id); 
 		echo json_encode($arr_house);
 		//localhost/phpork2/gateway/house.php?getHouseByLoc=1&loc=1

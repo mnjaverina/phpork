@@ -24,8 +24,8 @@
 		//localhost/phpork2/gateway/pen.php?ddl_notMortalityPen=1&house=1
 						
 	}
-	if(isset($_GET['getPenByHouse'])){
-		$h_id = $_GET['house'];
+	if(isset($_POST['getPenByHouse'])){
+		$h_id = $_POST['house'];
 		$arr_pen = $db->getPenByHouse($h_id); 
 		echo json_encode($arr_pen);
 		//localhost/phpork2/gateway/pen.php?getPenByHouse=1&house=1
