@@ -1,10 +1,11 @@
-RewriteEngine On
+ RewriteEngine On
 
 
 RewriteRule ^out pages/logout.php [L]
 RewriteRule ^addpig insertPig.php [L]
 RewriteRule ^checkdata gateway.php [L]
 RewriteRule ^choose pages/choose.php [L]
+RewriteRule ^home pages/index.php [L]
 
 RewriteRule ^pages/farm pages/select_farm.php [L]
 RewriteRule ^farm/([0-9]+) pages/select_house.php?location=$1 [L]

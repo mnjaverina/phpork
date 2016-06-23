@@ -15,7 +15,7 @@
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <title>Pork Traceability System</title> 
-    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.css">
+     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css">
@@ -23,11 +23,11 @@
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script> 
+    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js" type="text/javascript"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/jquery.min.js"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css"> 
+    
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css">  
   </head> 
   <body> 
    <div class="page-header"> 
@@ -93,14 +93,14 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Modal Header</h4>
           </div>
           <div class="modal-body">
             <p>Some text in the modal.</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Close</button>
           </div>
         </div>
 
@@ -115,7 +115,6 @@
       </div> 
 
 
-     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script type="text/javascript"> 
       $(document).ready(function () {
 
@@ -127,15 +126,27 @@
             alert("Select an option");
           }else if(house != "House"){ 
             window.location = "/phpork/farm/house/"+location+"/"+house; 
-          }else{
-            $('#nextH').attr("data-toggle", "modal")
-                      .attr("data-target", "#myModal"); 
           }
         }); 
+        $('#dropdown').on("change",function() {
+            var house = $("#dropdown").val(); 
 
+            if(house == "House"){
+                   $('#myModal').modal('show');
+            }
+           
+          });
         $('#backH').on("click",function() {
           window.location = "/phpork/pages/farm"; 
         }); 
+        $('#close').on("click",function(){
+          var location = $('#locid').val();
+           window.location = "/phpork/farm/"+location; 
+        });
+         $('#close2').on("click",function(){
+          var location = $('#locid').val();
+           window.location = "/phpork/farm/"+location; 
+        });
 
       }); 
     </script> 
@@ -156,6 +167,7 @@
                     .text("House " +data[i].h_no)); 
                 }
                 $("#dropdown").append($("<option></option>").attr("value","House")
+                    .attr("id","addHouse")
                     .attr("name","addHouse")
                     .text("<--Add House-->"));   
               } 

@@ -24,9 +24,10 @@
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script> 
+    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/jquery.min.js"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
+    
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css"> 
 
   </head> 
@@ -86,27 +87,27 @@
     </div>
 
     <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
+    <div id="myModal" class="modal fade" role="dialog" >
       <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Modal Header</h4>
           </div>
           <div class="modal-body">
             <p>Some text in the modal.</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Close</button>
           </div>
         </div>
 
       </div>
     </div>
 
-    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
+    
       <script type="text/javascript"> 
         $(document).ready(function () {
           $('#nextF').on("click",function() {
@@ -116,15 +117,27 @@
               alert("Select an option");
             }else if(location != "Farm"){ 
               window.location = "/phpork/farm/" +location;
-            }else{
-                   $('#nextF').attr("data-toggle", "modal")
-                             .attr("data-target", "#myModal"); 
             }
            
           });
+          $('#dropdown').on("change",function() {
+            var location = $("#dropdown").val(); 
+
+            if(location == "Farm"){
+                   $('#myModal').modal('show');
+            }
+           
+          });
+           $('#close').on("click",function(){
+             window.location = "/phpork/pages/farm/"; 
+          });
+           $('#close2').on("click",function(){
+             window.location = "/phpork/pages/farm/"; 
+          });
         });
       </script>
-
+     
+     
       <script>
         $.ajax({
           url: '/phpork/gateway/location.php',
@@ -139,7 +152,7 @@
                     .attr("name","location")
                     .text(data[i].loc_name)); 
                 }
-                $("#dropdown").append($("<option></option>").attr("value","Farm")
+                $("#dropdown").append($("<option></option>").attr("value","Farm").attr("id","add")
                     .attr("name","addLoc")
                     .text("<--Add Farm-->"));   
               } 
@@ -147,7 +160,6 @@
         });
       </script>
 
-    </div>
 
 </body>
 

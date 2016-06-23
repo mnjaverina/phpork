@@ -163,9 +163,9 @@
                     .attr("name","pig")
                     .text("Pig " +data[i].lbl)); 
                 }
-                $("#dropdown").append($("<option></option>").attr("value","Pig")
-                    .attr("name","addPig")
-                    .text("<--Add Pig-->"));   
+                // $("#dropdown").append($("<option></option>").attr("value","Pig")
+                //     .attr("name","addPig")
+                //     .text("<--Add Pig-->"));   
               } 
           
         });
