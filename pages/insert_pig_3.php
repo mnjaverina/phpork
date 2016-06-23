@@ -86,10 +86,7 @@
 			  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
 			</div>
 			<br/>
-			<div class="input-group">
-			  <span class="input-group-addon" id="basic-addon3">House: </span>
-			  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-			</div>
+			
         </div>
         <br/>
          <button type="button" class="btn2" id="back"  onclick="window.location.href='insert_pig_2.php'">

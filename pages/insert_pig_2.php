@@ -61,11 +61,6 @@
        <div class="lowerPanel">
        		<h3><span class="label">Pig Details - 2</span></h3>
        		<br/>
-       		<div class="input-group">
-			  <span class="input-group-addon" id="basic-addon3">Pen: </span>
-			  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-			</div>
-			<br/>
 			<div class="input-group">
 			  <span class="input-group-addon" id="basic-addon3">RFID: </span>
 			  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
