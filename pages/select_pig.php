@@ -61,6 +61,10 @@
               <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
             </div>
       </div>
+<<<<<<< HEAD
+=======
+       
+>>>>>>> 9c09ab87850ab433d573ca808a7a4f7de1cc4876
 
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
        <div class="lowerPanel">
@@ -104,9 +108,13 @@
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
     </div>
 
+<<<<<<< HEAD
     <div class="step-content active col-xs-12"> 
+=======
+  <div class="step-content active col-xs-12"> 
+>>>>>>> 9c09ab87850ab433d573ca808a7a4f7de1cc4876
      <?php
-        $p = $_GET['pen'];
+         $p = $_GET['pen'];
           $h = $_GET['house'];
           $l = $_GET['location']; 
           echo "<input type='hidden' value='$l' name='loc' id='locid'/>"; 
