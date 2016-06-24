@@ -1,0 +1,89 @@
+body{
+     margin-bottom: 40px;
+}
+
+.page-header { 
+  margin-top:0px;
+  margin-bottom: 0;
+  padding: 0;
+  border: #b44230;
+  width: 100%;
+}
+
+.page-header img{
+  width: 100%;
+}
+
+.page-footer {
+    background-color: #bb1d24;
+    text-align: center;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    height: 30px;
+    position: fixed;
+    overflow: hidden;
+}
+
+form{
+  margin-top: 1%;
+  margin-left: 50%;
+}
+
+form .logout{
+  font-size: .9em;
+  margin: 0 5% 0 0;
+}
+
+
+.menu{
+  margin-top: 4%;
+}
+.menu_in{
+  width: 75%;
+  height: 1%;
+  margin-left: 12%;
+  margin-bottom: 1%;
+}
+
+/* tablets/desktops and up ----------- */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .pig-det-details, .pig-det-label{
+      font-size: 13px;
+  }
+  .step-content2 {
+    display: none;
+    margin-top: -21%;
+    margin-left: 10%;
+    width: 80%;
+    height: 250px;
+  }
+  .meds-content2 {
+    display: none;
+    margin-top: -36%;
+    margin-left: 15%;
+    width: 70%;
+    height: 250px;
+  }
+}
+
+/* large desktops and up ----------- */
+@media screen and (min-width: 1200px) {
+  .pig-det-details, .pig-det-label{
+      font-size: 15px;
+  }
+  .step-content2 {
+    display: none;
+    margin-top: -14%;
+    margin-left: 10%;
+    width: 80%;
+    height: 250px;
+  }
+  .meds-content2 {
+    display: none;
+    margin-top: -29%;
+    margin-left: 15%;
+    width: 70%;
+    height: 250px;
+  }
+}
