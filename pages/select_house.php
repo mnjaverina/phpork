@@ -68,7 +68,7 @@
        <div class="lowerPanel">
         <span class="custom-dropdown2"> 
             <select id="dropdown"> 
-                <option selected="true" disabled="disabled">Select House</option>
+                <option selected="true" disabled="disabled" id="select">Select House</option>
               </select> 
             </span> 
             <br/> <br/>  <br/>
@@ -98,32 +98,28 @@
           </div>
           <div class="modal-body">
             <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">House Id: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-            </div>
-            <br/>
-            <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">House Number: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">House Name: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Function: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+              <select  class="form-control" id="func" name="selStat" style="color:black;" required> 
+              <option value="" disabled selected>Select function</option>
+              <option value="Weaning">Weaning</option> 
+              <option value="Growing">Growing</option> 
+              <option value="Slaughter">Slaughter</option> 
+            </select> 
             </div>
             <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Farm Id: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-            </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Save</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Add</button>
           </div>
         </div>
 
@@ -152,10 +148,11 @@
           }
         }); 
         $('#dropdown').on("change",function() {
-            var house = $("#dropdown").val(); 
+            var house = $("#dropdown").val();
+            
 
             if(house == "House"){
-                   $('#myModal').modal('show');
+                   $('#myModal').modal('show'); 
             }
            
           });
@@ -166,9 +163,38 @@
           var location = $('#locid').val();
            window.location = "/phpork/farm/"+location; 
         });
-         $('#close2').on("click",function(){
+         $('#save').on("click",function(){
           var location = $('#locid').val();
-           window.location = "/phpork/farm/"+location; 
+          var hNum = $('#hnum').val();
+          var hName = $('#hname').val();  
+          var func = $('#func').val();
+
+           if((hNum != '') && (hName != '') && (func != '') ){
+
+            $.ajax({
+                        url: '/phpork/gateway/house.php',
+                        type: 'post',
+                        data : {
+                          addHouseName: '1',
+                          hno: hNum,
+                          hname: hName,
+                          fxn: func,
+                          loc: location
+                        },
+                        success: function (data) { 
+                           var data = jQuery.parseJSON(data); 
+                                $("#dropdown").append($("<option></option>").attr("value",data.h_id)
+                                  .attr("name","house")
+                                  .attr("selected", "true")
+                                  .text("House " +data.h_no));
+
+                                   $('#select').attr("selected", "false");
+                                  alert("House added");  
+                              }
+            });
+          }
+           window.location = "/phpork/farm/"+location;
+
         });
 
       }); 

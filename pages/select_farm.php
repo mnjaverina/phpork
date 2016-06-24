@@ -72,7 +72,7 @@
        <div class="lowerPanel">
         <span class="custom-dropdown2"> 
              <select id="dropdown"> 
-                    <option selected="true" disabled="disabled">Select farm</option> 
+                    <option selected="true" disabled="disabled" id="select">Select farm</option> 
               </select> 
             </span> 
             <br/> <br/> <br/>
@@ -97,23 +97,19 @@
             <h4 class="modal-title">Add Farm</h4>
           </div>
           <div class="modal-body">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Farm Id: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-            </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="fname" aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Address: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="fadd" aria-describedby="basic-addon3">
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Save</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Add</button>
           </div>
         </div>
 
@@ -134,8 +130,8 @@
            
           });
           $('#dropdown').on("change",function() {
-            var location = $("#dropdown").val(); 
-
+            var location = $("#dropdown").val();
+           
             if(location == "Farm"){
                    $('#myModal').modal('show');
             }
@@ -144,8 +140,36 @@
            $('#close').on("click",function(){
              window.location = "/phpork/pages/farm/"; 
           });
-           $('#close2').on("click",function(){
-             window.location = "/phpork/pages/farm/"; 
+           $('#save').on("click",function(){
+            var locName = $("#fname").val(); 
+            var locAdd = $("#fadd").val(); 
+
+            console.log("Loc Name: "+locName);
+
+            if((locAdd != '') && (locName != '') ){
+           
+               $.ajax({
+                        url: '/phpork/gateway/location.php',
+                        type: 'post',
+                        data : {
+                         addLocationName: '1',
+                         lname: locName,
+                         addr: locAdd
+                        },
+                        success: function (data) { 
+                           var data = jQuery.parseJSON(data); 
+                                $("#dropdown").append($("<option></option>").attr("value",data.loc_id)
+                                  .attr("name","farm")
+                                  .attr("selected", "true")
+                                  .text(data.loc_name)); 
+
+                                $('#select').attr("selected", "false");
+                                alert("Farm added");
+                                
+                              }
+                        });
+             }
+              window.location = "/phpork/pages/farm/";
           });
         });
       </script>

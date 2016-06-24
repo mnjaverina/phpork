@@ -67,7 +67,7 @@
        <div class="lowerPanel">
         <span class="custom-dropdown2"> 
             <select id="dropdown"> 
-                <option selected="true" disabled="disabled">Select Pen</option>
+                <option selected="true" disabled="disabled" id="select">Select Pen</option>
               </select> 
             </span> 
             <br/> <br/>  <br/>
@@ -92,27 +92,23 @@
           </div>
           <div class="modal-body">
             <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Pen Id: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-            </div>
-            <br/>
-            <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="pennum" aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Function: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">House Id: </span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+             <select  class="form-control" id="func" name="selStat" style="color:black;" required> 
+              <option value="" disabled selected>Select function</option>
+              <option value="Weaning">Weaning</option> 
+              <option value="Growing">Growing</option> 
+              <option value="Medication">Medication</option>
+              <option value="Mortality">Mortality</option> 
+            </select> 
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Save</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Add</button>
           </div>
         </div>
 
@@ -147,12 +143,11 @@
           }
         }); 
         $('#dropdown').on("change",function() {
-            var pen = $("#dropdown").val(); 
+            var pen = $("#dropdown").val();
 
             if(pen == "Pen"){
                    $('#myModal').modal('show');
-            }
-           
+             }
           });
         $('#backP').on("click",function() {
            var location = $("#locid").val();
@@ -163,10 +158,36 @@
           var location = $('#locid').val();
            window.location = "/phpork/farm/house/"+location+"/"+houseno; 
         });
-         $('#close2').on("click",function(){
-           var houseno = $("#houseid").val();
+         $('#save').on("click",function(){
+          var houseno = $("#houseid").val();
           var location = $('#locid').val();
+          var penNum = $("#pennum").val(); 
+          var func = $("#func").val(); 
+
+           if((penNum != '') && (func != '') ){
+            $.ajax({
+                        url: '/phpork/gateway/pen.php',
+                        type: 'post',
+                        data : {
+                          addPenName: '1',
+                          penno: penNum,
+                          fxn:  func,
+                          h_id: houseno
+                        },
+                        success: function (data) { 
+                           var data = jQuery.parseJSON(data); 
+                                $("#dropdown").append($("<option></option>").attr("value",data.pen_id)
+                                  .attr("name","pen")
+                                  .attr("selected", "true")
+                                  .text("Pen " +data.pen_no)); 
+
+                                 $('#select').attr("selected", "false");
+                                alert("Pen added");
+                             } 
+              });
+          }
            window.location = "/phpork/farm/house/"+location+"/"+houseno; 
+
         });
       }); 
     </script>
