@@ -4,9 +4,9 @@
 	include "../inc/functions.php"; 
 	
 	$db = new phpork_functions (); 
-	if(isset($_GET['addLocationName'])){
-		$lname = $_GET['lname'];
-		$addr = $_GET['addr'];
+	if(isset($_POST['addLocationName'])){
+		$lname = $_POST['lname'];
+		$addr = $_POST['addr'];
 		echo json_encode($db->addLocationName($lname,$addr)); 
 		//localhost/phpork2/gateway/location.php?addLocationName=1&lname=Farm4&addr=antipolo
 	} 

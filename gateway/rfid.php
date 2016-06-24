@@ -5,7 +5,7 @@
 	
 	$db = new phpork_functions (); 
 	
-	if(isset($_GET['ddl_inactiveRFID'])){
+	if(isset($_POST['ddl_inactiveRFID'])){
 		$arr_rfid = $db->ddl_inactiveRFID(); 
 		echo json_encode($arr_rfid);
 		//localhost/phpork2/gateway/rfid.php?ddl_inactiveRFID=1
