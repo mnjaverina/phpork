@@ -54,27 +54,27 @@ form .logout{
 
 
 .menu{
-  margin-top: 7%;
+  margin-top: 4%;
 }
 
-.menu_view{
+/*.menu_view{
+  width: 75%;
+  height: 1%;
+  margin-left: 12%;
+  margin-bottom: 1%;
+}*/
+.menu_in{
   width: 75%;
   height: 1%;
   margin-left: 12%;
   margin-bottom: 1%;
 }
-.menu_insert{
+/*.menu_edit{
   width: 75%;
   height: 1%;
   margin-left: 12%;
   margin-bottom: 1%;
-}
-.menu_edit{
-  width: 75%;
-  height: 1%;
-  margin-left: 12%;
-  margin-bottom: 1%;
-}
+}*/
 
 .view_farm{
   margin-left: 17%;

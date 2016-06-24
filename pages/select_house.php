@@ -46,15 +46,15 @@
     </form> 
 
     <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 11%; margin-left: 0px;">
+            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
               <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 11%;">
+            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
               <img src="<?php echo HOST;?>/phpork/images/Select House.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 11%;">
+            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
               <img src="<?php echo HOST;?>/phpork/images/Select Pen.png" class="img-responsive">
             </div>
 
@@ -73,10 +73,10 @@
             </span> 
             <br/> <br/>  <br/>
              <button type="button" class="btn1" id="backH">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">Back</span> 
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back 
           </button>
          <button type="button" class="btn1" id="nextH">
-                 Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                 Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </button>
         </div>
     </div>
@@ -94,13 +94,36 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
+            <h4 class="modal-title">Add House</h4>
           </div>
           <div class="modal-body">
-            <p>Mag-input ka ng house dito</p>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">House Id: </span>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">House Number: </span>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">House Name: </span>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Function: </span>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Farm Id: </span>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Save</button>
           </div>
         </div>
 

@@ -94,13 +94,26 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
+            <h4 class="modal-title">Add Farm</h4>
           </div>
           <div class="modal-body">
-            <p>Some text in the modal.</p>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Farm Id: </span>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Address: </span>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Save</button>
           </div>
         </div>
 

@@ -46,15 +46,15 @@
     </form> 
     
    <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 11%; margin-left: 0px;">
+            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
               <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 11%;">
+            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
               <img src="<?php echo HOST;?>/phpork/images/Selected House.png" class="img-responsive">
             </div>
 
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 11%;">
+            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
               <img src="<?php echo HOST;?>/phpork/images/Selected Pen.png" class="img-responsive">
             </div>
 
@@ -76,12 +76,12 @@
         ?>
       </div>
 
-    <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
        <div class="lowerPanel">
           <button type="button" class="btn1" id="view">
-              <span class="glyphicon glyphicon-ok" aria-hidden="true">View Pig Details</span> 
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> View Pig Details
             </button> 
-            <br /><br/> <br />
+            <br/> <br/>  <br/>
               <button type="button" class="btn1" id="back">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
             </button>
