@@ -97,7 +97,7 @@
             <h4 class="modal-title">Modal Header</h4>
           </div>
           <div class="modal-body">
-            <p>Some text in the modal.</p>
+            <p>Mag-input ka ng house dito</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Close</button>
@@ -152,26 +152,28 @@
     </script> 
 
     <script>
-        $.ajax({
-          url: '/phpork/gateway/house.php',
-          type: 'post',
-          data : {
-            getHouseByLoc: '1',
-            loc: '1'
-          },
-          success: function (data) { 
-             var data = jQuery.parseJSON(data); 
-                for(i=0;i<data.length;i++){
-                  $("#dropdown").append($("<option></option>").attr("value",data[i].h_id)
-                    .attr("name","house")
-                    .text("House " +data[i].h_no)); 
-                }
-                $("#dropdown").append($("<option></option>").attr("value","House")
-                    .attr("id","addHouse")
-                    .attr("name","addHouse")
-                    .text("<--Add House-->"));   
-              } 
-          
+      $(document).ready(function () {
+        var loc = $('#locid').val();
+          $.ajax({
+            url: '/phpork/gateway/house.php',
+            type: 'post',
+            data : {
+              getHouseByLoc: '1',
+              loc: loc
+            },
+            success: function (data) { 
+               var data = jQuery.parseJSON(data); 
+                  for(i=0;i<data.length;i++){
+                    $("#dropdown").append($("<option></option>").attr("value",data[i].h_id)
+                      .attr("name","house")
+                      .text("House " +data[i].h_no)); 
+                  }
+                  $("#dropdown").append($("<option></option>").attr("value","House")
+                      .attr("id","addHouse")
+                      .attr("name","addHouse")
+                      .text("<--Add House-->"));   
+                } 
+          });
         });
     </script>
 </body>

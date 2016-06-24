@@ -149,12 +149,14 @@
     </script>
 
     <script>
+       $(document).ready(function () {
+        var pen = $('#penid').val();
         $.ajax({
           url: '/phpork/gateway/pig.php',
           type: 'post',
           data : {
             getPigsByPen: '1',
-            pen: '5'
+            pen: pen
           },
           success: function (data) { 
              var data = jQuery.parseJSON(data); 
@@ -167,8 +169,8 @@
                 //     .attr("name","addPig")
                 //     .text("<--Add Pig-->"));   
               } 
-          
-        });
+          });
+       });
     </script>
 
 </body>

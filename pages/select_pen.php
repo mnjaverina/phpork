@@ -70,7 +70,7 @@
                   echo "<option selected="true" disabled="disabled">Select Pen</option>"; 
               </select> 
             </span> 
-            <br/> <br/>  <br/> <br/>
+            <br/> <br/>  
             <button type="button" class="btn1" id="backP">
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">Back</span> 
           </button>
@@ -154,26 +154,28 @@
     </script>
 
      <script>
-        $.ajax({
-          url: '/phpork/gateway/pen.php',
-          type: 'post',
-          data : {
-            getPenByHouse: '1',
-            house: '1'
-          },
-          success: function (data) { 
-             var data = jQuery.parseJSON(data); 
-                for(i=0;i<data.length;i++){
-                  $("#dropdown").append($("<option></option>").attr("value",data[i].pen_id)
-                    .attr("name","pen")
-                    .text("Pen " +data[i].pen_no)); 
-                }
-                $("#dropdown").append($("<option></option>").attr("value","Pen")
-                    .attr("name","addPen")
-                    .text("<--Add Pen-->"));   
-              } 
-          
-        });
+       $(document).ready(function () {
+          var house = $('#houseid').val();
+          $.ajax({
+            url: '/phpork/gateway/pen.php',
+            type: 'post',
+            data : {
+              getPenByHouse: '1',
+              house: house
+            },
+            success: function (data) { 
+               var data = jQuery.parseJSON(data); 
+                  for(i=0;i<data.length;i++){
+                    $("#dropdown").append($("<option></option>").attr("value",data[i].pen_id)
+                      .attr("name","pen")
+                      .text("Pen " +data[i].pen_no)); 
+                  }
+                  $("#dropdown").append($("<option></option>").attr("value","Pen")
+                      .attr("name","addPen")
+                      .text("<--Add Pen-->"));   
+                } 
+            });
+         });
     </script>
 
 </body>
