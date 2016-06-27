@@ -1,3 +1,16 @@
+.target {
+    width:50%;
+    height:200px;
+    border:solid black 1px; 
+}
+.target > div {
+    display:none;
+}
+
+.target > div:target{
+    display:block;
+}
+
 body{
      margin-bottom: 40px;
 }
@@ -119,9 +132,20 @@ form .logout{
 }
 
 .lowerPanel{
-  max-width: 35%; 
+  max-width: 52%; 
   height: 80%; 
-  margin-left: 33%; 
+  margin-left: 25%; 
+  margin-top: 0px; 
+  padding: 20px; 
+  padding-top: 2px;
+  border-radius: 30px; 
+  background-color: #9ecf95;
+}
+
+.lowerPanel1{
+  max-width: 40%; 
+  height: 80%; 
+  margin-left: 30%; 
   margin-top: 0px; 
   padding: 20px; 
   padding-top: 2px;
@@ -145,4 +169,8 @@ form .logout{
   border-radius: 10px;
   font-size: 20px;
   background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
+}
+
+a:link, a:visited {
+  color: #696969;
 }
