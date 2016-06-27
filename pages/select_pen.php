@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-   session_start(); 
-  require_once "../connect.php"; 
-  require_once "../inc/dbinfo.inc"; 
-  if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-    header("Location: login.php"); 
-  }
-  include "../functions.php"; 
-  $db = new phpork_functions (); 
-?> 
+  <?php 
+    session_start(); 
+    require_once "../connect.php"; 
+    require_once "../inc/dbinfo.inc"; 
+    if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+      header("Location: login.php"); 
+    }
+    include "../functions.php"; 
+    $db = new phpork_functions (); 
+  ?> 
 
-<head> 
-     <meta charset="utf-8"> 
+  <head> 
+    <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <title>Pork Traceability System</title> 
-     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.css">
+
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css">
+
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
-    
-    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css">  
+    <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script> 
   </head> 
+
   <body> 
-   <div class="page-header"> 
+    <div class="page-header"> 
       <a href="<?php echo HOST;?>/phpork/pages/index.php">
-      <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
-    </a>
+        <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
+      </a>
     </div>
 
     <form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="/phpork/out" style="width:50%;float:right;"> 
@@ -45,47 +47,42 @@
       </div> 
     </form> 
     
-   <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
-              <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
-            </div>
-
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
-              <img src="<?php echo HOST;?>/phpork/images/Selected House.png" class="img-responsive">
-            </div>
-
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
-              <img src="<?php echo HOST;?>/phpork/images/Select Pen.png" class="img-responsive">
-            </div>
-
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 0px;">
-              <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
-            </div>
+    <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
+        <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
       </div>
+      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+        <img src="<?php echo HOST;?>/phpork/images/Selected House.png" class="img-responsive">
+      </div>
+      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+        <img src="<?php echo HOST;?>/phpork/images/Select Pen.png" class="img-responsive">
+      </div>
+      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 0px;">
+        <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
+      </div>
+    </div>
 
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-       <div class="lowerPanel">
+      <div class="lowerPanel">
         <span class="custom-dropdown2"> 
-            <select id="dropdown"> 
-                <option selected="true" disabled="disabled" id="select">Select Pen</option>
-              </select> 
-            </span> 
-            <br/> <br/>  <br/>
-             <button type="button" class="btn1" id="backP">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
-          </button>
-         <button type="button" class="btn1" id="nextP">
-                 Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            </button>
-        </div>
+          <select id="dropdown"> 
+            <option selected="true" disabled="disabled" id="select">Select Pen</option>
+          </select> 
+        </span> 
+        <br/> <br/>  <br/>
+        <button type="button" class="btn1" id="backP">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
+        </button>
+        <button type="button" class="btn1" id="nextP">
+          Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
 
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
+        <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Add Pen</h4>
@@ -98,20 +95,19 @@
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Function: </span>
-             <select  class="form-control" id="func" name="selStat" style="color:black;" required> 
-              <option value="" disabled selected>Select function</option>
-              <option value="Weaning">Weaning</option> 
-              <option value="Growing">Growing</option> 
-              <option value="Medication">Medication</option>
-              <option value="Mortality">Mortality</option> 
-            </select> 
+              <select  class="form-control" id="func" name="selStat" style="color:black;" required> 
+                <option value="" disabled selected>Select function</option>
+                <option value="Weaning">Weaning</option> 
+                <option value="Growing">Growing</option> 
+                <option value="Medication">Medication</option>
+                <option value="Mortality">Mortality</option> 
+              </select> 
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Add</button>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -119,104 +115,100 @@
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
     </div>
 
-     
+    <div class="step-content active col-xs-12"> 
+      <?php 
+        $h = $_GET['house'];
+        $l = $_GET['location']; 
+        echo "<input type='hidden' value='$l' name='loc' id='locid'/>"; 
+        echo "<input type='hidden' value='$h' name='house' id='houseid'/>"; 
+      ?>
+    </div>
 
-     <div class="step-content active col-xs-12"> 
-        <?php 
-          $h = $_GET['house'];
-          $l = $_GET['location']; 
-          echo "<input type='hidden' value='$l' name='loc' id='locid'/>"; 
-          echo "<input type='hidden' value='$h' name='house' id='houseid'/>"; 
-        ?>
-      </div>
     <script type="text/javascript"> 
       $(document).ready(function () {
         $('#nextP').on("click",function() {
           var penno = $('#dropdown').val();
           var houseno = $("#houseid").val(); 
           var location = $("#locid").val(); 
-         
-           if(penno == null){
+          if(penno == null){
             alert("Select an option");
           }else if(penno != "Pen"){ 
              window.location = "/phpork/farm/house/pen/" +location+ "/" +houseno+ "/" +penno; 
           }
-        }); 
-        $('#dropdown').on("change",function() {
-            var pen = $("#dropdown").val();
+        });
 
-            if(pen == "Pen"){
-                   $('#myModal').modal('show');
-             }
-          });
+        $('#dropdown').on("change",function() {
+          var pen = $("#dropdown").val();
+          if(pen == "Pen"){
+            $('#myModal').modal('show');
+          }
+        });
+
         $('#backP').on("click",function() {
-           var location = $("#locid").val();
+          var location = $("#locid").val();
           window.location = "/phpork/farm/" +location; 
         }); 
+
         $('#close').on("click",function(){
-           var houseno = $("#houseid").val();
+          var houseno = $("#houseid").val();
           var location = $('#locid').val();
-           window.location = "/phpork/farm/house/"+location+"/"+houseno; 
+          window.location = "/phpork/farm/house/"+location+"/"+houseno; 
         });
-         $('#save').on("click",function(){
+
+        $('#save').on("click",function(){
           var houseno = $("#houseid").val();
           var location = $('#locid').val();
           var penNum = $("#pennum").val(); 
           var func = $("#func").val(); 
-
-           if((penNum != '') && (func != '') ){
+          if((penNum != '') && (func != '') ){
             $.ajax({
-                        url: '/phpork/gateway/pen.php',
-                        type: 'post',
-                        data : {
-                          addPenName: '1',
-                          penno: penNum,
-                          fxn:  func,
-                          h_id: houseno
-                        },
-                        success: function (data) { 
-                           var data = jQuery.parseJSON(data); 
-                                $("#dropdown").append($("<option></option>").attr("value",data.pen_id)
-                                  .attr("name","pen")
-                                  .attr("selected", "true")
-                                  .text("Pen " +data.pen_no)); 
-
-                                 $('#select').attr("selected", "false");
-                                alert("Pen added");
-                             } 
-              });
+              url: '/phpork/gateway/pen.php',
+              type: 'post',
+              data : {
+                addPenName: '1',
+                penno: penNum,
+                fxn:  func,
+                h_id: houseno
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                $("#dropdown").append($("<option></option>").attr("value",data.pen_id)
+                              .attr("name","pen")
+                              .attr("selected", "true")
+                              .text("Pen " +data.pen_no)); 
+                $('#select').attr("selected", "false");
+                  alert("Pen added");
+                } 
+            });
           }
-           window.location = "/phpork/farm/house/"+location+"/"+houseno; 
-
+          window.location = "/phpork/farm/house/"+location+"/"+houseno; 
         });
       }); 
     </script>
 
-     <script>
-       $(document).ready(function () {
-          var house = $('#houseid').val();
-          $.ajax({
-            url: '/phpork/gateway/pen.php',
-            type: 'post',
-            data : {
-              getPenByHouse: '1',
-              house: house
-            },
-            success: function (data) { 
-               var data = jQuery.parseJSON(data); 
-                  for(i=0;i<data.length;i++){
-                    $("#dropdown").append($("<option></option>").attr("value",data[i].pen_id)
-                      .attr("name","pen")
-                      .text("Pen " +data[i].pen_no)); 
-                  }
-                  $("#dropdown").append($("<option></option>").attr("value","Pen")
-                      .attr("name","addPen")
-                      .text("<--Add Pen-->"));   
-                } 
+    <script>
+      $(document).ready(function () {
+        var house = $('#houseid').val();
+        $.ajax({
+          url: '/phpork/gateway/pen.php',
+          type: 'post',
+          data : {
+            getPenByHouse: '1',
+            house: house
+          },
+          success: function (data) { 
+            var data = jQuery.parseJSON(data); 
+            for(i=0;i<data.length;i++){
+              $("#dropdown").append($("<option></option>").attr("value",data[i].pen_id)
+                            .attr("name","pen")
+                            .text("Pen " +data[i].pen_no)); 
+              }
+              $("#dropdown").append($("<option></option>").attr("value","Pen")
+                            .attr("name","addPen")
+                            .text("<--Add Pen-->"));   
+              } 
             });
-         });
+          });
     </script>
-
-</body>
-
+  </body>
 </html>

@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-   session_start(); 
-  require_once "../connect.php"; 
-  require_once "../inc/dbinfo.inc"; 
-  if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-    header("Location: login.php"); 
-  }
-  include "../functions.php"; 
-  $db = new phpork_functions (); 
-?> 
-<head> 
-      <meta charset="utf-8"> 
+  <?php 
+    session_start(); 
+    require_once "../connect.php"; 
+    require_once "../inc/dbinfo.inc"; 
+    if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+      header("Location: login.php"); 
+    }
+    include "../functions.php"; 
+    $db = new phpork_functions (); 
+  ?> 
+  <head> 
+    <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <title>Pork Traceability System</title> 
+
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css"> 
+
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script> 
@@ -26,69 +29,60 @@
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery.min.js"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css"> 
   </head> 
+
   <body> 
     <div class="page-header"> 
       <a href="<?php echo HOST;?>/phpork/pages/index.php">
-      <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
-    </a>
+        <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
+      </a>
     </div>
 
     <form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="/phpork/out" style="width:50%;float:right;"> 
       <div class="form-group logout" > 
         <input type="text" class="col-xs-6 col-sm-5" readonly style="text-align: left; border: 2px solid; border-color: #83b26a;" value="<?php echo $_SESSION['username'];?>"> 
         <div class="col-xs-1 col-sm-1" style="left: -1%;"> 
-          <button type="submit" class="btn btn-primary btn-sm" >Logout</button> 
+          <button type="submit" class="btn btn-primary btn-sm">Logout</button> 
         </div> 
       </div> 
     </form> 
     
-   <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
-              <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
-            </div>
-
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
-              <img src="<?php echo HOST;?>/phpork/images/Selected House.png" class="img-responsive">
-            </div>
-
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
-              <img src="<?php echo HOST;?>/phpork/images/Selected Pen.png" class="img-responsive">
-            </div>
-
-            <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 0px;">
-              <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
-            </div>
+    <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
+        <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
       </div>
-<<<<<<< HEAD
-=======
-       
->>>>>>> 9c09ab87850ab433d573ca808a7a4f7de1cc4876
+      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+        <img src="<?php echo HOST;?>/phpork/images/Selected House.png" class="img-responsive">
+      </div>
+      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+        <img src="<?php echo HOST;?>/phpork/images/Selected Pen.png" class="img-responsive">
+      </div>
+      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 0px;">
+        <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
+      </div>
+    </div>
 
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-       <div class="lowerPanel">
+      <div class="lowerPanel">
         <span class="custom-dropdown2"> 
-            <select id="dropdown"> 
-                <option selected="true" disabled="disabled">Select Pig</option>
-              </select> 
-            </span> 
-            <br/> <br/>  <br/>
-             <button type="button" class="btn1" id="backPg">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
-          </button>
-         <button type="button" class="btn1" id="nextPg">
-                 Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            </button>
-        </div>
+          <select id="dropdown"> 
+            <option selected="true" disabled="disabled">Select Pig</option>
+          </select> 
+        </span> 
+        <br/> <br/>  <br/>
+        <button type="button" class="btn1" id="backPg">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
+        </button>
+        <button type="button" class="btn1" id="nextPg">
+          Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
 
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
+        <div class="modal-content">  <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Modal Header</h4>
@@ -100,7 +94,6 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -108,20 +101,16 @@
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
     </div>
 
-<<<<<<< HEAD
     <div class="step-content active col-xs-12"> 
-=======
-  <div class="step-content active col-xs-12"> 
->>>>>>> 9c09ab87850ab433d573ca808a7a4f7de1cc4876
-     <?php
-         $p = $_GET['pen'];
-          $h = $_GET['house'];
-          $l = $_GET['location']; 
-          echo "<input type='hidden' value='$l' name='loc' id='locid'/>"; 
-          echo "<input type='hidden' value='$h' name='house' id='houseid'/>";
-          echo "<input type='hidden' value='$p' name='pen' id='penid'/>"; 
-        ?>
-      </div>
+      <?php
+        $p = $_GET['pen'];
+        $h = $_GET['house'];
+        $l = $_GET['location']; 
+        echo "<input type='hidden' value='$l' name='loc' id='locid'/>"; 
+        echo "<input type='hidden' value='$h' name='house' id='houseid'/>";
+        echo "<input type='hidden' value='$p' name='pen' id='penid'/>"; 
+      ?>
+    </div>
 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script type="text/javascript"> 
@@ -131,16 +120,14 @@
           var penno = $("#penid").val();
           var houseno = $("#houseid").val(); 
           var location = $("#locid").val(); 
-
           console.log(pig);
-
           if(pig == null){
             alert("Select an option");
           }else if(pig != "Pig"){ 
              window.location = "/phpork/farm/house/pen/pig/" +location+ "/" +houseno+ "/" +penno+ "/" +pig; 
           }else{ 
             $('#nextPg').attr("data-toggle", "modal")
-                      .attr("data-target", "#myModal"); 
+                        .attr("data-target", "#myModal"); 
           }
         });
 
@@ -149,35 +136,29 @@
           var location = $("#locid").val(); 
           window.location = "/phpork/farm/house/" +location+ "/" +houseno; 
         }); 
-
       }); 
     </script>
 
     <script>
-       $(document).ready(function () {
-        var pen = $('#penid').val();
-        $.ajax({
-          url: '/phpork/gateway/pig.php',
-          type: 'post',
-          data : {
-            getPigsByPen: '1',
-            pen: pen
-          },
-          success: function (data) { 
-             var data = jQuery.parseJSON(data); 
-                for(i=0;i<data.length;i++){
-                  $("#dropdown").append($("<option></option>").attr("value",data[i].pig_id)
-                    .attr("name","pig")
-                    .text("Pig " +data[i].lbl)); 
-                }
-                // $("#dropdown").append($("<option></option>").attr("value","Pig")
-                //     .attr("name","addPig")
-                //     .text("<--Add Pig-->"));   
-              } 
-          });
-       });
+    $(document).ready(function () {
+      var pen = $('#penid').val();
+      $.ajax({
+        url: '/phpork/gateway/pig.php',
+        type: 'post',
+        data : {
+          getPigsByPen: '1',
+          pen: pen
+        },
+        success: function (data) { 
+          var data = jQuery.parseJSON(data); 
+          for(i=0;i<data.length;i++){
+            $("#dropdown").append($("<option></option>").attr("value",data[i].pig_id)
+                          .attr("name","pig")
+                          .text("Pig " +data[i].lbl)); 
+            } 
+          } 
+        });
+      });
     </script>
-
-</body>
-
+  </body>
 </html>
