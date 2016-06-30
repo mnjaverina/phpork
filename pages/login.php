@@ -63,6 +63,7 @@
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
               <input class="form-control" type="password" name='password' placeholder="Password" required/>     
             </div>
+            <a id="signUp">Sign up</a>
             <button type="submit" class="submit" name="loginFlag">
               <i class="fa fa-long-arrow-right">
                 <img src="<?php echo HOST;?>/phpork/css/images/arrow.png" id="arrow_img">
@@ -85,6 +86,100 @@
           <img src="<?php echo HOST;?>/phpork/images/logos/UPLB logo.png" class="img-responsive">
         </div>
       </div>
-    </div>   
+    </div>
+
+     <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog" >
+      <div class="modal-dialog">
+        <div class="modal-content"> <!-- Modal content-->
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+            <h4 class="modal-title">Sign Up</h4>
+          </div>
+          <div class="modal-body"> 
+            <form>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Username: </span>
+              <input type="text" class="form-control" id="uname" aria-describedby="basic-addon3" required>
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Password: </span>
+              <input type="password" class="form-control" id="pword" aria-describedby="basic-addon3" required>
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Re-enter Password: </span>
+              <input type="password" class="form-control" id="pword2" aria-describedby="basic-addon3" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-default" data-dismiss="modal" id="save">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript"> 
+      $(document).ready(function () {
+
+        $('#signUp').on("click",function() {
+            $('#myModal').modal('show');
+
+
+          
+        });
+
+        $('#save').on("click",function(){
+            var uName = $('#uname').val();
+            var pword = $('#pword').val();
+            var pword2 = $('#pword2').val();
+
+            if(pword != pword2){
+                alert("Password does not match!");
+            }else{
+                 $.ajax({
+                    url: '/phpork/gateway/auth.php',
+                    type: 'post',
+                    data : {
+                      signup: '1',
+                      username: uName,
+                      password: pword
+                    },
+                    success: function (data) {
+
+                        window.location = "/phpork/home"; 
+                    }    
+                  });
+            }
+
+
+           
+        });
+
+        $('#close').on("click",function(){
+
+          window.location = "/phpork/in"; 
+        });
+
+      });
+    </script>
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </body>
 </html>

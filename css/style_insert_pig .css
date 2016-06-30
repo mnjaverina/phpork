@@ -133,7 +133,7 @@ form .logout{
 
 .lowerPanel{
   max-width: 52%; 
-  height: 75%; 
+  height: 80%; 
   margin-left: 25%; 
   margin-top: 0px; 
   padding: 20px; 
@@ -169,8 +169,4 @@ form .logout{
   border-radius: 10px;
   font-size: 20px;
   background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
-}
-
-a:link, a:visited {
-  color: #696969;
 }

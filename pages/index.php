@@ -37,20 +37,34 @@
     </form> 
 
     <div class="menu"> 
-      <div class="menu_in"> 
-        <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
+      <div class="col-md-2 col-centered" style="height: 16%; width: 16%; margin-right: 9%; margin-left: 15%;"> 
         <a href="/phpork/pages/farm">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/View.png">
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/View.png">
+          <div>
+            <h1 style="text-align: center; color: #bb1d24; ">VIEW</h1>
+            <h3 style="text-align: center; color: #bb1d24;">Allows you to view the pigs and their individual information.</h3>
+          </div>
         </a> 
       </div> 
-      <div class="menu_in"> 
-        <a href="/phpork/addpig">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Insert.png">
+      <div class="col-md-2 col-centered" style="height: 16%; width: 16%; margin-right: 9%;"> 
+        <a href="/phpork/addPig/pigDetails">
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png">
+          <div>
+            <h1 style="text-align: center; color: #bb1d24;">INSERT</h1>
+            <h3 style="text-align: center; color: #bb1d24;">Allows you to insert new pigs and their information.</h3>
+          </div>
         </a> 
       </div>
-      <div class="menu_in"> 
-        <a href="/phpork/addpig">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Insert.png">
+      <div class="col-md-2 col-centered" style="height: 16%; width: 16%; margin-right: 0px;"> 
+        <a href="/phpork/pages/customize">
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Customize.png">
+          <div style="margin-left: -20%">
+            <h1 style="text-align: center; color: #bb1d24;">CUSTOMIZE</h1>
+            </div>
+            <div style:"margin-left: 10%;">
+            <h3 style="text-align: center; color: #bb1d24;">Allows you to choose what details will be displayed.</h3>
+          </div>
+          
         </a> 
       </div> 
     </div> 

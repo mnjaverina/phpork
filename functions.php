@@ -985,6 +985,26 @@
 			    }
 			    return $data;
 		}
+
+		 public function ddl_meds()
+		{
+				$link = $this->connect();
+				$query = "SELECT med_id, 
+							med_name,
+							med_type 
+						FROM medication";
+				$result = mysqli_query($link, $query) or die(mysqli_error($link));
+				$meds = array();
+				$arr_med = array();
+				while ($row = mysqli_fetch_row($result)) {
+						$meds['med_id'] = $row[0];
+						$meds['med_name'] = $row[1];
+						$meds['med_type'] = $row[2];
+						$arr_med[] = $meds;
+				}
+
+				return $arr_med;
+		}
 		public function getMedsDetails($var)
 		{
 				$link = $this->connect();
@@ -1254,6 +1274,25 @@
 	        }
 	        return $arr_frcrd;
 	    }
+	    public function ddl_feeds()
+		{
+				$link = $this->connect();
+				$query = "SELECT feed_id, 
+							feed_name,
+							feed_type 
+						FROM feeds";
+				$result = mysqli_query($link, $query) or die(mysqli_error($link));
+				$feeds = array();
+				$arr_feed = array();
+				while ($row = mysqli_fetch_row($result)) {
+						$feeds['feed_id'] = $row[0];
+						$feeds['feed_name'] = $row[1];
+						$feeds['feed_type'] = $row[2];
+						$arr_feed[] = $feeds;
+				}
+
+				return $arr_feed;
+		}
 	    public function ddl_feedRecord($pig)
 	    {
 	        $link      = $this->connect();

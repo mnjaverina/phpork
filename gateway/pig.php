@@ -5,39 +5,39 @@
 	//include "inc/pigdet.php"; 
 	$db = new phpork_functions (); 
 	//$pig = new pigdet_functions (); 
-	if(isset($_GET['addPigFlag'])){
-		$pid = $_GET['new_pid']; 
-		$pbdate = $_GET['pbdate']; 
-		$pweekfar = $_GET['pweekfar']; 
-		$pfarm = $_GET['ploc']; 
-		$pstatus = $_GET['selStat']; 
-		$phouse = $_GET['selHouse']; 
-		$ppen = $_GET['selPen']; 
-		$prfid = $_GET['prfid']; 
-		$pgender = $_GET['pgender']; 
-		$pbreed = $_GET['pbreed']; 
-		$pboar = $_GET['pboar']; 
-		$psow = $_GET['psow']; 
-		$pfoster = $_GET['pfoster'];
-		$pweight = $_GET['pweight']; 
-		$user = $_GET['user_id']; 
-		$fid = $_GET['selectFeeds']; 
-		$fdate = $_GET['fdate']; 
-		$ftime = $_GET['ftime']; 
-		$medid = $_GET['selectMeds']; 
-		$medDate = $_GET['medDate'];
-		$medTime = $_GET['medTime']; 
-		$proddate = $_GET['fprodDate']; 
-		$remarks = $_GET['pweighttype']; 
-		$fqty = $_GET['fqty'];
-		$mqty = $_GET['mqty'];
-		$unit = $_GET['selUnit'];
+	if(isset($_POST['addPigFlag'])){
+		$pid = $_POST['new_pid']; 
+		$pbdate = $_POST['pbdate']; 
+		$pweekfar = $_POST['pweekfar']; 
+		$pfarm = $_POST['ploc']; 
+		$pstatus = $_POST['selStat']; 
+		$phouse = $_POST['selHouse']; 
+		$ppen = $_POST['selPen']; 
+		$prfid = $_POST['prfid']; 
+		$pgender = $_POST['pgender']; 
+		$pbreed = $_POST['pbreed']; 
+		$pboar = $_POST['pboar']; 
+		$psow = $_POST['psow']; 
+		$pfoster = $_POST['pfoster'];
+		$pweight = $_POST['pweight']; 
+		$user = $_POST['user_id']; 
+		$fid = $_POST['selectFeeds']; 
+		$fdate = $_POST['fdate']; 
+		$ftime = $_POST['ftime']; 
+		$medid = $_POST['selectMeds']; 
+		$medDate = $_POST['medDate'];
+		$medTime = $_POST['medTime']; 
+		$proddate = $_POST['fprodDate']; 
+		$remarks = $_POST['pweighttype']; 
+		$fqty = $_POST['fqty'];
+		$mqty = $_POST['mqty'];
+		$unit = $_POST['selUnit'];
 		echo json_encode($db->addPig($pid,$pbdate,$pweekfar,$ppen,$pgender,$pbreed,$pboar,$psow,$pfoster,$pstatus,$user)); 
 		$db->addPigWeight($pid,$pweight,$remarks); 
 		$db->addFeeds($fid,$fdate,$ftime,$pid,$proddate,$fqty); 
 		$db->addMeds($medid,$medDate,$medTime,$pid,$mqty,$unit);
 		$db->updatepigRFID($pid,$prfid); 
-		//echo "<script>alert('Added successfully!');</script>"; 
+		echo "<script>alert('Added successfully!');</script>"; 
 		//localhost/phpork2/gateway/pig.php?addPigFlag=1&new_pid=104&pbdate=2016-04-12&pweekfar=8&ploc=2&selStat=Weaning&selHouse=2&selPen=8&prfid=104&pgender='M'&pbreed=1&pboar=64&psow=E4LY.6547&pfoster=''&pweight=12.12&user_id=1&selectFeeds=2&fdate=2016-04-12&ftime=08:00:00&selectMeds=3&medDate=2016-04-04&medTime=08:00:00&fprodDate=2016-04-04&pweighttype=weaning&fqty=12.12&mqty=31.08&selUnit=kg
 		
 	} 
@@ -47,8 +47,8 @@
 		echo json_encode($db->addLocationName($lname,$addr)); 
 		//localhost/phpork2/gateway/location.php?addLocationName=1&lname=Farm4&addr=antipolo
 	} 
-	if(isset($_GET['getPigDetails'])){
-		$pid = $_GET['pig_id'];
+	if(isset($_POST['getPigDetails'])){
+		$pid = $_POST['pig_id'];
 		echo json_encode($db->getPigDetails($pid));
 		//http://localhost/phpork2/gateway/pig.php?getPigDetails=1&pig_id=1
 	}
@@ -88,8 +88,8 @@
 		echo json_encode($db->getPigLabel($pid));
 		//http://localhost/phpork2/gateway/pig.php?getPigLabel=1&pig=1
 	}
-	if(isset($_GET['getinsertRFID'])){
-		$pid = $_GET['pig'];
+	if(isset($_POST['getinsertRFID'])){
+		$pid = $_POST['pig'];
 		echo json_encode($db->getinsertRFID($pid));
 		//http://localhost/phpork2/gateway/pig.php?getinsertRFID=1&pig=1
 	}
@@ -115,7 +115,7 @@
 		echo json_encode($db->ddl_pig());
 		//http://localhost/phpork2/gateway/pig.php?ddl_pig=1
 	}
-	if(isset($_GET['ddl_breeds'])){
+	if(isset($_POST['ddl_breeds'])){
 		
 		echo json_encode($db->ddl_breeds());
 		//http://localhost/phpork2/gateway/pig.php?ddl_breeds=1

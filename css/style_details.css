@@ -1001,7 +1001,7 @@ table #insertTbl {
     background: #787878;
 }
 
-/*tr {
+tr {
   width: 100%;
   display: inline-table;
   height:60px;
@@ -1018,12 +1018,12 @@ table{
 
 tbody{
   overflow-y: scroll;
-  height: 185px;
+  height: 200px;
   width: 50%;
   position: absolute;
-}*/
+}
 
-table #t_feeds {
+/*table #t_feeds {
   height: 600px; 
   display: -moz-groupbox;
   border: 1px solid;
@@ -1043,7 +1043,7 @@ table #t_feeds {
   height: 350px;
   width: 50.5%;
   position: absolute;
-}
+}*/
 
 .imgHolder {
     position: relative;

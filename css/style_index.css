@@ -37,7 +37,7 @@ form .logout{
 
 
 .menu{
-  margin-top: 4%;
+  margin-top: 7%;
 }
 .menu_in{
   width: 75%;
@@ -86,4 +86,13 @@ form .logout{
     width: 70%;
     height: 250px;
   }
+}
+
+a:link{
+  text-decoration: none;
+}
+
+h1{
+  font-size: 5em;
+ 
 }

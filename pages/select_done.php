@@ -77,14 +77,13 @@
     </div>
 
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="lowerPanel">
-        <button type="button" class="btn1" id="view">
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> View Pig Details
-        </button> 
-        <br/> <br/>  <br/>
+      <div class="lowerPanel1">
         <button type="button" class="btn1" id="back">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
         </button>
+        <button type="button" class="btn1" id="view">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> View Pig Details
+        </button> 
       </div>
     </div>
 

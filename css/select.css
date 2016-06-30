@@ -144,8 +144,6 @@ form .logout{
   }
 
 .btn1{
-  /*border: 2px solid;
-  border-color: #bb1d24;*/
   height: 25%;
   width: 30%;
   background-color: white; 
@@ -153,6 +151,7 @@ form .logout{
   font-size: 20px;
   background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
 }
+
 
 .lowerPanel{
   max-width: 50%; 
@@ -162,6 +161,18 @@ form .logout{
   padding: 20px; 
   padding-top: 35px;
   padding-bottom: 35px;
+  border-radius: 30px; 
+  border: 5px solid; 
+  border-color: #9ecf95;
+}
+
+.lowerPanel1{
+  max-width: 50%; 
+  height: 230px; 
+  margin-left: 25%; 
+  margin-top: 25px; 
+  padding: 0px; 
+  padding-top: 4%;
   border-radius: 30px; 
   border: 5px solid; 
   border-color: #9ecf95;

@@ -1,3 +1,4 @@
+
 <?php
 	require_once ('../inc/dbinfo.inc');
 
@@ -398,10 +399,13 @@
 		                      p.user,
 		                      p.pig_batch,
 		                      h.house_id,
-		                      l.loc_id,
+		                      l.loc_name,
 		                      l.loc_name,
 		                      h.house_no,
-		                      p.pen_no
+		                      p.pen_id,
+		                      pb.breed_name,
+		                      rfid.tag_rfid,
+		                      wt.weight
 		              FROM pig p
 		              INNER JOIN pen pe ON 
 		              p.pen_id = pe.pen_id
@@ -409,10 +413,16 @@
 		              pe.house_id = h.house_id
 		              INNER join location l ON
 		              h.loc_id = l.loc_id
+		              INNER JOIN pig_breeds pb ON
+		              p.breed_id = pb.breed_id
+		              INNER JOIN rfid_tags rfid ON
+		              rfid.pig_id = p.pig_id
+		              INNER JOIN weight_record wt ON
+		              wt.pig_id = p.pig_id
 		              where p.pig_id = '".$pigid."'
 		              LIMIT 1";
 		              
-		    $result = mysqli_query ( $link, $query );
+		    $result = mysqli_query($link, $query);
 		   	$pig = array();
 			$pig_arr = array();
 			while ($row = mysqli_fetch_row($result))
@@ -430,10 +440,13 @@
 		        $pig['user'] = $row[10];
 		        $pig['batch'] = $row[11];
 		        $pig['h_id'] = $row[12];
-		        $pig['loc_id'] = $row[13];
+		        $pig['loc_name'] = $row[13];
 		        $pig['loc_name'] = $row[14];
 		        $pig['h_name'] = $row[15];
 		        $pig['p_name'] = $row[16];
+		        $pig['br_name'] = $row[17];
+		        $pig['rfid_tag'] = $row[18];
+		        $pig['weight'] = $row[19];
 		        $pig_arr[] = $pig;
 
 		    }
@@ -483,7 +496,8 @@
 		    $arr    = array();
 		    $r['t_rfid']    = $row[0];
 		    $r['t_id']    = $row[1];
-		    return $r;
+		    $arr[] =$r;
+		    return $arr;
 		}
 	  	public function getPigWeightDetails($pigid){
 	     	$link    = $this->connect();
@@ -1023,7 +1037,25 @@
 
 				echo "<script>alert('Successfully updated!');</script>";
 		}
-		
+		 public function ddl_meds()
+		{
+				$link = $this->connect();
+				$query = "SELECT med_id, 
+							med_name,
+							med_type 
+						FROM medication";
+				$result = mysqli_query($link, $query) or die(mysqli_error($link));
+				$meds = array();
+				$arr_med = array();
+				while ($row = mysqli_fetch_row($result)) {
+						$meds['med_id'] = $row[0];
+						$meds['med_name'] = $row[1];
+						$meds['med_type'] = $row[2];
+						$arr_med[] = $meds;
+				}
+
+				return $arr_med;
+		}
 		public function ddl_medRecordEdit($pig)
 	    {
 	        $link      = $this->connect();
@@ -1139,6 +1171,7 @@
 				$query = " SELECT DISTINCT ft.ft_id,
 							ft.quantity,
 							ft.unit,
+
 							ft.date_given,
 							ft.time_given,
 							ft.pig_id,
@@ -1174,6 +1207,25 @@
 				fclose($fp);
 				return $f_arr;
 				
+		}
+		public function ddl_feeds()
+		{
+				$link = $this->connect();
+				$query = "SELECT feed_id, 
+							feed_name,
+							feed_type 
+						FROM feeds";
+				$result = mysqli_query($link, $query) or die(mysqli_error($link));
+				$feeds = array();
+				$arr_feed = array();
+				while ($row = mysqli_fetch_row($result)) {
+						$feeds['feed_id'] = $row[0];
+						$feeds['feed_name'] = $row[1];
+						$feeds['feed_type'] = $row[2];
+						$arr_feed[] = $feeds;
+				}
+
+				return $arr_feed;
 		}
 		public function ddl_feedRecordEdit($pig)
 	    {
@@ -1351,6 +1403,8 @@
 	        }
 	        return $arr;
 	    }
+
+
 
 
 	    public function getUserEdited($pigid)
