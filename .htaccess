@@ -12,8 +12,7 @@ RewriteRule ^farm/house/([0-9]+)/([0-9]+) pages/select_pen.php?location=$1&house
 RewriteRule ^farm/house/pen/([0-9]+)/([0-9]+)/([0-9]+) pages/select_pig.php?location=$1&house=$2&pen=$3 [L]
 RewriteRule ^farm/house/pen/pig/([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+) pages/select_done.php?location=$1&house=$2&pen=$3&pig=$4 [L]
 
-RewriteRule ^addPig/details1 pages/insert_pig_1.php [L]
-RewriteRule ^addPig/details2 pages/insert_pig_2.php [L]
-RewriteRule ^addPig/feedDetails pages/insert_pig_3.php [L]
-RewriteRule ^addPig/medsDetails pages/insert_pig_4.php [L]
+RewriteRule ^addPig/ pages/insert_pig.php [L]
+RewriteRule ^view/farm/house/pen/pig/([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+) pages/view_details.php?location=$1&house=$2&pen=$3&pig=$4 [L]
+
 
