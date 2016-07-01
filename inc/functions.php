@@ -33,7 +33,25 @@
 	  	}
 
 	  	/* Location functions*/
-	  	
+	  	public function addLocationName($lname,$addr)
+		{
+				$link = $this->connect();
+				$q = "SELECT max(loc_id)
+					FROM location";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO location(loc_id,loc_name,address) 
+						VALUES('" . $max . "','" . $lname . "','" . $addr . "');";
+				if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+		                    "newId"=> $link->insert_id);
+			    }else {
+			      $data = array("success"=>"false",
+			                      "error"=>mysqli_error($link));
+			    }
+			    return $data;
+		}
 	  	public function ddl_location()
 		{
 				$link = $this->connect();
@@ -105,7 +123,25 @@
 		/* end of location functions*/
 
 		/*    HOUSE FUNCTIONS  */
-		
+		public function addHouseName($hno, $hname,$fxn,$loc)
+		{
+				$link = $this->connect();
+				$q = "SELECT max(house_id)
+					FROM house";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO house(house_id,house_no,house_name,function,loc_id) 
+						VALUES('" . $max . "','" . $hno . "','" . $hname . "','" . $fxn . "','" . $loc . "');";
+				if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+		                    "newId"=> $link->insert_id);
+			    }else {
+			      $data = array("success"=>"false",
+			                      "error"=>mysqli_error($link));
+			    }
+			    return $data;
+		}
 		public function ddl_house()
 		{
 			
@@ -186,7 +222,25 @@
 		/*END OF HOUSE FUNCTIONS*/
 
 		/*   PEN FUNCTIONS   */
-		
+		public function addPenName($penno,$fxn,$h_id)
+		{
+				$link = $this->connect();
+				$q = "SELECT max(pen_id)
+					FROM pen";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO pen(pen_id,pen_no,function,house_id) 
+						VALUES('" . $max . "','" . $penno . "','" . $fxn . "','" . $h_id . "');";
+				if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+		                    "newId"=> $link->insert_id);
+			    }else {
+			      $data = array("success"=>"false",
+			                      "error"=>mysqli_error($link));
+			    }
+			    return $data;
+		}
 		public function ddl_pen()
 		{
 				$link = $this->connect();
@@ -351,7 +405,8 @@
 		                      p.pen_id,
 		                      pb.breed_name,
 		                      rfid.tag_rfid,
-		                      wt.weight
+		                      wt.weight,
+		                      wt.remarks
 		              FROM pig p
 		              INNER JOIN pen pe ON 
 		              p.pen_id = pe.pen_id
@@ -393,6 +448,7 @@
 		        $pig['br_name'] = $row[17];
 		        $pig['rfid_tag'] = $row[18];
 		        $pig['weight'] = $row[19];
+		         $pig['weight_type'] = $row[20];
 		        $pig_arr[] = $pig;
 
 		    }
@@ -774,23 +830,6 @@
 	        }
 	        return $arr_ppen;
 	    }
-	    // public function ddl_pigByBatch($pig, $batch)
-	    // {
-	    //     $link     = $this->connect();
-	    //     $query    = "SELECT p.pig_id 
-	    //                 FROM  pig p
-	    //                 WHERE p.batch  = '" . $batch . "'";
-	    //     $result   = mysqli_query($link, $query);
-	    //     $ppen     = array();
-	    //     $arr_ppen = array();
-	    //     while ($row = mysqli_fetch_row($result)) {
-	    //         $ppen['label'] = $row[0];
-	    //         $ppen['pid']   = $row[1];
-	    //         $arr_ppen[]    = $ppen;
-	    //     }
-	    //     return $arr_ppen;
-	    // }
-	    //weightbybatchorindividual
 		public function updatepigRFID($pig_id, $rfid)
 		{
 				$link = $this->connect();
@@ -872,8 +911,6 @@
 							values('" . $pig_id . "','" . $weight . "','" . $prevstat . "','" . $prevrfid . "','" . $user . "');";
 				$result = mysqli_query($link, $query);
 		}
-
-
 		/* end of pig.php details */
 
 		/*  med.php FUNCTIONS  */
@@ -891,7 +928,25 @@
 			    }
 			    return $data;
 		}
-		
+		public function addMedName($mname, $mtype)
+		{
+				$link = $this->connect();
+				$q = "SELECT max(med_id)
+					FROM medication";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO medication(med_id,med_name,med_type) 
+						VALUES('" . $max . "','" . $mname . "','" . $mtype . "');";
+				if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+		                    "newId"=> $link->insert_id);
+			    }else {
+			      $data = array("success"=>"false",
+			                      "error"=>mysqli_error($link));
+			    }
+			    return $data;
+		}
 		public function getMedsDetails($var)
 		{
 				$link = $this->connect();
@@ -1069,7 +1124,25 @@
 			    }
 			    return $data;
 		}
-		
+		public function addFeedName($fname, $ftype)
+		{
+				$link = $this->connect();
+				$q = "SELECT max(feed_id)
+					FROM feeds";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO feeds(feed_id,feed_name,feed_type) 
+						VALUES('" . $max . "','" . $fname . "','" . $ftype . "');";
+				if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+		                    "newId"=> $link->insert_id);
+			    }else {
+			      $data = array("success"=>"false",
+			                      "error"=>mysqli_error($link));
+			    }
+			    return $data;
+		}
 		public function getFeedsDetails($var)
 		{
 				$link = $this->connect();
@@ -1279,7 +1352,7 @@
 		public function getWeekDateMvmnt($pig)
 		{
 				$link = $this->connect();
-				$query = "SELECT DISTINCT m.date_moved,WEEK(m.date_moved),m.pen_id,p.function
+				$query = "SELECT DISTINCT m.date_moved,m.time_moved,p.pen_no,p.function
 							
 						from movement m 
 						inner join pen p on
@@ -1302,8 +1375,8 @@
 							$i++;
 						}
 						$data['x'] = $i;
-						$data['week'] = $row[1];
-						$data['move'] = $mvmnt[$j];
+						$data['timeMoved'] = $row[1];
+						$data['pen'] = $row[2];
 
 						$arr[] = $data;
 						$j++;
@@ -1344,7 +1417,9 @@
 	        $row    = mysqli_fetch_row($result);
 	        return $row[0];
 	    }
-
+		
+	}
+	
 	    /* admin.php */
 	    public function addBreed($bname)
 	    {
@@ -1462,5 +1537,4 @@
 			    }
 			    return $data;
 		}
-	}
 ?>
