@@ -4,13 +4,7 @@
 	include "../inc/functions.php"; 
 	
 	$db = new phpork_functions (); 
-	if(isset($_POST['addPenName'])){
-		$penno = $_POST['penno'];
-		$fxn = $_POST['fxn'];
-		$h_id = $_POST['h_id'];
-		echo json_encode($db->addPenName($penno,$fxn,$h_id)); 
-		//localhost/phpork2/gateway/pen.php?addPenName=1&penno=1&fxn=weaning&h_id=5
-	} 
+	
 	if(isset($_GET['ddl_pen'])){
 		$arr_pen = $db->ddl_pen(); 
 		echo json_encode($arr_pen);

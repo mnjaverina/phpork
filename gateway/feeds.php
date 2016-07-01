@@ -47,12 +47,7 @@
 //localhost/phpork2/gateway/feeds.php?addFeeds=1&selectFeeds=2&fdate=2016-03-05&ftime=08:00:00&feedtypeDate=2016-03-05&feedQty=0.20&selpig=1
 	
 	}
-	if(isset($_GET['addFeedName'])){
-		$fname = $_GET['fname'];
-		$ftype = $_GET['ftype'];
-		echo json_encode($db->addFeedName($fname,$ftype)); 
-		//localhost/phpork2/gateway/feeds.php?addFeedName=1&fname=feed&ftype=feedtype
-	} 
+	
 	if(isset($_GET['getFeedsDetails'])){
 		$feed = $_GET['feed']; 
 		echo json_encode($db->getFeedsDetails($feed)); 
