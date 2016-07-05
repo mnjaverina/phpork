@@ -65,8 +65,8 @@
 		//localhost/phpork/gateway/meds.php?ddl_meds=1
 						
 	}
-	if(isset($_GET['ddl_medRecordEdit'])){
-		$pid = $_GET['pig']; 
+	if(isset($_POST['ddl_medRecordEdit'])){
+		$pid = $_POST['pig']; 
 		echo json_encode($db->ddl_medRecordEdit($pid)); 
 		//localhost/phpork2/gateway/meds.php?ddl_medRecordEdit=1&pig=1
 	} 

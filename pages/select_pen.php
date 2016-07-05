@@ -33,7 +33,7 @@
 
   <body> 
     <div class="page-header"> 
-      <a href="<?php echo HOST;?>/phpork/pages/index.php">
+      <a href="<?php echo HOST;?>/phpork/home">
         <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
       </a>
     </div>
@@ -79,37 +79,7 @@
       </div>
     </div>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content"> <!-- Modal content-->
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add Pen</h4>
-          </div>
-          <div class="modal-body">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
-              <input type="text" class="form-control" id="pennum" aria-describedby="basic-addon3">
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Function: </span>
-              <select  class="form-control" id="func" name="selStat" style="color:black;" required> 
-                <option value="" disabled selected>Select function</option>
-                <option value="Weaning">Weaning</option> 
-                <option value="Growing">Growing</option> 
-                <option value="Medication">Medication</option>
-                <option value="Mortality">Mortality</option> 
-              </select> 
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
+   
 
     <div class="page-footer"> 
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
@@ -137,23 +107,14 @@
           }
         });
 
-        $('#dropdown').on("change",function() {
-          var pen = $("#dropdown").val();
-          if(pen == "Pen"){
-            $('#myModal').modal('show');
-          }
-        });
+        
 
         $('#backP').on("click",function() {
           var location = $("#locid").val();
           window.location = "/phpork/farm/" +location; 
         }); 
 
-        $('#close').on("click",function(){
-          var houseno = $("#houseid").val();
-          var location = $('#locid').val();
-          window.location = "/phpork/farm/house/"+location+"/"+houseno; 
-        });
+       
 
         $('#save').on("click",function(){
           var houseno = $("#houseid").val();
@@ -202,10 +163,7 @@
               $("#dropdown").append($("<option></option>").attr("value",data[i].pen_id)
                             .attr("name","pen")
                             .text("Pen " +data[i].pen_no)); 
-              }
-              $("#dropdown").append($("<option></option>").attr("value","Pen")
-                            .attr("name","addPen")
-                            .text("<--Add Pen-->"));   
+              }  
               } 
             });
           });

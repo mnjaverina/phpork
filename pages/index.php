@@ -56,7 +56,7 @@
         </a> 
       </div>
       <div class="col-md-2 col-centered" style="height: 16%; width: 16%; margin-right: 0px;"> 
-        <a href="/phpork/pages/customize">
+        <a href="/phpork/customize">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Customize.png">
           <div style="margin-left: -20%">
             <h1 style="text-align: center; color: #bb1d24;">CUSTOMIZE</h1>

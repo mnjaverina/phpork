@@ -196,7 +196,7 @@
 						      <th>Info</th>
 						    </tr>
 						  </thead>
-						  <tbody id="viewPigInfoBody"> 
+						  <tbody id="pigsByPenInfo"> 
 						  </tbody>
 						</table>
 					</div>
@@ -212,18 +212,12 @@
 
 			<!--view meds-->
 			<div id="viewMeds" style="display: none;"> 
-				<div style="margin-left: 0%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 2%; margin-top: 5%;">
+				<div id="viewMedsInfo" style="margin-left: 0%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 2%; margin-top: 5%; display: inline-block;">
 				    <div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					    <a id="editMedDetails" class="" href="/phpork/viewDetails/edit/meds">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png">
-					        <span> Edit Medication</span>
-					    </a>
-				    </div>
-				    <div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-					    <a href="#">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Feeds.png"> 
-					        <span> Insert Medication</span>
-					    </a>
+					     <button id="editMedsButton">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png"> <!--movement-->
+					            <span> Edit Medication</span>
+					        </button>
 				    </div>
 				    <div>
 					    <label>Last medication given: </label><br/>
@@ -253,23 +247,54 @@
 					    </a>
 				    </div>
 				</div>
+				<div id="editMedsDetails" style="display: none;"> 
+				    <div style="margin-left: 15%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 13%; margin-top: 0px;">
+				    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
+					        <a id="viewMedDetails" class="" href="/phpork/viewDetails/view/meds"> 
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> <!--movement-->
+					            <span> Save</span>
+					        </a>
+				    	</div>
+				   		<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
+					        <button id="cancelEditMeds">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> <!--movement-->
+					            <span> Cancel</span>
+					        </button>
+				    	</div>
+				    	<div>
+					    	<label>Last medication given: </label><br/>
+					    	<label>Name: </label><br/>
+					    	<label>Type: </label>
+				    	</div>
+				    	<br/>
+				    	<div style="margin: 0px;">
+					    	<table class="table table-striped t_feeds">
+							  <thead>
+							    <tr class="tr_feeds">
+							      <th>Medication Name</th>
+							      <th>Medication Type</th>
+							      <th>Edit to</th>
+							      <th>Action</th>
+							    </tr>
+							  </thead>
+							  <tbody class="tb_feeds" id="editMedsBody">
+							   
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				</div> <!--edit meds-->
 			</div>
 			<!--view meds-->
 
 			<!--view feeds-->
 			<div id="viewFeeds" style="display: none;"> 
-				<div style="margin-left: 0%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 2%; margin-top: 5%;">
+				<div id="viewFeedsInfo" style="margin-left: 0%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 2%; margin-top: 5%; display: inline-block;">
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-						<a id="editFeedDetails" class="" href="/phpork/viewDetails/edit/feeds">
-						    <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png"> <!--movement-->
-						    <span> Edit Feed</span>
-						</a>
-					</div>
-					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-						<a href="#">
-						    <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Feeds.png"> <!--modal-->
-						    <span> Insert Feed</span>
-						</a>
+						<button id="editFeedsButton">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png"> <!--movement-->
+					            <span> Edit Feeds</span>
+					        </button>
 					</div>
 					<div>
 						<label>Last feed given: </label><br/>
@@ -300,6 +325,45 @@
 						</a>
 					</div>
 				</div>
+
+				<div id="editFeeds" style="display: none;"> 
+				
+				    <div style="margin-left: 15%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 13%; margin-top: 0px;">
+				    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
+					        <a id="viewFeedDetails" class="" href="/phpork/viewDetails/view/feeds"> 
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> <!--movement-->
+					            <span> Save Feed</span>
+					        </a>
+				    	</div>
+				   		<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
+					        <button id="cancelEditFeeds">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> <!--movement-->
+					            <span> Cancel</span>
+					        </button>
+				    	</div>
+				    	<div>
+					    	<label>Last feed type: </label><br/>
+					    	<label>Feed name: </label><br/>
+					    	<label>Feed type: </label>
+				    	</div>
+				    	<br/>
+				    	<div style="margin: 0px;">
+					    	<table class="table table-striped t_feeds">
+							  <thead>
+							    <tr class="tr_feeds">
+							      <th>Feed Name</th>
+							      <th>Feed Type</th>
+							      <th>Production Date</th>
+							      <th>Edit to</th>
+							    </tr>
+							  </thead>
+							  <tbody class="tb_feeds" id="editFeedsBody">
+							    
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				</div> <!--edit feeds-->
 			</div> 
 			<!--view feeds-->
 
@@ -312,9 +376,16 @@
 		</div> 
 
 	<div>
-	 <?php
+	  <?php
         $pig = $_GET['pig'];
-        echo "<input type='hidden' value='$pig' name='pig' id='pigid'/>"; 
+        $pen = $_GET['pen'];
+        $house =$_GET['house'];
+        $farm = $_GET['location'];
+        echo "<input type='hidden' value='$pig' name='pig' id='pigid'/>";
+        echo "<input type='hidden' value='$pig' name='pig' id='penid'/>"; 
+        echo "<input type='hidden' value='$pig' name='pig' id='houseid'/>"; 
+        echo "<input type='hidden' value='$pig' name='pig' id='farmid'/>"; 
+         
       ?>
     </div>
 
@@ -322,6 +393,9 @@
 	<script type="text/javascript"> 
       $(document).ready(function () {
       	var pig_id = $('#pigid').val();
+      	var pen_id = $('#penid').val();
+      	var house_id = $('#houseid').val();
+      	var farm_id = $('#farmid').val();
 
       	 $.ajax({
 	        url: '/phpork/gateway/pig.php',
@@ -400,7 +474,7 @@
 						
 	        }    
 	      });
-
+		
 		$.ajax({
 	        url: '/phpork/gateway/feeds.php',
 	        type: 'post',
@@ -417,6 +491,37 @@
 	           }
 	        }    
 	      });
+		$.ajax({
+	        url: '/phpork/gateway/feeds.php',
+	        type: 'post',
+	        data : {
+	          ddl_feedRecordEdit: '1',
+	          pig: pig_id
+	        },
+	        success: function (data) { 
+	          var data = jQuery.parseJSON(data); 
+	           for(i=0;i<data.length;i++){
+	           		$("#editFeedsBody").append($("<tr><td>" +data[i].fname+ "</td><td>" +data[i].ftype+ "</td><td>"  +data[i].proddate+ "</td><td><select style='color: black; width: 50%' id='lastFeed'></select></td></tr>"));
+	           }
+	        }    
+	      });
+		$.ajax({
+			url: '/phpork/gateway/feeds.php',
+			type: 'post',
+			data : {
+			 ddl_feeds: '1'
+			},
+			success: function (data) { 
+			   var data = jQuery.parseJSON(data); 
+			      for(i=0;i<data.length;i++){
+			        $("#lastFeed").append($("<option></option>").attr("value",data[i].feed_id)
+			          .attr("name","feeds")
+			          .text(data[i].feed_name)); 
+			      }
+
+			    } 
+			});
+
 
 		$.ajax({
 	        url: '/phpork/gateway/meds.php',
@@ -436,6 +541,37 @@
 	      });
 
 		$.ajax({
+	        url: '/phpork/gateway/meds.php',
+	        type: 'post',
+	        data : {
+	          ddl_medRecordEdit: '1',
+	          pig: pig_id
+	        },
+	        success: function (data) { 
+	          var data = jQuery.parseJSON(data); 
+	           for(i=0;i<data.length;i++){
+	           		$("#editMedsBody").append($("<tr><td>" +data[i].mname+ "</td><td>" +data[i].mtype+ "</td><td><select style='color: black; width: 50%' id='lastMed'></select></td></tr>"));
+	           }
+	        }    
+	      });
+		$.ajax({
+			url: '/phpork/gateway/feeds.php',
+			type: 'post',
+			data : {
+			 ddl_meds: '1'
+			},
+			success: function (data) { 
+			   var data = jQuery.parseJSON(data); 
+			      for(i=0;i<data.length;i++){
+			        $("#lastMed").append($("<option></option>").attr("value",data[i].med_id)
+			          .attr("name","meds")
+			          .text(data[i].med_name)); 
+			      }
+
+			    } 
+			});
+
+		$.ajax({
 	        url: '/phpork/gateway/movement.php',
 	        type: 'post',
 	        data : {
@@ -445,7 +581,26 @@
 	        success: function (data) { 
 	          var data = jQuery.parseJSON(data); 
 	           for(i=0;i<data.length;i++){
+	           		//$("#movementInfo").append($("<label>Currently:	House " ++ "Pen " ++ "</label>"));
 	           		$("#viewMovementBody").append($("<tr><td>" +data[i].date+ "</td><td>" +data[i].timeMoved+ "</td><td>Pen " +data[i].pen+ "</td></tr>"));
+	           		
+
+	           }
+	        }    
+	      });
+
+		$.ajax({
+	        url: '/phpork/gateway/pig.php',
+	        type: 'post',
+	        data : {
+	          getPigsByPen: '1',
+	          pen: pen_id
+	        },
+	        success: function (data) { 
+	          var data = jQuery.parseJSON(data); 
+	           for(i=0;i<data.length;i++){
+	           		
+	           		$("#pigsByPenInfo").append($("<tr><td>" +data[i].lbl+ "</td><td> <button id=\"getPigInfo\" style='color:black;' onclick=\"viewPig(" +data[i].pig_id+ ")\"> Info </button>  </td></tr>"));
 	           		
 
 	           }
@@ -483,6 +638,18 @@
             //$('#viewWeight').attr("style", "display: none");
         });
 
+         $('#editMedsButton').on("click",function() {
+           $('#viewMedsInfo').attr("style", "display: none");
+            $('#editMedsDetails').attr("style", "display: inline-block");
+
+        });
+
+        $('#cancelEditMeds').on("click",function() {
+           $('#viewMedsInfo').attr("style", "display: inline-block");
+            $('#editMedsDetails').attr("style", "display: none");
+
+        });
+
           $('#feeds1').on("click",function() {
           	$('#viewFeeds').attr("style", "display: inline-block");
           	$('#viewMovement').attr("style", "display: none");
@@ -490,12 +657,103 @@
 
           	 //lamnan yun LAst Feed
         });
+          $('#editFeedsButton').on("click",function() {
+           $('#viewFeedsInfo').attr("style", "display: none");
+            $('#editFeeds').attr("style", "display: inline-block");
+
+        });
+
+        $('#cancelEditFeeds').on("click",function() {
+           $('#viewFeedsInfo').attr("style", "display: inline-block");
+            $('#editFeeds').attr("style", "display: none");
+
+        });
 
         
+          $('#backToPig').on("click",function() {
+           window.location ="/phpork/farm/house/pen/pig/" +farm_id+ "/" +house_id+ "/" +pen_id+ "/" +pig_id;
+        });
 
             
        
       }); 
+		
+		function viewPig(pig){
+		 	$.ajax({
+	        url: '/phpork/gateway/pig.php',
+	        type: 'post',
+	        data : {
+	          getPigDetails: '1',
+	          pig_id: pig
+	        },
+	        success: function (data) { 
+	          var data = jQuery.parseJSON(data); 
+	             window.location ="/phpork/view/farm/house/pen/pig/" +data[0].loc_id+ "/" +data[0].h_id+ "/" +data[0].p_name+ "/" +data[0].pid;
+						
+	        }    
+	      });
+
+
+		 }
+
+		var chart = AmCharts.makeChart("linechart_values", {
+				 	"dataLoader": {
+				    	"url": "/phpork/gateway.php?mvmntChart=1&pig="+<?php echo $_GET['pig']; ?>
+					},
+				  	"type": "serial",
+				    "theme": "light",
+				    "marginTop":0,
+				    "marginRight": 80,
+				    "valueAxes": [{
+				        "axisAlpha": 0,
+				        "position": "left"
+				    }],
+				    "graphs": [{
+				        "id":"g1",
+				        "balloonText": "Location: [[move]]<br><b><span style='font-size:14px;'>Date: [[date]]</span></b>",
+				        "bullet": "round",
+				        "bulletSize": 8,         
+				        "lineColor": "#83b26a",
+				        "lineThickness": 2,
+				        "negativeLineColor": "#d1655d",
+				        "type": "smoothedLine",
+				        "valueField": "x"
+				    }],
+				    "chartScrollbar": {
+				        "graph":"g1",
+				        "gridAlpha":0,
+				        "color":"#bb4230",
+				        "scrollbarHeight":55,
+				        "backgroundAlpha":0,
+				        "selectedBackgroundAlpha":0.1,
+				        "selectedBackgroundColor":"#bb4230",
+				        "graphFillAlpha":0,
+				        "autoGridCount":true,
+				        "selectedGraphFillAlpha":0,
+				        "graphLineAlpha":0.2,
+				        "graphLineColor":"#c2c2c2",
+				        "selectedGraphLineColor":"#bb4230",
+				        "selectedGraphLineAlpha":1
+
+				    },
+				    "chartCursor": {
+				        "cursorAlpha": 0,
+				        "valueLineEnabled":true,
+				        "valueLineBalloonEnabled":true,
+				        "valueLineAlpha":0.5,
+				        "fullWidth":true,
+				        "categoryBalloonColor": "#83b26a"
+				    },
+				    "categoryField": "week",
+				    "categoryAxis": {	
+				        "minorGridAlpha": 0.1,
+				        "minorGridEnabled": true,
+				        "title": "Weeks"
+				    },
+				    "export": {
+				        "enabled": false
+				    }
+				});
     </script> 
 
 	</body> 

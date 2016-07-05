@@ -1004,13 +1004,13 @@ table #insertTbl {
 tr {
   width: 100%;
   display: inline-table;
-  height: 20%;
+  height:60px;
   table-layout: fixed;
   padding: 0px;
 }
 
 table{
-  height: 180px;
+  height:250px; 
   display: -moz-groupbox;
   border: 1px solid;
   border-color: #E0E0E0;
@@ -1018,8 +1018,8 @@ table{
 
 tbody{
   overflow-y: scroll;
-  height: 15.5%;
-  width: 54%;
+  height: 200px;
+  width: 50%;
   position: absolute;
 }
 
@@ -1071,4 +1071,3 @@ tbody{
     left: 65px;
     top: 0px;
 }
-

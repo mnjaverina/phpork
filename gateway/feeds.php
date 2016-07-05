@@ -69,8 +69,8 @@
 		//localhost/phpork/gateway/feeds.php?ddl_feeds=1
 						
 	}
-	if(isset($_GET['ddl_feedRecordEdit'])){
-		$pid = $_GET['pig']; 
+	if(isset($_POST['ddl_feedRecordEdit'])){
+		$pid = $_POST['pig']; 
 		echo json_encode($db->ddl_feedRecordEdit($pid)); 
 		//localhost/phpork/gateway/feeds.php?ddl_feedRecordEdit=1&pig=1
 	} 

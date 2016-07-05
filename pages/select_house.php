@@ -33,7 +33,7 @@
 
   <body> 
     <div class="page-header"> 
-      <a href="<?php echo HOST;?>/phpork/pages/index.php">
+      <a href="<?php echo HOST;?>/phpork/home">
         <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
       </a>
     </div>
@@ -83,43 +83,7 @@
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
     </div>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content"> <!-- Modal content-->
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add House</h4>
-          </div>
-          <div class="modal-body">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">House Number: </span>
-              <input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">House Name: </span>
-              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Function: </span>
-              <select  class="form-control" id="func" name="selStat" style="color:black;" required> 
-                <option value="" disabled selected>Select function</option>
-                <option value="Weaning">Weaning</option> 
-                <option value="Growing">Growing</option> 
-                <option value="Slaughter">Slaughter</option> 
-              </select> 
-            </div>
-            <br/>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    
     <div class="step-content active col-xs-12"> 
       <?php 
         $l = $_GET['location']; 
@@ -139,51 +103,11 @@
           }
         });
 
-        $('#dropdown').on("change",function() {
-          var house = $("#dropdown").val();
-          if(house == "House"){
-            $('#myModal').modal('show'); 
-          }
-        });
-
         $('#backH').on("click",function() {
           window.location = "/phpork/pages/farm"; 
         }); 
 
-        $('#close').on("click",function(){
-          var location = $('#locid').val();
-          window.location = "/phpork/farm/"+location; 
-        });
-
-        $('#save').on("click",function(){
-          var location = $('#locid').val();
-          var hNum = $('#hnum').val();
-          var hName = $('#hname').val();  
-          var func = $('#func').val();
-          if((hNum != '') && (hName != '') && (func != '') ){
-            $.ajax({
-              url: '/phpork/gateway/house.php',
-              type: 'post',
-              data : {
-                addHouseName: '1',
-                hno: hNum,
-                hname: hName,
-                fxn: func,
-                loc: location
-              },
-              success: function (data) { 
-                var data = jQuery.parseJSON(data); 
-                $("#dropdown").append($("<option></option>").attr("value",data.h_id)
-                              .attr("name","house")
-                              .attr("selected", "true")
-                              .text("House " +data.h_no));
-                $('#select').attr("selected", "false");
-                  alert("House added");  
-                }
-            });
-          }
-          window.location = "/phpork/farm/"+location;
-        });
+        
       }); 
     </script> 
 
@@ -204,11 +128,7 @@
                             .attr("name","house")
                             .text("House " +data[i].h_no)); 
             }
-            $("#dropdown").append($("<option></option>").attr("value","House")
-                          .attr("id","addHouse")
-                          .attr("name","addHouse")
-                          .text("<--Add House-->")
-            );   
+           
           } 
         });
       });

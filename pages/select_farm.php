@@ -5,7 +5,7 @@
     require_once "../connect.php"; 
     require_once "../inc/dbinfo.inc"; 
     if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-      header("Location: login.php"); 
+      header("Location: /phpork/user"); 
     }
     include "../functions.php"; 
     $db = new phpork_functions (); 
@@ -32,8 +32,8 @@
   </head> 
 
   <body> 
-    <div class="page-header"> 
-      <a href="<?php echo HOST;?>/phpork/pages/index.php">
+   <div class="page-header"> 
+      <a href="<?php echo HOST;?>/phpork/home">
         <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
       </a>
     </div>
@@ -107,6 +107,7 @@
       </div>
     </div>
 
+     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script type="text/javascript"> 
       $(document).ready(function () {
         $('#nextF').on("click",function() {
@@ -118,43 +119,6 @@
           }
         });
 
-        $('#dropdown').on("change",function() {
-          var location = $("#dropdown").val();
-          if(location == "Farm"){
-            $('#myModal').modal('show');
-          }
-        });
-
-        $('#close').on("click",function(){
-          window.location = "/phpork/pages/farm/"; 
-        });
-
-        $('#save').on("click",function(){
-          var locName = $("#fname").val(); 
-          var locAdd = $("#fadd").val(); 
-          console.log("Loc Name: "+locName);
-          if((locAdd != '') && (locName != '') ){
-            $.ajax({
-              url: '/phpork/gateway/location.php',
-              type: 'post',
-              data : {
-                addLocationName: '1',
-                lname: locName,
-                addr: locAdd
-              },
-              success: function (data) { 
-                var data = jQuery.parseJSON(data); 
-                $("#dropdown").append($("<option></option>").attr("value",data.loc_id)
-                              .attr("name","farm")
-                              .attr("selected", "true")
-                              .text(data.loc_name)); 
-                $('#select').attr("selected", "false");
-                  alert("Farm added");
-                }
-            });
-          }
-          window.location = "/phpork/pages/farm/";
-        });
       });
     </script>
      
@@ -171,10 +135,7 @@
             $("#dropdown").append($("<option></option>").attr("value",data[i].loc_id)
                           .attr("name","location")
                           .text(data[i].loc_name)); 
-          }
-          $("#dropdown").append($("<option></option>").attr("value","Farm").attr("id","add")
-                        .attr("name","addLoc")
-                        .text("<--Add Farm-->"));   
+          } 
         }    
       });
     </script>

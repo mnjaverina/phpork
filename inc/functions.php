@@ -400,13 +400,13 @@
 		                      p.pig_batch,
 		                      h.house_id,
 		                      l.loc_name,
-		                      l.loc_name,
 		                      h.house_no,
 		                      p.pen_id,
 		                      pb.breed_name,
 		                      rfid.tag_rfid,
 		                      wt.weight,
-		                      wt.remarks
+		                      wt.remarks,
+		                      l.loc_id
 		              FROM pig p
 		              INNER JOIN pen pe ON 
 		              p.pen_id = pe.pen_id
@@ -442,13 +442,13 @@
 		        $pig['batch'] = $row[11];
 		        $pig['h_id'] = $row[12];
 		        $pig['loc_name'] = $row[13];
-		        $pig['loc_name'] = $row[14];
-		        $pig['h_name'] = $row[15];
-		        $pig['p_name'] = $row[16];
-		        $pig['br_name'] = $row[17];
-		        $pig['rfid_tag'] = $row[18];
-		        $pig['weight'] = $row[19];
-		         $pig['weight_type'] = $row[20];
+		        $pig['h_name'] = $row[14];
+		        $pig['p_name'] = $row[15];
+		        $pig['br_name'] = $row[16];
+		        $pig['rfid_tag'] = $row[17];
+		        $pig['weight'] = $row[18];
+		         $pig['weight_type'] = $row[19];
+		         $pig['loc_id'] = $row[20];
 		        $pig_arr[] = $pig;
 
 		    }
@@ -1419,122 +1419,4 @@
 	    }
 		
 	}
-	
-	    /* admin.php */
-	    public function addBreed($bname)
-	    {
-	        $link   = $this->connect();
-	        $query  = "INSERT INTO pig_breeds(breed_name)
-	        			VALUES('".$bname."')";
-	        $result = mysqli_query($link, $query);
-	    }
-		public function addParent($lbl,$lbl_id)
-	    {
-	        $link   = $this->connect();
-	        $query  = "INSERT INTO parents(label,label_id)
-	        			VALUES('".$lbl."','".$lbl_id."')";
-	        if ($result = mysqli_query( $link, $query )) {
-		      	$data = array("success"=>"true",
-		                    "newId"=> $link->insert_id);
-			    }else {
-			      $data = array("success"=>"false",
-			                      "error"=>mysqli_error($link));
-			    }
-			    return $data;
-	    }
-	    public function addHouseName($hno, $hname,$fxn,$loc)
-		{
-				$link = $this->connect();
-				$q = "SELECT max(house_id)
-					FROM house";
-				$r = mysqli_query($link, $q);
-				$ro = mysqli_fetch_row($r);
-				$max = $ro[0] + 1;
-				$query = "INSERT INTO house(house_id,house_no,house_name,function,loc_id) 
-						VALUES('" . $max . "','" . $hno . "','" . $hname . "','" . $fxn . "','" . $loc . "');";
-				if ($result = mysqli_query( $link, $query )) {
-		      	$data = array("success"=>"true",
-		                    "newId"=> $link->insert_id);
-			    }else {
-			      $data = array("success"=>"false",
-			                      "error"=>mysqli_error($link));
-			    }
-			    return $data;
-		}
-		public function addLocationName($lname,$addr)
-		{
-				$link = $this->connect();
-				$q = "SELECT max(loc_id)
-					FROM location";
-				$r = mysqli_query($link, $q);
-				$ro = mysqli_fetch_row($r);
-				$max = $ro[0] + 1;
-				$query = "INSERT INTO location(loc_id,loc_name,address) 
-						VALUES('" . $max . "','" . $lname . "','" . $addr . "');";
-				if ($result = mysqli_query( $link, $query )) {
-		      	$data = array("success"=>"true",
-		                    "newId"=> $link->insert_id);
-			    }else {
-			      $data = array("success"=>"false",
-			                      "error"=>mysqli_error($link));
-			    }
-			    return $data;
-		}
-		public function addPenName($penno,$fxn,$h_id)
-		{
-				$link = $this->connect();
-				$q = "SELECT max(pen_id)
-					FROM pen";
-				$r = mysqli_query($link, $q);
-				$ro = mysqli_fetch_row($r);
-				$max = $ro[0] + 1;
-				$query = "INSERT INTO pen(pen_id,pen_no,function,house_id) 
-						VALUES('" . $max . "','" . $penno . "','" . $fxn . "','" . $h_id . "');";
-				if ($result = mysqli_query( $link, $query )) {
-		      	$data = array("success"=>"true",
-		                    "newId"=> $link->insert_id);
-			    }else {
-			      $data = array("success"=>"false",
-			                      "error"=>mysqli_error($link));
-			    }
-			    return $data;
-		}
-		public function addFeedName($fname, $ftype)
-		{
-				$link = $this->connect();
-				$q = "SELECT max(feed_id)
-					FROM feeds";
-				$r = mysqli_query($link, $q);
-				$ro = mysqli_fetch_row($r);
-				$max = $ro[0] + 1;
-				$query = "INSERT INTO feeds(feed_id,feed_name,feed_type) 
-						VALUES('" . $max . "','" . $fname . "','" . $ftype . "');";
-				if ($result = mysqli_query( $link, $query )) {
-		      	$data = array("success"=>"true",
-		                    "newId"=> $link->insert_id);
-			    }else {
-			      $data = array("success"=>"false",
-			                      "error"=>mysqli_error($link));
-			    }
-			    return $data;
-		}
-		public function addMedName($mname, $mtype)
-		{
-				$link = $this->connect();
-				$q = "SELECT max(med_id)
-					FROM medication";
-				$r = mysqli_query($link, $q);
-				$ro = mysqli_fetch_row($r);
-				$max = $ro[0] + 1;
-				$query = "INSERT INTO medication(med_id,med_name,med_type) 
-						VALUES('" . $max . "','" . $mname . "','" . $mtype . "');";
-				if ($result = mysqli_query( $link, $query )) {
-		      	$data = array("success"=>"true",
-		                    "newId"=> $link->insert_id);
-			    }else {
-			      $data = array("success"=>"false",
-			                      "error"=>mysqli_error($link));
-			    }
-			    return $data;
-		}
 ?>

@@ -95,7 +95,11 @@
     <script type="text/javascript"> 
       $(document).ready(function () {
         $('#view').on("click",function() {
-        console.log("Oink Oink Oink");
+          var pig = $('#pigid').val();
+          var penno = $("#penid").val();
+          var houseno = $("#houseid").val(); 
+          var location = $("#locid").val(); 
+          window.location ="/phpork/view/farm/house/pen/pig/" +location+ "/" +houseno+ "/" +penno+ "/" +pig;
         });
 
         $('#back').on("click",function() {
