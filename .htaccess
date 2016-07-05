@@ -1,8 +1,14 @@
 RewriteEngine On
 
-RewriteRule ^in pages/login.php [L]
+RewriteRule ^user pages/choose_user.php [L]
+RewriteRule ^in/([0-9]) pages/login.php?user=$1 [L]
+
+RewriteRule ^admin/home pages/admin_index.php [L]
 RewriteRule ^home pages/index.php [L]
+
 RewriteRule ^out pages/logout.php [L]
+RewriteRule ^customize pages/customize.php [L]
+
 RewriteRule ^checkdata gateway.php [L]
 RewriteRule ^choose pages/choose.php [L]
 
@@ -14,5 +20,4 @@ RewriteRule ^farm/house/pen/pig/([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+) pages/select
 
 RewriteRule ^addPig/ pages/insert_pig.php [L]
 RewriteRule ^view/farm/house/pen/pig/([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+) pages/view_details.php?location=$1&house=$2&pen=$3&pig=$4 [L]
-
 
