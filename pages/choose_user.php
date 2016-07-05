@@ -53,17 +53,17 @@
           </div>
         </div>
       </form>
-      <div class="row row-centered pos2">
-        <div class="col-md-2 col-centered" style="height: 10%; width: 10%;">
+       <div class="row row-centered pos2">
+        <div class="col-md-2 col-centered" style="height: 10.5%; width: 10.5%;">
           <img src="<?php echo HOST;?>/phpork/images/logos/ADSC logo.jpg" class="img-responsive">
         </div>
-        <div class="col-md-2 col-centered" style="height: 10%; width: 10%;">
+        <div class="col-md-2 col-centered" style="height: 11%; width: 11%;">
           <img src="<?php echo HOST;?>/phpork/images/logos/ICS logo.png" class="img-responsive">
         </div>
-        <div class="col-md-2 col-centered" style="height: 10%; width: 10%;">
+        <div class="col-md-2 col-centered" style="height: 9.8%; width: 9.8%;">
           <img src="<?php echo HOST;?>/phpork/images/logos/PCAARRD logo.png" class="img-responsive">
         </div>
-        <div class="col-md-2 col-centered" style="height: 10%; width: 10%;">
+        <div class="col-md-2 col-centered" style="height: 10.5%; width: 10.5%;">
           <img src="<?php echo HOST;?>/phpork/images/logos/UPLB logo.png" class="img-responsive">
         </div>
       </div>
