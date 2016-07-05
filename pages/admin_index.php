@@ -112,16 +112,18 @@
             <h4 class="modal-title">Add User</h4>
           </div>
           <div class="modal-body"> 
-            <form>
-            <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Username: </span>
               <input type="text" class="form-control" id="uname" aria-describedby="basic-addon3" required>
             </div>
+            <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">User Type: </span>
-              <input type="radio" id="utype"  name="userType" value="admin" aria-describedby="basic-addon3" >Admin
-              <input type="radio"  id="utype" name="userType" value="encoder" aria-describedby="basic-addon3" >Encoder
+              <select class="form-control" id="uType" style="color:black;" required> 
+                    <option value="" disabled selected>Select user type</option>
+                    <option value="admin">Admin</option> 
+                    <option value="encoder">Encoder</option> 
+              </select>
             </div>
             <br/>
             <div class="input-group">
