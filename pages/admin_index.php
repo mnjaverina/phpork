@@ -44,56 +44,56 @@
     </form> 
 
       <div class="box">
-        <button id="addUser" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalUser">
+        <button id="addUser" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalUser">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Username.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add User</span>
         </button>
       </div>
 
       <div class="box">
-        <button id="addFarm" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalFarm">
+        <button id="addFarm" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalFarm">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Select Farm.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Farm</span>
         </button>
       </div>
 
       <div class="box">
-       <button id="addHouse" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalHouse">
+       <button id="addHouse" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalHouse">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Select House.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add House</span>
         </button>
       </div>
 
       <div class="box">
-         <button id="addPen" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalPen">
+         <button id="addPen" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalPen">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Select Pen.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Pen</span>
         </button>
       </div>
 
     <div class="box">
-        <button id="addParent" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalPig">
+        <button id="addParent" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalPig">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Select Pig.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Parent</span>
         </button>
       </div>
 
       <div class="box">
-        <button id="addBreed" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalBreed">
+        <button id="addBreed" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalBreed">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Select Pig.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Breed</span>
         </button>
       </div>
 
       <div class="box">
-         <button id="addFeeds" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalFeed">
+         <button id="addFeeds" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalFeed">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Feeds.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Feeds</span>
         </button>
       </div>
 
       <div class="box">
-         <button id="addMeds" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalMeds">
+         <button id="addMeds" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalMeds">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Medications.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Medication</span>
         </button>
