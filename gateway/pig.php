@@ -107,7 +107,7 @@
 	} 
 	if(isset($_POST['addBreed'])){
 		$br_name = $_POST['breed_name'];
-		echo json_encode($db->addParent($br_name)); 
+		echo json_encode($db->addBreed($br_name)); 
 		//localhost/phpork2/gateway/pig.php?addBreed=1&breed_name=Galore-White
 	} 
 	if(isset($_POST['ddl_sow'])){

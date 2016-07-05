@@ -24,10 +24,10 @@
 
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script> 
+    
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
+   
   </head> 
   <body> 
     <div class="page-header"> 
@@ -120,18 +120,13 @@
             </div>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">User Type: </span>
-              <input type="radio" id="utype"   value="admin" aria-describedby="basic-addon3" checked required>Admin
-              <input type="radio"  id="utype"  value="encoder" aria-describedby="basic-addon3" required>Encoder
+              <input type="radio" id="utype"  name="userType" value="admin" aria-describedby="basic-addon3" >Admin
+              <input type="radio"  id="utype" name="userType" value="encoder" aria-describedby="basic-addon3" >Encoder
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Password: </span>
-              <input type="password" class="form-control" id="pword" aria-describedby="basic-addon3" required>
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Re-enter Password: </span>
-              <input type="password" class="form-control" id="pword2" aria-describedby="basic-addon3" required>
+              <input type="password" class="form-control" id="password" aria-describedby="basic-addon3" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -154,7 +149,7 @@
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
-              <input type="text" class="form-control" id="fname" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="farmname" aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
@@ -180,7 +175,7 @@
           <div class="modal-body">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Location: </span>
-              <select class="form-control" id="farm" style="color:black;" required> 
+              <select class="form-control" id="loc" style="color:black;" required> 
                     <option value="" disabled selected>Select farm location...</option> 
             </select>
             </div>
@@ -243,7 +238,7 @@
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Function: </span>
-              <select  class="form-control" id="func" name="selStat" style="color:black;" required> 
+              <select  class="form-control" id="func" style="color:black;" required> 
                 <option value="" disabled selected>Select function</option>
                 <option value="Weaning">Weaning</option> 
                 <option value="Growing">Growing</option> 
@@ -296,7 +291,7 @@
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add Parent</h4>
+            <h4 class="modal-title">Add Breed</h4>
           </div>
           <div class="modal-body">
             <div class="input-group">
@@ -373,42 +368,50 @@
            });
 
          $('#addUser').on("click",function() {
+           e.preventDefault(); 
             $('#myModalUser').modal('show');
           
         });
 
         $('#saveUser').on("click",function(){
             var uName = $('#uname').val();
-            var pword = $('#pword').val();
-            var pword2 = $('#pword2').val();
-
-            if(pword != pword2){
-                alert("Password does not match!");
-            }else{
+            var user_Type = $('#utype').val();
+            var pword = $('#password').val();
+            
+            
+          if((uName != '') && (password != '') ){
+              var uType;
+              if(user_Type === "admin"){
+                uType = 1;
+              }else{
+                uType = 2;
+              }
                  $.ajax({
                     url: '/phpork/gateway/auth.php',
                     type: 'post',
                     data : {
                       signup: '1',
                       username: uName,
-                      password: pword
+                      password: pword,
+                      usertype: uType
                     },
                     success: function (data) {
 
                         window.location = "/phpork/admin/home"; 
                     }    
                   });
-            }
+              }
 
           });
 
 
          $('#addFarm').on("click",function() {
+           e.preventDefault(); 
             $('#myModalFarm').modal('show');
           });
          
          $('#saveFarm').on("click",function(){
-          var locName = $("#farm").val(); 
+          var locName = $("#farmname").val(); 
           var locAdd = $("#fadd").val(); 
 
           console.log("Loc Name: "+locName);
@@ -432,14 +435,15 @@
          
        });
 
-
+         /*Add House*/
           $('#addHouse').on("click",function() {
+             e.preventDefault(); 
             $('#myModalHouse').modal('show');
           });
           
 
         $('#saveHouse').on("click",function(){
-          var location = $('#locid').val();
+          var location = $('#loc').val();
           var hNum = $('#hnum').val();
           var hName = $('#hname').val();  
           var func = $('#func').val();
@@ -460,11 +464,12 @@
                 }
             });
           }
-         // window.location = "/phpork/admin/home";
+          window.location = "/phpork/admin/home";
         });
+        /*End of Add House*/
+
 
         /*Add Pen */
-
         $('#farm').on("change", function(e) {
             e.preventDefault(); 
               var location = $('#farm').val();
@@ -488,6 +493,7 @@
            });
 
          $('#addPen').on("click",function() {
+           e.preventDefault(); 
             $('#myModalPen').modal('show');
           });
 
@@ -519,6 +525,7 @@
 
          /*Add Parent*/
          $('#addParent').on("click",function() {
+          // e.preventDefault(); 
             $('#myModalParent').modal('show');
           });
 
@@ -547,6 +554,7 @@
 
          /*Add Breed*/
          $('#addBreed').on("click",function() {
+           e.preventDefault(); 
             $('#myModalBreed').modal('show');
           });
 
@@ -559,9 +567,8 @@
               url: '/phpork/gateway/pig.php',
               type: 'post',
               data : {
-                addParent: '1',
-                label: label,
-                label_id:  label_id
+                addBreed: '1',
+                breed_name: breed_name
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
@@ -575,10 +582,11 @@
 
           /*Add Feed*/
          $('#addFeed').on("click",function() {
+           e.preventDefault(); 
             $('#myModalFeed').modal('show');
           });
 
-         $('#saveParent').on("click",function(){
+         $('#saveFeed').on("click",function(){
           var feed_name = $("#feed_name").val();
            var feed_type = $("#feed_type").val();
           
@@ -605,6 +613,7 @@
 
          /*Add Med*/
          $('#addMeds').on("click",function() {
+           e.preventDefault(); 
             $('#myModalMeds').modal('show');
           });
 
@@ -645,6 +654,24 @@
              var data = jQuery.parseJSON(data); 
                 for(i=0;i<data.length;i++){
                   $("#farm").append($("<option></option>").attr("value",data[i].loc_id)
+                    .attr("name","location")
+                    .text(data[i].loc_name)); 
+                }
+                   
+              } 
+          
+        });
+     //select farm
+    $.ajax({
+          url: '/phpork/gateway/location.php',
+          type: 'post',
+          data : {
+            ddl_location: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data); 
+                for(i=0;i<data.length;i++){
+                  $("#loc").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
                     .text(data[i].loc_name)); 
                 }

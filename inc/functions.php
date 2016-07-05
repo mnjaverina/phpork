@@ -31,6 +31,25 @@
 		      return false;
 		    }
 	  	}
+	  	public function signup($username,$password,$usertype)
+		{
+				$link = $this->connect();
+				$q = "SELECT max(user_id)
+					FROM user";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO user(user_id,user_name,password,user_type) 
+						VALUES('" . $max . "','" . $username . "','" . $password . "','" . $usertype . "');";
+				if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+		                    "newId"=> $link->insert_id);
+			    }else {
+			      $data = array("success"=>"false",
+			                      "error"=>mysqli_error($link));
+			    }
+			    return $data;
+		}
 
 	  	/* Location functions*/
 	  	public function addLocationName($lname,$addr)
