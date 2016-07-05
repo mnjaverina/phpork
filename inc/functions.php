@@ -664,22 +664,6 @@
 				$row2 = mysqli_fetch_row($resultq);
 				return $row2[0] + 1;
 		}
-		public function ddl_sow()
-		{
-				$link = $this->connect();
-				$search = "SELECT DISTINCT sow_id 
-							FROM pig";
-				$resultq = mysqli_query($link, $search);
-				$sow = array();
-				$sow_arr = array();
-				while ($row = mysqli_fetch_row($resultq)) {	
-					$sow['sow_id'] =$row[0];
-					$sow_arr[] = $sow;
-						
-				}
-
-				return $sow_arr;
-		}
 		public function ddl_pig()
 		{
 			$link = $this->connect();
@@ -733,16 +717,74 @@
 			// fclose($fp);
 		    return $pig_arr;
 		}
+
+		public function addParent($label, $label_id)
+		{
+				$link = $this->connect();
+				$q = "SELECT max(parent_id)
+					FROM parents";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO parents(parent_id,label,label_id) 
+						VALUES('" . $max . "','" . $label . "','" . $label_id . "');";
+				if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+		                    "newId"=> $link->insert_id);
+			    }else {
+			      $data = array("success"=>"false",
+			                      "error"=>mysqli_error($link));
+			    }
+			    return $data;
+		}
+		public function addBreed($breed_name)
+		{
+				$link = $this->connect();
+				$q = "SELECT max(breed_id)
+					FROM pig_breeds";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO pig_breeds(breed_id,breed_name) 
+						VALUES('" . $max . "','" . $breed_name . "');";
+				if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+		                    "newId"=> $link->insert_id);
+			    }else {
+			      $data = array("success"=>"false",
+			                      "error"=>mysqli_error($link));
+			    }
+			    return $data;
+		}
+		
+		public function ddl_sow()
+		{
+				$link = $this->connect();
+				$search = "SELECT DISTINCT parent_id, label_id
+							FROM parents where label='sow';";
+				$resultq = mysqli_query($link, $search);
+				$sow = array();
+				$sow_arr = array();
+				while ($row = mysqli_fetch_row($resultq)) {	
+					$sow['parent_id'] =$row[0];
+					$sow['label_id'] =$row[1];
+					$sow_arr[] = $sow;
+						
+				}
+
+				return $sow_arr;
+		}
 		public function ddl_boar()
 		{
 				$link = $this->connect();
-				$search = "SELECT DISTINCT boar_id 
-							FROM pig";
+				$search = "SELECT DISTINCT parent_id, label_id
+							FROM parents where label='boar';";
 				$resultq = mysqli_query($link, $search);
 				$boar = array();
 				$boar_arr = array();
 				while ($row = mysqli_fetch_row($resultq)) {	
-					$boar['boar_id'] =$row[0];
+					$boar['parent_id'] =$row[0];
+					$boar['label_id'] =$row[1];
 					$boar_arr[] = $boar;
 						
 				}
@@ -752,18 +794,19 @@
 		public function ddl_foster()
 		{
 				$link = $this->connect();
-				$search = "SELECT DISTINCT foster_id 
-							FROM pig";
+				$search = "SELECT DISTINCT parent_id, label_id
+							FROM parents where label='sow';";
 				$resultq = mysqli_query($link, $search);
-				$foster = array();
-				$foster_arr = array();
+				$sow = array();
+				$sow_arr = array();
 				while ($row = mysqli_fetch_row($resultq)) {	
-					$foster['foster_id'] =$row[0];
-					$foster_arr[] = $foster;
+					$sow['parent_id'] =$row[0];
+					$sow['label_id'] =$row[1];
+					$fsow_arr[] = $sow;
 						
 				}
 
-				return $foster_arr;
+				return $fsow_arr;
 		}
 		public function ddl_breeds()
 	    {

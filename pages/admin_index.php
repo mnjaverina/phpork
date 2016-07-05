@@ -72,31 +72,31 @@
       </div>
 
     <div class="box">
-        <a href="#">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" style="width:50%; height: 50%; margin: auto;"> 
+        <button id="addParent" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalPig">
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Select Pig.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Parent</span>
-        </a>
+        </button>
       </div>
 
       <div class="box">
-        <a href="#">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" style="width:50%; height: 50%; margin: auto;"> 
+        <button id="addBreed" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalBreed">
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Select Pig.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Breed</span>
-        </a>
+        </button>
       </div>
 
       <div class="box">
-        <a href="#">
+         <button id="addFeeds" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalFeed">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Feeds.png" style="width:50%; height: 50%; margin: auto;"> 
-          <span>Add Feed</span>
-        </a>
+          <span>Add Feeds</span>
+        </button>
       </div>
 
       <div class="box">
-        <a href="#">
+         <button id="addMeds" style="background-color: white; border: none;" data-toggle="modal" data-target="#myModalMeds">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Medications.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Medication</span>
-        </a>
+        </button>
       </div>
    
     <div class="page-footer"> 
@@ -108,7 +108,6 @@
       <div class="modal-dialog">
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
-
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Add User</h4>
           </div>
@@ -180,6 +179,13 @@
           </div>
           <div class="modal-body">
             <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Location: </span>
+              <select class="form-control" id="farm" style="color:black;" required> 
+                    <option value="" disabled selected>Select farm location...</option> 
+            </select>
+            </div>
+            <br/>
+            <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">House Number: </span>
               <input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
             </div>
@@ -217,6 +223,20 @@
           </div>
           <div class="modal-body">
             <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Location: </span>
+              <select class="form-control" id="farm" style="color:black;" required> 
+                    <option value="" disabled selected>Select farm location...</option> 
+            </select>
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">House Number: </span>
+               <select class='form-control'  id='house' style='color:black;' required> 
+                      <option value='' disabled selected>Select house...</option> 
+            </select> 
+            </div>
+            <br/>
+            <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
               <input type="text" class="form-control" id="pennum" aria-describedby="basic-addon3">
             </div>
@@ -234,6 +254,111 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" id="savePen">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Add Parent -->
+     <div id="myModalParent" class="modal fade" role="dialog" >
+      <div class="modal-dialog">
+        <div class="modal-content"> <!-- Modal content-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+            <h4 class="modal-title">Add Parent</h4>
+          </div>
+          <div class="modal-body">
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Label: </span>
+              <select  class="form-control" id="parentLabel"  style="color:black;" required> 
+                      <option value="" disabled selected>Select parent label</option> 
+                      <option value="boar">Boar</option> 
+                      <option value="sow">Sow</option> 
+              </select> 
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Label ID: </span>
+              <input type="text" class="form-control" id="label_id" aria-describedby="basic-addon3">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="saveParent">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Add Breed -->
+     <div id="myModalBreed" class="modal fade" role="dialog" >
+      <div class="modal-dialog">
+        <div class="modal-content"> <!-- Modal content-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+            <h4 class="modal-title">Add Parent</h4>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Breed Name: </span>
+              <input type="text" class="form-control" id="breed_name" aria-describedby="basic-addon3">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="saveBreed">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal for Add Feed -->
+     <div id="myModalFeed" class="modal fade" role="dialog" >
+      <div class="modal-dialog">
+        <div class="modal-content"> <!-- Modal content-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+            <h4 class="modal-title">Add Feed</h4>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Feed Name: </span>
+              <input type="text" class="form-control" id="feed_name" aria-describedby="basic-addon3">
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Feed Type: </span>
+              <input type="text" class="form-control" id="feed_type" aria-describedby="basic-addon3">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="saveFeed">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Add Med -->
+     <div id="myModalMeds" class="modal fade" role="dialog" >
+      <div class="modal-dialog">
+        <div class="modal-content"> <!-- Modal content-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+            <h4 class="modal-title">Add Medication</h4>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Med Name: </span>
+              <input type="text" class="form-control" id="med_name" aria-describedby="basic-addon3">
+            </div>
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">Med Type: </span>
+              <input type="text" class="form-control" id="med_type" aria-describedby="basic-addon3">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="saveMeds">Add</button>
           </div>
         </div>
       </div>
@@ -279,11 +404,11 @@
 
 
          $('#addFarm').on("click",function() {
-            $('#myModalHouse').modal('show');
+            $('#myModalFarm').modal('show');
           });
          
          $('#saveFarm').on("click",function(){
-          var locName = $("#fname").val(); 
+          var locName = $("#farm").val(); 
           var locAdd = $("#fadd").val(); 
 
           console.log("Loc Name: "+locName);
@@ -338,15 +463,40 @@
          // window.location = "/phpork/admin/home";
         });
 
+        /*Add Pen */
+
+        $('#farm').on("change", function(e) {
+            e.preventDefault(); 
+              var location = $('#farm').val();
+
+              $.ajax({
+                url: '/phpork/gateway/house.php',
+                type: 'post',
+                data : {
+                  getHouseByLoc: '1',
+                  loc: location
+                },
+                success: function (data) { 
+                   var data = jQuery.parseJSON(data); 
+                      for(i=0;i<data.length;i++){
+                        $("#house").append($("<option></option>").attr("value",data[i].h_id)
+                          .attr("name","house")
+                          .text("House " +data[i].h_no)); 
+                      }
+                    } 
+              });
+           });
+
          $('#addPen').on("click",function() {
             $('#myModalPen').modal('show');
           });
 
          $('#savePen').on("click",function(){
-          var houseno = $("#houseid").val();
-          var location = $('#locid').val();
+          var houseno = $("#house").val();
+          var location = $('#farm').val();
           var penNum = $("#pennum").val(); 
           var func = $("#func").val(); 
+
           if((penNum != '') && (func != '') ){
             $.ajax({
               url: '/phpork/gateway/pen.php',
@@ -363,10 +513,147 @@
                 } 
             });
           }
-          // window.location = "/phpork/admin/home";
+           window.location = "/phpork/admin/home";
         });
+         /*End of Add Pen*/
 
-    });
+         /*Add Parent*/
+         $('#addParent').on("click",function() {
+            $('#myModalParent').modal('show');
+          });
+
+         $('#saveParent').on("click",function(){
+          var label = $("#parentLabel").val();
+          var label_id = $('#label_id').val();
+         
+          if((label != '') && (label_id != '') ){
+            $.ajax({
+              url: '/phpork/gateway/pig.php',
+              type: 'post',
+              data : {
+                addParent: '1',
+                label: label,
+                label_id:  label_id
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Parent added");
+                } 
+            });
+          }
+           window.location = "/phpork/admin/home";
+        });
+         /*End of Add Parent*/
+
+         /*Add Breed*/
+         $('#addBreed').on("click",function() {
+            $('#myModalBreed').modal('show');
+          });
+
+         $('#saveBreed').on("click",function(){
+          var breed_name = $("#breed_name").val();
+          
+         
+          if((breed_name != '') ){
+            $.ajax({
+              url: '/phpork/gateway/pig.php',
+              type: 'post',
+              data : {
+                addParent: '1',
+                label: label,
+                label_id:  label_id
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Parent added");
+                } 
+            });
+          }
+           window.location = "/phpork/admin/home";
+        });
+         /*End of Add Breed*/
+
+          /*Add Feed*/
+         $('#addFeed').on("click",function() {
+            $('#myModalFeed').modal('show');
+          });
+
+         $('#saveParent').on("click",function(){
+          var feed_name = $("#feed_name").val();
+           var feed_type = $("#feed_type").val();
+          
+         
+          if((feed_name != '') && (feed_type != '') ){
+            $.ajax({
+              url: '/phpork/gateway/feeds.php',
+              type: 'post',
+              data : {
+               addFeedName: '1',
+                fname: feed_name,
+                ftype: feed_type
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Feeds added");
+                } 
+            });
+          }
+           window.location = "/phpork/admin/home";
+        });
+         /*End of Add Feed*/
+
+
+         /*Add Med*/
+         $('#addMeds').on("click",function() {
+            $('#myModalMeds').modal('show');
+          });
+
+         $('#saveMeds').on("click",function(){
+          var med_name = $("#med_name").val();
+           var med_type = $("#med_type").val();
+          
+         
+          if((med_name != '') && (med_type != '') ){
+            $.ajax({
+              url: '/phpork/gateway/meds.php',
+              type: 'post',
+              data : {
+               addMedName: '1',
+                mname: med_name,
+                mtype: med_type
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Medication added");
+                } 
+            });
+          }
+           window.location = "/phpork/admin/home";
+        });
+         /*End of Add Med*/
+
+  
+
+    //select farm
+    $.ajax({
+          url: '/phpork/gateway/location.php',
+          type: 'post',
+          data : {
+            ddl_location: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data); 
+                for(i=0;i<data.length;i++){
+                  $("#farm").append($("<option></option>").attr("value",data[i].loc_id)
+                    .attr("name","location")
+                    .text(data[i].loc_name)); 
+                }
+                   
+              } 
+          
+        });
+     });
+
     </script>
   </body>
 </html>
