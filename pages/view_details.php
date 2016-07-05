@@ -135,31 +135,31 @@
 		<!--Icons-->
 		<div style="float: left; max-width: 13%; max-height: 30%; margin-right: 0px; margin-top: 2%; padding-left: 1%; padding-right: 0px;"> 
 			<div class="col-md-2 col-centered" style="height: 75%; width: 75%; margin-right: 0px;">
-				<button id="movement" style="background-color: white; border: none;">
-			        <img class="img-responsive" id="movement" src="<?php echo HOST;?>/phpork/images/Feeds2.png"> 
+				<button id="movement" style="background-color: white; border: none; outline: none;">
+			       <img class="img-responsive" id="movement" src="<?php echo HOST;?>/phpork/images/Feeds2.png">
 			    </button>
 			</div>
 			<br/>
 			<div class="col-md-2 col-centered" style="height: 75%; width: 75%;">
-			    <button id="medication" style="background-color: white; border: none;">
+			    <button id="medication" style="background-color: white; border: none; outline: none;">
 			        <img class="img-responsive"  src="<?php echo HOST;?>/phpork/images/Medications.png">
 			    </button>
 			</div>
 			<br/>
 			<div class="col-md-2 col-centered" style="height: 75%; width: 75%;">
-			    <button id="feeds1" style="background-color: white; border: none;">
+			    <button id="feeds1" style="background-color: white; border: none; outline: none;">
 			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Feeds2.png">
 			    </button> 
 			</div>
 			<br/>
 			<div class="col-md-2 col-centered" style="height: 75%; width: 75%;">
-			    <button id="weight" style="background-color: white; border: none;">
+			    <button id="weight" style="background-color: white; border: none; outline: none;">
 			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Feeds2.png">
 			    </button>
 			</div>
 			<br/>
 			<div class="col-md-2 col-centered" style="height: 75%; width: 75%;">
-			    <button id="backToPig" style="background-color: white; border: none;">
+			    <button id="backToPig" style="background-color: white; border: none; outline: none;">
 			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png">
 			    </button> 
 			</div>	
@@ -366,6 +366,14 @@
 				</div> <!--edit feeds-->
 			</div> 
 			<!--view feeds-->
+
+			<!--view weight-->
+			<div id="viewWeight" style="display: none;">
+			    <div style="max-width: 100%; padding-top: 0%; padding-left: 0px; margin-right: 12%; margin-top: 0px; margin: 2%; margin-left: 0px;">
+			    	<button>Insert Weight</button>
+			    </div>
+			</div> 
+			<!--view weight-->
 
 			
 		</div>
