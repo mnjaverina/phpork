@@ -32,11 +32,11 @@
   </head> 
 
   <body> 
-    <div class="page-header"> 
-      <a href="<?php echo HOST;?>/phpork/home">
-        <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
-      </a>
-    </div>
+   <div class="page-header"> 
+          <a href="<?php echo HOST;?>/phpork/home" title="Click to go back to home page">
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
+          </a>
+      </div>
 
     <form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="/phpork/out" style="width:50%;float:right;"> 
       <div class="form-group logout" > 

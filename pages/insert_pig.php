@@ -157,32 +157,14 @@
               <select  name="pboar" id="boarParent" class='form-control' required> 
                     <option value="" disabled selected>Select boar...</option> 
                     <option value="null">N/A</option> 
-                    <?php 
-                      $boar_arr = $db->ddl_boar(); 
-                      foreach ($boar_arr as $key => $array) {
-                        echo "<option value='".$array['boar_id']."' id='boar_id' > ".$array['boar_id']." </option>"; 
-                      } 
-                    ?> 
                   </select> 
                   <select  name="psow" id="sowParent" class='form-control' required> 
                     <option value="" disabled selected>Select sow...</option> 
                     <option value="null">N/A</option> 
-                    <?php 
-                      $sow_arr = $db->ddl_sow(); 
-                      foreach ($sow_arr as $key => $array) {
-                        echo "<option value='".$array['sow_id']."' id='sow_id' > ".$array['sow_id']." </option>"; 
-                      } 
-                    ?> 
                   </select> 
                   <select name="pfoster" id="fosterParent" class="form-control" required> 
                     <option value="" disabled selected>Select foster sow...</option> 
                     <option value="null">N/A</option> 
-                    <?php 
-                      $foster_arr = $db->ddl_foster(); 
-                      foreach ($foster_arr as $key => $array) {
-                        echo "<option value='".$array['fos_id']."' id='fos_id' > ".$array['fos_id']." </option>"; 
-                      } 
-                    ?> 
                   </select> 
             </div>
             <br/>
@@ -627,9 +609,66 @@
           
         });
 
+        //select boar
+        $.ajax({
+          url: '/phpork/gateway/pig.php',
+          type: 'post',
+          data : {
+           ddl_boar: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data); 
+                for(i=0;i<data.length;i++){
+                  $("#boarParent").append($("<option></option>").attr("value",data[i].parent_id)
+                    .attr("name","meds")
+                    .text(data[i].label_id)); 
+                }
+                   
+              } 
+          
+        });
+
+        //select sow
+         $.ajax({
+          url: '/phpork/gateway/pig.php',
+          type: 'post',
+          data : {
+           ddl_sow: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data); 
+                for(i=0;i<data.length;i++){
+                  $("#sowParent").append($("<option></option>").attr("value",data[i].parent_id)
+                    .attr("name","meds")
+                    .text(data[i].label_id)); 
+                }
+                   
+              } 
+          
+        });
+
+         //foster sow
+          $.ajax({
+          url: '/phpork/gateway/pig.php',
+          type: 'post',
+          data : {
+           ddl_foster: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data); 
+                for(i=0;i<data.length;i++){
+                  $("#fosterParent").append($("<option></option>").attr("value",data[i].parent_id)
+                    .attr("name","meds")
+                    .text(data[i].label_id)); 
+                }
+                   
+              } 
+          
+        });
+
         
       </script>
-
+ 
 
   </body>
 </html>

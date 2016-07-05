@@ -38,9 +38,9 @@
 			} 
 		}
 	} 
-	if(isset($_GET['addMedName'])){
-		$mname = $_GET['mname'];
-		$mtype = $_GET['mtype'];
+	if(isset($_POST['addMedName'])){
+		$mname = $_POST['mname'];
+		$mtype = $_POST['mtype'];
 		echo json_encode($db->addMedName($mname,$mtype)); 
 		//localhost/phpork2/gateway/meds.php?addMedName=1&mname=med&mtype=medtype
 	} 

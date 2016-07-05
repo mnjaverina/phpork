@@ -98,15 +98,27 @@
 		echo json_encode($db->getUserEdited($pid));
 		//http://localhost/phpork2/gateway/pig.php?getUserEdited=1&pig=1
 	}
-	if(isset($_GET['ddl_sow'])){
+
+	if(isset($_POST['addParent'])){
+		$lbl = $_POST['label'];
+		$lbl_id = $_POST['label_id'];
+		echo json_encode($db->addParent($lbl,$lbl_id)); 
+		//localhost/phpork2/gateway/pig.php?addParent=1&lbl=sow&lbl_id=2345
+	} 
+	if(isset($_POST['addBreed'])){
+		$br_name = $_POST['breed_name'];
+		echo json_encode($db->addParent($br_name)); 
+		//localhost/phpork2/gateway/pig.php?addBreed=1&breed_name=Galore-White
+	} 
+	if(isset($_POST['ddl_sow'])){
 		echo json_encode($db->ddl_sow());
 		//http://localhost/phpork2/gateway/pig.php?ddl_sow=1
 	}
-	if(isset($_GET['ddl_boar'])){
+	if(isset($_POST['ddl_boar'])){
 		echo json_encode($db->ddl_boar());
 		//http://localhost/phpork2/gateway/pig.php?ddl_boar=1
 	}
-	if(isset($_GET['ddl_foster'])){
+	if(isset($_POST['ddl_foster'])){
 		echo json_encode($db->ddl_foster());
 		//http://localhost/phpork2/gateway/pig.php?ddl_foster=1
 	}
