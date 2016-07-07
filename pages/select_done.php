@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-responsive.css">
-    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css"> 
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_select.css"> 
 
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
@@ -49,16 +49,16 @@
     </form> 
     
     <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
+      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 9%; margin-left: 0px;">
         <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 9%;">
         <img src="<?php echo HOST;?>/phpork/images/Selected House.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 9%;">
         <img src="<?php echo HOST;?>/phpork/images/Selected Pen.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 0px;">
+      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 0px;">
         <img src="<?php echo HOST;?>/phpork/images/Selected Pig.png" class="img-responsive">
       </div>
     </div>

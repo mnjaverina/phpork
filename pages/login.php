@@ -53,14 +53,14 @@
     <div class="container">
       <div class="row row-right pos3">
         <div class="col-md-2 col-centered" style="height: 10%; width: 13%;">
-          <img src="<?php echo HOST;?>/phpork/css/images/qrcode.png" class="img-responsive">
+          <img src="<?php echo HOST;?>/phpork/images/qrcode.png" class="img-responsive">
         </div>
       </div>
       <form  method = "post"  autocomplete = "off">
         <div class="row row-centered pos1">
           <div class="col-sm-6 col-md-4 col-centered" style="background-color: #bb1d24; border-radius: 25px; padding-top: 1%">
             <a href="/phpork/user" title="Click to go back to user page">
-              <img src="<?php echo HOST;?>/phpork/css/images/logo.jpg" class="img-responsive">
+              <img src="<?php echo HOST;?>/phpork/images/logo.jpg" class="img-responsive">
             </a>
             <div class="form-group form-group-sm input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -72,7 +72,7 @@
             </div>
             <button type="submit" class="submit" name="loginFlag">
               <i class="fa fa-long-arrow-right">
-                <img src="<?php echo HOST;?>/phpork/css/images/arrow.png" id="arrow_img">
+                <img src="<?php echo HOST;?>/phpork/images/arrow.png" id="arrow_img">
               </i>
             </button>    
           </div>

@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-responsive.css">
-    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css">
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_select.css">
 
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
@@ -32,6 +32,7 @@
   </head> 
 
   <body> 
+    <div class="container">
    <div class="page-header"> 
       <a href="<?php echo HOST;?>/phpork/home">
         <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
@@ -48,16 +49,16 @@
     </form> 
 
     <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
+      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 9%; margin-left: 0px;">
         <img src="<?php echo HOST;?>/phpork/images/Select Farm.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 9%;">
         <img src="<?php echo HOST;?>/phpork/images/Select House.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 9%;">
         <img src="<?php echo HOST;?>/phpork/images/Select Pen.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 0px;">
+      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 0px;">
         <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
       </div>
     </div>
@@ -69,7 +70,7 @@
             <option selected="true" disabled="disabled" id="select">Select farm</option> 
           </select> 
         </span> 
-        <br/> <br/> <br/>
+        <br/> <br/>
         <button type="button" class="btn1" id="nextF">
           Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         </button>
@@ -79,6 +80,7 @@
     <div class="page-footer"> 
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
     </div>
+  </div>
 
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog" >
@@ -134,7 +136,7 @@
           for(i=0;i<data.length;i++){
             $("#dropdown").append($("<option></option>").attr("value",data[i].loc_id)
                           .attr("name","location")
-                          .text("Farm " +data[i].loc_id)); 
+                          .text(data[i].loc_name)); 
           } 
         }    
       });
