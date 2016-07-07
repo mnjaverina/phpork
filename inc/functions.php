@@ -509,7 +509,7 @@
 		    $query  = "SELECT tag_rfid,
 		                tag_id 
 		                FROM rfid_tags 
-		                WHERE pig_id = '" . $pigid . "' and status='inactive'
+		                WHERE label = '" . $pigid . "' and status='inactive'
 		                LIMIT 1";
 		    $result = mysqli_query($link, $query);
 		    $row    = mysqli_fetch_row($result);

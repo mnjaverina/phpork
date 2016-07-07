@@ -64,11 +64,13 @@
 		<link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_details.css"> 
 		<link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_amcharts.css" type="text/css">
 
-        <script src="<?php echo HOST;?>/phpork/js/amcharts/amcharts.js" type="text/javascript"></script>
+       <script src="<?php echo HOST;?>/phpork/js/amcharts/amcharts.js" type="text/javascript"></script>
         <script src="<?php echo HOST;?>/phpork/js/amcharts/serial.js" type="text/javascript"></script>
         <script src="<?php echo HOST;?>/phpork/js/jquery.js"></script> 
 		<script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
-	</head> 
+	    
+	    <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
+		</head> 
 
 	<body> 
 		<div class="page-header"> 
@@ -219,6 +221,12 @@
 					            <span> Edit Medication</span>
 					        </button>
 				    </div>
+				    <div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
+					        <button id="insertMedsButton">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Medications.png"> <!--modal-->
+					            <span> Insert Medication</span>
+					        </button>
+				    </div>
 				    <div>
 					    <label>Last medication given: </label><br/>
 					    <label>Name: </label><br/>
@@ -274,7 +282,6 @@
 							      <th>Medication Name</th>
 							      <th>Medication Type</th>
 							      <th>Edit to</th>
-							      <th>Action</th>
 							    </tr>
 							  </thead>
 							  <tbody class="tb_feeds" id="editMedsBody">
@@ -284,6 +291,47 @@
 						</div>
 					</div>
 				</div> <!--edit meds-->
+				<!-- insert meds -->
+				<div id="insertMedsDetails" style="display: none;"> 
+				    <div style="margin-left: 15%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 13%; margin-top: 0px;">
+				    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
+					        <a id="viewMedDetails" class="" href="/phpork/viewDetails/view/meds"> 
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> <!--movement-->
+					            <span> Save</span>
+					        </a>
+				    	</div>
+				   		<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
+					        <button id="cancelEditMeds">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> <!--movement-->
+					            <span>Back</span>
+					        </button>
+				    	</div>
+				    	<br/>
+				    	<div style="width:100% !important;">
+		 					<select name="selChoice"  id="selectMedchoice" style="color:black; border-radius:5px;width:30%;align:center; ">
+		 						<option value="" disabled selected>Select if per pen or per pig..</option> 
+			 					<option value="perpen"> Select per pen</option>
+			 					<option value="perpig">Select per pig</option>
+			 				</select>
+		 				</div>
+				    	<br/>
+				    	<div style="margin: 0px;">
+					    	<table class="table table-striped t_feeds">
+							  <thead>
+							    <tr class="tr_feeds">
+							      <th>Medication Name</th>
+							      <th>Medication Type</th>
+							      <th>Edit to</th>
+							    </tr>
+							  </thead>
+							  <tbody class="tb_feeds" id="editMedsBody">
+							   
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- insert meds -->
 			</div>
 			<!--view meds-->
 
@@ -296,6 +344,12 @@
 					            <span> Edit Feeds</span>
 					        </button>
 					</div>
+					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
+					        <button id="insertFeedsButton" data-toggle="modal" data-target="#modalInsertFeeds">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Feeds.png"> <!--modal-->
+					            <span> Insert Feeds</span>
+					        </button>
+				    </div>
 					<div>
 						<label>Last feed given: </label><br/>
 						<label>Feed name: </label><br/>
@@ -375,6 +429,51 @@
 			</div> 
 			<!--view weight-->
 
+		
+		<!-- Modal for insert feeds-->
+			    <div id="modalInsertFeeds" class="modal fade" role="dialog">
+			      <div class="modal-dialog">
+			        <div class="modal-content"> <!-- Modal content-->
+			          <div class="modal-header">
+			            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+			            <h4 class="modal-title">Feeds</h4>
+			          </div>
+			          <div class="modal-body">
+			          	<input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
+			          	<br/>
+			            <div class="input-group">
+			              <span class="input-group-addon" id="basic-addon3">Last feed given: </span>
+			              <input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
+			            </div>
+			            <br/>
+			            <div class="input-group">
+			              <span class="input-group-addon" id="basic-addon3">Production date: </span>
+			              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+			            </div>
+			            <br/>
+			            <div class="input-group">
+			              <span class="input-group-addon" id="basic-addon3">Quantity: </span>
+			              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+			            </div>
+			            <br/>
+			            <div class="input-group">
+			              <span class="input-group-addon" id="basic-addon3">Date given: </span>
+			              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+			            </div>
+			            <br/>
+			            <div class="input-group">
+			              <span class="input-group-addon" id="basic-addon3">Time given: </span>
+			              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+			            </div>
+			            <br/>
+			          </div>
+			          <div class="modal-footer">
+			            <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Insert Feeds</button>
+			          </div>
+			        </div>
+			      </div> 
+			      <!-- Modal for insert feeds-->
+
 			
 		</div>
 		<!--VIEWS-->
@@ -397,7 +496,7 @@
       ?>
     </div>
 
-	<script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
+	<script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script>
 	<script type="text/javascript"> 
       $(document).ready(function () {
       	var pig_id = $('#pigid').val();
@@ -639,8 +738,13 @@
             //$('#viewWeight').attr("style", "display: none");
         });
 
+        /*view meds */
+
          $('#medication').on("click",function() {
           $('#viewMeds').attr("style", "display: inline-block");
+           $('#viewMedsInfo').attr("style", "display: inline-block");
+           $('#editMedsDetails').attr("style", "display: none");
+             $('#insertMedsDetails').attr("style", "display: none");
           $('#viewMovement').attr("style", "display: none");
           $('#viewFeeds').attr("style", "display: none");
             //$('#viewWeight').attr("style", "display: none");
@@ -649,17 +753,34 @@
          $('#editMedsButton').on("click",function() {
            $('#viewMedsInfo').attr("style", "display: none");
             $('#editMedsDetails').attr("style", "display: inline-block");
+             $('#insertMedsDetails').attr("style", "display: none");
 
         });
+
 
         $('#cancelEditMeds').on("click",function() {
            $('#viewMedsInfo').attr("style", "display: inline-block");
             $('#editMedsDetails').attr("style", "display: none");
 
         });
+        $('#insertMedsButton').on("click",function() {
+           $('#viewMedsInfo').attr("style", "display: none");
+            $('#editMedsDetails').attr("style", "display: none");
+            $('#insertMedsDetails').attr("style", "display: inline-block");
+
+        });
+
+         $('#selectMedchoice').on("change",function() {
+          window.location ="/phpork/pages/farm";
+        });
+
+
+         /*view meds */
 
           $('#feeds1').on("click",function() {
           	$('#viewFeeds').attr("style", "display: inline-block");
+          	$('#viewFeedsInfo').attr("style", "display: inline-block");
+            $('#editFeeds').attr("style", "display: none");
           	$('#viewMovement').attr("style", "display: none");
           	 $('#viewMeds').attr("style", "display: none");
 

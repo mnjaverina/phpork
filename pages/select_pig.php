@@ -66,7 +66,9 @@
       <div class="lowerPanel">
         <span class="custom-dropdown2"> 
           <select id="dropdown"> 
-            <option selected="true" disabled="disabled">Select Pig</option>
+           
+            <option selected="true" value="select" disabled="disabled">Select Pig</option>
+           
           </select> 
         </span> 
         <br/> <br/>  <br/>
@@ -76,24 +78,6 @@
         <button type="button" class="btn1" id="nextPg">
           Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         </button>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">  <!-- Modal content-->
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
-          </div>
-          <div class="modal-body">
-            <p>Some text in the modal.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -121,13 +105,10 @@
           var houseno = $("#houseid").val(); 
           var location = $("#locid").val(); 
           console.log(pig);
-          if(pig == null){
+          if(pig === null){
             alert("Select an option");
-          }else if(pig != "Pig"){ 
+          }else{
              window.location = "/phpork/farm/house/pen/pig/" +location+ "/" +houseno+ "/" +penno+ "/" +pig; 
-          }else{ 
-            $('#nextPg').attr("data-toggle", "modal")
-                        .attr("data-target", "#myModal"); 
           }
         });
 
@@ -154,7 +135,7 @@
           for(i=0;i<data.length;i++){
             $("#dropdown").append($("<option></option>").attr("value",data[i].pig_id)
                           .attr("name","pig")
-                          .text("Pig " +data[i].lbl)); 
+                          .text("Pig " +data[i].lbl));
             } 
           } 
         });

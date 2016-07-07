@@ -525,7 +525,7 @@
                        var data = jQuery.parseJSON(data); 
                        alert("Pig Added!");
 
-                      window.location = "/phpork/farm/house/pen/pig/" +data.ploc+ "/" +data.selHouse+ "/" +data.selPen+ "/" +data.new_pid; 
+                      window.location = "/phpork/view/farm/house/pen/pig/" +data.ploc+ "/" +data.selHouse+ "/" +data.selPen+ "/" +data.new_pid; 
                      }
                   });
             });
