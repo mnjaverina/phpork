@@ -48,16 +48,16 @@
     </form> 
 
     <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 9%; margin-left: 0px;">
+      <div class="col-md-2 col-centered image1">
         <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 9%;">
+      <div class="col-md-2 col-centered image2">
         <img src="<?php echo HOST;?>/phpork/images/Select House.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 9%;">
+      <div class="col-md-2 col-centered image2">
         <img src="<?php echo HOST;?>/phpork/images/Select Pen.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 12%; width: 12%; margin-right: 0px;">
+      <div class="col-md-2 col-centered image3">
         <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
       </div>
     </div>
