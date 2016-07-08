@@ -136,7 +136,7 @@
           for(i=0;i<data.length;i++){
             $("#dropdown").append($("<option></option>").attr("value",data[i].loc_id)
                           .attr("name","location")
-                          .text(data[i].loc_name)); 
+                          .text("Farm " +data[i].loc_id)); 
           } 
         }    
       });
