@@ -23,7 +23,7 @@
 				foreach ($sparray as $a ) {
 					
 					$db->addMeds($medid,$medDate,$medTime,$a,$medqty,$unit); 
-				
+					
 				}
 				
 				
@@ -38,6 +38,7 @@
 			} 
 		}
 	} 
+
 	if(isset($_POST['addMedName'])){
 		$mname = $_POST['mname'];
 		$mtype = $_POST['mtype'];

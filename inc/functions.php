@@ -976,11 +976,33 @@
 		/* end of pig.php details */
 
 		/*  med.php FUNCTIONS  */
+		 public function ddl_perpen($pen){
+	        $link     = $this->connect();
+	        $query    = "SELECT 
+	                        p.pig_id 
+	                    FROM  pig p
+	                        INNER JOIN pen pe 
+	                            ON pe.pen_id = p.pen_id 
+	                    WHERE p.pen_id  = '" . $pen . "' ";
+	        $result   = mysqli_query($link, $query);
+	        $ppen     = array();
+	        $arr_ppen = array();
+	        while ($row = mysqli_fetch_row($result)) {
+	            $arr_ppen[]    = $row[0];
+
+	        }
+	        return $arr_ppen;
+	    }
 		public function addMeds($mid, $mdate, $mtime, $pig,$qty,$unit)
 		{
 				$link = $this->connect();
-				$query = "INSERT INTO med_record(date_given,time_given,quantity,unit,pig_id,med_id) 
-							VALUES('" . $mdate . "','" . $mtime . "','" . $qty . "','" . $unit . "','" . $pig . "','" . $mid . "');";
+				$q = "SELECT max(mr_id)
+					FROM med_record";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO med_record(mr_id,date_given,time_given,quantity,unit,pig_id,med_id) 
+							VALUES('" . $max . "','" . $mdate . "','" . $mtime . "','" . $qty . "','" . $unit . "','" . $pig . "','" . $mid . "');";
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 			        "newId"=> $link->insert_id);
@@ -1175,8 +1197,13 @@
 		public function addFeeds($fid, $fdate, $ftime, $pig, $proddate,$qty)
 		{
 				$link = $this->connect();
-				$query = "INSERT INTO feed_transaction(quantity,unit,date_given,time_given,pig_id,feed_id,prod_date) 
-						VALUES('" . $qty . "','kg','" . $fdate . "','" . $ftime . "','" . $pig . "','" . $fid . "','" . $proddate . "');";
+				$q = "SELECT max(ft_id)
+					FROM feed_transaction";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO feed_transaction(ft_id,quantity,unit,date_given,time_given,pig_id,feed_id,prod_date) 
+						VALUES('" . $max . "','" . $qty . "','kg','" . $fdate . "','" . $ftime . "','" . $pig . "','" . $fid . "','" . $proddate . "');";
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 		                    "newId"=> $link->insert_id);
