@@ -63,6 +63,14 @@
 		echo json_encode($db->getFeedTransDetails($feed)); 
 		//localhost/phpork/gateway/feeds.php?getFeedTransDetails=1&feed=1
 	} 
+	if(isset($_POST['getFeedReport'])){
+		$pig = $_POST['pig']; 
+		$from = $_POST['from'];
+		$to = $_POST['to'];
+		
+		echo json_encode($db->getFeedReport($pig,$from,$to)); 
+		//localhost/phpork2/gateway/meds.php?getMedsDetails=1&med=1
+	} 
 	if(isset($_POST['ddl_feeds'])){
 		$arr_feed = $db->ddl_feeds(); 
 		echo json_encode($arr_feed);

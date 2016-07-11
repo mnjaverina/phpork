@@ -54,6 +54,13 @@
 		echo json_encode($db->getMedsDetails($med)); 
 		//localhost/phpork2/gateway/meds.php?getMedsDetails=1&med=1
 	} 
+	if(isset($_POST['getMedsReport'])){
+		$pig = $_POST['pig']; 
+		$from = $_POST['from'];
+		$to = $_POST['to'];
+		echo json_encode($db->getMedsReport($pig,$from,$to)); 
+		//localhost/phpork2/gateway/meds.php?getMedsDetails=1&med=1
+	} 
 	if(isset($_GET['getMedsTransDetails'])){
 		$med = $_GET['med']; 
 		echo json_encode($db->getMedsTransDetails($med)); 

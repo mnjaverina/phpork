@@ -66,10 +66,12 @@
 
        <script src="<?php echo HOST;?>/phpork/js/amcharts/amcharts.js" type="text/javascript"></script>
         <script src="<?php echo HOST;?>/phpork/js/amcharts/serial.js" type="text/javascript"></script>
-        <script src="<?php echo HOST;?>/phpork/js/jquery.js"></script> 
-		<script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
-	    
+        <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
+	    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
+	    <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script> 
+	    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
 	    <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
+	    <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
 		</head> 
 
 	<body> 
@@ -203,8 +205,8 @@
 						</table>
 					</div>
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					    <a href="#">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png"> <!--movement-->
+					    <a href="#" id ="mvmntRprt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMvmnt"> <!--movement-->
 					        <span> Download Report</span>
 					    </a>
 				    </div>
@@ -249,8 +251,8 @@
 					</div>
 					<br/>
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 8%;">
-					    <a href="#">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png"> <!--movement-->
+					    <a href="#" id ="medsRprt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMeds"> <!--movement-->
 					        <span> Download Report</span>
 					    </a>
 				    </div>
@@ -373,10 +375,10 @@
 					</div>
 					<br/>
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 8%;">
-						<a href="#">
-						    <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png"> 
-						    <span> Download Report</span>
-						</a>
+						<a href="#" id ="feedsRprt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportFeeds"> <!--movement-->
+					        <span> Download Report</span>
+					    </a>
 					</div>
 				</div>
 
@@ -431,53 +433,138 @@
 
 		
 		<!-- Modal for insert feeds-->
-			    <div id="modalInsertFeeds" class="modal fade" role="dialog">
-			      <div class="modal-dialog">
-			        <div class="modal-content"> <!-- Modal content-->
-			          <div class="modal-header">
-			            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-			            <h4 class="modal-title">Feeds</h4>
-			          </div>
-			          <div class="modal-body">
-			          	<input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
-			          	<br/>
-			            <div class="input-group">
-			              <span class="input-group-addon" id="basic-addon3">Last feed given: </span>
-			              <input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
-			            </div>
-			            <br/>
-			            <div class="input-group">
-			              <span class="input-group-addon" id="basic-addon3">Production date: </span>
-			              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
-			            </div>
-			            <br/>
-			            <div class="input-group">
-			              <span class="input-group-addon" id="basic-addon3">Quantity: </span>
-			              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
-			            </div>
-			            <br/>
-			            <div class="input-group">
-			              <span class="input-group-addon" id="basic-addon3">Date given: </span>
-			              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
-			            </div>
-			            <br/>
-			            <div class="input-group">
-			              <span class="input-group-addon" id="basic-addon3">Time given: </span>
-			              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
-			            </div>
-			            <br/>
-			          </div>
-			          <div class="modal-footer">
-			            <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Insert Feeds</button>
-			          </div>
-			        </div>
-			      </div> 
-			      <!-- Modal for insert feeds-->
+	    <div id="modalInsertFeeds" class="modal fade" role="dialog">
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Feeds</h4>
+	          </div>
+	          <div class="modal-body">
+	          	<input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
+	          	<br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">Last feed given: </span>
+	              <input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
+	            </div>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">Production date: </span>
+	              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+	            </div>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">Quantity: </span>
+	              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+	            </div>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">Date given: </span>
+	              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+	            </div>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">Time given: </span>
+	              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+	            </div>
+	            <br/>
+	          </div>
+	          <div class="modal-footer">
+	            <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Insert Feeds</button>
+	          </div>
+	        </div>
+	      </div> 
+	      <!-- Modal for insert feeds-->
 
 			
 		</div>
 		<!--VIEWS-->
-
+		<!-- Reports-->
+		<!-- Modal for movement report-->
+		<div id="myModalReportMvmnt" class="modal fade" role="dialog" >
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Download movement report</h4>
+	          </div>
+	          <div class="modal-body"> 
+	            <form>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">From: </span>
+	              <input type="date" class="form-control" id="from" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">To: </span>
+	              <input type="date" class="form-control" id="to" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	          </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_mvmntrprt">Download</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div id="myModalReportMeds" class="modal fade" role="dialog" >
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Download medication details report</h4>
+	          </div>
+	          <div class="modal-body"> 
+	            <form>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">From: </span>
+	              <input type="date" class="form-control" id="fromMeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">To: </span>
+	              <input type="date" class="form-control" id="toMeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	          </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_medsrprt">Download</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div id="myModalReportFeeds" class="modal fade" role="dialog" >
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Download feed details report</h4>
+	          </div>
+	          <div class="modal-body"> 
+	            <form>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">From: </span>
+	              <input type="date" class="form-control" id="fromFeeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">To: </span>
+	              <input type="date" class="form-control" id="toFeeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	          </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_feedsrprt">Download</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
 		<div class="page-footer"> 
 			Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
 		</div> 
@@ -496,7 +583,7 @@
       ?>
     </div>
 
-	<script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script>
+	
 	<script type="text/javascript"> 
       $(document).ready(function () {
       	var pig_id = $('#pigid').val();
@@ -799,11 +886,90 @@
         });
 
         
-          $('#backToPig').on("click",function() {
+      	$('#backToPig').on("click",function() {
            window.location ="/phpork/farm/house/pen/pig/" +farm_id+ "/" +house_id+ "/" +pen_id+ "/" +pig_id;
         });
-
-            
+        /* report movement*/
+        $('#mvmntRprt').on("click",function() {
+            $('#myModalReportMvmnt').modal('show');
+        });
+        $('#gen_mvmntrprt').on("click",function(){
+          var from = $('#from').val();
+          var to = $('#to').val();
+          var pig = $('#pigid').val(); 
+          if((from != '') && (to != '') && (pig != '') ){
+            $.ajax({
+              url: '/phpork/gateway/movement.php',
+              type: 'post',
+              data : {
+                getMvmntDetails: '1',
+                from: from,
+                to: to,
+                pig: pig
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Generated movement report! Saved in Desktop.");  
+                }
+            });
+          }
+          window.location = "/phpork/home";
+        });
+        /* report meds*/
+        $('#medsRprt').on("click",function() {
+            $('#myModalReportMeds').modal('show');
+        });
+        
+        $('#gen_medsrprt').on("click",function(){
+          var from = $('#fromMeds').val();
+          var to = $('#toMeds').val();
+          var pig = $('#pigid').val(); 
+          if((from != '') && (to != '') && (pig != '') ){
+            $.ajax({
+              url: '/phpork/gateway/meds.php',
+              type: 'post',
+              data : {
+                getMedsReport: '1',
+                from: from,
+                to: to,
+                pig: pig
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Generated medication report! Saved in Desktop.");  
+                }
+            });
+          }
+          window.location = "/phpork/home";
+        });
+        /* report feeds*/
+        $('#feedsRprt').on("click",function() {
+            $('#myModalReportFeeds').modal('show');
+        });
+        
+        $('#gen_feedsrprt').on("click",function(){
+          var from = $('#fromFeeds').val();
+          var to = $('#toFeeds').val();
+          var pig = $('#pigid').val(); 
+          
+          if((from != '') && (to != '') && (pig != '') ){
+            $.ajax({
+              url: '/phpork/gateway/feeds.php',
+              type: 'post',
+              data : {
+                getFeedReport: '1',
+                from: from,
+                to: to,
+                pig: pig
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Generated feed report! Saved in Desktop.");  
+                }
+            });
+          }
+          window.location = "/phpork/home";
+        });   
        
       }); 
 		
