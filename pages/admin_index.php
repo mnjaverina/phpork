@@ -398,11 +398,17 @@
                       usertype: uType
                     },
                     success: function (data) {
-
+                        alert("User added");
                         window.location = "/phpork/admin/home"; 
                     }    
                   });
-              }
+          }else{
+            if(uName == ''){
+              alert("Please input username.");
+            }else if(password == ''){
+              alert("Please input password.");              
+            }
+          }
 
           });
 
@@ -432,6 +438,12 @@
                   window.location = "/phpork/admin/home";
                 }
             });
+          }else{
+            if(locAdd == ''){
+              alert("Please input the address.");
+            }else if(locName == ''){
+              alert("Please input location's name.");              
+            }
           }
             
          
@@ -462,11 +474,20 @@
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
-                  alert("House added");  
+                  alert("House added"); 
+                   window.location = "/phpork/admin/home"; 
                 }
             });
+          }else{
+            if(hNum == ''){
+              alert("Please input house number.");
+            }else if(hName == ''){
+              alert("Please input house name.");              
+            }else if(func == ''){
+              alert("Please input house's function.");              
+            }
           }
-          window.location = "/phpork/admin/home";
+         
         });
         /*End of Add House*/
 
@@ -490,6 +511,7 @@
                           .attr("name","house")
                           .text("House " +data[i].h_no)); 
                       }
+
                     } 
               });
            });
@@ -518,10 +540,17 @@
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("Pen added");
+                   window.location = "/phpork/admin/home";
                 } 
             });
+          }else{
+            if(penNum == ''){
+              alert("Please input pen number.");
+            }else if(func == ''){
+              alert("Please input pen's function.");              
+            }
           }
-           window.location = "/phpork/admin/home";
+          
         });
          /*End of Add Pen*/
 
@@ -547,10 +576,17 @@
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("Parent added");
+                  window.location = "/phpork/admin/home";
                 } 
             });
+          }else{
+            if(label == ''){
+              alert("Please input pig label.");
+            }else if(label_id == ''){
+              alert("Please input label id.");              
+            }
           }
-           window.location = "/phpork/admin/home";
+           
         });
          /*End of Add Parent*/
 
@@ -575,10 +611,13 @@
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("Parent added");
+                  window.location = "/phpork/admin/home";
                 } 
             });
+          }else{
+            alert("Please input breed name.");
           }
-           window.location = "/phpork/admin/home";
+           
         });
          /*End of Add Breed*/
 
@@ -605,10 +644,17 @@
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("Feeds added");
+                  window.location = "/phpork/admin/home";
                 } 
             });
+          }else{
+            if(feed_name == ''){
+              alert("Please input feed name.");
+            }else if(feed_type == ''){
+              alert("Please input feed type.");              
+            }
           }
-           window.location = "/phpork/admin/home";
+           
         });
          /*End of Add Feed*/
 
@@ -636,12 +682,20 @@
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("Medication added");
+                  window.location = "/phpork/admin/home";
                 } 
             });
+          }else{
+            if(med_name == ''){
+              alert("Please input medication name.");
+            }else if(med_type == ''){
+              alert("Please input medication type.");              
+            }
           }
-           window.location = "/phpork/admin/home";
+           
         });
          /*End of Add Med*/
+          
 
   
 
