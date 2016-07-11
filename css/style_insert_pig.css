@@ -1,28 +1,9 @@
-.target {
-    width:50%;
-    height:200px;
-    border:solid black 1px; 
-}
-.target > div {
-    display:none;
-}
-
-.target > div:target{
-    display:block;
-}
-
-body{
-     margin-bottom: 40px;
-}
-
 .container{
   margin: 0;
   padding: 0;
   width: 100%;
   max-height: 100%;
 }
-
-
 .page-header { 
   margin-top:0px;
   margin-bottom: 0;
@@ -30,45 +11,29 @@ body{
   border: #b44230;
   width: 100%;
 }
-
 .page-header img{
   width: 100%;
-}
-
-
-.page-footer {
-    background-color: #bb1d24;
-    text-align: center;
-    color: white;
-    width: 100%;
-    bottom: 0;
-    height: 30px;
-    position: fixed;
-    overflow: hidden;
 }
 
 form{
   margin-top: 1%;
   margin-left: 50%;
 }
-
 form .logout{
   font-size: .9em;
   margin: 0 5% 0 0;
 }
-
 .step-indicator {
   margin-bottom: 0px;
   overflow: hidden;
   counter-reset: step;
-
 }
 .step-indicator li{
   list-style-type: none;
   color: black;
   text-transform: uppercase;
   font-size: 1em;
-  width: 20%;
+  width: 12%;
   float: left;
   position: relative;
   text-align: center;
@@ -102,7 +67,7 @@ form .logout{
   content: none; 
 }
 .step-indicator li.active:before, .step-indicator li.active:after {
-    background: #bb1d24;
+  background: #bb1d24;
   color: white;
   box-shadow: 1px 1px 12px 2px #bb1d24;
 }
@@ -112,7 +77,6 @@ form .logout{
   margin-left: 25%;
   width: 50%;
   height: 200px;
-
   background-color: #efe8bd;
   border-radius: 5px;
   border: 3px solid #e5dec9;
@@ -121,56 +85,172 @@ form .logout{
   display: block;
 }
 
-.pos1{
-  position: relative;
-  top: 30px;
-  bottom: 50px;
-}
-
 .row-centered {
   text-align:center;
 }
 
-.lowerPanel{
-  max-width: 52%; 
-  height: 75%; 
-  margin-left: 25%; 
-  margin-top: 0px; 
-  padding: 20px; 
-  padding-top: 2px;
-  border-radius: 30px; 
-  background-color: #9ecf95;
-}
-
-.lowerPanel1{
-  max-width: 40%; 
-  height: 80%; 
-  margin-left: 30%; 
-  margin-top: 0px; 
-  padding: 20px; 
-  padding-top: 2px;
-  border-radius: 30px; 
-  background-color: #9ecf95;
-}
-
-.btn1{
-  height: 25%;
-  width: 20%;
-  background-color: white; 
-  border-radius: 10px;
-  font-size: 20px;
-  background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
-}
-
-.btn2{
-  height: 25%;
-  width: 17%;
-  background-color: white; 
-  border-radius: 10px;
-  font-size: 20px;
-  background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
-}
-
 a:link, a:visited {
   color: #696969;
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+  .lowerPanel{
+    max-width: 100%; 
+    margin-top: 1%; 
+    padding: 20px; 
+    padding-top: 2px;
+    border-radius: 30px; 
+    background-color: #9ecf95;
+    margin-bottom: 1%;
+  }
+
+  .lowerPanel1{
+    max-width: 100%; 
+    margin-left: 30%; 
+    margin-top: 0px; 
+    padding: 20px; 
+    padding-top: 2px;
+    border-radius: 30px; 
+    background-color: #9ecf95;
+  }
+  .pos1{
+    width:100%;
+    margin-top: 2%; 
+    margin-left: -42%; 
+    margin-bottom: 3%;
+  }
+  .content{
+    margin-left: -28%;
+  }
+  .btnpos{
+    margin-left: -5%;
+    padding: 1%;
+  }
+  .page-footer {
+    background-color: #bb1d24;
+    text-align: center;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    height: 4%;
+    overflow: hidden;
+    position: fixed;
+  }
+  .btn1{
+    height: 25%;
+    width: 30%;
+    background-color: white; 
+    border-radius: 10px;
+    font-size: 20px;
+    background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
+  }
+  
+}
+
+@media (min-width: 1280px) and (max-width: 1899px){
+  .lowerPanel{
+    max-width: 80%; 
+    margin-top: 1%; 
+    padding: 20px; 
+    padding-top: 2px;
+    border-radius: 30px; 
+    background-color: #9ecf95;
+    margin-bottom: 1%;
+  }
+
+  .lowerPanel1{
+    max-width: 100%; 
+    margin-left: 30%; 
+    margin-top: 0px; 
+    padding: 20px; 
+    padding-top: 2px;
+    border-radius: 30px; 
+    background-color: #9ecf95;
+  }
+  .pos1{
+    width:100%;
+    margin-top: 2%; 
+    margin-left: -37%; 
+    margin-bottom: 3%;
+  }
+  .content{
+    margin-left: -30%;
+  }
+  .btnpos{
+    margin-left: -17%;
+    padding: 1%;
+  }
+  .page-footer {
+    background-color: #bb1d24;
+    text-align: center;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    height: 4%;
+    margin-bottom: 0px;
+    overflow: hidden;
+    position: fixed;
+  }
+  .btn1{
+    height: 25%;
+    width: 20%;
+    background-color: white; 
+    border-radius: 10px;
+    font-size: 20px;
+    background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .lowerPanel{
+    max-width: 80%; 
+    margin-top: 1%; 
+    padding: 20px; 
+    padding-top: 2px;
+    border-radius: 30px; 
+    background-color: #9ecf95;
+    margin-bottom: 1%;
+  }
+
+  .lowerPanel1{
+    max-width: 100%; 
+    margin-left: 30%; 
+    margin-top: 0px; 
+    padding: 20px; 
+    padding-top: 2px;
+    border-radius: 30px; 
+    background-color: #9ecf95;
+  }
+  .pos1{
+    width:100%;
+    margin-top: 3%; 
+    margin-left: -35%; 
+    margin-bottom: 3%;
+  }
+  .content{
+    margin-left: -30%;
+  }
+  .btnpos{
+    margin-left: -20%;
+    padding: 1%;
+  }
+  .page-footer {
+    background-color: #bb1d24;
+    text-align: center;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    height: 4%;
+    margin-bottom: 0px;
+    overflow: hidden;
+    position: fixed;
+  }
+  .btn1{
+    height: 25%;
+    width: 20%;
+    background-color: white; 
+    border-radius: 10px;
+    font-size: 20px;
+    background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
+  }
 }
