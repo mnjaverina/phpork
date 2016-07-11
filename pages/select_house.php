@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-responsive.css">
-    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css">
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_select.css">
 
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
@@ -48,16 +48,16 @@
     </form> 
 
     <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
+      <div class="col-md-2 col-centered image1">
         <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+      <div class="col-md-2 col-centered image2">
         <img src="<?php echo HOST;?>/phpork/images/Select House.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+      <div class="col-md-2 col-centered image2">
         <img src="<?php echo HOST;?>/phpork/images/Select Pen.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 0px;">
+      <div class="col-md-2 col-centered image3">
         <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
       </div>
     </div>
@@ -69,7 +69,7 @@
             <option selected="true" disabled="disabled" id="select">Select House</option>
           </select> 
         </span> 
-        <br/> <br/>  <br/>
+        <br/> <br/>
         <button type="button" class="btn1" id="backH">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back 
         </button>

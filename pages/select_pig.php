@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-responsive.css">
-    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/select.css"> 
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_select.css"> 
 
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
@@ -48,16 +48,16 @@
     </form> 
     
     <div class="row row-centered pos col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%; margin-left: 0px;">
+      <div class="col-md-2 col-centered image1">
         <img src="<?php echo HOST;?>/phpork/images/Selected Farm.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+      <div class="col-md-2 col-centered image2">
         <img src="<?php echo HOST;?>/phpork/images/Selected House.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 9%;">
+      <div class="col-md-2 col-centered image2">
         <img src="<?php echo HOST;?>/phpork/images/Selected Pen.png" class="img-responsive">
       </div>
-      <div class="col-md-2 col-centered" style="height: 10%; width: 10%; margin-right: 0px;">
+      <div class="col-md-2 col-centered image3">
         <img src="<?php echo HOST;?>/phpork/images/Select Pig.png" class="img-responsive">
       </div>
     </div>
@@ -66,18 +66,34 @@
       <div class="lowerPanel">
         <span class="custom-dropdown2"> 
           <select id="dropdown"> 
-           
-            <option selected="true" value="select" disabled="disabled">Select Pig</option>
-           
+            <option selected="true" disabled="disabled">Select Pig</option>
           </select> 
         </span> 
-        <br/> <br/>  <br/>
+        <br/> <br/>
         <button type="button" class="btn1" id="backPg">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
         </button>
         <button type="button" class="btn1" id="nextPg">
           Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         </button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">  <!-- Modal content-->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -105,10 +121,13 @@
           var houseno = $("#houseid").val(); 
           var location = $("#locid").val(); 
           console.log(pig);
-          if(pig === null){
+          if(pig == null){
             alert("Select an option");
-          }else{
+          }else if(pig != "Pig"){ 
              window.location = "/phpork/farm/house/pen/pig/" +location+ "/" +houseno+ "/" +penno+ "/" +pig; 
+          }else{ 
+            $('#nextPg').attr("data-toggle", "modal")
+                        .attr("data-target", "#myModal"); 
           }
         });
 
@@ -135,7 +154,7 @@
           for(i=0;i<data.length;i++){
             $("#dropdown").append($("<option></option>").attr("value",data[i].pig_id)
                           .attr("name","pig")
-                          .text("Pig " +data[i].lbl));
+                          .text("Pig " +data[i].lbl)); 
             } 
           } 
         });

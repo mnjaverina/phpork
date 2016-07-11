@@ -32,21 +32,20 @@
     <div class="container">
       <div class="row row-right pos3">
         <div class="col-md-2 col-centered" style="height: 10%; width: 13%;">
-          <img src="<?php echo HOST;?>/phpork/css/images/qrcode.png" class="img-responsive">
+          <img src="<?php echo HOST;?>/phpork/images/qrcode.png" class="img-responsive">
         </div>
       </div>
       <form  method = "post"  autocomplete = "off">
         <div class="row row-centered pos1">
           <div class="col-sm-6 col-md-4 col-centered" style="background-color: #bb1d24; border-radius: 25px; padding-top: 1%; padding-bottom: 2%;">
-            <img src="<?php echo HOST;?>/phpork/css/images/logo.jpg" class="img-responsive">
-            <div class="col-md-2 col-centered" style="width:80%; margin-bottom: 2%; background-color: white; border-radius: 10px; margin-left: 10%; text-align: center; font-size: 1.5em;">
+            <img src="<?php echo HOST;?>/phpork/images/logo.jpg" class="img-responsive">
+            <div class="col-md-2 col-centered" style="width:82%; margin-bottom: 2%; background-color: white; border-radius: 10px; margin-left: 10%; text-align: center; font-size: 1.5em;">
               <a href="<?php echo HOST;?>/phpork/in/1">
                 <span>Log in as ADMIN</span>
               </a>
             </div>
-            <div class="col-md-2 col-centered" style="width: 80%; background-color: white; border-radius: 10px;  margin-left: 10%; text-align: center; font-size: 1.5em;">
+            <div class="col-md-2 col-centered" style="width: 82%; background-color: white; border-radius: 10px;  margin-left: 10%; text-align: center; font-size: 1.5em;">
               <a href="<?php echo HOST;?>/phpork/in/2">
-               
                 <span>Log in as ENCODER</span>
               </a>
             </div>

@@ -35,59 +35,6 @@ form .logout{
   margin: 0 5% 0 0;
 }
 
-
-.menu{
-  margin-top: 7%;
-}
-.menu_in{
-  width: 75%;
-  height: 1%;
-  margin-left: 12%;
-  margin-bottom: 1%;
-}
-
-/* tablets/desktops and up ----------- */
-@media (min-width: 992px) and (max-width: 1199px) {
-  .pig-det-details, .pig-det-label{
-      font-size: 13px;
-  }
-  .step-content2 {
-    display: none;
-    margin-top: -21%;
-    margin-left: 10%;
-    width: 80%;
-    height: 250px;
-  }
-  .meds-content2 {
-    display: none;
-    margin-top: -36%;
-    margin-left: 15%;
-    width: 70%;
-    height: 250px;
-  }
-}
-
-/* large desktops and up ----------- */
-@media screen and (min-width: 1200px) {
-  .pig-det-details, .pig-det-label{
-      font-size: 15px;
-  }
-  .step-content2 {
-    display: none;
-    margin-top: -14%;
-    margin-left: 10%;
-    width: 80%;
-    height: 250px;
-  }
-  .meds-content2 {
-    display: none;
-    margin-top: -29%;
-    margin-left: 15%;
-    width: 70%;
-    height: 250px;
-  }
-}
-
 a:link {
   color: black;
   text-decoration: none;
@@ -108,11 +55,6 @@ a:active {
   text-decoration: none;
 }
 
-h1{
-  font-size: 5em;
- 
-}
-
 .box{
   max-width:18%;
   max-height: 50%;
@@ -124,6 +66,58 @@ h1{
   border-radius: 10px;
   float:left;
   text-align:center;
-  font-size: 1.5em;
+  font-size: 1.45em;
   padding: 1%;
+}
+
+@media screen and (max-width: 1599px){
+  .image1{
+    height: 18%; 
+    width: 18%; 
+    margin-right: 9%; 
+    margin-left: 13%; 
+    padding: 0px;
+  }
+  .image2{
+    height: 18%; 
+    width: 18%; 
+    margin-right: 9%; 
+    padding: 0px;
+  }
+  .image3{
+    height: 18%; 
+    width: 18%; 
+    margin-right: 0px;
+    margin-top:.5%; 
+    padding: 0px;
+  }
+  .menu{
+    margin-top: 8%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .image1{
+    height: 16%; 
+    width: 16%; 
+    margin-right: 9%; 
+    margin-left: 15%; 
+    padding: 0px;
+  }
+  .image2{
+    height: 16%; 
+    width: 16%; 
+    margin-right: 9%; 
+    padding: 0px;
+  }
+  .image3{
+    height: 16.5%; 
+    width: 16.5%; 
+    margin-right: 0px;
+    margin-top: -1%; 
+    padding: 0px;
+  }
+  .menu{
+    margin-top: 8%;
+  }
 }

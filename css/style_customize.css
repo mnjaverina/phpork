@@ -10,16 +10,7 @@
   width: 100%;
 }
 
-.page-footer {
-    background-color: #bb1d24;
-    text-align: center;
-    color: white;
-    width: 100%;
-    bottom: 0;
-    height: 30px;
-    position: fixed;
-    overflow: hidden;
-}
+
 
 .btn1{
   height: 25%;
@@ -41,6 +32,71 @@ form .logout{
 }
 
 #c {
-  width:80%;
-  height:80%;
+  width:70%;
+  height:70%;
+}
+
+@media screen and (max-width: 1199px) {
+   .lower{
+      width: 80%;
+      height: 80%;
+      margin-left: 10%; 
+      margin-top: 5%;
+      padding: 1%;
+      margin-bottom: 2%;
+    }
+
+   .table1{
+      max-width:100%;
+      max-height: 30%;
+      overflow-y:auto;
+      border: 10px solid; 
+      border-color: #9ecf95; 
+      border-radius: 10px; 
+      padding: 1%; 
+      margin-top: 0px;
+      padding-bottom: 0px;
+    }
+
+  .page-footer {
+    background-color: #bb1d24;
+    text-align: center;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    height: 4%;
+    margin-bottom: 0px;
+    overflow: hidden;
+  }
+  
+}
+
+@media screen and (min-width: 1200px) {
+  .lower{
+      margin: 20%; 
+      margin-left: 18%;
+      margin-top: 5%;
+      padding: 1%;
+      margin-bottom: 2%;
+   }
+
+  .table1{
+    border: 10px solid; 
+    border-color: #9ecf95; 
+    border-radius: 10px; 
+    padding: 1%; 
+    margin-top: 0px;
+  }
+
+  .page-footer {
+    background-color: #bb1d24;
+    text-align: center;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    height: 4%;
+    margin-bottom: 0px;
+    overflow: hidden;
+    position: fixed;
+  }
 }

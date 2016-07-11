@@ -37,38 +37,23 @@
     </form> 
 
     <div class="menu"> 
-      <div class="col-md-2 col-centered" style="height: 16%; width: 16%; margin-right: 9%; margin-left: 15%;"> 
+      <div class="col-md-2 col-centered image1"> 
         <a href="/phpork/pages/farm">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/View.png">
-          <div>
-            <h1 style="text-align: center; color: #bb1d24; ">VIEW</h1>
-            <h3 style="text-align: center; color: #bb1d24;">Allows you to view the pigs and their individual information.</h3>
-          </div>
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/home_view.png">
         </a> 
       </div> 
-      <div class="col-md-2 col-centered" style="height: 16%; width: 16%; margin-right: 9%;"> 
+      <div class="col-md-2 col-centered image2"> 
         <a href="/phpork/addPig/pigDetails">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png">
-          <div>
-            <h1 style="text-align: center; color: #bb1d24;">INSERT</h1>
-            <h3 style="text-align: center; color: #bb1d24;">Allows you to insert new pigs and their information.</h3>
-          </div>
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/home_insert.png">
         </a> 
       </div>
-      <div class="col-md-2 col-centered" style="height: 16%; width: 16%; margin-right: 0px;"> 
+      <div class="col-md-2 col-centered image3"> 
         <a href="/phpork/customize">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Customize.png">
-          <div style="margin-left: -20%">
-            <h1 style="text-align: center; color: #bb1d24;">CUSTOMIZE</h1>
-            </div>
-            <div style:"margin-left: 10%;">
-            <h3 style="text-align: center; color: #bb1d24;">Allows you to choose what details will be displayed.</h3>
-          </div>
-          
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/home_customize.png">
         </a> 
       </div> 
-    </div> 
-  
+    </div>
+
     <div class="page-footer"> 
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
     </div>

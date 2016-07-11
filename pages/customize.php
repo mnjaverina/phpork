@@ -39,8 +39,8 @@
     </form> 
 
     
-      <div class="table-responsive" style="margin: 15%; margin-top: 3%; padding: 2%;">
-        <div style="border: 10px solid; border-color: #9ecf95; border-radius: 10px; padding: 2%; margin-top: 0px;">
+      <div class="lower">
+        <div class="table1">
         <table class="table">
           <thead>
             <tr>
@@ -125,7 +125,7 @@
     </div>
       </div>
 
- <div class="page-footer"> 
+    <div class="page-footer"> 
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
     </div>
   </body>
