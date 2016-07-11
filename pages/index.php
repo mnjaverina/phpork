@@ -24,7 +24,7 @@
   </head> 
   <body> 
     <div class="page-header"> 
-      <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
+      <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Header1.png"> 
     </div> 
 
     <form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="/phpork/out" style="width:50%; float:right;"> 

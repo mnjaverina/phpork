@@ -34,7 +34,7 @@
   <body> 
     <div class="page-header"> 
           <a href="<?php echo HOST;?>/phpork/home" title="Click to go back to home page">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Header1.png"> 
           </a>
       </div>
 

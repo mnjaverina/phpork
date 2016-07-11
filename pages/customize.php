@@ -25,7 +25,7 @@
   <body> 
      <div class="page-header"> 
       <a href="<?php echo HOST;?>/phpork/pages/index.php">
-        <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
+        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Header1.png"> 
       </a>
     </div>
 
