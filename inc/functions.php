@@ -1072,44 +1072,7 @@
 				return $m_arr;
 				
 		}
-		public function getMedsReport($var,$from,$to)
-		{
-				$link = $this->connect();
-				$query = " SELECT DISTINCT 
-							mr.date_given,
-							mr.time_given,
-							mr.quantity,
-							mr.unit,
-							mr.pig_id,
-							mr.med_id,
-							m.med_name,
-							m.med_type
-							FROM med_record mr 
-							INNER JOIN medication m on
-								mr.med_id = m.med_id
-							WHERE mr.pig_id = '" . $var . "' and
-							mr.date_given BETWEEN '".$from."' and '".$to."'";
-				$result = mysqli_query($link, $query);
-				$m = array();
-				$m_arr = array();
-				while($row = mysqli_fetch_row($result)){
-					$m['Pig_id'] = $row[4];
-					$date = date_create($row[0]);
-					$m['Date given'] = $date->format('F j,Y');
-					$m['Time_given'] = $row[1];
-					$m['Quantity'] = $row[2];
-					$m['Unit'] = $row[3];
-					$m['Feed_name'] = $row[6];
-					$m['Feed_type'] = $row[7];
-					$m_arr[] = $m;
-				}
-				
-				$fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\medication_reports\\mtrans_details.json', 'w');
-				fwrite($fp, json_encode($m_arr,JSON_PRETTY_PRINT));
-				fclose($fp);
-				return $m_arr;
-				
-		}
+
 		public function insertMedEditHistory($medid, $user, $mrid)
 		{
 				$link = $this->connect();
@@ -1205,7 +1168,6 @@
 	        }
 	        return $arr_mrcrd;
 	    }
-
 		/* end of meds.php FUNCTIONS*/
 
 
@@ -1306,46 +1268,6 @@
 				
 				$fp = fopen('ftrans_details.json', 'w');
 				fwrite($fp, json_encode($f_arr));
-				fclose($fp);
-				return $f_arr;
-				
-		}
-		public function getFeedReport($var,$from,$to)
-		{
-				$link = $this->connect();
-				$query = " SELECT DISTINCT
-							ft.quantity,
-							ft.unit,
-							ft.date_given,
-							ft.time_given,
-							ft.pig_id,
-							ft.prod_date,
-							f.feed_name,
-							f.feed_type
-							FROM feed_transaction ft 
-							INNER JOIN feeds f on
-								ft.feed_id = f.feed_id
-							WHERE ft.pig_id = '" . $var . "' and 
-							ft.date_given BETWEEN '".$from."' and '".$to."'";
-				$result = mysqli_query($link, $query);
-				$f = array();
-				$f_arr = array();
-				while($row = mysqli_fetch_row($result)){
-					$f['Pig_id'] = $row[4];
-					$date = date_create($row[2]);
-					$f['Date_given'] = $date->format('F j,Y');
-					$f['Time given'] = $row[3];
-					$f['Quantity'] = $row[0];
-					$f['Unit'] = $row[1];
-					$date2 = date_create($row[5]);
-					$f['Production_Date'] = $date2->format('F j,Y');
-					$f['Feed_name'] = $row[6];
-					$f['Feed_type'] = $row[7];
-					$f_arr[] = $f;
-				}
-				
-				$fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\feed_reports\\feed_reports.json', 'w');
-				fwrite($fp, json_encode($f_arr,JSON_PRETTY_PRINT));
 				fclose($fp);
 				return $f_arr;
 				
@@ -1524,50 +1446,6 @@
 							$i = $i * -1;
 						}
 				}
-
-				return $arr;
-		}
-		public function getMvmntDetails($pig,$from,$to)
-		{
-				$link = $this->connect();
-				$query = "SELECT  m.date_moved,
-								m.time_moved,
-								p.pen_no,
-								m.pig_id,
-								h.house_name,
-								l.loc_name
-						from movement m 
-						inner join pen p on
-							p.pen_id = m.pen_id
-						inner join house h on 
-							h.house_id = p.house_id
-						inner join location l on
-							l.loc_id = h.loc_id
-						where m.pig_id = '".$pig."'
-						and m.date_moved BETWEEN '".$from."' and '".$to."'
-						ORDER BY m.date_moved ASC";
-				$result = mysqli_query($link, $query);
-				$data = array();
-				$arr = array();
-				$i = 1;
-				$j = 0;
-				$mvmnt = $this->getPigMvmnt($pig);
-				while ($row = mysqli_fetch_row($result)) {
-						$data['pig_id'] = $row[3];	
-						$data['date_moved'] = $row[0];
-						$data['time_moved'] = $row[1];
-						$data['location_name'] = $row[5];
-						$data['house_name'] = $row[4];
-						$data['pen_no'] = $row[2];
-						
-						$arr[] = $data;
-						
-				}
-				//$arr = str_replace("},{", "}\n{", $arr);
-
-				$fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\movement_reports\\movment_report.json', 'w');
-				fwrite($fp, json_encode($arr,JSON_PRETTY_PRINT));
-				fclose($fp);
 				return $arr;
 		}
 		/* end of movement.php FUNCTIONS*/
