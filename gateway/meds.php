@@ -23,7 +23,7 @@
 				foreach ($sparray as $a ) {
 					
 					$db->addMeds($medid,$medDate,$medTime,$a,$medqty,$unit); 
-					
+				
 				}
 				
 				
@@ -38,7 +38,6 @@
 			} 
 		}
 	} 
-
 	if(isset($_POST['addMedName'])){
 		$mname = $_POST['mname'];
 		$mtype = $_POST['mtype'];
@@ -53,6 +52,13 @@
 	if(isset($_POST['getMedsDetails'])){
 		$med = $_POST['med']; 
 		echo json_encode($db->getMedsDetails($med)); 
+		//localhost/phpork2/gateway/meds.php?getMedsDetails=1&med=1
+	} 
+	if(isset($_POST['getMedsReport'])){
+		$pig = $_POST['pig']; 
+		$from = $_POST['from'];
+		$to = $_POST['to'];
+		echo json_encode($db->getMedsReport($pig,$from,$to)); 
 		//localhost/phpork2/gateway/meds.php?getMedsDetails=1&med=1
 	} 
 	if(isset($_GET['getMedsTransDetails'])){

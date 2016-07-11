@@ -66,10 +66,12 @@
 
        <script src="<?php echo HOST;?>/phpork/js/amcharts/amcharts.js" type="text/javascript"></script>
         <script src="<?php echo HOST;?>/phpork/js/amcharts/serial.js" type="text/javascript"></script>
-        <script src="<?php echo HOST;?>/phpork/js/jquery.js"></script> 
-		<script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
-	    
+        <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
+	    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
+	    <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script> 
+	    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
 	    <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
+	    <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
 		</head> 
 
 	<body> 
@@ -203,8 +205,8 @@
 						</table>
 					</div>
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					    <a href="#">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png"> <!--movement-->
+					    <a href="#" id ="mvmntRprt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMvmnt"> <!--movement-->
 					        <span> Download Report</span>
 					    </a>
 				    </div>
@@ -249,8 +251,8 @@
 					</div>
 					<br/>
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 8%;">
-					    <a href="#">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png"> <!--movement-->
+					    <a href="#" id ="medsRprt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMeds"> <!--movement-->
 					        <span> Download Report</span>
 					    </a>
 				    </div>
@@ -295,75 +297,40 @@
 				<div id="insertMedsDetails" style="display: none;"> 
 				    <div style="margin-left: 15%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 13%; margin-top: 0px;">
 				    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					       <button id="saveInsertMeds">
+					        <a id="viewMedDetails" class="" href="/phpork/viewDetails/view/meds"> 
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> <!--movement-->
 					            <span> Save</span>
-					        </button>
+					        </a>
 				    	</div>
 				   		<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-					        <button id="backToMeds">
+					        <button id="cancelEditMeds">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> <!--movement-->
 					            <span>Back</span>
 					        </button>
 				    	</div>
 				    	<br/>
-				    	<div style="width:100% !important;" id="insertMedsBody" style="width: 50%;">
+				    	<div style="width:100% !important;">
 		 					<select name="selChoice"  id="selectMedchoice" style="color:black; border-radius:5px;width:30%;align:center; ">
 		 						<option value="" disabled selected>Select if per pen or per pig..</option> 
 			 					<option value="perpen"> Select per pen</option>
 			 					<option value="perpig">Select per pig</option>
 			 				</select>
-			 				<br/>
-			 				<br/>
-			 				<div id="insertperPen" style="display: none;">
-			 					<input type="checkbox" value="selectAllPen" onchange='checkAllPen(this)' >Select All Pens</input>
-			 					<br/>
-			 					<br/>
-			 				</div>
-			 				<div id="insertperPig" style="display: none;">
-			 					<input type="checkbox" value="selectAllPig" onchange='checkAllPig(this)' >Select All Pigs</input>
-			 					<br/>
-			 					<br/>
-			 				</div>
-							<div>
-								<table class="table table-striped table-bordered" id="insertMeds"> 
-									<tr> 
-										<td> Last Medication Given: 
-											<select name="selectMeds" id="selectMeds" style="color:black;border-radius:5px;"> 
-												<option value="" disabled selected>Select medication...</option> 
-											</select> 
-										</td>
-									</tr>
-									<tr>
-										<td> Medication type:
-											<input type="text" readonly id="medType"></input>
-										</td>
-
-									</tr>
-									<tr> 
-										<td> Date Given: <input type="date" class="form-control" id="dateMedGiven" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy"/>
-										</td>
-									</tr>
-									<tr> 
-										<td> Time Given: <input type="time" class="form-control" id="timeMedGiven" aria-describedby="basic-addon3"/>
-										</td>
-									</tr>
-									<tr>
-								<td>
-									Quantity: <input type="number" id="medQty" name="medQty" min="0"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp;&nbsp; 
-									<select style="color:black;border-radius:5px;" name="selUnit" id="qtyUnit">
-										<option value = "cc"> cc</option>
-										<option value="ml">ml</option>
-										<option value="kg">kg</option>
-									</select>
-								</td>
-							</tr>
-								</table>
-							</div>
-
 		 				</div>
 				    	<br/>
-				    	
+				    	<div style="margin: 0px;">
+					    	<table class="table table-striped t_feeds">
+							  <thead>
+							    <tr class="tr_feeds">
+							      <th>Medication Name</th>
+							      <th>Medication Type</th>
+							      <th>Edit to</th>
+							    </tr>
+							  </thead>
+							  <tbody class="tb_feeds" id="editMedsBody">
+							   
+							  </tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 				<!-- insert meds -->
@@ -408,10 +375,10 @@
 					</div>
 					<br/>
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 8%;">
-						<a href="#">
-						    <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png"> 
-						    <span> Download Report</span>
-						</a>
+						<a href="#" id ="feedsRprt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportFeeds"> <!--movement-->
+					        <span> Download Report</span>
+					    </a>
 					</div>
 				</div>
 
@@ -453,81 +420,6 @@
 						</div>
 					</div>
 				</div> <!--edit feeds-->
-				<!-- insert feeds -->
-				<div id="insertFeedsDetails" style="display: none;"> 
-				    <div style="margin-left: 15%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 13%; margin-top: 0px;">
-				    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					       <button id="saveInsertFeeds">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> <!--movement-->
-					            <span> Save</span>
-					        </button>
-				    	</div>
-				   		<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-					        <button id="backToFeeds">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> <!--movement-->
-					            <span>Back</span>
-					        </button>
-				    	</div>
-				    	<br/>
-				    	<div style="width:100% !important;" id="insertFeedsBody" style="width: 50%;">
-		 					<select name="selChoice"  id="selectFeedchoice" style="color:black; border-radius:5px;width:30%;align:center; ">
-		 						<option value="" disabled selected>Select if per pen or per pig..</option> 
-			 					<option value="perpenF"> Select per pen</option>
-			 					<option value="perpigF">Select per pig</option>
-			 				</select>
-			 				<br/>
-			 				<br/>
-			 				<div id="insertperPenF" style="display: none;">
-			 					<input type="checkbox" value="selectAllPen" onchange='checkAllPenF(this)' >Select All Pens</input>
-			 					<br/>
-			 					<br/>
-			 				</div>
-			 				<div id="insertperPigF" style="display: none;">
-			 					<input type="checkbox" value="selectAllPig" onchange='checkAllPigF(this)' >Select All Pigs</input>
-			 					<br/>
-			 					<br/>
-			 				</div>
-							<div>
-								<table class="table table-striped table-bordered" id="insertFeeds"> 
-									<tr> 
-										<td> Last Feed Given: 
-											<select name="selectFeeds" id="selectFeeds" style="color:black;border-radius:5px;"> 
-												<option value="" disabled selected>Select feeds...</option> 
-											</select> 
-										</td>
-									</tr>
-									<tr>
-										<td> Feed type:
-											<input type="text" readonly id="feedType"></input>
-										</td>
-
-									</tr>
-									<tr> 
-										<td> Production Date : <input type="date" class="form-control" id="prodDate" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy"/>
-										</td>
-									</tr>
-									<tr> 
-										<td> Date Given: <input type="date" class="form-control" id="dateFeedGiven" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy"/>
-										</td>
-									</tr>
-									<tr> 
-										<td> Time Given: <input type="time" class="form-control" id="timeFeedGiven" aria-describedby="basic-addon3"/>
-										</td>
-									</tr>
-									<tr>
-								<td>
-									Quantity: <input type="number" id="feedQty" name="medQty" min="0"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp; <span>kg</span> 
-								</td>
-							</tr>
-								</table>
-							</div>
-
-		 				</div>
-				    	<br/>
-				    	
-					</div>
-				</div>
-				<!-- insert feeds -->
 			</div> 
 			<!--view feeds-->
 
@@ -539,10 +431,140 @@
 			</div> 
 			<!--view weight-->
 
+		
+		<!-- Modal for insert feeds-->
+	    <div id="modalInsertFeeds" class="modal fade" role="dialog">
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Feeds</h4>
+	          </div>
+	          <div class="modal-body">
+	          	<input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
+	          	<br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">Last feed given: </span>
+	              <input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
+	            </div>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">Production date: </span>
+	              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+	            </div>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">Quantity: </span>
+	              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+	            </div>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">Date given: </span>
+	              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+	            </div>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">Time given: </span>
+	              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+	            </div>
+	            <br/>
+	          </div>
+	          <div class="modal-footer">
+	            <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Insert Feeds</button>
+	          </div>
+	        </div>
+	      </div> 
+	      <!-- Modal for insert feeds-->
+
 			
 		</div>
 		<!--VIEWS-->
-
+		<!-- Reports-->
+		<!-- Modal for movement report-->
+		<div id="myModalReportMvmnt" class="modal fade" role="dialog" >
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Download movement report</h4>
+	          </div>
+	          <div class="modal-body"> 
+	            <form>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">From: </span>
+	              <input type="date" class="form-control" id="from" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">To: </span>
+	              <input type="date" class="form-control" id="to" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	          </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_mvmntrprt">Download</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div id="myModalReportMeds" class="modal fade" role="dialog" >
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Download medication details report</h4>
+	          </div>
+	          <div class="modal-body"> 
+	            <form>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">From: </span>
+	              <input type="date" class="form-control" id="fromMeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">To: </span>
+	              <input type="date" class="form-control" id="toMeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	          </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_medsrprt">Download</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div id="myModalReportFeeds" class="modal fade" role="dialog" >
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Download feed details report</h4>
+	          </div>
+	          <div class="modal-body"> 
+	            <form>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">From: </span>
+	              <input type="date" class="form-control" id="fromFeeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">To: </span>
+	              <input type="date" class="form-control" id="toFeeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	          </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_feedsrprt">Download</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
 		<div class="page-footer"> 
 			Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
 		</div> 
@@ -554,9 +576,9 @@
         $house =$_GET['house'];
         $farm = $_GET['location'];
         echo "<input type='hidden' value='$pig' name='pig' id='pigid'/>";
-        echo "<input type='hidden' value='$pen' name='pig' id='penid'/>"; 
-        echo "<input type='hidden' value='$house' name='pig' id='houseid'/>"; 
-        echo "<input type='hidden' value='$farm' name='pig' id='farmid'/>"; 
+        echo "<input type='hidden' value='$pig' name='pig' id='penid'/>"; 
+        echo "<input type='hidden' value='$pig' name='pig' id='houseid'/>"; 
+        echo "<input type='hidden' value='$pig' name='pig' id='farmid'/>"; 
          
       ?>
     </div>
@@ -771,53 +793,13 @@
 	        success: function (data) { 
 	          var data = jQuery.parseJSON(data); 
 	           for(i=0;i<data.length;i++){
-	           		if(data[i].pig_id != pig_id){
-	           			$("#pigsByPenInfo").append($("<tr><td>" +data[i].lbl+ "</td><td> <button id=\"getPigInfo\" style='color:black;' onclick=\"viewPig(" +data[i].pig_id+ ")\"> Info </button>  </td></tr>"));
-	           		}
-	           	}
+	           		
+	           		$("#pigsByPenInfo").append($("<tr><td>" +data[i].lbl+ "</td><td> <button id=\"getPigInfo\" style='color:black;' onclick=\"viewPig(" +data[i].pig_id+ ")\"> Info </button>  </td></tr>"));
+	           		
+
+	           }
 	        }    
 	      });
-
-		 $.ajax({
-			        url: '/phpork/gateway/pen.php',
-			        type: 'post',
-			        data : {
-			          ddl_notMortalityPen: '1',
-			          house: house_id
-			        },
-			        success: function (data) { 
-			          var data = jQuery.parseJSON(data);
-			          for(i=0;i<data.length;i++){
-			             $('#insertperPen').append($('<input type="checkbox" class="penclass" value="'+data[i].pen_id+'">'+data[i].pen_no+'</input>'));
-			             $('#insertperPen').append($('<br/>'));
-
-			             $('#insertperPenF').append($('<input type="checkbox" class="penclassF" value="'+data[i].pen_id+'">'+data[i].pen_no+'</input>'));
-			             $('#insertperPenF').append($('<br/>'));
-			            }
-								
-			        }    
-			      });
-		$.ajax({
-			        url: '/phpork/gateway/pig.php',
-			        type: 'post',
-			        data : {
-			          getPigsByPen: '1',
-			          pen: pen_id
-			        },
-			        success: function (data) { 
-			          var data = jQuery.parseJSON(data);
-			          for(i=0;i<data.length;i++){
-			             $('#insertperPig').append($('<input type="checkbox" class="pigclass" value="'+data[i].pig_id+'">'+data[i].lbl+'</input>'));
-			             $('#insertperPig').append($('<br/>'));
-
-			             $('#insertperPigF').append($('<input type="checkbox" class="pigclassF" value="'+data[i].pig_id+'">'+data[i].lbl+'</input>'));
-			             $('#insertperPigF').append($('<br/>'));
-
-		            }
-								
-			        }    
-			      });
-
 
         $('#changePig').on("click",function() {
           window.location ="/phpork/pages/farm";
@@ -847,9 +829,9 @@
 
          $('#medication').on("click",function() {
           $('#viewMeds').attr("style", "display: inline-block");
-          $('#viewMedsInfo').attr("style", "display: inline-block");
-          $('#editMedsDetails').attr("style", "display: none");
-          $('#insertMedsDetails').attr("style", "display: none");
+           $('#viewMedsInfo').attr("style", "display: inline-block");
+           $('#editMedsDetails').attr("style", "display: none");
+             $('#insertMedsDetails').attr("style", "display: none");
           $('#viewMovement').attr("style", "display: none");
           $('#viewFeeds').attr("style", "display: none");
             //$('#viewWeight').attr("style", "display: none");
@@ -876,149 +858,12 @@
         });
 
          $('#selectMedchoice').on("change",function() {
-         	var choice = $('#selectMedchoice').val();
-         	console.log(choice);
-	          if(choice === "perpen"){
-	          	$('#insertperPen').attr("style", "display: inline-block");
-	          	$('#insertperPig').attr("style", "display: none");
-
-	          }else if(choice=== "perpig"){
-	          	$('#insertperPig').attr("style", "display: inline-block");
-	          	$('#insertperPen').attr("style", "display: none");
-
-	          }
+          window.location ="/phpork/pages/farm";
         });
-
-         $('#backToMeds').on("click",function() {
-           $('#viewMedsInfo').attr("style", "display: inline-block");
-            $('#editMedsDetails').attr("style", "display: none");
-            $('#insertMedsDetails').attr("style", "display: none");
-
-        });
-
-
-        
-
-		 $.ajax({
-          url: '/phpork/gateway/meds.php',
-          type: 'post',
-          data : {
-           ddl_meds: '1'
-          },
-          success: function (data) { 
-             var data = jQuery.parseJSON(data); 
-                for(i=0;i<data.length;i++){
-                  $("#selectMeds").append($("<option></option>").attr("value",data[i].med_id)
-                    .attr("name","meds")
-                    .text(data[i].med_name)); 
-                }
-                   
-              } 
-          
-        });
-
-		 $('#selectMeds').on("change", function() {
-               
-                 var med = $("#selectMeds").val(); 
-                  
-                  $.ajax({
-                    url: '/phpork/gateway/meds.php',
-                    type: 'post',
-                    data : {
-                      getMedsDetails: '1',
-                      med: med
-                    },
-                    success: function (data) { 
-                       var data = jQuery.parseJSON(data); 
-                        $("#medType").attr("value", data[0].mtype); 
-                          
-                     }
-                  });
-         });
-
-		 $('#saveInsertMeds').on("click", function(){
-		 	var lastMed = $('#selectMeds').val();
-		 	var medType = $('#medType').val();
-		 	var dateGiven = $('#dateMedGiven').val();
-		 	var timeGiven = $('#timeMedGiven').val();
-		 	var medQuantity = $('#medQty').val();
-		 	var qtyUnit = $('#qtyUnit').val();
-
-		 	var choice = $('#selectMedchoice').val();
-
-		 	if(choice === "perpen"){
-
-		 		var checkedPen = document.getElementsByClassName('penclass');
-		 		var selPen = [];
-
-		 		for(var i=0;i<checkedPen.length; i++){
-		 			if(checkedPen[i].checked){
-		 				selPen.push($(checkedPen[i]).val());
-		 			}
-		 		}
-		 		
-			 	 $.ajax({
-	                    url: '/phpork/gateway/meds.php',
-	                    type: 'post',
-	                    data : {
-	                     subMed: '1',
-	                     selectMeds: lastMed,
-						 medDate: dateGiven,
-			             medTime: timeGiven, 
-		                 medQty: medQuantity,
-			             selUnit: qtyUnit,
-			             pensel: selPen
-	                    },
-	                    success: function (data) { 
-	                       var data = jQuery.parseJSON(data); 
-	                       alert("Added!");
-	                     }
-	                  });
-
-
-		 	}else if(choice === "perpig"){
-		 		var checkedPig = document.getElementsByClassName('pigclass');
-		 		var selPig = [];
-
-		 		for(var i=0;i<checkedPig.length; i++){
-		 			if(checkedPig[i].checked){
-		 				console.log($(checkedPig[i]).val(0));
-		 				selPig.push($(checkedPig[i]).val());
-		 			}
-		 		}
-
-
-		 	 $.ajax({
-                    url: '/phpork/gateway/meds.php',
-                    type: 'post',
-                    data : {
-                     subMed: '1',
-                     selectMeds: lastMed,
-					 medDate: dateGiven,
-		             medTime: timeGiven, 
-	                 medQty: medQuantity,
-		             selUnit: qtyUnit,
-		             pigpen: selPig
-                    },
-                    success: function (data) { 
-                      
-                      alert("Added!"); 
-                          
-                     }
-                  });
-
-
-		 	}
-
-
-		 });
-
-		 
 
 
          /*view meds */
 
-         /*view feeds*/
           $('#feeds1').on("click",function() {
           	$('#viewFeeds').attr("style", "display: inline-block");
           	$('#viewFeedsInfo').attr("style", "display: inline-block");
@@ -1031,7 +876,6 @@
           $('#editFeedsButton').on("click",function() {
            $('#viewFeedsInfo').attr("style", "display: none");
             $('#editFeeds').attr("style", "display: inline-block");
-            $('#insertFeedsDetails').attr("style", "display: none");
 
         });
 
@@ -1041,222 +885,93 @@
 
         });
 
-        $('#insertFeedsButton').on("click",function() {
-           $('#viewFeedsInfo').attr("style", "display: none");
-            $('#editFeedsDetails').attr("style", "display: none");
-            $('#insertFeedsDetails').attr("style", "display: inline-block");
-
-        });
-
-         $('#selectFeedchoice').on("change",function() {
-         	var choice1 = $('#selectFeedchoice').val();
-         	console.log(choice1);
-	          if(choice1 === "perpenF"){
-	          	$('#insertperPenF').attr("style", "display: inline-block");
-	          	$('#insertperPigF').attr("style", "display: none");
-
-	          }else if(choice1=== "perpigF"){
-	          	$('#insertperPigF').attr("style", "display: inline-block");
-	          	$('#insertperPenF').attr("style", "display: none");
-
-	          }
-        });
-
-         $('#backToFeeds').on("click",function() {
-           $('#viewFeedsInfo').attr("style", "display: inline-block");
-            $('#editFeedsDetails').attr("style", "display: none");
-            $('#insertFeedsDetails').attr("style", "display: none");
-
-        });
-
-         $.ajax({
-          url: '/phpork/gateway/feeds.php',
-          type: 'post',
-          data : {
-           ddl_feeds: '1'
-          },
-          success: function (data) { 
-             var data = jQuery.parseJSON(data); 
-                for(i=0;i<data.length;i++){
-                  $("#selectFeeds").append($("<option></option>").attr("value",data[i].feed_id)
-                    .attr("name","feeds")
-                    .text(data[i].feed_name)); 
-                }
-                   
-              } 
-          
-        });
-
-         $('#selectFeeds').on("change", function() {
-               
-                 var feed = $("#selectFeeds").val(); 
-                  
-                  $.ajax({
-                    url: '/phpork/gateway/Feeds.php',
-                    type: 'post',
-                    data : {
-                      getFeedsDetails: '1',
-                      feed: feed
-                    },
-                    success: function (data) { 
-                       var data = jQuery.parseJSON(data); 
-                        $("#feedType").attr("value", data[0].ftype); 
-                          
-                     }
-                  });
-         });
-
-         $('#saveInsertFeeds').on("click", function(){
-		 	var lastFeed = $('#selectFeeds').val();
-		 	var feedType = $('#feedType').val();
-		 	var feedProdDate = $('#prodDate').val();
-		 	var dateFeedGiven = $('#dateFeedGiven').val();
-		 	var timeFeedGiven = $('#timeFeedGiven').val();
-		 	var feedQuantity = $('#feedQty').val();
-		 	
-		 	var choice = $('#selectFeedchoice').val();
-
-		 	if(choice === "perpenF"){
-
-		 		var checkedPenF = document.getElementsByClassName('penclassF');
-		 		var selPen = [];
-
-		 		for(var i=0;i<checkedPenF.length; i++){
-		 			if(checkedPenF[i].checked){
-		 				selPen.push($(checkedPenF[i]).val());
-		 			}
-		 		}
-		 		
-			 	 $.ajax({
-	                    url: '/phpork/gateway/feeds.php',
-	                    type: 'post',
-	                    data : {
-	                    addFeeds: '1',
-	                    selectFeeds: lastFeed,
-						fdate: dateFeedGiven, 
-						ftime: timeFeedGiven, 
-						feedtypeDate: feedProdDate, 
-						feedQty: feedQuantity,
-						pensel: selPen
-	                    },
-	                    success: function (data) { 
-	                       var data = jQuery.parseJSON(data); 
-	                       alert("Added!");
-	                     }
-	                  });
-
-
-		 	}else if(choice === "perpigF"){
-		 		var checkedPigF = document.getElementsByClassName('pigclassF');
-		 		var selPig = [];
-
-		 		alert("pig");
-		 		for(var i=0;i<checkedPigF.length; i++){
-		 			if(checkedPigF[i].checked){
-		 				console.log($(checkedPigF[i]).val());
-		 				selPig.push($(checkedPigF[i]).val());
-		 			}
-		 		}
-
-
-		 	 $.ajax({
-                    url: '/phpork/gateway/feeds.php',
-                    type: 'post',
-                    data : {
-                      addFeeds: '1',
-	                  selectFeeds: lastFeed,
-					  fdate: dateFeedGiven, 
-					  ftime: timeFeedGiven,
-					  feedtypeDate: feedProdDate, 
-					  feedQty: feedQuantity,
-					  pigpen: selPig
-                    },
-                    success: function (data) { 
-                      alert("Added!"); 
-                          
-                     }
-                  });
-
-
-		 	}
-
-
-		 });
-
         
-          $('#backToPig').on("click",function() {
+      	$('#backToPig').on("click",function() {
            window.location ="/phpork/farm/house/pen/pig/" +farm_id+ "/" +house_id+ "/" +pen_id+ "/" +pig_id;
         });
-
-
-            
+        /* report movement*/
+        $('#mvmntRprt').on("click",function() {
+            $('#myModalReportMvmnt').modal('show');
+        });
+        $('#gen_mvmntrprt').on("click",function(){
+          var from = $('#from').val();
+          var to = $('#to').val();
+          var pig = $('#pigid').val(); 
+          if((from != '') && (to != '') && (pig != '') ){
+            $.ajax({
+              url: '/phpork/gateway/movement.php',
+              type: 'post',
+              data : {
+                getMvmntDetails: '1',
+                from: from,
+                to: to,
+                pig: pig
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Generated movement report! Saved in Desktop.");  
+                }
+            });
+          }
+          window.location = "/phpork/home";
+        });
+        /* report meds*/
+        $('#medsRprt').on("click",function() {
+            $('#myModalReportMeds').modal('show');
+        });
+        
+        $('#gen_medsrprt').on("click",function(){
+          var from = $('#fromMeds').val();
+          var to = $('#toMeds').val();
+          var pig = $('#pigid').val(); 
+          if((from != '') && (to != '') && (pig != '') ){
+            $.ajax({
+              url: '/phpork/gateway/meds.php',
+              type: 'post',
+              data : {
+                getMedsReport: '1',
+                from: from,
+                to: to,
+                pig: pig
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Generated medication report! Saved in Desktop.");  
+                }
+            });
+          }
+          window.location = "/phpork/home";
+        });
+        /* report feeds*/
+        $('#feedsRprt').on("click",function() {
+            $('#myModalReportFeeds').modal('show');
+        });
+        
+        $('#gen_feedsrprt').on("click",function(){
+          var from = $('#fromFeeds').val();
+          var to = $('#toFeeds').val();
+          var pig = $('#pigid').val(); 
+          
+          if((from != '') && (to != '') && (pig != '') ){
+            $.ajax({
+              url: '/phpork/gateway/feeds.php',
+              type: 'post',
+              data : {
+                getFeedReport: '1',
+                from: from,
+                to: to,
+                pig: pig
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Generated feed report! Saved in Desktop.");  
+                }
+            });
+          }
+          window.location = "/phpork/home";
+        });   
        
       }); 
-		function checkAllPig(ele) {
- 			 var checkboxes = document.getElementsByClassName('pigclass'); 
- 			 if (ele.checked) { 
- 			 	for (var i = 0; i < checkboxes.length; i++) {
- 			 	 if (checkboxes[i].type == 'checkbox') { 
- 			 	 	checkboxes[i].checked = true; 
- 			 	 } 
- 			 	} 
- 			 } else {
- 			 	for (var i = 0; i < checkboxes.length; i++) {  
- 			 		if (checkboxes[i].type == 'checkbox') { 
- 			 			checkboxes[i].checked = false; 
- 			 		} 
- 			 	} 
- 			 } 
- 			} 
- 			function checkAllPen(ele) {
- 			 var checkboxes = document.getElementsByClassName('penclass'); 
- 			 if (ele.checked) { 
- 			 	for (var i = 0; i < checkboxes.length; i++) {
- 			 	 if (checkboxes[i].type == 'checkbox') { 
- 			 	 	checkboxes[i].checked = true; 
- 			 	 } 
- 			 	} 
- 			 } else {
- 			 	for (var i = 0; i < checkboxes.length; i++) {  
- 			 		if (checkboxes[i].type == 'checkbox') { 
- 			 			checkboxes[i].checked = false; 
- 			 		} 
- 			 	} 
- 			 } 
- 			}
-
- 		function checkAllPigF(ele) {
- 			 var checkboxes = document.getElementsByClassName('pigclassF'); 
- 			 if (ele.checked) { 
- 			 	for (var i = 0; i < checkboxes.length; i++) {
- 			 	 if (checkboxes[i].type == 'checkbox') { 
- 			 	 	checkboxes[i].checked = true; 
- 			 	 } 
- 			 	} 
- 			 } else {
- 			 	for (var i = 0; i < checkboxes.length; i++) {  
- 			 		if (checkboxes[i].type == 'checkbox') { 
- 			 			checkboxes[i].checked = false; 
- 			 		} 
- 			 	} 
- 			 } 
- 			} 
- 			function checkAllPenF(ele) {
- 			 var checkboxes = document.getElementsByClassName('penclassF'); 
- 			 if (ele.checked) { 
- 			 	for (var i = 0; i < checkboxes.length; i++) {
- 			 	 if (checkboxes[i].type == 'checkbox') { 
- 			 	 	checkboxes[i].checked = true; 
- 			 	 } 
- 			 	} 
- 			 } else {
- 			 	for (var i = 0; i < checkboxes.length; i++) {  
- 			 		if (checkboxes[i].type == 'checkbox') { 
- 			 			checkboxes[i].checked = false; 
- 			 		} 
- 			 	} 
- 			 } 
- 			}  
 		
 		function viewPig(pig){
 		 	$.ajax({

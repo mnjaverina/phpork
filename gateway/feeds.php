@@ -5,18 +5,19 @@
 	$db = new phpork_functions (); 
 	
 
-	if(isset($_POST['addFeeds'])){
-		$fid = $_POST['selectFeeds']; 
-		$fdate = $_POST['fdate']; 
-		$ftime = $_POST['ftime'];  
-		$proddate = $_POST['feedtypeDate']; 
-		$qty = $_POST['feedQty'];
+	if(isset($_GET['addFeeds'])){
+		$fid = $_GET['selectFeeds']; 
+		$fdate = $_GET['fdate']; 
+		$ftime = $_GET['ftime']; 
+		$selpig = $_GET['selpig']; 
+		$proddate = $_GET['feedtypeDate']; 
+		$qty = $_GET['feedQty'];
 
 		$sparray = array();
 		
 
-		if (isset($_POST['pensel'])) {
-			foreach ($_POST['pensel'] as $key) {
+		if (isset($_GET['pensel'])) {
+			foreach ($_GET['pensel'] as $key) {
 				$sparray = $db->ddl_perpen($key);
 				
 				
@@ -25,25 +26,25 @@
 			$fqty = $qty/sizeof($sparray);
 			
 			$feedqty = number_format($fqty, 2, '.', ',');
-			foreach ($_POST['pensel'] as $key) {
+			foreach ($_GET['pensel'] as $key) {
 				$sparray = $db->ddl_perpen($key);
 				foreach ($sparray as $a ) {
 					
-					echo json_encode($db->addFeeds($fid,$fdate,$ftime,$a,$proddate,$feedqty)); 
+					echo json_encode($db->addFeeds($fid,$fdate,$ftime,$selpig,$proddate,$feedqty)); 
 				
 				}
 			}
 
 		}
-		if (isset($_POST['pigpen'])) {
+		if (isset($_GET['pigpen'])) {
 
-			$pigsize = sizeof($_POST['pigpen']);
+			$pigsize = sizeof($_GET['pigpen']);
 			$fqty = $qty/$pigsize;
-			foreach($_POST['pigpen'] as $pid){
+			foreach($_GET['pigpen'] as $pid){
 				echo json_encode($db->addFeeds($fid,$fdate,$ftime,$pid,$proddate,$fqty)); 					
 			} 
 		}
-			//localhost/phpork2/gateway/feeds.php?addFeeds=1&selectFeeds=2&fdate=2016-03-05&ftime=08:00:00&feedtypeDate=2016-03-05&feedQty=0.20&selpig=1
+//localhost/phpork2/gateway/feeds.php?addFeeds=1&selectFeeds=2&fdate=2016-03-05&ftime=08:00:00&feedtypeDate=2016-03-05&feedQty=0.20&selpig=1
 	
 	}
 	if(isset($_POST['addFeedName'])){
@@ -61,6 +62,13 @@
 		$feed = $_GET['feed']; 
 		echo json_encode($db->getFeedTransDetails($feed)); 
 		//localhost/phpork/gateway/feeds.php?getFeedTransDetails=1&feed=1
+	} 
+	if(isset($_POST['getFeedReport'])){
+		$pig = $_POST['pig']; 
+		$from = $_POST['from'];
+		$to = $_POST['to'];
+		echo json_encode($db->getFeedReport($pig,$from,$to)); 
+		//localhost/phpork2/gateway/meds.php?getMedsDetails=1&med=1
 	} 
 	if(isset($_POST['ddl_feeds'])){
 		$arr_feed = $db->ddl_feeds(); 
