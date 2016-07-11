@@ -5,19 +5,18 @@
 	$db = new phpork_functions (); 
 	
 
-	if(isset($_GET['addFeeds'])){
-		$fid = $_GET['selectFeeds']; 
-		$fdate = $_GET['fdate']; 
-		$ftime = $_GET['ftime']; 
-		$selpig = $_GET['selpig']; 
-		$proddate = $_GET['feedtypeDate']; 
-		$qty = $_GET['feedQty'];
+	if(isset($_POST['addFeeds'])){
+		$fid = $_POST['selectFeeds']; 
+		$fdate = $_POST['fdate']; 
+		$ftime = $_POST['ftime'];  
+		$proddate = $_POST['feedtypeDate']; 
+		$qty = $_POST['feedQty'];
 
 		$sparray = array();
 		
 
-		if (isset($_GET['pensel'])) {
-			foreach ($_GET['pensel'] as $key) {
+		if (isset($_POST['pensel'])) {
+			foreach ($_POST['pensel'] as $key) {
 				$sparray = $db->ddl_perpen($key);
 				
 				
@@ -26,25 +25,25 @@
 			$fqty = $qty/sizeof($sparray);
 			
 			$feedqty = number_format($fqty, 2, '.', ',');
-			foreach ($_GET['pensel'] as $key) {
+			foreach ($_POST['pensel'] as $key) {
 				$sparray = $db->ddl_perpen($key);
 				foreach ($sparray as $a ) {
 					
-					echo json_encode($db->addFeeds($fid,$fdate,$ftime,$selpig,$proddate,$feedqty)); 
+					echo json_encode($db->addFeeds($fid,$fdate,$ftime,$a,$proddate,$feedqty)); 
 				
 				}
 			}
 
 		}
-		if (isset($_GET['pigpen'])) {
+		if (isset($_POST['pigpen'])) {
 
-			$pigsize = sizeof($_GET['pigpen']);
+			$pigsize = sizeof($_POST['pigpen']);
 			$fqty = $qty/$pigsize;
-			foreach($_GET['pigpen'] as $pid){
+			foreach($_POST['pigpen'] as $pid){
 				echo json_encode($db->addFeeds($fid,$fdate,$ftime,$pid,$proddate,$fqty)); 					
 			} 
 		}
-//localhost/phpork2/gateway/feeds.php?addFeeds=1&selectFeeds=2&fdate=2016-03-05&ftime=08:00:00&feedtypeDate=2016-03-05&feedQty=0.20&selpig=1
+			//localhost/phpork2/gateway/feeds.php?addFeeds=1&selectFeeds=2&fdate=2016-03-05&ftime=08:00:00&feedtypeDate=2016-03-05&feedQty=0.20&selpig=1
 	
 	}
 	if(isset($_POST['addFeedName'])){
