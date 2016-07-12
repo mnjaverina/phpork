@@ -123,6 +123,68 @@ form .logout{
     text-align: center; 
   }
 
+  .tooltip > .tooltip-inner{
+  font-size: 1.2em;
+}
+
+@media screen and (max-width: 991px){
+  .lowerPanel{
+    max-width: 50%; 
+    margin-left: 25%; 
+    margin-top: 1.5%; 
+    padding: 2%; 
+    border-radius: 30px; 
+    border: 5px solid; 
+    border-color: #9ecf95;
+  }
+  .lowerPanel1{
+    max-width: 50%; 
+    margin-left: 25%; 
+    margin-top: 1.5%; 
+    padding: 3%; 
+    border-radius: 30px; 
+    border: 5px solid; 
+    border-color: #9ecf95;
+  }
+  .btn1{
+    width: 40%;
+    background-color: white; 
+    border-radius: 10px;
+    font-size: 18px;
+    background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
+  }
+  .custom-dropdown2 {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 3% 18% 0 ;
+    width: 65%;
+  }
+  .image1{
+    height: 14%; 
+    width: 14%; 
+    margin-right: 5%; 
+    margin-left: 0px;
+  }
+  .image2{
+    height: 14%; 
+    width: 14%;  
+    margin-right: 5%;
+  }
+  .image3{
+    height: 14%; 
+    width: 14%;  
+    margin-right: 0px;
+  }
+  .pos{
+    margin-top: 5%;
+  }
+
+  .pos1{
+    margin-top: 1%;
+  }
+}
+
 @media (min-width: 992px) and (max-width: 1199px){
   .lowerPanel{
     max-width: 50%; 
@@ -159,13 +221,13 @@ form .logout{
   .image1{
     height: 14%; 
     width: 14%; 
-    margin-right: 9%; 
+    margin-right: 7%; 
     margin-left: 0px;
   }
   .image2{
     height: 14%; 
     width: 14%; 
-    margin-right: 9%;
+    margin-right: 7%;
   }
   .image3{
     height: 14%; 
@@ -173,11 +235,11 @@ form .logout{
     margin-right: 0px;
   }
   .pos{
-    margin-top: 6%;
+    margin-top: 4%;
   }
 
   .pos1{
-    margin-top: 3%;
+    margin-top: 1%;
   }
 }
 
@@ -190,6 +252,7 @@ form .logout{
     border-radius: 30px; 
     border: 5px solid; 
     border-color: #9ecf95;
+    margin-bottom: 2%;
   }
   .lowerPanel1{
     max-width: 50%; 
@@ -231,11 +294,11 @@ form .logout{
     margin-right: 0px;
   }
   .pos{
-    margin-top: 6%;
+    margin-top: 3%;
   }
 
   .pos1{
-    margin-top: 3%;
+    margin-top: 1%;
   }
 }
 
@@ -302,7 +365,4 @@ form .logout{
   .pos1{
     margin-top: 2%;
   }
-}
-.tooltip > .tooltip-inner{
-  font-size: 1.2em;
 }
