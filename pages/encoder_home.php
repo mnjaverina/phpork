@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.css"> 
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css"> 
-    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_index.css">
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_home.css">
 
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script>
