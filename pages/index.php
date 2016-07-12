@@ -3,11 +3,11 @@
   <?php 
     session_start(); 
     require_once "../connect.php"; 
-    require_once "../inc/dbinfo.inc"; 
+    require_once "/inc/dbinfo.inc"; 
     if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
       header("Location: login.php"); 
     }
-    include "../functions.php"; 
+    include "../inc/functions.php"; 
     $db = new phpork_functions (); 
   ?> 
 

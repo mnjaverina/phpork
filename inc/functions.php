@@ -471,7 +471,7 @@
 		        $pig_arr[] = $pig;
 
 		    }
-		   $fp = fopen('pig_details.json', 'w');
+		   $fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\pig_details\\pig_details.json', 'w');
 			fwrite($fp, json_encode($pig_arr));
 			fclose($fp);
 		    return $pig_arr;
@@ -549,7 +549,7 @@
 		    {
 		        $data[] = $row2;
 		    }
-		   	$fp = fopen('weight.json', 'w');
+		   	$fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\weight_report\\weight.json', 'w');
 			fwrite($fp, json_encode($data));
 			fclose($fp);
 		    return $data;
@@ -586,9 +586,7 @@
 					$feeds[] = $fname;
 			}
 			
-			$fp = fopen('feeds.json', 'w');
-			fwrite($fp, json_encode($feeds));
-			fclose($fp);
+			
 			return $feeds;
 	  	}
 	   	public function getPigMedsDetails($pigid){
@@ -621,9 +619,7 @@
 					$mname['mtype'] = $row[7];
 					$meds[] = $mname;
 			}
-			$fp = fopen('meds.json', 'w');
-			fwrite($fp, json_encode($meds));
-			fclose($fp);
+			
 			return $meds;
 	  	}
 	  	public function getLastFeed($pigid)
@@ -731,9 +727,6 @@
 		        $pig_arr[] = $pig;
 
 		    }
-		 //   	$fp = fopen('pig_details.json', 'w');
-			// fwrite($fp, json_encode($pig_arr));
-			// fclose($fp);
 		    return $pig_arr;
 		}
 
@@ -1027,9 +1020,6 @@
 					$m_arr[] = $m;
 				}
 				
-				$fp = fopen('meds_details.json', 'w');
-				fwrite($fp, json_encode($m_arr));
-				fclose($fp);
 				return $m_arr;
 				
 		}
@@ -1066,9 +1056,6 @@
 					$m_arr[] = $m;
 				}
 				
-				$fp = fopen('mtrans_details.json', 'w');
-				fwrite($fp, json_encode($m_arr));
-				fclose($fp);
 				return $m_arr;
 				
 		}
@@ -1563,7 +1550,6 @@
 						$arr[] = $data;
 						
 				}
-				//$arr = str_replace("},{", "}\n{", $arr);
 
 				$fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\movement_reports\\movment_report.json', 'w');
 				fwrite($fp, json_encode($arr,JSON_PRETTY_PRINT));
