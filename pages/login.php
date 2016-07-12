@@ -4,7 +4,7 @@
     session_start(); 
     if(isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['user_type'])){
       if($_SESSION['user_type'] == 1) header("Location: /phpork/admin/home");
-      else  header("Location: /phpork/home");
+      else  header("Location: /phpork/encoder/home");
     } 
     require_once "../connect.php"; 
     require_once "../inc/dbinfo.inc"; 
