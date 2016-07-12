@@ -19,7 +19,7 @@
         $_SESSION["user_type"] = $row[3];
 
         if($_SESSION['user_type'] == 1) header("Location: /phpork/admin/home");
-        else  header("Location: /phpork/home");
+        else  header("Location: /phpork/encoder/home");
 
       }else{
         echo "<script> alert('Invalid username/password!'); </script>"; 
