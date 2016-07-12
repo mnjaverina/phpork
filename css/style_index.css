@@ -121,3 +121,15 @@ a:active {
     margin-top: 8%;
   }
 }
+.userDiv + .tooltip,.farmDiv + .tooltip,.houseDiv + .tooltip,.penDiv + .tooltip,.parentDiv + .tooltip,.breedDiv + .tooltip,.feedsDiv + .tooltip{
+  width: 10%;
+  background-color: white;
+  color: black;
+}
+.medsDiv + .tooltip{
+  width: 15%;
+  
+}
+.tooltip > .tooltip-inner{
+  font-size: 1.2em;
+}

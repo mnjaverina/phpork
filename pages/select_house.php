@@ -32,8 +32,8 @@
   </head> 
 
   <body> 
-   <div class="page-header"> 
-          <a href="<?php echo HOST;?>/phpork/home" title="Click to go back to home page">
+   <div class="page-header" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to home page which is 'View', 'Insert' and 'Customize' " data-placement="bottom"> 
+          <a href="<?php echo HOST;?>/phpork/home">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Header1.png"> 
           </a>
       </div>
@@ -65,15 +65,15 @@
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="lowerPanel">
         <span class="custom-dropdown2"> 
-          <select id="dropdown"> 
+          <select id="dropdown" data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pig that you want to view/edit is located."> 
             <option selected="true" disabled="disabled" id="select">Select House</option>
           </select> 
         </span> 
         <br/> <br/>
-        <button type="button" class="btn1" id="backH">
+        <button type="button" class="btn1" id="backH" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to the previous page. (Select farm)">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back 
         </button>
-        <button type="button" class="btn1" id="nextH">
+        <button type="button" class="btn1" id="nextH" data-trigger= "hover" data-toggle="tooltip" title="Click to proceed to the next page. (Select pen)">
           Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         </button>
       </div>
@@ -131,6 +131,10 @@
            
           } 
         });
+        $('#backH').tooltip({trigger: "hover"});
+        $('#nextH').tooltip({trigger: "hover"});
+       $('#dropdown').tooltip({trigger: "hover"});
+       $('.page-header').tooltip({trigger: "hover"});
       });
     </script>
   </body>

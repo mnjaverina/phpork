@@ -26,15 +26,14 @@
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script> 
+     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js" type="text/javascript"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/jquery.min.js"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
   </head> 
 
   <body> 
-    <div class="page-header"> 
-      <a href="/phpork/home">
+    <div class="page-header" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to home page which is 'View', 'Insert' and 'Customize' " data-placement="bottom"> 
+      <a href="/phpork/home" >
         <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Header1.png"> 
       </a>
     </div>
@@ -78,10 +77,10 @@
 
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="lowerPanel1">
-        <button type="button" class="btn1" id="back">
+        <button type="button" class="btn1" id="back"  data-trigger= "hover"data-toggle="tooltip" title="Click to go back to the previous page. (Select pig)">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
         </button>
-        <button type="button" class="btn1" id="view">
+        <button type="button" class="btn1" id="view" data-trigger= "hover" data-toggle="tooltip" title="Click to view/edit the details of the pig that you selected.">
           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> View Pig Details
         </button> 
       </div>
@@ -91,7 +90,7 @@
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
     </div>
 
-    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
+   
     <script type="text/javascript"> 
       $(document).ready(function () {
         $('#view').on("click",function() {
@@ -107,7 +106,10 @@
           var houseno = $("#houseid").val(); 
           var location = $("#locid").val(); 
           window.location = "/phpork/farm/house/pen/" +location+ "/" +houseno+ "/" +penno; 
-        }); 
+        });
+        $('#back').tooltip({trigger: "hover"});
+         $('#view').tooltip({trigger: "hover"}); 
+         $('.page-header').tooltip({trigger: "hover"});
       }); 
     </script> 
   </body>

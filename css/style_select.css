@@ -303,3 +303,6 @@ form .logout{
     margin-top: 2%;
   }
 }
+.tooltip > .tooltip-inner{
+  font-size: 1.2em;
+}

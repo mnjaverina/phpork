@@ -39,12 +39,12 @@
         <div class="row row-centered pos1">
           <div class="col-sm-6 col-md-4 col-centered" style="background-color: #bb1d24; border-radius: 25px; padding-top: 1%; padding-bottom: 2%;">
             <img src="<?php echo HOST;?>/phpork/images/logo.jpg" class="img-responsive">
-            <div class="col-md-2 col-centered" style="width:82%; margin-bottom: 2%; background-color: white; border-radius: 10px; margin-left: 10%; text-align: center; font-size: 1.5em;">
-              <a href="<?php echo HOST;?>/phpork/in/1">
+            <div class="col-md-2 col-centered adminDiv" data-trigger= "hover" data-toggle="tooltip" title="Click if you are the admin." style="width:82%; margin-bottom: 2%; background-color: white; border-radius: 10px; margin-left: 10%; text-align: center; font-size: 1.5em;">
+              <a href="<?php echo HOST;?>/phpork/in/1" >
                 <span>Log in as ADMIN</span>
               </a>
             </div>
-            <div class="col-md-2 col-centered" style="width: 82%; background-color: white; border-radius: 10px;  margin-left: 10%; text-align: center; font-size: 1.5em;">
+            <div class="col-md-2 col-centered encoderDiv" data-trigger= "hover" data-toggle="tooltip" title="Click if you are the encoder." style="width: 82%; background-color: white; border-radius: 10px;  margin-left: 10%; text-align: center; font-size: 1.5em;">
               <a href="<?php echo HOST;?>/phpork/in/2">
                 <span>Log in as ENCODER</span>
               </a>
@@ -104,6 +104,12 @@
         });
 
       });
+    </script>
+    <script>
+    $(document).ready(function(){
+        $('.adminDiv').tooltip({trigger: "hover"});
+        $('.encoderDiv').tooltip({trigger: "hover"});
+    });
     </script>
   </body>
 </html>

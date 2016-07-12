@@ -25,8 +25,8 @@
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script> 
+    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/jquery.min.js"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
   </head> 
 
@@ -106,7 +106,7 @@
               </div>
           </div>
           <div class="btnpos">
-            <button type="button" class="btn1" id="pigDetails2">
+            <button type="button" class="btn1" id="pigDetails2" data-trigger= "hover" data-toggle="tooltip" title="Click to go to the next page. (Pig details part 2) " data-placement="left">
               Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </button>
           </div>
@@ -181,10 +181,10 @@
             </div>
           </div>
           <div class="btnpos">
-            <button type="button" class="btn1" id="backToPig1">
+            <button type="button" class="btn1" id="backToPig1" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to previous page. (Pig details part 1) " data-placement="left">
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
             </button>
-            <button type="button" class="btn1" id="feedDetails">
+            <button type="button" class="btn1" id="feedDetails" data-trigger= "hover" data-toggle="tooltip" title="Click to go to the next page. (Feed details) " data-placement="right">
               Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </button>
           </div>
@@ -237,10 +237,10 @@
             </div>
           </div>
           <div class="btnpos">
-            <button type="button" class="btn1" id="backToPig2">
+            <button type="button" class="btn1" id="backToPig2" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to previous page. (Pig details part 2) " data-placement="left">
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
             </button>
-            <button type="button" class="btn1" id="medDetails">
+            <button type="button" class="btn1" id="medDetails" data-trigger= "hover" data-toggle="tooltip" title="Click to go to the next page. (Medication details) " data-placement="right">
               Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </button>
           </div>
@@ -291,10 +291,10 @@
             </div>
           </div>
           <div class="btnpos">
-            <button type="button" class="btn1" id="backToFeeds">
+            <button type="button" class="btn1" id="backToFeeds" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to previous page. (Feed details) " data-placement="left">
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
             </button> 
-            <button type="submit" class="btn1" id="insert">
+            <button type="submit" class="btn1" id="insert" data-trigger= "hover" data-toggle="tooltip" title="Click to insert pig details and its feed and medication details. " data-placement="right">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Insert Pig
             </button>
           </div>
@@ -313,7 +313,7 @@
     ?> 
   </div>  
 
-    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
+    
       <script type="text/javascript"> 
         $(document).ready(function () {
 
@@ -675,6 +675,14 @@
               } 
           
         });
+      $('#pigDetails2').tooltip({trigger: "hover"});
+      $('#backToPig1').tooltip({trigger: "hover"});
+      $('#feedDetails').tooltip({trigger: "hover"});
+      $('#backToPig2').tooltip({trigger: "hover"});
+      $('#medDetails').tooltip({trigger: "hover"});
+      $('#backToFeeds').tooltip({trigger: "hover"});
+      $('#insert').tooltip({trigger: "hover"});
+
 
         
     </script>

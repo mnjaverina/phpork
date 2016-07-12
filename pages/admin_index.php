@@ -43,56 +43,56 @@
       </div> 
     </form> 
 
-      <div class="box">
-        <button id="addUser" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalUser">
+      <div class="box userDiv" data-toggle="tooltip" title="Click to add user." data-trigger= "hover" >
+        <button id="addUser" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalUser"">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Username.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add User</span>
         </button>
       </div>
 
-      <div class="box">
+      <div class="box farmDiv" data-toggle="tooltip" title="Click to add farm." data-trigger= "hover">
         <button id="addFarm" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalFarm">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Farm.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Farm</span>
         </button>
       </div>
 
-      <div class="box">
+      <div class="box houseDiv" data-toggle="tooltip" title="Click to add house." data-trigger= "hover">
        <button id="addHouse" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalHouse">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add House.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add House</span>
         </button>
       </div>
 
-      <div class="box">
+      <div class="box penDiv" data-toggle="tooltip" title="Click to add pen." data-trigger= "hover">
          <button id="addPen" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalPen">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Pen.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Pen</span>
         </button>
       </div>
 
-    <div class="box">
+    <div class="box parentDiv" data-toggle="tooltip" title="Click to add parents." data-trigger= "hover">
         <button id="addParent" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalPig">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Select Pig.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Parent</span>
         </button>
       </div>
 
-      <div class="box">
+      <div class="box breedDiv" data-toggle="tooltip" title="Click to add breed." data-trigger= "hover">
         <button id="addBreed" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalBreed">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Breed.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Breed</span>
         </button>
       </div>
 
-      <div class="box">
+      <div class="box feedsDiv" data-toggle="tooltip" title="Click to add feed." data-trigger= "hover">
          <button id="addFeeds" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalFeed">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Feeds.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Feeds</span>
         </button>
       </div>
 
-      <div class="box">
+      <div class="box medsDiv" data-toggle="tooltip" title="Click to add medication." data-trigger= "hover">
          <button id="addMeds" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalMeds">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Medications.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Medication</span>
@@ -114,12 +114,12 @@
           <div class="modal-body"> 
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Username: </span>
-              <input type="text" class="form-control" id="uname" aria-describedby="basic-addon3" required>
+              <input type="text" class="form-control" id="uname" data-trigger= "hover" data-toggle="tooltip" title="Input new username" aria-describedby="basic-addon3" required>
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">User Type: </span>
-              <select class="form-control" id="uType" style="color:black;" required> 
+              <select class="form-control" id="uType" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the user is an admin or encoder." required> 
                     <option value="" disabled selected>Select user type</option>
                     <option value="admin">Admin</option> 
                     <option value="encoder">Encoder</option> 
@@ -128,11 +128,11 @@
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Password: </span>
-              <input type="password" class="form-control" id="password" aria-describedby="basic-addon3" required>
+              <input type="password" class="form-control" id="password" data-trigger= "hover" data-toggle="tooltip" title="Input new password." aria-describedby="basic-addon3" required>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-default" data-dismiss="modal" id="saveUser">Add</button>
+          <div class="modal-footer" >
+            <button type="submit" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save user's details." id="saveUser">Add</button>
           </div>
         </div>
       </div>
@@ -151,16 +151,16 @@
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
-              <input type="text" class="form-control" id="farmname" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="farmname" data-trigger= "hover"  data-toggle="tooltip" title="Input the name of the farm you want to add." aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Address: </span>
-              <input type="text" class="form-control" id="fadd" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="fadd" data-trigger= "hover" data-toggle="tooltip" title="Input the address of the new farm." aria-describedby="basic-addon3">
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="saveFarm">Add</button>
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save farm's details." id="saveFarm">Add</button>
           </div>
         </div>
       </div>
@@ -177,24 +177,24 @@
           <div class="modal-body">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Location: </span>
-              <select class="form-control" id="loc" style="color:black;" required> 
+              <select class="form-control" id="loc" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the house you want to add." required> 
                     <option value="" disabled selected>Select farm location...</option> 
             </select>
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">House Number: </span>
-              <input type="text" class="form-control" id="hnum" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="hnum" data-trigger= "hover" data-toggle="tooltip" title="Input the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">House Name: </span>
-              <input type="text" class="form-control" id="hname" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="hname" data-trigger= "hover" data-toggle="tooltip" title="Input the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Function: </span>
-              <select  class="form-control" id="func" name="selStat" style="color:black;" required> 
+              <select  class="form-control" id="func" name="selStat" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Input the function of the new house. Ex: Weaning" required> 
                 <option value="" disabled selected>Select function</option>
                 <option value="Weaning">Weaning</option> 
                 <option value="Growing">Growing</option> 
@@ -203,8 +203,8 @@
             </div>
             <br/>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="saveHouse">Add</button>
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save house's details." id="saveHouse">Add</button>
           </div>
         </div>
       </div>
@@ -221,26 +221,26 @@
           <div class="modal-body">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Location: </span>
-              <select class="form-control" id="farm" style="color:black;" required> 
+              <select class="form-control" id="farm" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
                     <option value="" disabled selected>Select farm location...</option> 
             </select>
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">House Number: </span>
-               <select class='form-control'  id='house' style='color:black;' required> 
+               <select class='form-control'  id='house' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
                       <option value='' disabled selected>Select house...</option> 
             </select> 
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
-              <input type="text" class="form-control" id="pennum" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="pennum" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Function: </span>
-              <select  class="form-control" id="func" style="color:black;" required> 
+              <select  class="form-control" id="func2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
                 <option value="" disabled selected>Select function</option>
                 <option value="Weaning">Weaning</option> 
                 <option value="Growing">Growing</option> 
@@ -249,8 +249,8 @@
               </select> 
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="savePen">Add</button>
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save pen's details." id="savePen">Add</button>
           </div>
         </div>
       </div>
@@ -268,7 +268,7 @@
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Label: </span>
-              <select  class="form-control" id="parentLabel"  style="color:black;" required> 
+              <select  class="form-control" id="parentLabel"  style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the parent you will add is boar or sow." required> 
                       <option value="" disabled selected>Select parent label</option> 
                       <option value="boar">Boar</option> 
                       <option value="sow">Sow</option> 
@@ -277,11 +277,11 @@
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Label ID: </span>
-              <input type="text" class="form-control" id="label_id" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="label_id" data-trigger= "hover" data-toggle="tooltip" title="Input the label id of the new boar/sow. Ex: AB123" aria-describedby="basic-addon3">
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="saveParent">Add</button>
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save parent's details." id="saveParent">Add</button>
           </div>
         </div>
       </div>
@@ -298,11 +298,11 @@
           <div class="modal-body">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Breed Name: </span>
-              <input type="text" class="form-control" id="breed_name" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="breed_name" data-trigger= "hover" data-toggle="tooltip" title="Input new breed's name." aria-describedby="basic-addon3">
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="saveBreed">Add</button>
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save breed's details." id="saveBreed">Add</button>
           </div>
         </div>
       </div>
@@ -320,16 +320,16 @@
           <div class="modal-body">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Feed Name: </span>
-              <input type="text" class="form-control" id="feed_name" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="feed_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new feed." aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Feed Type: </span>
-              <input type="text" class="form-control" id="feed_type" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="feed_type" data-trigger= "hover" data-toggle="tooltip" title="Input the type of the new feed. Ex: Type 1 " aria-describedby="basic-addon3">
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="saveFeed">Add</button>
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveFeed">Add</button>
           </div>
         </div>
       </div>
@@ -346,16 +346,16 @@
           <div class="modal-body">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Med Name: </span>
-              <input type="text" class="form-control" id="med_name" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="med_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new medication." aria-describedby="basic-addon3">
             </div>
             <br/>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Med Type: </span>
-              <input type="text" class="form-control" id="med_type" aria-describedby="basic-addon3">
+              <input type="text" class="form-control" id="med_type" data-trigger= "hover" data-toggle="tooltip" title="Input the type of the new medication. Ex: Type 2" aria-describedby="basic-addon3">
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="saveMeds">Add</button>
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save medication details." id="saveMeds">Add</button>
           </div>
         </div>
       </div>
@@ -525,7 +525,7 @@
           var houseno = $("#house").val();
           var location = $('#farm').val();
           var penNum = $("#pennum").val(); 
-          var func = $("#func").val(); 
+          var func = $("#func2").val(); 
 
           if((penNum != '') && (func != '') ){
             $.ajax({
@@ -738,5 +738,62 @@
      });
 
     </script>
+    <script>
+    $(document).ready(function(){
+        /* Add user's tooltip*/
+        $('.userDiv').tooltip({trigger: "hover"});
+        $('#saveUser').tooltip({trigger: "hover"});
+        $('#uname').tooltip({trigger: "hover"});
+        $('#uType').tooltip({trigger: "hover"});
+        $('#password').tooltip({trigger: "hover"});
+
+        /* Add farm's tooltip*/
+        $('.farmDiv').tooltip({trigger: "hover"});
+        $('#saveFarm').tooltip({trigger: "hover"});
+        $('#farmname').tooltip({trigger: "hover"});
+        $('#fadd').tooltip({trigger: "hover"});
+        
+        /* Add house's tooltip*/
+        $('.houseDiv').tooltip({trigger: "hover"});
+        $('#saveHouse').tooltip({trigger: "hover"});
+        $('#hnum').tooltip({trigger: "hover"});
+        $('#hname').tooltip({trigger: "hover"});
+        $('#loc').tooltip({trigger: "hover"});
+        $('#func').tooltip({trigger: "hover"});
+
+        /* Add pen's tooltip*/
+        $('.penDiv').tooltip({trigger: "hover"});
+        $('#savePen').tooltip({trigger: "hover"});
+        $('#farm').tooltip({trigger: "hover"});
+        $('#house').tooltip({trigger: "hover"});
+        $('#pennum').tooltip({trigger: "hover"});
+        $('#func2').tooltip({trigger: "hover"});
+
+        /* Add parent's tooltip*/
+        $('.parentDiv').tooltip({trigger: "hover"});
+        $('#saveParent').tooltip({trigger: "hover"});
+        $('#parentLabel').tooltip({trigger: "hover"});
+        $('#label_id').tooltip({trigger: "hover"});
+
+        /* Add breed's tooltip*/
+        $('.breedDiv').tooltip({trigger: "hover"});
+        $('#saveBreed').tooltip({trigger: "hover"});
+        $('#breed_name').tooltip({trigger: "hover"});
+
+        /* Add feed's tooltip*/
+        $('.feedsDiv').tooltip({trigger: "hover"});
+        $('#saveFeed').tooltip({trigger: "hover"});
+        $('#feed_name').tooltip({trigger: "hover"});
+        $('#feed_type').tooltip({trigger: "hover"});
+
+        /* Add medication's tooltip*/
+        $('.medsDiv').tooltip({trigger: "hover"});
+        $('#saveMeds').tooltip({trigger: "hover"});
+        $('#med_name').tooltip({trigger: "hover"});
+        $('#med_type').tooltip({trigger: "hover"});
+
+    });
+    </script> 
   </body>
 </html>
+

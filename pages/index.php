@@ -19,8 +19,12 @@
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.css"> 
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css"> 
-    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_index.css"> 
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_index.css">
+
+    <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
+    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script>
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
+    <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
   </head> 
   <body> 
     <div class="page-header"> 
@@ -37,17 +41,17 @@
     </form> 
 
     <div class="menu"> 
-      <div class="col-md-2 col-centered image1"> 
+      <div class="col-md-2 col-centered image1" data-trigger= "hover" data-toggle="tooltip" title="Click to view and edit the details of pig. This is also where you input daily intake of feed and medication of pigs."> 
         <a href="/phpork/pages/farm">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/home_view.png">
         </a> 
       </div> 
-      <div class="col-md-2 col-centered image2"> 
+      <div class="col-md-2 col-centered image2" data-trigger= "hover" data-toggle="tooltip" title="Click to insert new pigs. It includes basic details, last feed intake and last medication given. "> 
         <a href="/phpork/addPig/pigDetails">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/home_insert.png">
         </a> 
       </div>
-      <div class="col-md-2 col-centered image3"> 
+      <div class="col-md-2 col-centered image3" data-trigger= "hover" data-toggle="tooltip" title="Click to edit the information on what information will be displayed to customers and farm employees."> 
         <a href="/phpork/customize">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/home_customize.png">
         </a> 
@@ -57,5 +61,13 @@
     <div class="page-footer"> 
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
     </div>
+    <script>
+    $(document).ready(function(){
+        /* Add user's tooltip*/
+        $('.image1').tooltip({trigger: "hover"});
+        $('.image2').tooltip({trigger: "hover"});
+        $('.image3').tooltip({trigger: "hover"});
+      });
+      </script>
   </body>
 </html>

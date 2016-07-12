@@ -64,13 +64,13 @@
             </a>
             <div class="form-group form-group-sm input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input class="form-control" type="username" name='username' placeholder="Username" required/>     
+              <input class="form-control userInput" type="username" name='username' placeholder="Username" data-trigger= "hover" data-toggle="tooltip" title="Input your username." required/>     
             </div>
             <div class="form-group form-group-sm input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input class="form-control" type="password" name='password' placeholder="Password" required/>     
+              <input class="form-control pwInput" type="password" name='password' placeholder="Password" data-trigger= "hover" data-toggle="tooltip" title="Input your password." required/>     
             </div>
-            <button type="submit" class="submit" name="loginFlag">
+            <button type="submit" class="submit" name="loginFlag" data-trigger= "hover" data-toggle="tooltip" title="Click to proceed to next page.">
               <i class="fa fa-long-arrow-right">
                 <img src="<?php echo HOST;?>/phpork/images/arrow.png" id="arrow_img">
               </i>
@@ -92,6 +92,13 @@
           <img src="<?php echo HOST;?>/phpork/images/logos/UPLB logo.png" class="img-responsive">
         </div>
       </div>
-    </div>  
+    </div> 
+    <script>
+    $(document).ready(function(){
+        $('.submit').tooltip({trigger: "hover"});
+        $('.userInput').tooltip({trigger: "hover"});
+        $('.pwInput').tooltip({trigger: "hover"});
+    });
+    </script> 
   </body>
 </html>

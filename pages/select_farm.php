@@ -33,7 +33,7 @@
 
   <body> 
     <div class="container">
-   <div class="page-header"> 
+   <div class="page-header" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to home page which is 'View', 'Insert' and 'Customize' " data-placement="bottom"> 
       <a href="<?php echo HOST;?>/phpork/home">
         <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Header1.png"> 
       </a>
@@ -66,12 +66,12 @@
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="lowerPanel">
         <span class="custom-dropdown2"> 
-          <select id="dropdown"> 
+          <select id="dropdown" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm where the pig that you want to view/edit is located."> 
             <option selected="true" disabled="disabled" id="select">Select farm</option> 
           </select> 
         </span> 
         <br/> <br/>
-        <button type="button" class="btn1" id="nextF">
+        <button type="button" class="btn1" id="nextF" data-trigger= "hover" data-toggle="tooltip" title="Click to proceed to next page. (Select house)">
           Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         </button>
       </div>
@@ -83,9 +83,9 @@
   </div>
 
     <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog" >
+   <!--  <div id="myModal" class="modal fade" role="dialog" >
       <div class="modal-dialog">
-        <div class="modal-content"> <!-- Modal content-->
+        <div class="modal-content"> 
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Add Farm</h4>
@@ -107,9 +107,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
+    
     <script type="text/javascript"> 
       $(document).ready(function () {
         $('#nextF').on("click",function() {
@@ -140,6 +140,10 @@
           } 
         }    
       });
+       $('#nextF').tooltip({trigger: "hover"});
+       $('#dropdown').tooltip({trigger: "hover"});
+       $('.page-header').tooltip({trigger: "hover"});
     </script>
   </body>
 </html>
+

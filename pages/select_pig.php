@@ -25,15 +25,14 @@
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script> 
+    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js" type="text/javascript"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/jquery.min.js"></script> 
-    <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
   </head> 
 
   <body> 
-    <div class="page-header"> 
-      <a href="<?php echo HOST;?>/phpork/home">
+    <div class="page-header" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to home page which is 'View', 'Insert' and 'Customize' " data-placement="bottom"> 
+      <a href="<?php echo HOST;?>/phpork/home"> 
         <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Header1.png"> 
       </a>
     </div>
@@ -65,24 +64,24 @@
     <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="lowerPanel">
         <span class="custom-dropdown2"> 
-          <select id="dropdown"> 
+          <select id="dropdown" data-trigger= "hover" data-toggle="tooltip" title="Select the id of the pig that you want to view/edit."> 
             <option selected="true" disabled="disabled">Select Pig</option>
           </select> 
         </span> 
         <br/> <br/>
-        <button type="button" class="btn1" id="backPg">
+        <button type="button" class="btn1" id="backPg" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to the previous page. (Select pen)">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
         </button>
-        <button type="button" class="btn1" id="nextPg">
+        <button type="button" class="btn1" id="nextPg" data-trigger= "hover" data-toggle="tooltip" title="Click to proceed to the next page. (View details)">
           Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         </button>
       </div>
     </div>
 
     <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
+    <!-- <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
-        <div class="modal-content">  <!-- Modal content-->
+        <div class="modal-content">  
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Modal Header</h4>
@@ -95,7 +94,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="page-footer"> 
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
@@ -112,7 +111,6 @@
       ?>
     </div>
 
-    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
     <script type="text/javascript"> 
       $(document).ready(function () {
         $('#nextPg').on("click",function() {
@@ -158,6 +156,10 @@
             } 
           } 
         });
+      $('#nextPg').tooltip({trigger: "hover"});
+         $('#backPg').tooltip({trigger: "hover"});
+       $('#dropdown').tooltip({trigger: "hover"});
+       $('.page-header').tooltip({trigger: "hover"});
       });
     </script>
   </body>
