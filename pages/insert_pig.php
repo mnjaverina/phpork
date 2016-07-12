@@ -48,7 +48,7 @@
 
    
   <form method="post" >
-    <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="margin-left: -10%;">
+    <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
       <!--Pig Details(1)-->
       <div id="pig1" style="display: inline-block;">
         <div class="content"> 
@@ -63,27 +63,27 @@
           <div class="lowerPanel">
             <h3><span class="label">Pig Details - 1</span></h3>
             <!--<div class="t1">-->
-              <div class="input-group">
+              <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Pig id: </span>
                 <input type="text" class="form-control" id="pigId" name="new_pid" aria-describedby="basic-addon3" value="" required>
               </div>
               <br/>
-              <div class="input-group">
+              <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">RFID: </span>
                 <input type="text" readonly class="form-control" id="rfid" aria-describedby="basic-addon3">
               </div>
               <br/>
-              <div class="input-group">
+              <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Farrowing Date: </span>
                 <input type="date" class="form-control" id="farrowingDate" name="pbdate"  value="" aria-describedby="basic-addon3">
               </div>
               <br/>
-              <div class="input-group">
+              <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Week farrowed: </span>
                 <input type="number" min = "1" max = "52" class="form-control" name="weekFarrowed" value="" id = "weekFarrowed"> 
               </div>
               <br/>
-              <div class="input-group">
+              <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Status: </span>
                 <select  class="form-control" id="pigStatus" name="selStat" style="color:black;" required> 
                   <option value="" disabled selected>Select pig status..</option> 
@@ -94,13 +94,13 @@
                 </select> 
               </div>
               <br/>
-              <div class="input-group">
+              <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Weight: </span>
                 <input type="number" min="1" step="0.01" class="form-control" id="weight" aria-describedby="basic-addon3" style="width: 90%;">
-                <span style="width: 10%; font-size: 1.5em;">kg</span>
+                <span class="kg">kg</span>
               </div>
               <br/>
-              <div class="input-group">
+              <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Weight Type: </span>
                 <input type="text" class="form-control" id="weightType" value="" aria-describedby="basic-addon3">
               </div>
@@ -127,7 +127,7 @@
         <div class="row row-centered pos1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div class="lowerPanel">
             <h3><span class="label">Pig Details - 2</span></h3>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Gender: </span>
               <select  class="form-control" id="gender" name="selStat" style="color:black;" value="" required> 
                 <option value="" disabled selected>Select pig gender</option>
@@ -136,35 +136,35 @@
               </select>
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Breed: </span>
               <select class="form-control" name="pbreed" id="breed"  required> 
                 <option value="" disabled selected>Select breed...</option> 
                 </select> 
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Farm: </span>
               <select class="form-control" id="farm" style="color:black;" required> 
                 <option value="" disabled selected>Select farm location...</option> 
               </select> 
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">House: </span>
               <select class='form-control'  id='house' style='color:black;' required> 
                 <option value='' disabled selected>Select house...</option> 
               </select> 
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Pen: </span>
               <select class='form-control' id='pen' style='color:black;' required> 
                 <option value='' disabled selected>Select Pen...</option> 
               </select> 
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Parents: </span>
               <select  name="pboar" id="boarParent" class='form-control' required> 
                 <option value="" disabled selected>Select boar...</option> 
@@ -207,33 +207,33 @@
           <div class="lowerPanel">
             <h3><span class="label">Feed Details</span></h3>
             <br/> 
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Last feed: </span>
               <select class = "form-control" id="lastFeed" required> 
                 <option value="" disabled selected>Select feeds</option> 
               </select> 
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Feed Type: </span>
               <input type="text" readonly class="form-control" id="feedType" aria-describedby="basic-addon3">
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Production date of feed: </span>
               <input type="date" class="form-control" id="prodDateOfFeed" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy">
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Date and time given: </span>
               <input type="date" class="form-control" id="dateFeedGiven" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy">
               <input type="time" class="form-control" id="timeFeedGiven" aria-describedby="basic-addon3">
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Quantity: </span>
               <input type="number" min="1" step="0.01" class="form-control" id="feedQty" aria-describedby="basic-addon3" style="width: 90%;">
-              <span style="width: 10%; font-size: 1.5em;">kg</span>
+              <span class="kg">kg</span>
             </div>
           </div>
           <div class="btnpos">
@@ -262,28 +262,28 @@
           <div class="lowerPanel">
             <h3><span class="label">Medication Details</span></h3>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Last medication given: </span>
               <select name="selectMeds" id="lastMedGiven" class="form-control"> 
                 <option value="" disabled selected>Select medication...</option> 
               </select> 
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Medication type: </span>
               <input type="text" readonly class="form-control" id="medType" aria-describedby="basic-addon3">
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Date and time given: </span>
               <input type="date" class="form-control" id="dateMedGiven" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy">
               <input type="time" class="form-control" id="timeMedGiven" aria-describedby="basic-addon3">
             </div>
             <br/>
-            <div class="input-group">
+            <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Quantity: </span>
-              <input type="number" min="1" step="0.01" class="form-control" id="medQty" aria-describedby="basic-addon3" style="width: 85%;">
-              <select  class="form-control" id="unit" name="unit" style="color:black; width: 15%;" required> 
+              <input type="number" min="1" step="0.01" class="form-control qan" id="medQty" aria-describedby="basic-addon3">
+              <select  class="form-control qan1" id="unit" name="unit"required> 
                 <option value="cc" selected>cc</option> 
                 <option value="ml">mL</option>
                 <option value="kg">kg</option>  
