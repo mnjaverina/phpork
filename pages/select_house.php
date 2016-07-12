@@ -33,7 +33,7 @@
 
   <body> 
    <div class="page-header" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to home page which is 'View', 'Insert' and 'Customize' " data-placement="bottom"> 
-          <a href="<?php echo HOST;?>/phpork/home">
+          <a href="<?php echo HOST;?>/phpork/encoder/home">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Header1.png"> 
           </a>
       </div>

@@ -23,8 +23,8 @@
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
   </head> 
   <body> 
-     <div class="page-header"> 
-      <a href="<?php echo HOST;?>/phpork/pages/index.php">
+     <div class="page-header" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to home page which is 'View', 'Insert' and 'Customize' " data-placement="bottom"> 
+      <a href="/phpork/encoder/home" >
         <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Header1.png"> 
       </a>
     </div>
