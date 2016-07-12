@@ -7,7 +7,7 @@
     if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
       header("Location: login.php"); 
     }
-   include "../inc/functions.php"; 
+    include "../functions.php"; 
     $db = new phpork_functions (); 
   ?> 
 
