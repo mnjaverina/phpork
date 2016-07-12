@@ -73,7 +73,7 @@
 	    <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
 	    <script src="<?php echo HOST;?>/phpork/js/bootstrap.min.js"></script>
 		</head> 
-
+		
 	<body> 
 		<div class="page-header"> 
 	      	<a href="<?php echo HOST;?>/phpork/home">
