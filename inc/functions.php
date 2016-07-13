@@ -1120,6 +1120,39 @@
 				
 				return $ar_data;
 		}
+		public function getWeightReport($var,$from,$to)
+		{
+				$link = $this->connect();
+				$query = " SELECT DISTINCT 
+							wr.record_date,
+							wr.record_time,
+							wr.weight,
+							wr.remarks,
+							wr.pig_id
+							FROM weight_record wr 
+							INNER JOIN pig p on
+								wr.pig_id = p.pig_id
+							WHERE wr.pig_id = '" . $var . "' and
+							wr.date_given BETWEEN '".$from."' and '".$to."'";
+				$result = mysqli_query($link, $query);
+				$m = array();
+				$m_arr = array();
+				while($row = mysqli_fetch_row($result)){
+					$m['Pig_id'] = $row[4];
+					$date = date_create($row[0]);
+					$m['Date_weighed'] = $date->format('F j,Y');
+					$m['time_weighed'] = $row[1];
+					$m['weight'] = $row[2];
+					$m['remarks'] = $row[3];
+					$m_arr[] = $m;
+				}
+				
+				$fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\weight_reports\\wtrans_details.json', 'w');
+				fwrite($fp, json_encode($m_arr,JSON_PRETTY_PRINT));
+				fclose($fp);
+				return $m_arr;
+				
+		}
 
 			/* end of pig.php details */
 

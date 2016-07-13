@@ -241,6 +241,13 @@
 		$id = $_GET['pig'];
 		echo json_encode($db->getPigWeight($id));
 	}
+	if(isset($_POST['getWeightReport'])){
+		$pig = $_POST['pig']; 
+		$from = $_POST['from'];
+		$to = $_POST['to'];
+		echo json_encode($db->getWeightReport($pig,$from,$to)); 
+		//localhost/phpork2/gateway/meds.php?getMedsDetails=1&med=1
+	} 
 
 	
 ?>   

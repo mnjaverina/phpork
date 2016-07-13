@@ -45,7 +45,7 @@
     </form> 
 
       <div class="box userDiv" data-toggle="tooltip" title="Click to add user." data-trigger= "hover" >
-        <button id="addUser" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalUser"">
+        <button id="addUser" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalUser">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Username.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add User</span>
         </button>

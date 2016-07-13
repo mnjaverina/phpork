@@ -31,10 +31,7 @@
 	    
 	    <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
 
-	    <!--am charts-->
-		 <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_amcharts.css" type="text/css">
-        <script src="<?php echo HOST;?>/phpork/js/amcharts/amcharts.js" type="text/javascript"></script>
-        <script src="<?php echo HOST;?>/phpork/js/amcharts/serial.js" type="text/javascript"></script>
+	   
 		</head> 
 
 	<body> 
@@ -169,10 +166,10 @@
 						</table>
 					</div>
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					    <a href="#">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png"> <!--movement-->
+					    <button id ="mvmntRprt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMvmnt"> <!--movement-->
 					        <span> Download Report</span>
-					    </a>
+					    </button>
 				    </div>
 			    </div>
 			    <div id="viewMovementGraph" style="display: none;" > 
@@ -223,10 +220,10 @@
 					</div>
 					<br/>
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 8%;">
-					    <a href="#">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png"> <!--movement-->
+					    <button id ="medsRprt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMeds"> <!--movement-->
 					        <span> Download Report</span>
-					    </a>
+					    </button>
 				    </div>
 				</div>
 				<div id="editMedsDetails" style="display: none;"> 
@@ -380,10 +377,10 @@
 					</div>
 					<br/>
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 8%;">
-						<a href="#">
-						    <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png"> 
-						    <span> Download Report</span>
-						</a>
+						<button id ="feedsRprt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportFeeds"> <!--movement-->
+					        <span> Download Report</span>
+					    </button>
 					</div>
 				</div>
 
@@ -600,6 +597,93 @@
 			
 		</div>
 		<!--VIEWS-->
+
+		<!-- Reports-->
+		<!-- Modal for movement report-->
+		<div id="myModalReportMvmnt" class="modal fade" role="dialog" >
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Download movement report</h4>
+	          </div>
+	          <div class="modal-body"> 
+	            <form>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">From: </span>
+	              <input type="date" class="form-control" id="from" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">To: </span>
+	              <input type="date" class="form-control" id="to" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	          </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_mvmntrprt">Download</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div id="myModalReportMeds" class="modal fade" role="dialog" >
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Download medication details report</h4>
+	          </div>
+	          <div class="modal-body"> 
+	            <form>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">From: </span>
+	              <input type="date" class="form-control" id="fromMeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">To: </span>
+	              <input type="date" class="form-control" id="toMeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	          </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_medsrprt">Download</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div id="myModalReportFeeds" class="modal fade" role="dialog" >
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Download feed details report</h4>
+	          </div>
+	          <div class="modal-body"> 
+	            <form>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">From: </span>
+	              <input type="date" class="form-control" id="fromFeeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">To: </span>
+	              <input type="date" class="form-control" id="toFeeds" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	          </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_feedsrprt">Download</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
 
 		<div class="page-footer"> 
 			Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
@@ -1790,6 +1874,88 @@
  			 } 
  			}  
 		
+		 $('#mvmntRprt').on("click",function() {
+            $('#myModalReportMvmnt').modal('show');
+        });
+        $('#gen_mvmntrprt').on("click",function(){
+          var from = $('#from').val();
+          var to = $('#to').val();
+          var pig = $('#pigid').val(); 
+          if((from != '') && (to != '') && (pig != '') ){
+            $.ajax({
+              url: '/phpork/gateway/movement.php',
+              type: 'post',
+              data : {
+                getMvmntDetails: '1',
+                from: from,
+                to: to,
+                pig: pig
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Generated movement report! Saved in Desktop.");  
+                }
+            });
+          }
+          window.location = "/phpork/home";
+        });
+        /* report meds*/
+        $('#medsRprt').on("click",function() {
+            $('#myModalReportMeds').modal('show');
+        });
+        
+        $('#gen_medsrprt').on("click",function(){
+          var from = $('#fromMeds').val();
+          var to = $('#toMeds').val();
+          var pig = $('#pigid').val(); 
+          if((from != '') && (to != '') && (pig != '') ){
+            $.ajax({
+              url: '/phpork/gateway/meds.php',
+              type: 'post',
+              data : {
+                getMedsReport: '1',
+                from: from,
+                to: to,
+                pig: pig
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Generated medication report! Saved in Desktop.");  
+                }
+            });
+          }
+          window.location = "/phpork/home";
+        });
+        /* report feeds*/
+        $('#feedsRprt').on("click",function() {
+            $('#myModalReportFeeds').modal('show');
+        });
+        
+        $('#gen_feedsrprt').on("click",function(){
+          var from = $('#fromFeeds').val();
+          var to = $('#toFeeds').val();
+          var pig = $('#pigid').val(); 
+          
+          if((from != '') && (to != '') && (pig != '') ){
+            $.ajax({
+              url: '/phpork/gateway/feeds.php',
+              type: 'post',
+              data : {
+                getFeedReport: '1',
+                from: from,
+                to: to,
+                pig: pig
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Generated feed report! Saved in Desktop.");  
+                }
+            });
+          }
+          window.location = "/phpork/home";
+        });   
+       
+      //}); 
 		function viewPig(pig){
 		 	$.ajax({
 	        url: '/phpork/gateway/pig.php',
