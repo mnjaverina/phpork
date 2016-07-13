@@ -82,5 +82,10 @@
 		echo json_encode($db->ddl_medRecord($pid)); 
 		//localhost/phpork2/gateway/meds.php?ddl_medRecord=1&pig=1
 	} 
+	if(isset($_POST['getLastMed'])){
+		$pid = $_POST['pig']; 
+		echo json_encode($db->getLastMed($pid)); 
+		//localhost/phpork2/gateway/meds.php?ddl_medRecord=1&pig=1
+	} 
 
 ?>

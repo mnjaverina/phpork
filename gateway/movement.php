@@ -18,5 +18,9 @@
 		//localhost/phpork2/gateway/movement.php?getWeekDateMvmnt=1&pig=1
 						
 	}
+	if (isset($_GET['mvmntChart'])) {
+			$id = $_GET['pig'];
+			echo json_encode($db->getWeekDateMvmnt($id));
+	}
 
 ?>

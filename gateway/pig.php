@@ -98,6 +98,49 @@
 		echo json_encode($db->getUserEdited($pid));
 		//http://localhost/phpork2/gateway/pig.php?getUserEdited=1&pig=1
 	}
+	if(isset($_POST['getCurrentHouse'])){
+		$pid = $_POST['pig'];
+		echo json_encode($db->getCurrentHouse($pid));
+		//http://localhost/phpork2/gateway/pig.php?getCurrentHouse=1&pig=1
+	}
+	
+	if(isset($_POST['updatePig'])){
+		$pid = $_POST['pig'];
+		$user = $_POST['user'];
+		$stat = $_POST['stat'];
+		echo json_encode($db->updatePigDetails($pid, $user, $stat));
+		//http://localhost/phpork2/gateway/pig.php?getUserEdited=1&pig=1
+	}
+	if(isset($_POST['updateRFID'])){
+		$pid = $_POST['pig'];
+		$rfid = $_POST['rfid'];
+		$prevrfid = $_POST['prevRFID'];
+		$label = $_POST['label'];
+		echo json_encode($db->updateRFIDdetails($pid, $rfid, $prevrfid, $label));
+		
+	}
+	if(isset($_POST['updatePigWeight'])){
+		$pig_id = $_POST['pig'];
+		$weight = $_POST['weight'];
+		$record_id = $_POST['record_id'];
+		$remarks = $_POST['remarks'];
+		echo json_encode($db->updatePigWeight($pig_id, $weight, $record_id, $remarks));
+		
+	}
+	if(isset($_POST['editHistory'])){
+		$user = $_POST['user'];
+		$pigid = $_POST['pig'];
+		$prevStatus = $_POST['prevStatus'];
+		$status = $_POST['stat'];
+		$prevrfid = $_POST['prevRFID'];
+		$rfid = $_POST['rfid'];
+		$prevWeight = $_POST['prevWeight'];
+		$weight = $_POST['weight'];
+		$prevweighttype = $_POST['prevWeightType'];
+		$weighttype = $_POST['weightType'];
+		echo json_encode($db->insertEditHistory($user, $pigid, $prevStatus, $status, $prevrfid, $rfid,  $prevWeight, $weight, $prevweighttype, $weighttype));
+		
+	}
 
 	if(isset($_POST['addParent'])){
 		$lbl = $_POST['label'];
@@ -132,6 +175,11 @@
 		echo json_encode($db->ddl_breeds());
 		//http://localhost/phpork2/gateway/pig.php?ddl_breeds=1
 	}
+	if(isset($_POST['ddl_batch'])){
+		
+		echo json_encode($db->ddl_batch());
+		//http://localhost/phpork2/gateway/pig.php?ddl_breeds=1
+	}
 	if(isset($_GET['ddl_pigpen'])){
 		$pig = $_GET['pig'];
 		$pen = $_GET['pen'];
@@ -148,5 +196,51 @@
 		echo json_encode($db->ddl_pigpenall($pig,$pen,$house,$loc));
 		//http://localhost/phpork2/gateway/pig.php?ddl_pigpenall=1&location=2&house=2&pen=6&pig=40
 	}
+	if(isset($_POST['insertWeight'])){
+		$weight = $_POST['weight']; 
+		$weightType = $_POST['weightType']; 
+		$dateWeighed = $_POST['dateWeighed']; 
+		$timeWeighed = $_POST['timeWeighed'];
+		$user = $_POST['user'];
+		$sparray = array();
+
+
+		if (isset($_POST['batchsel'])) {
+			foreach ($_POST['batchsel'] as $key) {
+				$sparray = $db->ddl_perbatch($key);
+				
+			}
+			$fqty = $weight/sizeof($sparray);
+			
+			$minWeight = number_format($fqty, 2, '.', ',');
+			foreach ($_POST['batchsel'] as $key) {
+				$sparray = $db->ddl_perbatch($key);
+				foreach ($sparray as $a ) {
+					
+					$db->addWeight($dateWeighed, $timeWeighed, $minWeight, $weightType, $a, $user); 
+				
+				}
+				
+				
+			}
+
+		}
+		if (isset($_POST['pigsel'])) {
+			$pigsize = sizeof($_POST['pigsel']);
+			$fqty = $weight/$pigsize;
+			foreach($_POST['pigsel'] as $pid){
+				$db->addWeight($dateWeighed, $timeWeighed, $fqty, $weightType, $pid, $user);  					
+			} 
+		}
+	} 
+	if (isset($_GET['mvmntChart'])) {
+			$id = $_GET['pig'];
+			echo json_encode($db->getWeekDateMvmnt($id));
+		}
+	if (isset($_GET['weightChart'])) {
+		$id = $_GET['pig'];
+		echo json_encode($db->getPigWeight($id));
+	}
+
 	
 ?>   

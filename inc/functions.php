@@ -471,7 +471,7 @@
 		        $pig_arr[] = $pig;
 
 		    }
-		   $fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\pig_details\\pig_details.json', 'w');
+		   $fp = fopen('pig_details.json', 'w');
 			fwrite($fp, json_encode($pig_arr));
 			fclose($fp);
 		    return $pig_arr;
@@ -549,7 +549,7 @@
 		    {
 		        $data[] = $row2;
 		    }
-		   	$fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\weight_report\\weight.json', 'w');
+		   	$fp = fopen('weight.json', 'w');
 			fwrite($fp, json_encode($data));
 			fclose($fp);
 		    return $data;
@@ -586,7 +586,9 @@
 					$feeds[] = $fname;
 			}
 			
-			
+			$fp = fopen('feeds.json', 'w');
+			fwrite($fp, json_encode($feeds));
+			fclose($fp);
 			return $feeds;
 	  	}
 	   	public function getPigMedsDetails($pigid){
@@ -619,38 +621,75 @@
 					$mname['mtype'] = $row[7];
 					$meds[] = $mname;
 			}
-			
+			$fp = fopen('meds.json', 'w');
+			fwrite($fp, json_encode($meds));
+			fclose($fp);
 			return $meds;
 	  	}
+	  	 public function getCurrentHouse($pigid)
+	    {
+	        $link   = $this->connect();
+	        $query  = "SELECT h.house_no, p.pen_no 
+	                    FROM pig pi 
+	                        INNER JOIN pen p 
+	                            ON p.pen_id = pi.pen_id 
+	                        INNER JOIN house h 
+	                            ON h.house_id = p.house_id 
+	                        WHERE pi.pig_id = '" . $pigid . "'";
+	        $result = mysqli_query($link, $query);
+	      	$pig = array();
+			$arr_pig = array();
+			while ($row = mysqli_fetch_row($result)) {
+						$pig['house'] = $row[0];
+						$pig['pen'] = $row[1];
+						$arr_pig[] = $pig;
+				}
+
+				return $arr_pig;
+	    }
 	  	public function getLastFeed($pigid)
 	    {
 	        $link   = $this->connect();
 	        $query  = "SELECT f.feed_name, 
 	                        f.feed_type, 
-	                        max(ft.date_given) 
+	                        ft.date_given
 	                    FROM feeds f 
 	                        INNER JOIN feed_transaction ft 
 	                            ON ft.feed_id = f.feed_id 
-	                    WHERE ft.pig_id = '" . $pigid . "'";
+	                   WHERE ft.ft_id = (SELECT max(ft.ft_id) from feeds f INNER JOIN feed_transaction ft ON f.feed_id = ft.feed_id) 
+	                   AND ft.pig_id = '" . $pigid . "'";
 	        $result = mysqli_query($link, $query);
-	        $row2   = mysqli_fetch_row($result);
-	        $last   = $row2[0] . "-" . $row2[1];
-	        return $last;
+	        $feeds = array();
+			$arr_feeds = array();
+			while ($row = mysqli_fetch_row($result)) {
+						$feeds['feedname'] = $row[0];
+						$feeds['feed_type'] = $row[1];
+						$arr_feeds[] = $feeds;
+				}
+
+				return $arr_feeds;
 	    }
 	    public function getLastMed($pigid)
 	    {
 	        $link   = $this->connect();
 	        $query  = "SELECT m.med_name, 
 	                        m.med_type, 
-	                        max(mr.date_given) 
+	                        mr.date_given
 	                    FROM medication m 
 	                        INNER JOIN med_record mr 
 	                            ON mr.med_id = m.med_id 
-	                    WHERE mr.pig_id = '" . $pigid . "'";
+	                    WHERE mr.mr_id = (SELECT max(mr.mr_id) from medication m INNER JOIN med_record mr ON mr.med_id = m.med_id) 
+	                    AND mr.pig_id = '" . $pigid . "'";
 	        $result = mysqli_query($link, $query);
-	        $row2   = mysqli_fetch_row($result);
-	        $last   = $row2[0] . "-" . $row2[1];
-	        return $last;
+	       $med = array();
+			$arr_med = array();
+			while ($row = mysqli_fetch_row($result)) {
+						$med['medname'] = $row[0];
+						$med['med_type'] = $row[1];
+						$arr_med[] = $med;
+				}
+
+				return $arr_med;
 	    }
 	 	public function getPigsByPen($pen){
 				$link = $this->connect();
@@ -727,6 +766,9 @@
 		        $pig_arr[] = $pig;
 
 		    }
+		 //   	$fp = fopen('pig_details.json', 'w');
+			// fwrite($fp, json_encode($pig_arr));
+			// fclose($fp);
 		    return $pig_arr;
 		}
 
@@ -834,6 +876,19 @@
 	        }
 	        return $breedArr;
 	    }
+	    public function ddl_batch()
+	    {
+	        $link     = $this->connect();
+	        $search   = "SELECT DISTINCT pig_batch FROM pig";
+	        $resultq  = mysqli_query($link, $search);
+	        $batch    = array();
+	        $batchArr = array();
+	        while ($row = mysqli_fetch_row($resultq)) {
+	            $batch['batch']   = $row[0];
+	            $batchArr[]      = $batch;
+	         }
+	        return $batchArr;
+	    }
 		public function ddl_pigpen($pig, $pen, $house, $location)
 	    {
 	        $link     = $this->connect();
@@ -882,6 +937,38 @@
 	            $ppen['label'] = $row[0];
 	            $ppen['pid']   = $row[1];
 	            $arr_ppen[]    = $ppen;
+	        }
+	        return $arr_ppen;
+	    }
+	    public function ddl_perpen($pen){
+	        $link     = $this->connect();
+	        $query    = "SELECT 
+	                        p.pig_id 
+	                    FROM  pig p
+	                        INNER JOIN pen pe 
+	                            ON pe.pen_id = p.pen_id 
+	                    WHERE p.pen_id  = '" . $pen . "' ";
+	        $result   = mysqli_query($link, $query);
+	        $ppen     = array();
+	        $arr_ppen = array();
+	        while ($row = mysqli_fetch_row($result)) {
+	            $arr_ppen[]    = $row[0];
+
+	        }
+	        return $arr_ppen;
+	    }
+	     public function ddl_perbatch($batch){
+	        $link     = $this->connect();
+	        $query    = "SELECT 
+	                        p.pig_id 
+	                    FROM  pig p
+	                    WHERE p.pig_batch = '" . $batch . "' ";
+	        $result   = mysqli_query($link, $query);
+	        $ppen     = array();
+	        $arr_ppen = array();
+	        while ($row = mysqli_fetch_row($result)) {
+	            $arr_ppen[]    = $row[0];
+
 	        }
 	        return $arr_ppen;
 	    }
@@ -959,14 +1046,82 @@
 						WHERE tag_id = '" . $rfid . "'";
 				$result = mysqli_query($link, $query);
 		}
-		public function insertEditHistory($weight, $user, $pig_id, $prevstat, $prevrfid)
+		public function insertEditHistory($user, $pigid, $prevStatus, $status, $prevrfid, $rfid,  $prevweight, $weight, $prevweighttype, $weightype)
 		{
 				$link = $this->connect();
-				$query = "INSERT INTO edit_history(pig_id,weight,status,rfid,user) 
-							values('" . $pig_id . "','" . $weight . "','" . $prevstat . "','" . $prevrfid . "','" . $user . "');";
+				$q = "SELECT max(id)
+					FROM edit_history";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO edit_history(id,pig_id,prevStatus, status, prevRFID, rfid, prevWeight, weight, prevWeightType, weight_type,user,edit_date) 
+							values('" . $max . "','" . $pigid . "','" . $prevStatus . "','" . $status . "','" . $prevrfid . "','" . $rfid . "','" . $prevweight . "','" . $weight . "','". $prevweighttype . "','" . $weightype . "','". $user . "', curdate());";
 				$result = mysqli_query($link, $query);
 		}
-		/* end of pig.php details */
+		public function addWeight($dateWeighed, $timeWeighed, $weight, $weightType, $pigid, $user)
+		{
+				$link = $this->connect();
+				$link = $this->connect();
+				$q = "SELECT max(record_id)
+					FROM weight_record";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO weight_record(record_id, record_date, record_time, weight, pig_id, remarks, user) 
+							VALUES('" .$max. "','" .$dateWeighed. "','" .$timeWeighed. "','" .$weight. "','" .$pigid. "','" .$weightType. "','" .$user. "');";
+				if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+			        "newId"=> $link->insert_id);
+			    }else {
+			      $data = array("success"=>"false",
+                  	"error"=>mysqli_error($link));
+			    }
+			    return $data;
+		}
+		public function getPigWeight($pig)
+		{
+				$link = $this->connect();
+				$query = "SELECT DISTINCT record_date, 
+							weight, 
+							WEEK(record_date) 
+						FROM weight_record 
+						WHERE pig_id = '" . $pig . " '
+						ORDER BY record_date ASC,record_time asc";
+				$result = mysqli_query($link, $query);
+				$dates = "";
+				$weeks = "";
+				$weights = "";
+				$data = "";
+				$data2 = 0;
+				$arr = array();
+				$ar_data = array();
+				while ($row = mysqli_fetch_row($result)) {
+						$ddate = $row[0];
+						$wt = $row[1];
+						$arr['color'] = '#83b26a';
+						if($data2 > 0){
+							if($data >= $wt){
+								$arr['color'] = '#bb4230';
+
+							}
+						}
+						
+						$weekno = $row[2];
+						$year = strtotime($ddate);
+						$arr['year'] = date('F d,Y', $year);
+						$dates = $ddate;
+						$arr['week'] = $weekno;
+						$arr['weight'] = $wt;
+						$data = $wt;
+						$ar_data[] = $arr;
+						$data2++;
+						
+				}
+				
+				return $ar_data;
+		}
+
+			/* end of pig.php details */
 
 		/*  med.php FUNCTIONS  */
 		public function addMeds($mid, $mdate, $mtime, $pig,$qty,$unit)
@@ -1020,6 +1175,9 @@
 					$m_arr[] = $m;
 				}
 				
+				$fp = fopen('meds_details.json', 'w');
+				fwrite($fp, json_encode($m_arr));
+				fclose($fp);
 				return $m_arr;
 				
 		}
@@ -1056,6 +1214,9 @@
 					$m_arr[] = $m;
 				}
 				
+				$fp = fopen('mtrans_details.json', 'w');
+				fwrite($fp, json_encode($m_arr));
+				fclose($fp);
 				return $m_arr;
 				
 		}
@@ -1550,6 +1711,7 @@
 						$arr[] = $data;
 						
 				}
+				//$arr = str_replace("},{", "}\n{", $arr);
 
 				$fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\movement_reports\\movment_report.json', 'w');
 				fwrite($fp, json_encode($arr,JSON_PRETTY_PRINT));
