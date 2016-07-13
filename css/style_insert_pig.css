@@ -94,8 +94,7 @@ a:link, a:visited {
 }
 
 @media screen and (max-width: 991px){
-  @media screen and (max-height: 700px){
-    .lowerPanel{
+   .lowerPanel{
       max-width: 120%; 
       margin-top: 1%; 
       padding: 5%;
@@ -118,8 +117,34 @@ a:link, a:visited {
       margin-left: -5%;
       padding: 1%;
     }
-    
-    .page-footer {
+    .btn1{
+      height: 25%;
+      width: 40%;
+      background-color: white; 
+      border-radius: 10px;
+      font-size: 20px;
+      background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
+    }
+
+    .gro{
+      font-size: 5px;
+      padding-left: 1%;
+      padding-right: 2%;
+    }
+
+    .kg{
+      width: 10%;
+      font-size: 20px; 
+    }
+    .qan{
+      width: 70%;
+    }
+    .qan1{
+      color:black; 
+      width: 25%;
+    }
+  @media screen and (max-height: 700px){
+     .page-footer {
       background-color: #bb1d24;
       text-align: center;
       color: white;
@@ -129,60 +154,9 @@ a:link, a:visited {
       overflow: hidden;
       position: relative;
     }
-   
-    .btn1{
-      height: 25%;
-      width: 40%;
-      background-color: white; 
-      border-radius: 10px;
-      font-size: 20px;
-      background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
-    }
-
-    .gro{
-      font-size: 5px;
-      padding-left: 1%;
-      padding-right: 2%;
-    }
-
-    .kg{
-      width: 10%;
-      font-size: 20px; 
-    }
-    .qan{
-      width: 70%;
-    }
-    .qan1{
-      color:black; 
-      width: 25%;
-    }
-  }
+   }
 
   @media screen and (min-height: 701px){
-    .lowerPanel{
-      max-width: 120%; 
-      margin-top: 1%; 
-      padding: 5%;
-      border-radius: 30px; 
-      background-color: #9ecf95;
-      margin-bottom: 5%;
-      padding-top: .5%;
-    }
-    .pos1{
-      width:110%;
-      margin-top: 2%; 
-      margin-left: -32%; 
-      margin-bottom: 3%;
-      padding-top: .5%;
-    }
-    .content{
-      margin-left: -15%;
-    }
-    .btnpos{
-      margin-left: -5%;
-      padding: 1%;
-    }
-    
     .page-footer {
       background-color: #bb1d24;
       text-align: center;
@@ -192,42 +166,11 @@ a:link, a:visited {
       height: 4%;
       overflow: hidden;
       position: fixed;
-    }
-   
-    .btn1{
-      height: 25%;
-      width: 40%;
-      background-color: white; 
-      border-radius: 10px;
-      font-size: 20px;
-      background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
-    }
-
-    .gro{
-      font-size: 5px;
-      padding-left: 1%;
-      padding-right: 2%;
-    }
-
-    .kg{
-      width: 10%;
-      font-size: 20px; 
-    }
-    .qan{
-      width: 70%;
-    }
-    .qan1{
-      color:black; 
-      width: 25%;
     }
   }
 }
-
-/*Done*/
-
 @media (min-width: 992px) and (max-width: 1199px){
-  @media screen and (max-height: 700px){
-    .lowerPanel{
+  .lowerPanel{
       max-width: 100%; 
       margin-top: 1%; 
       padding: 20px; 
@@ -249,6 +192,21 @@ a:link, a:visited {
       margin-left: -5%;
       padding: 1%;
     }
+    
+    .btn1{
+      height: 25%;
+      width: 30%;
+      background-color: white; 
+      border-radius: 10px;
+      font-size: 20px;
+      background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
+    }
+    .kg{
+      width: 10%;
+      font-size: 20px; 
+    }
+
+  @media screen and (max-height: 700px){
     .page-footer {
       background-color: #bb1d24;
       text-align: center;
@@ -259,43 +217,9 @@ a:link, a:visited {
       overflow: hidden;
       position: relative;
     }
-    .btn1{
-      height: 25%;
-      width: 30%;
-      background-color: white; 
-      border-radius: 10px;
-      font-size: 20px;
-      background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
-    }
-    .kg{
-      width: 10%;
-      font-size: 20px; 
-    }
   }
 
   @media screen and (min-height: 701px){
-    .lowerPanel{
-      max-width: 100%; 
-      margin-top: 1%; 
-      padding: 20px; 
-      padding-top: 2px;
-      border-radius: 30px; 
-      background-color: #9ecf95;
-      margin-bottom: 1%;
-    }
-    .pos1{
-      width:100%;
-      margin-top: 2%; 
-      margin-left: -25%; 
-      margin-bottom: 3%;
-    }
-    .content{
-      margin-left: -15%;
-    }
-    .btnpos{
-      margin-left: -5%;
-      padding: 1%;
-    }
     .page-footer {
       background-color: #bb1d24;
       text-align: center;
@@ -305,18 +229,6 @@ a:link, a:visited {
       height: 4%;
       overflow: hidden;
       position: fixed;
-    }
-    .btn1{
-      height: 25%;
-      width: 30%;
-      background-color: white; 
-      border-radius: 10px;
-      font-size: 20px;
-      background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
-    }
-    .kg{
-      width: 10%;
-      font-size: 20px; 
     }
   }
 }
@@ -344,17 +256,7 @@ a:link, a:visited {
     margin-left: -5%;
     padding: 1%;
   }
-  .page-footer {
-    background-color: #bb1d24;
-    text-align: center;
-    color: white;
-    width: 100%;
-    bottom: 0;
-    height: 4%;
-    margin-bottom: 0px;
-    overflow: hidden;
-    position: fixed;
-  }
+  
   .btn1{
     height: 25%;
     width: 25%;
@@ -367,52 +269,93 @@ a:link, a:visited {
       width: 10%;
       font-size: 25px; 
     }
+  @media screen and (max-height: 700px){
+    .page-footer {
+      background-color: #bb1d24;
+      text-align: center;
+      color: white;
+      width: 100%;
+      bottom: 0;
+      height: 4%;
+      margin-bottom: 0px;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+  @media screen and (min-height: 701px){
+    .page-footer {
+      background-color: #bb1d24;
+      text-align: center;
+      color: white;
+      width: 100%;
+      bottom: 0;
+      height: 4%;
+      margin-bottom: 0px;
+      overflow: hidden;
+      position: fixed;
+    }
+  }
 }
 
 @media screen and (min-width: 1900px) {
   .lowerPanel{
-    max-width: 100%; 
-    margin-top: 1%; 
-    padding: 20px; 
-    padding-top: 2px;
-    border-radius: 30px; 
-    background-color: #9ecf95;
-    margin-bottom: 1%;
-  }
-  .pos1{
-    width:100%;
-    margin-top: 3%; 
-    margin-left: -25%; 
-    margin-bottom: 3%;
-  }
-  .content{
-    margin-left: -10%;
-  }
-  .btnpos{
-    margin-left: -5%;
-    padding: 1%;
-  }
-  .page-footer {
-    background-color: #bb1d24;
-    text-align: center;
-    color: white;
-    width: 100%;
-    bottom: 0;
-    height: 4%;
-    margin-bottom: 0px;
-    overflow: hidden;
-    position: fixed;
-  }
-  .btn1{
-    height: 25%;
-    width: 20%;
-    background-color: white; 
-    border-radius: 10px;
-    font-size: 20px;
-    background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
-  }
-  .kg{
-      width: 10%;
-      font-size: 25px; 
+      max-width: 100%; 
+      margin-top: 1%; 
+      padding: 20px; 
+      padding-top: 2px;
+      border-radius: 30px; 
+      background-color: #9ecf95;
+      margin-bottom: 1%;
     }
+    .pos1{
+      width:100%;
+      margin-top: 3%; 
+      margin-left: -25%; 
+      margin-bottom: 3%;
+    }
+    .content{
+      margin-left: -10%;
+    }
+    .btnpos{
+      margin-left: -5%;
+      padding: 1%;
+    }
+    .btn1{
+      height: 25%;
+      width: 20%;
+      background-color: white; 
+      border-radius: 10px;
+      font-size: 20px;
+      background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
+    }
+    .kg{
+        width: 10%;
+        font-size: 25px; 
+      }
+  @media screen and (max-height: 700px){
+    .page-footer {
+      background-color: #bb1d24;
+      text-align: center;
+      color: white;
+      width: 100%;
+      bottom: 0;
+      height: 4%;
+      margin-bottom: 0px;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+  @media screen and (min-height: 701px){
+    .page-footer {
+      background-color: #bb1d24;
+      text-align: center;
+      color: white;
+      width: 100%;
+      bottom: 0;
+      height: 4%;
+      margin-bottom: 0px;
+      overflow: hidden;
+      position: fixed;
+    }
+  }
 }
