@@ -5,7 +5,7 @@
     require_once "../connect.php"; 
     require_once "../inc/dbinfo.inc"; 
     if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-      header("Location: login.php"); 
+      header("Location:  /phpork/user"); 
     }
     include "../inc/functions.php"; 
     $db = new phpork_functions (); 
@@ -78,23 +78,7 @@
       </div>
     </div>
 
-    <!-- Modal -->
-    <!-- <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">  
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
-          </div>
-          <div class="modal-body">
-            <p>Some text in the modal.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
+    
 
     <div class="page-footer"> 
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB ||funded by PCAARRD 
@@ -157,9 +141,9 @@
           } 
         });
       $('#nextPg').tooltip({trigger: "hover"});
-         $('#backPg').tooltip({trigger: "hover"});
-       $('#dropdown').tooltip({trigger: "hover"});
-       $('.page-header').tooltip({trigger: "hover"});
+      $('#backPg').tooltip({trigger: "hover"});
+      $('#dropdown').tooltip({trigger: "hover"});
+      $('.page-header').tooltip({trigger: "hover"});
       });
     </script>
   </body>

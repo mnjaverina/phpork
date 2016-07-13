@@ -82,32 +82,6 @@
     </div>
   </div>
 
-    <!-- Modal -->
-   <!--  <div id="myModal" class="modal fade" role="dialog" >
-      <div class="modal-dialog">
-        <div class="modal-content"> 
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add Farm</h4>
-          </div>
-          <div class="modal-body">
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
-              <input type="text" class="form-control" id="fname" aria-describedby="basic-addon3">
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Address: </span>
-              <input type="text" class="form-control" id="fadd" aria-describedby="basic-addon3">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="save">Add</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
     
     <script type="text/javascript"> 

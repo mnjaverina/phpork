@@ -68,43 +68,7 @@
       </div>
     </div>
     
-    <script type="text/javascript"> 
-      $(document).ready(function () {
-
-        $('#save').on("click",function(){
-            var uName = $('#uname').val();
-            var pword = $('#pword').val();
-            var pword2 = $('#pword2').val();
-
-            if(pword != pword2){
-                alert("Password does not match!");
-            }else{
-                 $.ajax({
-                    url: '/phpork/gateway/auth.php',
-                    type: 'post',
-                    data : {
-                      signup: '1',
-                      username: uName,
-                      password: pword
-                    },
-                    success: function (data) {
-
-                        window.location = "/phpork/home"; 
-                    }    
-                  });
-            }
-
-
-           
-        });
-
-        $('#close').on("click",function(){
-
-          window.location = "/phpork/in"; 
-        });
-
-      });
-    </script>
+   
     <script>
     $(document).ready(function(){
         $('.adminDiv').tooltip({trigger: "hover"});
