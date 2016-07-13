@@ -519,11 +519,11 @@
 					<br/>
 
 					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 8%;">
-					    <a href="#">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png"> <!--movement-->
+						<button id ="weightRprt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportWeight"> <!--movement-->
 					        <span> Download Report</span>
-					    </a>
-				    </div>
+					    </button>
+					</div>
 				</div>
 				
 				<!-- insert weight -->
@@ -680,6 +680,34 @@
 	          </div>
 	          <div class="modal-footer">
 	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_feedsrprt">Download</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div id="myModalReportWeight" class="modal fade" role="dialog" >
+	      <div class="modal-dialog">
+	        <div class="modal-content"> <!-- Modal content-->
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+	            <h4 class="modal-title">Download weight details report</h4>
+	          </div>
+	          <div class="modal-body"> 
+	            <form>
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">From: </span>
+	              <input type="date" class="form-control" id="fromWeight" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	            <br/>
+	            <div class="input-group">
+	              <span class="input-group-addon" id="basic-addon3">To: </span>
+	              <input type="date" class="form-control" id="toWeight" aria-describedby="basic-addon3" required>
+	            </div>
+	            
+	          </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_weightrprt">Download</button>
 	          </div>
 	        </div>
 	      </div>
@@ -1953,7 +1981,35 @@
             });
           }
           window.location = "/phpork/home";
-        });   
+        }); 
+         /* report feeds*/
+        $('#weightRprt').on("click",function() {
+            $('#myModalReportWeight').modal('show');
+        });
+        
+        $('#gen_weightrprt').on("click",function(){
+          var from = $('#fromWeight').val();
+          var to = $('#toWeight').val();
+          var pig = $('#pigid').val(); 
+          
+          if((from != '') && (to != '') && (pig != '') ){
+            $.ajax({
+              url: '/phpork/gateway/pig.php',
+              type: 'post',
+              data : {
+                getWeightReport: '1',
+                from: from,
+                to: to,
+                pig: pig
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  alert("Generated weight report! Saved in Desktop.");  
+                }
+            });
+          }
+          window.location = "/phpork/home";
+        });     
        
       //}); 
 		function viewPig(pig){
