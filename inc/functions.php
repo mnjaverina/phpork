@@ -1137,7 +1137,7 @@
 							INNER JOIN pig p on
 								wr.pig_id = p.pig_id
 							WHERE wr.pig_id = '" . $var . "' and
-							wr.date_given BETWEEN '".$from."' and '".$to."'";
+							wr.record_date BETWEEN '".$from."' and '".$to."'";
 				$result = mysqli_query($link, $query);
 				$m = array();
 				$m_arr = array();

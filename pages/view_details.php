@@ -1728,7 +1728,7 @@
 
 		 	if(choice === "perbatch"){
 
-		 		var checkedBatch = document.getElementsByClassName('batchlass');
+		 		var checkedBatch = document.getElementsByClassName('batchclass');
 		 		var selBatch = [];
 
 		 		for(var i=0;i<checkedBatch.length; i++){
@@ -1927,7 +1927,7 @@
                 }
             });
           }
-          window.location = "/phpork/home";
+          window.location = "/phpork/encoder/home";
         });
         /* report meds*/
         $('#medsRprt').on("click",function() {
@@ -1954,7 +1954,7 @@
                 }
             });
           }
-          window.location = "/phpork/home";
+          window.location = "/phpork/encoder/home";
         });
         /* report feeds*/
         $('#feedsRprt').on("click",function() {
@@ -1982,9 +1982,9 @@
                 }
             });
           }
-          window.location = "/phpork/home";
+          window.location = "/phpork/encoder/home";
         }); 
-         /* report feeds*/
+         /* report weight*/
         $('#weightRprt').on("click",function() {
             $('#myModalReportWeight').modal('show');
         });
@@ -2010,7 +2010,7 @@
                 }
             });
           }
-          window.location = "/phpork/home";
+          window.location = "/phpork/encoder/home";
         });     
        
       //}); 
