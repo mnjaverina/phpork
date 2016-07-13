@@ -425,7 +425,8 @@
 		                      rfid.tag_rfid,
 		                      wt.weight,
 		                      wt.remarks,
-		                      l.loc_id
+		                      l.loc_id,
+		                      rfid.label
 		              FROM pig p
 		              INNER JOIN pen pe ON 
 		              p.pen_id = pe.pen_id
@@ -449,7 +450,6 @@
 		    $result = mysqli_query($link, $query);
 		   	$pig = array();
 			$pig_arr = array();
-			$w = $this->getPigWeightDetails($pigid);
 			while ($row = mysqli_fetch_row($result))
 		    {
 		        $pig['pid'] = $row[0];
@@ -470,13 +470,11 @@
 		        $pig['p_name'] = $row[15];
 		        $pig['br_name'] = $row[16];
 		        $pig['rfid_tag'] = $row[17];
-		        $pig['weight'] = $w[0]['weight'];
-		        $pig['record_id'] = $w[0]['record_id'];
-		         $pig['weight_type'] = $w[0]['remarks'];
-		         $pig['loc_id'] = $row[20];
+		        $pig['weight'] = $row[18];
+		        $pig['weight_type'] = $row[19];
+		        $pig['loc_id'] = $row[20];
+		        $pig['label'] = $row[21];
 		        $pig_arr[] = $pig;
-
-		    }
 		   
 		   $fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\pig_details\\pig_details.json', 'w');
 			fwrite($fp, json_encode($pig_arr));
