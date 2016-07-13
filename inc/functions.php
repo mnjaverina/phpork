@@ -471,7 +471,7 @@
 		        $pig_arr[] = $pig;
 
 		    }
-		   $fp = fopen('pig_details.json', 'w');
+		   $fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\pig_details\\pig_details.json', 'w');
 			fwrite($fp, json_encode($pig_arr));
 			fclose($fp);
 		    return $pig_arr;
@@ -549,9 +549,7 @@
 		    {
 		        $data[] = $row2;
 		    }
-		   	$fp = fopen('weight.json', 'w');
-			fwrite($fp, json_encode($data));
-			fclose($fp);
+		   	
 		    return $data;
 	  	}
 	 	public function getPigFeedsDetails($pigid){
@@ -586,9 +584,7 @@
 					$feeds[] = $fname;
 			}
 			
-			$fp = fopen('feeds.json', 'w');
-			fwrite($fp, json_encode($feeds));
-			fclose($fp);
+			
 			return $feeds;
 	  	}
 	   	public function getPigMedsDetails($pigid){
@@ -621,9 +617,7 @@
 					$mname['mtype'] = $row[7];
 					$meds[] = $mname;
 			}
-			$fp = fopen('meds.json', 'w');
-			fwrite($fp, json_encode($meds));
-			fclose($fp);
+			
 			return $meds;
 	  	}
 	  	 public function getCurrentHouse($pigid)
@@ -766,9 +760,7 @@
 		        $pig_arr[] = $pig;
 
 		    }
-		 //   	$fp = fopen('pig_details.json', 'w');
-			// fwrite($fp, json_encode($pig_arr));
-			// fclose($fp);
+		 
 		    return $pig_arr;
 		}
 
@@ -1208,9 +1200,7 @@
 					$m_arr[] = $m;
 				}
 				
-				$fp = fopen('meds_details.json', 'w');
-				fwrite($fp, json_encode($m_arr));
-				fclose($fp);
+				
 				return $m_arr;
 				
 		}
@@ -1247,9 +1237,7 @@
 					$m_arr[] = $m;
 				}
 				
-				$fp = fopen('mtrans_details.json', 'w');
-				fwrite($fp, json_encode($m_arr));
-				fclose($fp);
+				
 				return $m_arr;
 				
 		}
@@ -1442,9 +1430,8 @@
 					$f_arr[] = $f;
 				}
 				
-				$fp = fopen('feed_details.json', 'w');
-				fwrite($fp, json_encode($f_arr));
-				fclose($fp);
+				
+
 				return $f_arr;
 				
 		}
@@ -1485,9 +1472,7 @@
 					$f_arr[] = $f;
 				}
 				
-				$fp = fopen('ftrans_details.json', 'w');
-				fwrite($fp, json_encode($f_arr));
-				fclose($fp);
+				
 				return $f_arr;
 				
 		}
