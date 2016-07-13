@@ -10,8 +10,6 @@
   width: 100%;
 }
 
-
-
 .btn1{
   height: 25%;
   width: 30%;
@@ -31,13 +29,75 @@ form .logout{
   margin: 0 5% 0 0;
 }
 
-#c {
+.c {
   width:70%;
   height:70%;
 }
 
-@media screen and (max-width: 1199px) {
-   .lower{
+@media screen and (max-width: 991px){
+  .lower{
+      width: 95%;
+      height: 80%;
+      margin-left: 10%; 
+      margin-top: 5%;
+      padding: 1%;
+      padding-top: 5%;
+      margin-bottom: 2%;
+      margin: 2%;
+    }
+
+   .table1{
+      max-width:100%;
+      max-height: 30%;
+      overflow-y:auto;
+      border: 10px solid; 
+      border-color: #9ecf95; 
+      border-radius: 10px; 
+      padding: 1%; 
+      margin-top: 0px;
+      padding-bottom: 0px;
+    }
+
+    .tbl{
+      margin-left: 15%;
+      margin-right: 15%; 
+      margin-top: 3%; 
+      padding: 2%;
+    }
+
+    .theader{
+      font-size: 12px;
+    }
+
+ @media screen and (max-height: 700px){
+     .page-footer {
+      background-color: #bb1d24;
+      text-align: center;
+      color: white;
+      width: 100%;
+      bottom: 0;
+      height: 4%;
+      overflow: hidden;
+      position: relative;
+    }
+   }
+
+  @media screen and (min-height: 701px){
+    .page-footer {
+      background-color: #bb1d24;
+      text-align: center;
+      color: white;
+      width: 100%;
+      bottom: 0;
+      height: 4%;
+      overflow: hidden;
+      position: fixed;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+  .lower{
       width: 80%;
       height: 80%;
       margin-left: 10%; 
@@ -58,17 +118,37 @@ form .logout{
       padding-bottom: 0px;
     }
 
-  .page-footer {
-    background-color: #bb1d24;
-    text-align: center;
-    color: white;
-    width: 100%;
-    bottom: 0;
-    height: 4%;
-    margin-bottom: 0px;
-    overflow: hidden;
+    .tbl{
+      margin-left: 15%;
+      margin-right: 15%; 
+      margin-top: 3%; 
+      padding: 2%;
+    }
+  @media screen and (max-height: 700px){
+     .page-footer {
+      background-color: #bb1d24;
+      text-align: center;
+      color: white;
+      width: 100%;
+      bottom: 0;
+      height: 4%;
+      overflow: hidden;
+      position: relative;
+    }
+   }
+
+  @media screen and (min-height: 701px){
+    .page-footer {
+      background-color: #bb1d24;
+      text-align: center;
+      color: white;
+      width: 100%;
+      bottom: 0;
+      height: 4%;
+      overflow: hidden;
+      position: fixed;
+    }
   }
-  
 }
 
 @media screen and (min-width: 1200px) {
@@ -87,16 +167,34 @@ form .logout{
     padding: 1%; 
     margin-top: 0px;
   }
-
-  .page-footer {
-    background-color: #bb1d24;
-    text-align: center;
-    color: white;
-    width: 100%;
-    bottom: 0;
-    height: 4%;
-    margin-bottom: 0px;
-    overflow: hidden;
-    position: fixed;
+  .tbl{
+      margin-left: 15%;
+      margin-right: 15%; 
+      margin-top: 3%;
+      padding: 2%;
+    }
+  @media screen and (max-height: 700px){
+     .page-footer {
+      background-color: #bb1d24;
+      text-align: center;
+      color: white;
+      width: 100%;
+      bottom: 0;
+      height: 4%;
+      overflow: hidden;
+      position: relative;
+    }
+   }
+  @media screen and (min-height: 701px){
+    .page-footer {
+      background-color: #bb1d24;
+      text-align: center;
+      color: white;
+      width: 100%;
+      bottom: 0;
+      height: 4%;
+      overflow: hidden;
+      position: fixed;
+    }
   }
 }
