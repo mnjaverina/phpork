@@ -403,11 +403,11 @@
 					VALUES ('" . $d . "','" . $t . "','" . $pweight . "','" . $pid . "','" . $remarks . "')";
 			$result = mysqli_query($link, $query);
 		}
-		 public function getPigDetails($pigid){
+		  public function getPigDetails($pigid){
 		    $link = $this->connect();
 		    $query = "SELECT  p.pig_id,
-		    				  p.boar_id,
-		                      p.sow_id,
+			    			  pa.label_id,
+			    			  par.label_id,
 		                      p.foster_sow,
 		                      p.week_farrowed,
 		                      p.gender,
@@ -439,6 +439,10 @@
 		              rfid.pig_id = p.pig_id
 		              INNER JOIN weight_record wt ON
 		              wt.pig_id = p.pig_id
+		              INNER JOIN parents pa ON
+		              (pa.parent_id = p.boar_id AND pa.label =\"boar\")
+		             	 INNER JOIN parents par ON
+		             	 (par.parent_id = p.sow_id AND par.label=\"sow\") 
 		              where p.pig_id = '".$pigid."'
 		              LIMIT 1";
 		              
@@ -471,6 +475,7 @@
 		        $pig_arr[] = $pig;
 
 		    }
+		   
 		   $fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\pig_details\\pig_details.json', 'w');
 			fwrite($fp, json_encode($pig_arr));
 			fclose($fp);
