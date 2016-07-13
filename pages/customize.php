@@ -5,9 +5,9 @@
     require_once "../connect.php"; 
     require_once "../inc/dbinfo.inc"; 
     if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-      header("Location: login.php"); 
+      header("Location: /phpork/user"); 
     }
-    include "../functions.php"; 
+    include "../inc/functions.php"; 
     $db = new phpork_functions ();
 
     $parentage1_status = 'unchecked';
