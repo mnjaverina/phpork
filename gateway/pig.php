@@ -52,8 +52,8 @@
 		echo json_encode($db->getPigDetails($pid));
 		//http://localhost/phpork2/gateway/pig.php?getPigDetails=1&pig_id=1
 	}
-	if(isset($_GET['getPigWeightDetails'])){
-		$pid = $_GET['pig_id'];
+	if(isset($_POST['getPigWeightDetails'])){
+		$pid = $_POST['pig_id'];
 		echo json_encode($db->getPigWeightDetails($pid));
 		//http://localhost/phpork2/gateway/pig.php?getPigWeightDetails=1&pig_id=1
 	}

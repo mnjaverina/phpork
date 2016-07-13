@@ -768,6 +768,7 @@
 	            $("#viewPigDetails").append($("<br/>")); 
 	            $("#viewPigDetails").append($("<span></span>").text("Farrowing Date:            "  +data[0].far_date));
 	            $("#viewPigDetails").append($("<br/>")); 
+
 	            $("#viewPigDetails").append($("<span></span>").text("Weight:                  "  +data[0].weight+ "kg"));
 	            $("#viewPigDetails").append($("<br/>")); 
 	             $("#viewPigDetails").append($("<hr>").attr("style", "border-color: #9ecf95;")); 
@@ -981,34 +982,37 @@
 	        },
 	        success: function (data) { 
 	          var data = jQuery.parseJSON(data); 
-	              $("#pigInfo").append($("<label></label>").text("Pig id:                  "  +data[0].pid));
-	              $("#pigInfo").append($("<br/>"));
-	              $("#pigInfo").append($("<label></label>").text("Gender:                 "  +data[0].gender));
-	              $("#pigInfo").append($("<br/>"));  
-	              $("#pigInfo").append($("<label></label>").text("Breed:                  "  +data[0].br_name));
-	              $("#pigInfo").append($("<br/>"));  
-	              $("#pigInfo").append($("<label></label>").text("Farrowing Date:         "  +data[0].far_date));
-	              $("#pigInfo").append($("<br/>"));
-	              $("#pigInfo").append($("<label></label>").text("Farm Location:         "  +data[0].loc_name));
-                  $("#pigInfo").append($("<hr>").attr("style", "border-color: #9ecf95;"));
-                  $("#pigInfo").append($("<label></label>").text("Status: "));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevStatus").attr("value", data[0].pig_stat));
-                  $("#pigInfo").append($("<select id='editStatus'><option value='"+data[0].pig_stat+"' selected>Current: "+data[0].pig_stat+"</option></option><option value='weaning'>Weaning</option><option value='growing'>Growing</option></option><option value='sow'>Sow</option></option><option value='boar'>Boar</option></option><option value='sick'>Sick</option><option value='dead'>Dead</option><option value='slaughtered'>Slaugthered</option></select>"));
-                  $("#pigInfo").append($("<br/>"));
-                  $("#pigInfo").append($("<label></label>").text("RFID: "));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevRfid").attr("value", data[0].rfid_tag));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","pigLabel").attr("value", data[0].rfid_label));
-                  $("#pigInfo").append($("<select id='editRFID'><option value='"+data[0].rfid_tag+"' selected>Current :"+data[0].rfid_tag+"</option></select>"));
-                  $("#pigInfo").append($("<br/>"));
-                  $("#pigInfo").append($("<label></label>").text("Weight: "));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","weightRecordId").attr("value", data[0].record_id));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevWeight").attr("value", data[0].weight));
-                  $("#pigInfo").append($("<input></input)").attr("type", "number").attr("id","editWeight").attr("value", data[0].weight));
-                  $("#pigInfo").append($("<label></label>").text("kg"));
-                  $("#pigInfo").append($("<br/>"));
-                  $("#pigInfo").append($("<label></label>").text("Weight Type: "));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevWeightType").attr("value", data[0].weight_type));
-                  $("#pigInfo").append($("<input></input)").attr("type", "text").attr("id","editWeightType").attr("value", data[0].weight_type));
+				$("#pigInfo").append($("<label></label>").text("Pig id:                  "  +data[0].pid));
+				$("#pigInfo").append($("<br/>"));
+				$("#pigInfo").append($("<label></label>").text("Gender:                 "  +data[0].gender));
+				$("#pigInfo").append($("<br/>"));  
+				$("#pigInfo").append($("<label></label>").text("Breed:                  "  +data[0].br_name));
+				$("#pigInfo").append($("<br/>"));  
+				$("#pigInfo").append($("<label></label>").text("Farrowing Date:         "  +data[0].far_date));
+				$("#pigInfo").append($("<br/>"));
+				$("#pigInfo").append($("<label></label>").text("Farm Location:         "  +data[0].loc_name));
+				$("#pigInfo").append($("<hr>").attr("style", "border-color: #9ecf95;"));
+				$("#pigInfo").append($("<label></label>").text("Status: "));
+				$("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevStatus").attr("value", data[0].pig_stat));
+				$("#pigInfo").append($("<select id='editStatus'><option value='"+data[0].pig_stat+"' selected>Current: "+data[0].pig_stat+"</option></option><option value='weaning'>Weaning</option><option value='growing'>Growing</option></option><option value='sow'>Sow</option></option><option value='boar'>Boar</option></option><option value='sick'>Sick</option><option value='dead'>Dead</option><option value='slaughtered'>Slaugthered</option></select>"));
+				$("#pigInfo").append($("<br/>"));
+				$("#pigInfo").append($("<label></label>").text("RFID: "));
+				$("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevRfid").attr("value", data[0].rfid_tag));
+				$("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","pigLabel").attr("value", data[0].rfid_label));
+				$("#pigInfo").append($("<select id='editRFID'><option value='"+data[0].rfid_tag+"' selected>Current :"+data[0].rfid_tag+"</option></select>"));
+				$("#pigInfo").append($("<br/>"));
+                   
+				$("#pigInfo").append($("<label></label>").text("Weight: "));
+				$("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","weightRecordId").attr("value", data[0].record_id));
+				$("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevWeight").attr("value", data[0].weight));
+				$("#pigInfo").append($("<input></input)").attr("type", "number").attr("id","editWeight").attr("value", data[0].weight));
+				$("#pigInfo").append($("<label></label>").text("kg"));
+				$("#pigInfo").append($("<br/>"));
+				$("#pigInfo").append($("<label></label>").text("Weight Type: "));
+				$("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevWeightType").attr("value", data[0].weight_type));
+				$("#pigInfo").append($("<input></input)").attr("type", "text").attr("id","editWeightType").attr("value", data[0].weight_type));
+			      
+                  
                   $("#pigInfo").append($("<hr>").attr("style", "border-color: #9ecf95;"));
                   $("#pigInfo").append($("<span></span>").text("Parents:                       "));
 		          $("#pigInfo").append($("<br/>")); 
@@ -1112,7 +1116,7 @@
 							        },
 							        success: function (data) { 
 							          
-							           console.log("edit history");
+							           alert("Pig's information has been successfully updated!");
 							           location.reload();
 
 							          
@@ -2045,7 +2049,7 @@
 				    }],
 				    "graphs": [{
 				        "id":"g1",
-				        "balloonText": "Location: [[move]]<br><b><span style='font-size:14px;'>Date: [[date]]</span></b>",
+				        "balloonText": "Location: [[pen]]<br><b><span style='font-size:14px;'>Date: [[date]]</span></b>",
 				        "bullet": "round",
 				        "bulletSize": 8,         
 				        "lineColor": "#83b26a",

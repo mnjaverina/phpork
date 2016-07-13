@@ -445,6 +445,7 @@
 		    $result = mysqli_query($link, $query);
 		   	$pig = array();
 			$pig_arr = array();
+			$w = $this->getPigWeightDetails($pigid);
 			while ($row = mysqli_fetch_row($result))
 		    {
 		        $pig['pid'] = $row[0];
@@ -465,8 +466,9 @@
 		        $pig['p_name'] = $row[15];
 		        $pig['br_name'] = $row[16];
 		        $pig['rfid_tag'] = $row[17];
-		        $pig['weight'] = $row[18];
-		         $pig['weight_type'] = $row[19];
+		        $pig['weight'] = $w[0]['weight'];
+		        $pig['record_id'] = $w[0]['record_id'];
+		         $pig['weight_type'] = $w[0]['remarks'];
 		         $pig['loc_id'] = $row[20];
 		        $pig_arr[] = $pig;
 
@@ -535,7 +537,7 @@
 	        $row3     = mysqli_fetch_row($result3);
 	        $query2  = "SELECT weight,
 	        				record_date,
-	        				record_time
+	        				record_time,
 	                        record_id,
 	                        remarks 
 	                    FROM weight_record 
@@ -545,12 +547,18 @@
 	                    LIMIT 1";
 	        $result2 = mysqli_query($link, $query2);
 	       	$data = array();
-	   	 	while($row2 =mysqli_fetch_assoc($result2))
+	       	$data2 = array();
+	   	 	while($row2 =mysqli_fetch_row($result2))
 		    {
-		        $data[] = $row2;
+		        $data['weight'] = $row2[0];
+		        $data['record_date'] = $row2[1];
+		        $data['record_time'] = $row2[2];
+		        $data['record_id'] = $row2[3];
+		        $data['remarks'] = $row2[4];
+		        $data2[] = $data;
 		    }
 		   	
-		    return $data;
+		    return $data2;
 	  	}
 	 	public function getPigFeedsDetails($pigid){
 		    $link = $this->connect();
@@ -1046,7 +1054,7 @@
 				$r = mysqli_query($link, $q);
 				$ro = mysqli_fetch_row($r);
 				$max = $ro[0] + 1;
-				$query = "INSERT INTO edit_history(id,pig_id,prevStatus, status, prevRFID, rfid, prevWeight, weight, prevWeightType, weight_type,user,edit_date) 
+				$query = "INSERT INTO edit_history(id,pig_id,prevStatus, status, prevRFID, rfid, prevWeight, weight, prevWeightType, weightType,user,edit_date) 
 							values('" . $max . "','" . $pigid . "','" . $prevStatus . "','" . $status . "','" . $prevrfid . "','" . $rfid . "','" . $prevweight . "','" . $weight . "','". $prevweighttype . "','" . $weightype . "','". $user . "', curdate());";
 				$result = mysqli_query($link, $query);
 		}
@@ -1658,7 +1666,7 @@
 		public function getWeekDateMvmnt($pig)
 		{
 				$link = $this->connect();
-				$query = "SELECT DISTINCT m.date_moved,m.time_moved,p.pen_no,p.function
+				$query = "SELECT DISTINCT m.date_moved,WEEK(m.date_moved),p.pen_no,p.function
 							
 						from movement m 
 						inner join pen p on
@@ -1681,8 +1689,8 @@
 							$i++;
 						}
 						$data['x'] = $i;
-						$data['timeMoved'] = $row[1];
-						$data['pen'] = $row[2];
+						$data['week'] = $row[1];
+						$data['pen'] = $mvmnt[$j];
 
 						$arr[] = $data;
 						$j++;
