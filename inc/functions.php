@@ -481,6 +481,7 @@
 			fclose($fp);
 		    return $pig_arr;
 		  }
+		}
 	  	public function getPigLabel($pigid)
 	    {
 	        $link   = $this->connect();
