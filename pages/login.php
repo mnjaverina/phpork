@@ -10,7 +10,7 @@
     require_once "../inc/dbinfo.inc"; 
 
     if(count($_POST)>0){
-      $result = mysqli_query($con, "SELECT user_id,user_name,password,user_type FROM user WHERE user_name='" . $_POST["username"]."' and password = '". $_POST["password"]."' and user_type = '".$_GET['user']."'; ") or die ( mysqli_error ( $con ) ); 
+      $result = mysqli_query($con, "SELECT user_id,user_name,password,user_type FROM user WHERE user_name='" . $_POST["username"]."' and password = '". $_POST["password"]."'; ") or die ( mysqli_error ( $con ) ); 
       $row = mysqli_fetch_row($result); 
       if($row != null){
         $_SESSION["user_id"] = $row[0]; 
