@@ -761,7 +761,7 @@
 	        },
 	        success: function (data) { 
 	          var data = jQuery.parseJSON(data); 
-	            $("#viewPigDetails").append($("<label></label>").text("Pig id:                  "  +data[0].pid));
+	            $("#viewPigDetails").append($("<label></label>").text("Pig label:                  "  +data[0].label));
 	            $("#viewPigDetails").append($("<br/>"));
 	             $("#viewPigDetails").append($("<label></label>").text("Gender:                 "  +data[0].gender));
 	            $("#viewPigDetails").append($("<br/>"));  
@@ -989,7 +989,7 @@
 	        },
 	        success: function (data) { 
 	          var data = jQuery.parseJSON(data); 
-	              $("#pigInfo").append($("<label></label>").text("Pig id:                  "  +data[0].pid));
+	              $("#pigInfo").append($("<label></label>").text("Pig label:                  "  +data[0].label));
 	              $("#pigInfo").append($("<br/>"));
 	              $("#pigInfo").append($("<label></label>").text("Gender:                 "  +data[0].gender));
 	              $("#pigInfo").append($("<br/>"));  
