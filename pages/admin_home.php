@@ -5,7 +5,7 @@
     require_once "../connect.php"; 
     require_once "../inc/dbinfo.inc"; 
     if(!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-      header("Location: /phpork/in"); 
+      header("Location: login.php"); 
     }
     include "../inc/functions.php"; 
     $db = new phpork_functions (); 
@@ -45,7 +45,7 @@
 
       <div class="box userDiv" data-toggle="tooltip" title="Click to add user." data-trigger= "hover" >
         <button id="addUser" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalUser"">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Username.png" style="width:50%; height: 50%; margin: auto;"> 
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add User.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add User</span>
         </button>
       </div>
@@ -73,7 +73,7 @@
 
     <div class="box parentDiv" data-toggle="tooltip" title="Click to add parents." data-trigger= "hover">
         <button id="addParent" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalPig">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Select Pig.png" style="width:50%; height: 50%; margin: auto;"> 
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Parent.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add Parent</span>
         </button>
       </div>
@@ -699,7 +699,7 @@
 
   
 
-    
+    //select farm
     $.ajax({
           url: '/phpork/gateway/location.php',
           type: 'post',
@@ -717,7 +717,7 @@
               } 
           
         });
-    
+     //select farm
     $.ajax({
           url: '/phpork/gateway/location.php',
           type: 'post',

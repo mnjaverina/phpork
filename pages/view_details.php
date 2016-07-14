@@ -35,25 +35,24 @@
 		</head> 
 
 	<body> 
-		<div class="page-header"> 
-	      	<a href="<?php echo HOST;?>/phpork/home">
-	        <img class="img-responsive" src="<?php echo HOST;?>/phpork/css/images/Header1.png"> 
-	      	</a>
-   		</div>
-		<br/>
-		<form id="form-horizontal" class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="/phpork/out" style="width:50%;float:right;"> <!-- form|upper right|user-logout --> 
-			<div class="form-group logout" > 
-				<input type="text" class="col-xs-6 col-sm-5" readonly style="text-align: left; border: 2px solid; border-color: #83b26a;" value="<?php echo $_SESSION['username'];?>"> 
-				<div class="col-xs-1 col-sm-1" style="left: -1%;"> 
-					<button type="submit" class="btn btn-primary btn-sm" >Logout</button> 
-				</div> 
-			</div> 
-		</form> 
+		<div class="page-header" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to home page which is 'View', 'Insert' and 'Customize' " data-placement="bottom"> 
+	      <a href="/phpork/encoder/home" >
+	        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Header1.png"> 
+	      </a>
+    	</div>
+		<form class="form-horizontal col-xs-10 col-sm-10 col-md-10 col-lg-10"  method="post" action="/phpork/out" style="width:50%; float:right;"> 
+	      <div class="form-group logout" > 
+	        <input type="text" class="col-xs-6 col-sm-5" readonly style="text-align: left; border: 2px solid; border-color: #83b26a;" value="<?php echo $_SESSION['username'];?>"> 
+	        <div class="col-xs-1 col-sm-1" style="left: -1%;"> 
+	          <button type="submit" class="btn btn-primary btn-sm" >Logout</button> 
+	        </div> 
+	      </div> 
+	    </form>  
 		
 		<!--PIG DETAILS-->	
-		<div style="border: 4px solid; border-color: #bb1d24; border-radius: 10px; margin: 20px; margin-left: 110px; max-width: 20%; margin-top: 4%; max-height: 50%; padding: 1%; float: left; padding-top: 0px; padding-bottom: 1%;">	
+		<div class="pigdet-maindiv">	
 			<!--VIEW PIG DETAILS-->	
-			<div style="width: 50%; height: 50%; margin-left: 25%; margin-top: 10%; margin-bottom: 2%;">
+			<div class="img-pig">
 				<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/pig1.jpg">
 			</div>
 				
@@ -61,14 +60,14 @@
 				<div class="info" id="viewPigDetails">
 				</div>
 				<br/>
-				<div class="col-md-2 col-centered imgHolder1" style="height: 15%; width: 15%; margin-top: 2%; padding: 0px; margin-left: 20%;">
-					<button id="editPigButton" style="background-color: white; border: none;">
+				<div class="col-md-2 col-centered imgHolder1">
+					<button id="editPigButton" class="imgBtn">
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png"> 
 						<span>Edit Pig</span>
 					</button>
 				</div>
-				<div class="col-md-2 col-centered imgHolder" style="height: 15%; width: 15%; float: right; margin-top: 5px; padding: 0px; margin-right: 33%;">
-					<button id="changePig" style="background-color: white; border: none;">
+				<div class="col-md-2 col-centered imgHolder">
+					<button id="changePig" class="imgBtn">
 						<img class="img-responsive"  src="<?php echo HOST;?>/phpork/images/Pig.png"> 
 						<span>   Change Pig</span>
 					</button>
@@ -80,14 +79,14 @@
 			<div id="editPigDetails" style="display: none;">	
 				<div class="info" id="pigInfo">
 				</div>
-				<div class="col-md-2 col-centered imgHolder1" style="height: 15%; width: 15%; margin-top: 2%; padding: 0px; margin-left: 20%;">
-					<button id="saveEditPig" style="background-color: white; border: none;">
+				<div class="col-md-2 col-centered imgHolder1">
+					<button id="saveEditPig" class="imgBtn">
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> 
 						<span> Save</span>
 					</button>
 				</div>
-				<div class="col-md-2 col-centered imgHolder" style="height: 15%; width: 15%; float: right; margin-top: 5px; padding: 0px; margin-right: 33%;">
-					<button id="cancelEditPig" style="background-color: white; border: none;">
+				<div class="col-md-2 col-centered imgHolder">
+					<button id="cancelEditPig" class="imgBtn">
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> 
 						<span> Cancel</span>
 					</button>
@@ -97,33 +96,33 @@
 		</div>	
 
 		<!--Icons-->
-		<div style="float: left; max-width: 13%; max-height: 30%; margin-right: 0px; margin-top: 2%; padding-left: 1%; padding-right: 0px;"> 
-			<div class="col-md-2 col-centered" style="height: 75%; width: 75%; margin-right: 0px;">
-				<button id="movement" style="background-color: white; border: none; outline: none;">
-			       <img class="img-responsive" id="movement" src="<?php echo HOST;?>/phpork/images/Feeds2.png">
+		<div class="icons-maindiv"> 
+			<div class="col-md-2 col-centered icons-img">
+				<button id="movement" class="imgBtn">
+			       <img class="img-responsive" id="movement" src="<?php echo HOST;?>/phpork/images/Movement.png">
 			    </button>
 			</div>
 			<br/>
-			<div class="col-md-2 col-centered" style="height: 75%; width: 75%;">
-			    <button id="medication" style="background-color: white; border: none; outline: none;">
+			<div class="col-md-2 col-centered icons-img1">
+			    <button id="medication" class="imgBtn">
 			        <img class="img-responsive"  src="<?php echo HOST;?>/phpork/images/Medications.png">
 			    </button>
 			</div>
 			<br/>
-			<div class="col-md-2 col-centered" style="height: 75%; width: 75%;">
-			    <button id="feeds1" style="background-color: white; border: none; outline: none;">
+			<div class="col-md-2 col-centered icons-img1">
+			    <button id="feeds1" class="imgBtn">
 			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Feeds2.png">
 			    </button> 
 			</div>
 			<br/>
-			<div class="col-md-2 col-centered" style="height: 75%; width: 75%;">
-			    <button id="weight" style="background-color: white; border: none; outline: none;">
-			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Feeds2.png">
+			<div class="col-md-2 col-centered icons-img1">
+			    <button id="weight" class="imgBtn">
+			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Weight.png">
 			    </button>
 			</div>
 			<br/>
-			<div class="col-md-2 col-centered" style="height: 75%; width: 75%;">
-			    <button id="backToPig" style="background-color: white; border: none; outline: none;">
+			<div class="col-md-2 col-centered icons-img1">
+			    <button id="backToPig" class="imgBtn">
 			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png">
 			    </button> 
 			</div>	
@@ -131,15 +130,20 @@
 		<!--Icons-->
 
 		<!--VIEWS-->
-		<div style="max-width: 100%; max-height: 100%; margin-left: 39%; margin-top: 2%; margin-right: 2%; padding-right: 0px; padding: 2%; padding-top: 1%;">
+		<div class="content-maindiv">
 			<!--view movement-->
 			<div id="viewMovement" style="display: inline-block;">
-			    <div id="viewMovementDetails" style="max-width: 100%; padding-top: 0%; padding-left: 0px; margin-right: 12%; margin-top: 0px; margin: 2%; margin-left: 0px;">
+			    <div id="viewMovementDetails" class="mvmnt-div">
 			    	<div id="pigMovementInfo">
 			    	<button id="visualizeButton">Visualize</button>
 			    	</div>
-			    	<br/><br/> 
-			    	<div style="margin: 0px; max-width: 100%;">
+			    	<div class="col-md-2 col-centered imgHolder2">
+					    <button id="mvmntRprt" class="imgBtn">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMvmnt"> <!--movement-->
+					        <span> Download Report</span>
+					    </button>
+				    </div>
+			    	<div class="mvmnt-table">
 				    	<table class="table table-striped">
 						  <thead>
 						    <tr>
@@ -152,8 +156,7 @@
 						  </tbody>
 						</table>
 					</div>
-					<br/>
-					<div style="margin: 0px; max-width: 100%;">
+					<div class="mvmnt-table">
 						<table class="table table-striped">
 						  <thead>
 						    <tr>
@@ -165,15 +168,9 @@
 						  </tbody>
 						</table>
 					</div>
-					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					    <button id ="mvmntRprt">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMvmnt"> <!--movement-->
-					        <span> Download Report</span>
-					    </button>
-				    </div>
 			    </div>
 			    <div id="viewMovementGraph" style="display: none;" > 
-			    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
+			    	<div class="col-md-2 col-centered imgHolder2">
 			    		<button id="backToMovement">Back</button>
 			    	</div>
 			    	<br/>
@@ -717,6 +714,17 @@
 			Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
 		</div> 
 
+
+
+
+
+
+
+
+
+
+
+<!--Script-->
 	
 	<div>
 	  <?php
@@ -846,7 +854,7 @@
 	          var data = jQuery.parseJSON(data); 
 	           for(i=0;i<data.length;i++){
 	           		
-	           		$("#viewMovementBody").append($("<tr><td>" +data[i].date+ "</td><td>" +data[i].timeMoved+ "</td><td>Pen " +data[i].pen+ "</td></tr>"));
+	           		$("#viewMovementBody").append($("<tr><td>" +data[i].date+ "</td><td>" +data[i].time_moved+ "</td><td>Pen " +data[i].pen+ "</td></tr>"));
 	           		
 
 	           }
@@ -941,8 +949,8 @@
 	        },
 	        success: function (data) { 
 	          var data = jQuery.parseJSON(data); 
-	           $("#lastMedInfo").append($("<label>Name: "+data.medname+"</label><br/><label>Type: "+data.med_type+"</label>"));
-	           $("#lastMedInfoEdit").append($("<label>Name: "+data.medname+"</label><br/><label>Type: "+data.med_type+"</label>"));
+	           $("#lastMedInfo").append($("<label>Name: "+data[0].medname+"</label><br/><label>Type: "+data[0].med_type+"</label>"));
+	           $("#lastMedInfoEdit").append($("<label>Name: "+data[0].medname+"</label><br/><label>Type: "+data[0].med_type+"</label>"));
 	        }    
 	            
 	      });
@@ -1219,7 +1227,7 @@
 						   var data = jQuery.parseJSON(data); 
 						      for(j=0;j<data.length;j++){
 						      	
-						       $("#selectmedication" +i).append($("<option></option>").attr("value", data[j].med_id)
+						       $("#selectmedication" +j).append($("<option></option>").attr("value", data[j].med_id)
 						          .attr("name","meds")
 						          .text(data[j].med_name)); 
 						      }
@@ -1239,9 +1247,7 @@
 
 	           		});
 
-
 	           }
-
 	        }    
 	      });
 
@@ -1728,7 +1734,7 @@
 
 		 	if(choice === "perbatch"){
 
-		 		var checkedBatch = document.getElementsByClassName('batchclass');
+		 		var checkedBatch = document.getElementsByClassName('batchlass');
 		 		var selBatch = [];
 
 		 		for(var i=0;i<checkedBatch.length; i++){
@@ -1927,7 +1933,7 @@
                 }
             });
           }
-          window.location = "/phpork/encoder/home";
+          window.location = "/phpork/home";
         });
         /* report meds*/
         $('#medsRprt').on("click",function() {
@@ -1954,7 +1960,7 @@
                 }
             });
           }
-          window.location = "/phpork/encoder/home";
+          window.location = "/phpork/home";
         });
         /* report feeds*/
         $('#feedsRprt').on("click",function() {
@@ -1982,9 +1988,9 @@
                 }
             });
           }
-          window.location = "/phpork/encoder/home";
+          window.location = "/phpork/home";
         }); 
-         /* report weight*/
+         /* report feeds*/
         $('#weightRprt').on("click",function() {
             $('#myModalReportWeight').modal('show');
         });
@@ -2010,7 +2016,7 @@
                 }
             });
           }
-          window.location = "/phpork/encoder/home";
+          window.location = "/phpork/home";
         });     
        
       //}); 
