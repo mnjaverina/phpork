@@ -662,9 +662,21 @@
 	                    FROM feeds f 
 	                        INNER JOIN feed_transaction ft 
 	                            ON ft.feed_id = f.feed_id 
-	                   WHERE ft.time_given = (SELECT max(ft.time_given) from feed_transaction ft INNER JOIN feeds f ON f.feed_id = ft.feed_id WHERE ft.date_given = (SELECT max(ft.date_given) from feed_transaction ft INNER JOIN feeds f ON f.feed_id = ft.feed_id WHERE ft.pig_id ='" . $pigid . "'")) 
-	                   AND ft.date_given = (SELECT max(ft.date_given) from feed_transaction ft INNER JOIN feeds f ON f.feed_id = ft.feed_id WHERE ft.pig_id = "'" . $pigid . "'") 
-	                   AND ft.pig_id =  "'" . $pigid . "'";
+	                   WHERE ft.time_given = (SELECT max(ft.time_given)
+           									 from feed_transaction ft 
+               									 INNER JOIN feeds f ON 
+               									 	f.feed_id = ft.feed_id 
+   									 		WHERE ft.date_given = (SELECT max(ft.date_given) 
+   									 								from feed_transaction ft 
+   									 									INNER JOIN feeds f ON 
+   									 										f.feed_id = ft.feed_id 
+							 										WHERE ft.pig_id ='" . $pigid . "'))
+	                   AND ft.date_given = (SELECT max(ft.date_given) 
+	                   						from feed_transaction ft 
+	                   							INNER JOIN feeds f ON 
+	                   								f.feed_id = ft.feed_id 
+	                   						WHERE ft.pig_id = '" . $pigid . "') 
+	                   AND ft.pig_id =  '" . $pigid . "'";
 	        $result = mysqli_query($link, $query);
 	        $feeds = array();
 			$arr_feeds = array();
