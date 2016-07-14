@@ -854,7 +854,7 @@
 	          var data = jQuery.parseJSON(data); 
 	           for(i=0;i<data.length;i++){
 	           		
-	           		$("#viewMovementBody").append($("<tr><td>" +data[i].date+ "</td><td>" +data[i].timeMoved+ "</td><td>Pen " +data[i].pen+ "</td></tr>"));
+	           		$("#viewMovementBody").append($("<tr><td>" +data[i].date+ "</td><td>" +data[i].time_moved+ "</td><td>Pen " +data[i].pen+ "</td></tr>"));
 	           		
 
 	           }
