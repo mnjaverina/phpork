@@ -203,14 +203,14 @@
 		$timeWeighed = $_POST['timeWeighed'];
 		$user = $_POST['user'];
 		$sparray = array();
-
+		$size = 0;
 
 		if (isset($_POST['batchsel'])) {
 			foreach ($_POST['batchsel'] as $key) {
 				$sparray = $db->ddl_perbatch($key);
-				
+				$size = $size+ sizeof($sparray);
 			}
-			$fqty = $weight/sizeof($sparray);
+			$fqty = $weight/$size;
 			
 			$minWeight = number_format($fqty, 2, '.', ',');
 			foreach ($_POST['batchsel'] as $key) {

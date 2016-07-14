@@ -14,23 +14,25 @@
 		$qty = $_POST['feedQty'];
 
 		$sparray = array();
-		
+		$size = 0;
 
 		if (isset($_POST['pensel'])) {
 			foreach ($_POST['pensel'] as $key) {
 				$sparray = $db->ddl_perpen($key);
 				
 				
+				$size = $size+ sizeof($sparray);
 				
 			}
-			$fqty = $qty/sizeof($sparray);
+			$fqty = $qty/$size;
+
 			
 			$feedqty = number_format($fqty, 2, '.', ',');
 			foreach ($_POST['pensel'] as $key) {
 				$sparray = $db->ddl_perpen($key);
 				foreach ($sparray as $a ) {
 					
-					echo json_encode($db->addFeeds($fid,$fdate,$ftime,$selpig,$proddate,$feedqty)); 
+					echo json_encode($db->addFeeds($fid,$fdate,$ftime,$a,$proddate,$feedqty)); 
 				
 				}
 			}

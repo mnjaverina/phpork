@@ -10,12 +10,13 @@
 		$qty = $_POST['medQty'];
 		$unit = $_POST['selUnit'];
 		$sparray = array();
+		$size = 0;
 		if (isset($_POST['pensel'])) {
 			foreach ($_POST['pensel'] as $key) {
 				$sparray = $db->ddl_perpen($key);
-				
+				$size = $size+ sizeof($sparray);
 			}
-			$fqty = $qty/sizeof($sparray);
+			$fqty = $qty/$size;
 			
 			$medqty = number_format($fqty, 2, '.', ',');
 			foreach ($_POST['pensel'] as $key) {
