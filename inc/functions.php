@@ -656,14 +656,15 @@
 	  	public function getLastFeed($pigid)
 	    {
 	        $link   = $this->connect();
-	        $query  = "SELECT f.feed_name, 
+	        $query  = "SELECT ft.pig_id, f.feed_name, 
 	                        f.feed_type, 
-	                        ft.date_given
+	                        ft.date_given, ft.time_given
 	                    FROM feeds f 
 	                        INNER JOIN feed_transaction ft 
 	                            ON ft.feed_id = f.feed_id 
-	                   WHERE ft.ft_id = (SELECT max(ft.ft_id) from feeds f INNER JOIN feed_transaction ft ON f.feed_id = ft.feed_id) 
-	                   AND ft.pig_id = '" . $pigid . "'";
+	                   WHERE ft.time_given = (SELECT max(ft.time_given) from feed_transaction ft INNER JOIN feeds f ON f.feed_id = ft.feed_id WHERE ft.date_given = (SELECT max(ft.date_given) from feed_transaction ft INNER JOIN feeds f ON f.feed_id = ft.feed_id WHERE ft.pig_id ='" . $pigid . "'")) 
+	                   AND ft.date_given = (SELECT max(ft.date_given) from feed_transaction ft INNER JOIN feeds f ON f.feed_id = ft.feed_id WHERE ft.pig_id = "'" . $pigid . "'") 
+	                   AND ft.pig_id =  "'" . $pigid . "'";
 	        $result = mysqli_query($link, $query);
 	        $feeds = array();
 			$arr_feeds = array();
@@ -684,8 +685,9 @@
 	                    FROM medication m 
 	                        INNER JOIN med_record mr 
 	                            ON mr.med_id = m.med_id 
-	                    WHERE mr.mr_id = (SELECT max(mr.mr_id) from medication m INNER JOIN med_record mr ON mr.med_id = m.med_id) 
-	                    AND mr.pig_id = '" . $pigid . "'";
+	                   WHERE mr.time_given = (SELECT max(mr.time_given) from med_record mr INNER JOIN medication m ON m.med_id = mr.med_id WHERE mr.date_given = (SELECT max(mr.date_given) from med_record mr INNER JOIN medication m ON m.med_id = mr.med_id WHERE mr.pig_id ='$pigid'))
+	                   AND mr.date_given = (SELECT max(mr.date_given) from med_record mr INNER JOIN medication m ON m.med_id = mr.med_id WHERE mr.pig_id = '$pigid')
+	                   AND mr.pig_id =  $pigid";
 	        $result = mysqli_query($link, $query);
 	       $med = array();
 			$arr_med = array();
