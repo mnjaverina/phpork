@@ -79,13 +79,13 @@
 			<div id="editPigDetails" style="display: none;">	
 				<div class="info" id="pigInfo">
 				</div>
-				<div class="col-md-2 col-centered imgHolder1">
+				<div class="col-md-2 col-centered imgHolder4">
 					<button id="saveEditPig" class="imgBtn">
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> 
 						<span> Save</span>
 					</button>
 				</div>
-				<div class="col-md-2 col-centered imgHolder">
+				<div class="col-md-2 col-centered imgHolder5">
 					<button id="cancelEditPig" class="imgBtn">
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> 
 						<span> Cancel</span>
@@ -135,9 +135,9 @@
 			<div id="viewMovement" style="display: inline-block;">
 			    <div id="viewMovementDetails" class="mvmnt-div">
 			    	<div id="pigMovementInfo">
-			    	<button id="visualizeButton">Visualize</button>
 			    	</div>
-			    	<div class="col-md-2 col-centered imgHolder2">
+			    	<button id="visualizeButton">Visualize</button>
+			    	<div class="col-md-2 col-centered imgHolder3">
 					    <button id="mvmntRprt" class="imgBtn">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMvmnt"> <!--movement-->
 					        <span> Download Report</span>
@@ -170,13 +170,13 @@
 					</div>
 			    </div>
 			    <div id="viewMovementGraph" style="display: none;" > 
-			    	<div class="col-md-2 col-centered imgHolder2">
-			    		<button id="backToMovement">Back</button>
-			    	</div>
-			    	<br/>
-			    	<br/>
-			    	<br/>
-			    	<div id="linechart_values" style="margin: 0px;">
+			    	<div class="col-md-2 col-centered imgHolder6">
+					    <button id="backToMovement" class="imgBtn">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png"> 
+					        <span> Back</span>
+					    </button>
+				    </div>
+			    	<div id="linechart_values">
 			    	</div> 
 			    </div>
 			</div> 
@@ -779,7 +779,7 @@
 	            $("#viewPigDetails").append($("<span></span>").text("Weight:                  "  +data[0].weight+ "kg"));
 	            $("#viewPigDetails").append($("<br/>")); 
 	             $("#viewPigDetails").append($("<hr>").attr("style", "border-color: #9ecf95;")); 
-	            $("#viewPigDetails").append($("<span></span>").text("Parents:                       "));
+	            $("#viewPigDetails").append($("<label></label>").text("Parents:                       "));
 	            $("#viewPigDetails").append($("<br/>")); 
 	            $("#viewPigDetails").append($("<span></span>").text("Boar:            "  +data[0].boar));
 	            $("#viewPigDetails").append($("<br/>")); 
@@ -853,8 +853,7 @@
 	        success: function (data) { 
 	          var data = jQuery.parseJSON(data); 
 	           for(i=0;i<data.length;i++){
-	           		
-	           		$("#viewMovementBody").append($("<tr><td>" +data[i].date+ "</td><td>" +data[i].time_moved+ "</td><td>Pen " +data[i].pen+ "</td></tr>"));
+           			$("#viewMovementBody").append($("<tr><td>" +data[i].date+ "</td><td>" +data[i].time_moved+ "</td><td>Pen " +data[i].pen+ "</td></tr>"));
 	           		
 
 	           }
@@ -1001,12 +1000,12 @@
                   $("#pigInfo").append($("<hr>").attr("style", "border-color: #9ecf95;"));
                   $("#pigInfo").append($("<label></label>").text("Status: "));
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevStatus").attr("value", data[0].pig_stat));
-                  $("#pigInfo").append($("<select id='editStatus'><option value='"+data[0].pig_stat+"' selected>Current: "+data[0].pig_stat+"</option></option><option value='weaning'>Weaning</option><option value='growing'>Growing</option></option><option value='sow'>Sow</option></option><option value='boar'>Boar</option></option><option value='sick'>Sick</option><option value='dead'>Dead</option><option value='slaughtered'>Slaugthered</option></select>"));
+                  $("#pigInfo").append($("<select id='editStatus'><option value='"+data[0].pig_stat+"' selected>"+data[0].pig_stat+"</option></option><option value='weaning'>Weaning</option><option value='growing'>Growing</option></option><option value='sow'>Sow</option></option><option value='boar'>Boar</option></option><option value='sick'>Sick</option><option value='dead'>Dead</option><option value='slaughtered'>Slaugthered</option></select>"));
                   $("#pigInfo").append($("<br/>"));
                   $("#pigInfo").append($("<label></label>").text("RFID: "));
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevRfid").attr("value", data[0].rfid_tag));
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","pigLabel").attr("value", data[0].rfid_label));
-                  $("#pigInfo").append($("<select id='editRFID'><option value='"+data[0].rfid_tag+"' selected>Current :"+data[0].rfid_tag+"</option></select>"));
+                  $("#pigInfo").append($("<select id='editRFID'><option value='"+data[0].rfid_tag+"' selected>"+data[0].rfid_tag+"</option></select>"));
                   $("#pigInfo").append($("<br/>"));
                   $("#pigInfo").append($("<label></label>").text("Weight: "));
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","weightRecordId").attr("value", data[0].record_id));
@@ -1018,7 +1017,7 @@
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevWeightType").attr("value", data[0].weight_type));
                   $("#pigInfo").append($("<input></input)").attr("type", "text").attr("id","editWeightType").attr("value", data[0].weight_type));
                   $("#pigInfo").append($("<hr>").attr("style", "border-color: #9ecf95;"));
-                  $("#pigInfo").append($("<span></span>").text("Parents:                       "));
+                  $("#pigInfo").append($("<label></label>").text("Parents                       "));
 		          $("#pigInfo").append($("<br/>")); 
 		          $("#pigInfo").append($("<span></span>").text("Boar:            "  +data[0].boar));
 		          $("#pigInfo").append($("<br/>")); 
