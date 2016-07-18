@@ -110,7 +110,7 @@
 			</div>
 			<br/>
 			<div class="col-md-2 col-centered icons-img1">
-			    <button id="feeds1" class="imgBtn">
+			    <button id="feeds" class="imgBtn">
 			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Feeds2.png">
 			    </button> 
 			</div>
@@ -138,13 +138,13 @@
 			    	</div>
 			    	<button id="visualizeButton">Visualize</button>
 			    	<div class="col-md-2 col-centered imgHolder3">
-					    <button id="mvmntRprt" class="imgBtn">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMvmnt"> <!--movement-->
+					    <button id="mvmntRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportMvmnt">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
 					    </button>
 				    </div>
 			    	<div class="mvmnt-table">
-				    	<table class="table table-striped">
+				    	<table class="table table-striped table1">
 						  <thead>
 						    <tr>
 						      <th>Date</th>
@@ -157,7 +157,7 @@
 						</table>
 					</div>
 					<div class="mvmnt-table">
-						<table class="table table-striped">
+						<table class="table table-striped table1">
 						  <thead>
 						    <tr>
 						      <th>Pig id</th>
@@ -182,27 +182,27 @@
 			</div> 
 			<!--view movement-->
 
-			<!--view meds-->
+			<!--MEDICATION-->
 			<div id="viewMeds" style="display: none;"> 
-				<div id="viewMedsInfo" style="margin-left: 0%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 2%; margin-top: 5%; display: inline-block;">
-				    <div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					     <button id="editMedsButton">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png"> <!--movement-->
+				<!--view medication-->
+				<div id="viewMedsInfo" class="med-div">
+				    <div class="col-md-2 col-centered imgHolder9">
+					     <button id="editMedsButton" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png">
 					            <span> Edit Medication</span>
 					        </button>
 				    </div>
-				    <div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-					        <button id="insertMedsButton">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Medications.png"> <!--modal-->
+				    <div class="col-md-2 col-centered imgHolder7">
+					        <button id="insertMedsButton" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Medications.png">
 					            <span> Insert Medication</span>
 					        </button>
 				    </div>
 				    <div id="lastMedInfo">
 					    <label>Last medication given: </label><br/>
 				    </div>
-				    <br/>
-				    <div style="margin: 0px;">
-					    <table class="table table-striped">
+				    <div class="med-table">
+					    <table class="table table-striped table2">
 							<thead>
 							    <tr>
 							    	<th>Medication Name</th>
@@ -211,89 +211,84 @@
 							    	<th>Date Given</th>
 							    </tr>
 							</thead>
-							<tbody id="viewMedsBody" style="height: 25%;">
+							<tbody id="viewMedsBody">
 							</tbody>
 						</table>
 					</div>
-					<br/>
-					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 8%;">
-					    <button id ="medsRprt">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportMeds"> <!--movement-->
+					<div class="col-md-2 col-centered imgHolder8">
+					    <button id ="medsRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportMeds">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
 					    </button>
 				    </div>
-				</div>
+				</div> <!--END view medication-->
+				
+				<!--edit medication-->
 				<div id="editMedsDetails" style="display: none;"> 
-				    <div style="margin-left: 15%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 13%; margin-top: 0px;">
-				    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					        <button id="saveEditMeds"> 
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> <!--movement-->
-					            <span> Save</span>
-					        </button>
-				    	</div>
-				   		<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-					        <button id="cancelEditMeds">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> <!--movement-->
-					            <span> Cancel</span>
-					        </button>
-				    	</div>
-				    	<div id="lastMedInfoEdit">
-					    	<label>Last medication given: </label><br/>
-					    	
-				    	</div>
-				    	<br/>
-				    	<div style="margin: 0px;">
-					    	<table class="table table-striped t_feeds">
-							  <thead>
-							    <tr class="tr_feeds">
-							      <th>Medication Name</th>
-							      <th>Medication Type</th>
-							      <th>Edit to</th>
-							    </tr>
-							  </thead>
-							  <tbody class="tb_feeds" id="editMedsBody">
-							   
-							  </tbody>
+					<div class="med-div">
+					   	<div class="col-md-2 col-centered imgHolder9">
+						    <button id="saveEditMeds" class="imgBtn"> 
+						        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> 
+						        <span> Save Medication</span>
+						    </button>
+					   	</div>
+					   	<div class="col-md-2 col-centered imgHolder7">
+						    <button id="cancelEditMeds" class="imgBtn">
+						        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png">
+						        <span> Cancel Medication</span>
+						    </button>
+					   	</div>
+					    <div id="lastMedInfoEdit">
+						    <label>Last medication given: </label><br/>
+					    </div>
+					    <div class="med-table">
+						    <table class="table table-striped table2">
+								<thead>
+								    <tr>
+								      <th>Medication Name</th>
+								      <th>Medication Type</th>
+								      <th>Edit to</th>
+								    </tr>
+								</thead>
+								<tbody id="editMedsBody">
+								</tbody>
 							</table>
 						</div>
 					</div>
-				</div> <!--edit meds-->
-				<!-- insert meds -->
+				</div> <!--END edit medication-->
+
+				<!--insert medication-->
 				<div id="insertMedsDetails" style="display: none;"> 
-				    <div style="margin-left: 15%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 13%; margin-top: 0px;">
-				    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					       <button id="saveInsertMeds">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> <!--movement-->
-					            <span> Save</span>
+				    <div class="med-div">
+				    	<div class="col-md-2 col-centered imgHolder10">
+					       <button id="saveInsertMeds" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png">
+					            <span>Insert</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-					        <button id="backToMeds">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> <!--movement-->
+				   		<div class="col-md-2 col-centered imgHolder11">
+					        <button id="backToMeds" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png">
 					            <span>Back</span>
 					        </button>
 				    	</div>
-				    	<br/>
-				    	<div style="width:100% !important;" id="insertMedsBody" style="width: 50%;">
-		 					<select name="selChoice"  id="selectMedchoice" style="color:black; border-radius:5px;width:30%;align:center; ">
+				    	<div id="insertMedsBody" class="insert-div">
+		 					<select name="selChoice"  id="selectMedchoice" class="select-insert">
 		 						<option value="" disabled selected>Select if per pen or per pig..</option> 
 			 					<option value="perpen"> Select per pen</option>
 			 					<option value="perpig">Select per pig</option>
 			 				</select>
 			 				<br/>
-			 				<br/>
-			 				<div id="insertperPen" style="display: none;">
-			 					<input type="checkbox" value="selectAllPen" onchange='checkAllPen(this)' >Select All Pens</input>
-			 					<br/>
-			 					<br/>
-			 				</div>
-			 				<div id="insertperPig" style="display: none;">
-			 					<input type="checkbox" value="selectAllPig" onchange='checkAllPig(this)' >Select All Pigs</input>
-			 					<br/>
-			 					<br/>
-			 				</div>
+				 			<div id="insertperPen" style="display: none;">
+				 				<input type="checkbox" value="selectAllPen" onchange='checkAllPen(this)' >Select All Pens</input>
+				 				<br/>
+				 			</div>
+				 			<div id="insertperPig" style="display: none;">
+				 				<input type="checkbox" value="selectAllPig" onchange='checkAllPig(this)' >Select All Pigs</input>
+				 				<br/>
+				 			</div>
 							<div>
-								<table class="table table-striped table-bordered" id="insertMeds"> 
+								<table class="table table-striped table5" id="insertMeds"> 
 									<tr> 
 										<td> Last Medication Given: 
 											<select name="selectMeds" id="selectMeds" style="color:black;border-radius:5px;"> 
@@ -305,7 +300,6 @@
 										<td> Medication type:
 											<input type="text" readonly id="medType"></input>
 										</td>
-
 									</tr>
 									<tr> 
 										<td> Date Given: <input type="date" class="form-control" id="dateMedGiven" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy"/>
@@ -316,39 +310,35 @@
 										</td>
 									</tr>
 									<tr>
-								<td>
-									Quantity: <input type="number" id="medQty" name="medQty" min="0"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp;&nbsp; 
-									<select style="color:black;border-radius:5px;" name="selUnit" id="qtyUnit">
-										<option value = "cc"> cc</option>
-										<option value="ml">ml</option>
-										<option value="kg">kg</option>
-									</select>
-								</td>
-							</tr>
+										<td>
+											Quantity: <input type="number" id="medQty" name="medQty" min="0"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp;&nbsp; 
+											<select style="color:black;border-radius:5px;" name="selUnit" id="qtyUnit">
+												<option value = "cc"> cc</option>
+												<option value="ml">ml</option>
+												<option value="kg">kg</option>
+											</select>
+										</td>
+									</tr>
 								</table>
 							</div>
-
 		 				</div>
-				    	<br/>
-				    	
 					</div>
-				</div>
-				<!-- insert meds -->
-			</div>
-			<!--view meds-->
-
-			<!--view feeds-->
+				</div> <!--END insert medication-->
+			</div> <!--END MEDICATION-->
+			
+			<!--FEEDS-->
 			<div id="viewFeeds" style="display: none;"> 
-				<div id="viewFeedsInfo" style="margin-left: 0%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 2%; margin-top: 5%; display: inline-block;">
-					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-						<button id="editFeedsButton">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png"> <!--movement-->
+				<!--view feeds-->
+				<div id="viewFeedsInfo" class="med-div">
+					<div class="col-md-2 col-centered imgHolder9">
+						<button id="editFeedsButton" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png">
 					            <span> Edit Feeds</span>
 					        </button>
 					</div>
-					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-					        <button id="insertFeedsButton" data-toggle="modal" data-target="#modalInsertFeeds">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Feeds.png"> <!--modal-->
+					<div class="col-md-2 col-centered imgHolder7">
+					        <button id="insertFeedsButton" data-toggle="modal" data-target="#modalInsertFeeds" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Feeds.png">
 					            <span> Insert Feeds</span>
 					        </button>
 				    </div>
@@ -356,9 +346,8 @@
 						<label>Last feed given: </label><br/>
 						
 					</div>
-					<br/>
-					<div style="margin: 0px;">
-						<table class="table table-striped">
+					<div class="med-table">
+						<table class="table table-striped table2">
 							<thead>
 								<tr>
 								    <th>Feed Name</th>
@@ -368,41 +357,38 @@
 								    <th>Date Given</th>
 								</tr>
 							</thead>
-							<tbody id="viewFeedsBody" style="height: 25%;">
+							<tbody id="viewFeedsBody">
 							</tbody>
 						</table>
 					</div>
-					<br/>
-					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 8%;">
-						<button id ="feedsRprt">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportFeeds"> <!--movement-->
+					<div class="col-md-2 col-centered imgHolder8">
+						<button id ="feedsRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportFeeds">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
 					    </button>
 					</div>
-				</div>
+				</div> <!--END view feeds-->
 
+				<!--edit feeds-->
 				<div id="editFeeds" style="display: none;"> 
-				
-				    <div style="margin-left: 15%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 13%; margin-top: 0px;">
-				    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					        <button id="saveEditFeeds"> 
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> <!--movement-->
+				    <div class="med-div">
+				    	<div class="col-md-2 col-centered imgHolder9">
+					        <button id="saveEditFeeds" class="imgBtn"> 
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png">
 					            <span> Save Feed</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-					        <button id="cancelEditFeeds">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> <!--movement-->
-					            <span> Cancel</span>
+				   		<div class="col-md-2 col-centered imgHolder7">
+					        <button id="cancelEditFeeds" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> 
+					            <span> Cancel Feed</span>
 					        </button>
 				    	</div>
 				    	<div id="lastFeedInfoEdit">
 					    	<label>Last feed type: </label><br/>
-					    	
 				    	</div>
-				    	<br/>
-				    	<div style="margin: 0px;">
-					    	<table class="table table-striped t_feeds">
+				    	<div class="med-table">
+					    	<table class="table table-striped table2">
 							  <thead>
 							    <tr class="tr_feeds">
 							      <th>Feed Name</th>
@@ -411,49 +397,44 @@
 							      <th>Edit to</th>
 							    </tr>
 							  </thead>
-							  <tbody class="tb_feeds" id="editFeedsBody">
-							    
+							  <tbody id="editFeedsBody">
 							  </tbody>
 							</table>
 						</div>
 					</div>
-				</div> <!--edit feeds-->
-				<!-- insert feeds -->
+				</div> <!--END edit feeds-->
+
+				<!-- insert feeds --> 
 				<div id="insertFeedsDetails" style="display: none;"> 
-				    <div style="margin-left: 15%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 13%; margin-top: 0px;">
-				    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					       <button id="saveInsertFeeds">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> <!--movement-->
-					            <span> Save</span>
+				    <div class="med-div">
+				    	<div class="col-md-2 col-centered imgHolder10">
+					       <button id="saveInsertFeeds" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png"> 
+					            <span>Insert</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-					        <button id="backToFeeds">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> <!--movement-->
+				   		<div class="col-md-2 col-centered imgHolder11">
+					        <button id="backToFeeds" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/ArroW Left.png"> 
 					            <span>Back</span>
 					        </button>
 				    	</div>
-				    	<br/>
-				    	<div style="width:100% !important;" id="insertFeedsBody" style="width: 50%;">
-		 					<select name="selChoice"  id="selectFeedchoice" style="color:black; border-radius:5px;width:30%;align:center; ">
+				    	<div id="insertFeedsBody" class="insert-div">
+		 					<select name="selChoice"  id="selectFeedchoice" class="select-insert">
 		 						<option value="" disabled selected>Select if per pen or per pig..</option> 
 			 					<option value="perpenF"> Select per pen</option>
 			 					<option value="perpigF">Select per pig</option>
 			 				</select>
-			 				<br/>
-			 				<br/>
 			 				<div id="insertperPenF" style="display: none;">
 			 					<input type="checkbox" value="selectAllPen" onchange='checkAllPenF(this)' >Select All Pens</input>
-			 					<br/>
 			 					<br/>
 			 				</div>
 			 				<div id="insertperPigF" style="display: none;">
 			 					<input type="checkbox" value="selectAllPig" onchange='checkAllPigF(this)' >Select All Pigs</input>
 			 					<br/>
-			 					<br/>
 			 				</div>
 							<div>
-								<table class="table table-striped table-bordered" id="insertFeeds"> 
+								<table class="table table-striped table4" id="insertFeeds"> 
 									<tr> 
 										<td> Last Feed Given: 
 											<select name="selectFeeds" id="selectFeeds" style="color:black;border-radius:5px;"> 
@@ -480,85 +461,69 @@
 										</td>
 									</tr>
 									<tr>
-								<td>
-									Quantity: <input type="number" id="feedQty" name="medQty" min="0"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp; <span>kg</span> 
-								</td>
-							</tr>
+										<td>
+										Quantity: <input type="number" id="feedQty" name="medQty" min="0"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp; <span>kg</span> 
+										</td>
+									</tr>
 								</table>
 							</div>
-
 		 				</div>
-				    	<br/>
-				    	
 					</div>
-				</div>
-				<!-- insert feeds -->
-			</div> 
-			<!--view feeds-->
+				</div> <!-- END insert feeds -->
+			</div> <!--END FEEDS-->
+			
 
-			<!--view weight-->
+			<!--WEIGHT-->
 			<div id="viewWeight" style="display: none;">
-			    <div id="viewWeightInfo" style="max-width: 100%; padding-top: 0%; padding-left: 0px; margin-right: 12%; margin-top: 0px; margin: 2%; margin-left: 0px; display: none;">
-			    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-			    	<button id="insertWeightButton">
-						            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Weight.png"> 
-						            <span> Insert Weight</span>
-						</button>
-					</div>
-					<br/>
-					<br/>
-					<br/>
-					<div id="weightGraph" style="margin-left: 0%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 2%; margin-top: 5%;"></div>
-
-					<div id="columnchart_values" style="margin: 0px;"> </div>
-					<br/>
-					<br/>
-					<br/>
-
-					<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 8%;">
-						<button id ="weightRprt">
-					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png" data-toggle="modal" data-target="#myModalReportWeight"> <!--movement-->
+				<!--view weight-->
+			    <div id="viewWeightInfo" class="weight-div">
+			    	<div class="col-md-2 col-centered imgHolder12">
+				    	<button id ="weightRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportWeight">
+					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
 					    </button>
 					</div>
-				</div>
+					<div class="col-md-2 col-centered imgHolder13">
+					    <button id="insertWeightButton" class="imgBtn">
+							<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Weight.png"> 
+							<span> Insert Weight</span>
+						</button>
+					</div>
+					<div id="weightGraph" class="weight-graph"></div>
+					<div id="columnchart_values" style="margin: 0px;"> </div>
+				</div> <!--END view weight-->
 				
 				<!-- insert weight -->
 				<div id="insertWeightDetails" style="display: none;"> 
-				    <div style="margin-left: 15%; max-width: 100%; padding-top: 2%; padding-left: 0px; margin-right: 13%; margin-top: 0px;">
-				    	<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 8%; margin-top: 1%;">
-					       <button id="saveInsertWeight">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> <!--movement-->
-					            <span> Save</span>
+				    <div class="med-div">
+				    	<div class="col-md-2 col-centered imgHolder10">
+					       <button id="saveInsertWeight" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png"> 
+					            <span>Insert</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgHolder2" style="height: 8%; width: 8%; float: right; margin-right: 5%; margin-top: 1%;">
-					        <button id="backToWeight">
-					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> <!--movement-->
+				   		<div class="col-md-2 col-centered imgHolder11">
+					        <button id="backToWeight" class="imgBtn">
+					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png">
 					            <span>Back</span>
 					        </button>
 				    	</div>
-				    	<br/>
-				    	<div style="width:100% !important;" id="insertMedsBody" style="width: 50%;">
-		 					<select name="selChoice"  id="selectWeightchoice" style="color:black; border-radius:5px;width:30%;align:center; ">
+				    	<div id="insertMedsBody" class="insert-div">
+		 					<select name="selChoice"  id="selectWeightchoice" class="select-insert">
 		 						<option value="" disabled selected>Select if per batch or per pig..</option> 
 			 					<option value="perbatch"> Select per batch</option>
 			 					<option value="perpigW">Select per pig</option>
 			 				</select>
-			 				<br/>
-			 				<br/>
 			 				<div id="insertperBatch" style="display: none;">
 			 					<input type="checkbox" value="selectAllBatch" onchange='checkAllBatchW(this)' >Select All Batches</input>
-			 					<br/>
 			 					<br/>
 			 				</div>
 			 				<div id="insertperPigW" style="display: none;">
 			 					<input type="checkbox" value="selectAllPig" onchange='checkAllPigW(this)' >Select All Pigs</input>
 			 					<br/>
-			 					<br/>
 			 				</div>
 							<div>
-								<table class="table table-striped table-bordered" id="insertWeight"> 
+								<table class="table table-striped table6" id="insertWeight"> 
 									<tr> 
 										<td> Weight: 
 											<input type="number" id="addWeight" name="medQty" min="0.01"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp; kg
@@ -580,149 +545,122 @@
 									</tr>
 								</table>
 							</div>
-
 		 				</div>
-				    	<br/>
-				    	
 					</div>
-				</div>
-				<!-- insert weight -->
-
-			</div> 
-			<!--view weight-->
-
-			
+				</div><!--END insert weight-->
+			</div> <!--END WEIGHT-->
 		</div>
-		<!--VIEWS-->
+		<!--END VIEWS-->
 
-		<!-- Reports-->
-		<!-- Modal for movement report-->
-		<div id="myModalReportMvmnt" class="modal fade" role="dialog" >
-	      <div class="modal-dialog">
-	        <div class="modal-content"> <!-- Modal content-->
-	          <div class="modal-header">
-	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-	            <h4 class="modal-title">Download movement report</h4>
-	          </div>
-	          <div class="modal-body"> 
-	            <form>
-	            <br/>
-	            <div class="input-group">
-	              <span class="input-group-addon" id="basic-addon3">From: </span>
-	              <input type="date" class="form-control" id="from" aria-describedby="basic-addon3" required>
-	            </div>
-	            
-	            <br/>
-	            <div class="input-group">
-	              <span class="input-group-addon" id="basic-addon3">To: </span>
-	              <input type="date" class="form-control" id="to" aria-describedby="basic-addon3" required>
-	            </div>
-	            
-	          </div>
-	          <div class="modal-footer">
-	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_mvmntrprt">Download</button>
-	          </div>
-	        </div>
-	      </div>
+		<!--REPORTS-->
+		<!-- Modal for Movement Details Report-->
+		<div id="myModalReportMvmnt" class="modal fade" role="dialog">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+			        <div class="modal-header">
+			            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+			            <h4 class="modal-title">Download Movement Details Report</h4>
+			        </div>
+			        <div class="modal-body"> 
+					    <div class="input-group">
+					        <span class="input-group-addon" id="basic-addon3">From: </span>
+					        <input style="height: 5%;" type="date" class="form-control" id="from" aria-describedby="basic-addon3" required>
+						</div>
+				    	<br/>
+				        <div class="input-group">
+				            <span class="input-group-addon" id="basic-addon3">To: </span>
+				            <input style="height: 5%;" type="date" class="form-control" id="to" aria-describedby="basic-addon3" required>
+				        </div>
+			        </div>
+			        <div class="modal-footer">
+			        	<button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_mvmntrprt">Download</button>
+			        </div>
+		        </div>
+		    </div>
 	    </div>
+
+	    <!-- Modal for Medication Details Report-->
 	    <div id="myModalReportMeds" class="modal fade" role="dialog" >
-	      <div class="modal-dialog">
-	        <div class="modal-content"> <!-- Modal content-->
-	          <div class="modal-header">
-	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-	            <h4 class="modal-title">Download medication details report</h4>
-	          </div>
-	          <div class="modal-body"> 
-	            <form>
-	            <br/>
-	            <div class="input-group">
-	              <span class="input-group-addon" id="basic-addon3">From: </span>
-	              <input type="date" class="form-control" id="fromMeds" aria-describedby="basic-addon3" required>
-	            </div>
-	            
-	            <br/>
-	            <div class="input-group">
-	              <span class="input-group-addon" id="basic-addon3">To: </span>
-	              <input type="date" class="form-control" id="toMeds" aria-describedby="basic-addon3" required>
-	            </div>
-	            
-	          </div>
-	          <div class="modal-footer">
-	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_medsrprt">Download</button>
-	          </div>
-	        </div>
-	      </div>
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+			        <div class="modal-header">
+			        	<button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+			            <h4 class="modal-title">Download Medication Details Report</h4>
+			        </div>
+			        <div class="modal-body"> 
+				        <div class="input-group">
+				            <span class="input-group-addon" id="basic-addon3">From: </span>
+				            <input style="height: 5%;" type="date" class="form-control" id="fromMeds" aria-describedby="basic-addon3" required>
+				        </div>
+				        <br/>
+				        <div class="input-group">
+				            <span class="input-group-addon" id="basic-addon3">To: </span>
+				            <input style="height: 5%;" type="date" class="form-control" id="toMeds" aria-describedby="basic-addon3" required>
+				        </div>
+			        </div>
+			        <div class="modal-footer">
+			            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_medsrprt">Download</button>
+			        </div>
+		        </div>
+		    </div>
 	    </div>
+
+	    <!-- Modal for Feed Details Report-->
 	    <div id="myModalReportFeeds" class="modal fade" role="dialog" >
-	      <div class="modal-dialog">
-	        <div class="modal-content"> <!-- Modal content-->
-	          <div class="modal-header">
-	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-	            <h4 class="modal-title">Download feed details report</h4>
-	          </div>
-	          <div class="modal-body"> 
-	            <form>
-	            <br/>
-	            <div class="input-group">
-	              <span class="input-group-addon" id="basic-addon3">From: </span>
-	              <input type="date" class="form-control" id="fromFeeds" aria-describedby="basic-addon3" required>
-	            </div>
-	            
-	            <br/>
-	            <div class="input-group">
-	              <span class="input-group-addon" id="basic-addon3">To: </span>
-	              <input type="date" class="form-control" id="toFeeds" aria-describedby="basic-addon3" required>
-	            </div>
-	            
-	          </div>
-	          <div class="modal-footer">
-	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_feedsrprt">Download</button>
-	          </div>
-	        </div>
-	      </div>
+		    <div class="modal-dialog">
+		        <div class="modal-content"> 
+			        <div class="modal-header">
+			            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+			            <h4 class="modal-title">Download Feed Details Report</h4>
+			        </div>
+			        <div class="modal-body"> 
+			            <div class="input-group">
+				            <span class="input-group-addon" id="basic-addon3">From: </span>
+				            <input style="height: 5%;" type="date" class="form-control" id="fromFeeds" aria-describedby="basic-addon3" required>
+				        </div>
+				        <br/>
+				        <div class="input-group">
+				            <span class="input-group-addon" id="basic-addon3">To: </span>
+				            <input style="height: 5%;" type="date" class="form-control" id="toFeeds" aria-describedby="basic-addon3" required>
+				        </div> 
+			        </div>
+			        <div class="modal-footer">
+			            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_feedsrprt">Download</button>
+			        </div>
+		        </div>
+		    </div>
 	    </div>
+
+	     <!-- Modal for Weight Details Report-->
 	    <div id="myModalReportWeight" class="modal fade" role="dialog" >
-	      <div class="modal-dialog">
-	        <div class="modal-content"> <!-- Modal content-->
-	          <div class="modal-header">
-	            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-	            <h4 class="modal-title">Download weight details report</h4>
-	          </div>
-	          <div class="modal-body"> 
-	            <form>
-	            <br/>
-	            <div class="input-group">
-	              <span class="input-group-addon" id="basic-addon3">From: </span>
-	              <input type="date" class="form-control" id="fromWeight" aria-describedby="basic-addon3" required>
-	            </div>
-	            
-	            <br/>
-	            <div class="input-group">
-	              <span class="input-group-addon" id="basic-addon3">To: </span>
-	              <input type="date" class="form-control" id="toWeight" aria-describedby="basic-addon3" required>
-	            </div>
-	            
-	          </div>
-	          <div class="modal-footer">
-	            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_weightrprt">Download</button>
-	          </div>
-	        </div>
-	      </div>
+		    <div class="modal-dialog">
+		        <div class="modal-content"> <!-- Modal content-->
+			        <div class="modal-header">
+			            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+			            <h4 class="modal-title">Download Weight Details Report</h4>
+			        </div>
+			        <div class="modal-body"> 
+				        <div class="input-group">
+				            <span class="input-group-addon" id="basic-addon3">From: </span>
+				            <input style="height: 5%;" type="date" class="form-control" id="fromWeight" aria-describedby="basic-addon3" required>
+				        </div>
+				        <br/>
+				        <div class="input-group">
+				            <span class="input-group-addon" id="basic-addon3">To: </span>
+				            <input style="height: 5%;" type="date" class="form-control" id="toWeight" aria-describedby="basic-addon3" required>
+				        </div>
+			        </div>
+			        <div class="modal-footer">
+			            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_weightrprt">Download</button>
+			          </div>
+			        </div>
+		    	</div>
+	    	</div>
 	    </div>
 
 		<div class="page-footer"> 
 			Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
 		</div> 
-
-
-
-
-
-
-
-
-
-
 
 <!--Script-->
 	
@@ -1000,12 +938,12 @@
                   $("#pigInfo").append($("<hr>").attr("style", "border-color: #9ecf95;"));
                   $("#pigInfo").append($("<label></label>").text("Status: "));
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevStatus").attr("value", data[0].pig_stat));
-                  $("#pigInfo").append($("<select id='editStatus'><option value='"+data[0].pig_stat+"' selected>"+data[0].pig_stat+"</option></option><option value='weaning'>Weaning</option><option value='growing'>Growing</option></option><option value='sow'>Sow</option></option><option value='boar'>Boar</option></option><option value='sick'>Sick</option><option value='dead'>Dead</option><option value='slaughtered'>Slaugthered</option></select>"));
+                  $("#pigInfo").append($("<select id='editStatus'><option value='"+data[0].pig_stat+"' selected>Currently: "+data[0].pig_stat+"</option></option><option value='weaning'>Weaning</option><option value='growing'>Growing</option></option><option value='sow'>Sow</option></option><option value='boar'>Boar</option></option><option value='sick'>Sick</option><option value='dead'>Dead</option><option value='slaughtered'>Slaugthered</option></select>"));
                   $("#pigInfo").append($("<br/>"));
                   $("#pigInfo").append($("<label></label>").text("RFID: "));
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevRfid").attr("value", data[0].rfid_tag));
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","pigLabel").attr("value", data[0].rfid_label));
-                  $("#pigInfo").append($("<select id='editRFID'><option value='"+data[0].rfid_tag+"' selected>"+data[0].rfid_tag+"</option></select>"));
+                  $("#pigInfo").append($("<select id='editRFID'><option value='"+data[0].rfid_tag+"' selected>Currently: "+data[0].rfid_tag+"</option></select>"));
                   $("#pigInfo").append($("<br/>"));
                   $("#pigInfo").append($("<label></label>").text("Weight: "));
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","weightRecordId").attr("value", data[0].record_id));
@@ -1300,10 +1238,12 @@
          	console.log(choice);
 	          if(choice === "perpen"){
 	          	$('#insertperPen').attr("style", "display: inline-block");
+	          	$('#insertperPen').attr("class", "insertTMed");
 	          	$('#insertperPig').attr("style", "display: none");
 
 	          }else if(choice=== "perpig"){
 	          	$('#insertperPig').attr("style", "display: inline-block");
+	          	$('#insertperPig').attr("class", "insertTMed");
 	          	$('#insertperPen').attr("style", "display: none");
 
 	          }
@@ -1435,22 +1375,24 @@
          /*view meds */
 
          /*view feeds*/
-          $('#feeds1').on("click",function() {
+          $('#feeds').on("click",function() {
           	$('#viewFeeds').attr("style", "display: inline-block");
           	$('#viewFeedsInfo').attr("style", "display: inline-block");
             $('#editFeeds').attr("style", "display: none");
+            $('#insertFeedsDetails').attr("style", "display: none");
           	$('#viewMovement').attr("style", "display: none");
-          	 $('#viewMeds').attr("style", "display: none");
-          	  $('#viewWeight').attr("style", "display: none");
+          	$('#viewMeds').attr("style", "display: none");
+          	 $('#viewWeight').attr("style", "display: none");
 
-          	 //lamnan yun LAst Feed
         });
-          $('#editFeedsButton').on("click",function() {
+
+         $('#editFeedsButton').on("click",function() {
            $('#viewFeedsInfo').attr("style", "display: none");
             $('#editFeeds').attr("style", "display: inline-block");
             $('#insertFeedsDetails').attr("style", "display: none");
 
         });
+
           $.ajax({
 	        url: '/phpork/gateway/feeds.php',
 	        type: 'post',
@@ -1550,10 +1492,12 @@
          	console.log(choice1);
 	          if(choice1 === "perpenF"){
 	          	$('#insertperPenF').attr("style", "display: inline-block");
+	          	$('#insertperPenF').attr("class", "insertTFeed");
 	          	$('#insertperPigF').attr("style", "display: none");
 
 	          }else if(choice1=== "perpigF"){
 	          	$('#insertperPigF').attr("style", "display: inline-block");
+	          	$('#insertperPigF').attr("class", "insertTFeed");
 	          	$('#insertperPenF').attr("style", "display: none");
 
 	          }
@@ -1706,10 +1650,12 @@
          	console.log(choice);
 	          if(choice === "perbatch"){
 	          	$('#insertperBatch').attr("style", "display: inline-block");
+	          	$('#insertperBatch').attr("class", "insertTMed");
 	          	$('#insertperPigW').attr("style", "display: none");
 
 	          }else if(choice=== "perpigW"){
 	          	$('#insertperPigW').attr("style", "display: inline-block");
+	          	$('#insertperPigW').attr("class", "insertTMed");
 	          	$('#insertperBatch').attr("style", "display: none");
 
 	          }
@@ -1910,6 +1856,7 @@
  			}  
 		
 		 $('#mvmntRprt').on("click",function() {
+		 	e.preventDefault();
             $('#myModalReportMvmnt').modal('show');
         });
         $('#gen_mvmntrprt').on("click",function(){
@@ -1932,10 +1879,11 @@
                 }
             });
           }
-          window.location = "/phpork/home";
+          window.location = "/phpork/encoder_home";
         });
         /* report meds*/
         $('#medsRprt').on("click",function() {
+        	e.preventDefault();
             $('#myModalReportMeds').modal('show');
         });
         
@@ -1959,10 +1907,11 @@
                 }
             });
           }
-          window.location = "/phpork/home";
+          window.location = "/phpork/encoder_home";
         });
         /* report feeds*/
         $('#feedsRprt').on("click",function() {
+        	e.preventDefault();
             $('#myModalReportFeeds').modal('show');
         });
         
@@ -1987,10 +1936,11 @@
                 }
             });
           }
-          window.location = "/phpork/home";
+          window.location = "/phpork/encoder_home";
         }); 
          /* report feeds*/
         $('#weightRprt').on("click",function() {
+        	e.preventDefault();
             $('#myModalReportWeight').modal('show');
         });
         
@@ -2015,7 +1965,7 @@
                 }
             });
           }
-          window.location = "/phpork/home";
+          window.location = "/phpork/encoder_home";
         });     
        
       //}); 
