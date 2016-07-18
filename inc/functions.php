@@ -59,16 +59,16 @@
 						FROM user
 						WHERE user_id = '" .$user_id."'";
 				$result = mysqli_query($link, $query) or die(mysqli_error($link));
-				$loc = array();
-				$arr_loc = array();
+				$userDetails = array();
+				$arr_user = array();
 				while ($row = mysqli_fetch_row($result)) {
-						$loc['user_name'] = $row[0];
-						$loc['user_type'] = $row[1];
-						$loc['password'] = $row[2];
-						$arr_loc[] = $loc;
+						$userDetails['user_name'] = $row[0];
+						$userDetails['user_type'] = $row[1];
+						$userDetails['password'] = $row[2];
+						$arr_user[] = $userDetails;
 				}
 
-				return $arr_loc;
+				return $arr_user;
 		}
 
 		public function updateUser($username,$password,$usertype, $user_id)
@@ -193,6 +193,18 @@
 				return $hp_arr;
 		}
 
+		public function updateLocation($loc_id, $loc_name, $addr)
+		{
+				$link = $this->connect();
+				$query = "UPDATE location 
+							set loc_name = '" .$loc_name. "',
+								addr = '" .$addr. "'
+						WHERE loc_id = '" . $loc_id. "'";
+				$result = mysqli_query($link, $query);
+		}
+
+
+
 		/* end of location functions*/
 
 		/*    HOUSE FUNCTIONS  */
@@ -291,6 +303,18 @@
 			return $arr_house;
 		
 			
+		}
+
+		public function updateHouse($houseid, $houseno, $housename, $location, $fxn)
+		{
+				$link = $this->connect();
+				$query = "UPDATE house 
+							set house_name = '" .$housename. "',
+								house_no = '" .$houseno. "',
+								loc_id = '" .$location. "',
+								function = '" .$fxn. "',
+						WHERE house_id = '" . $houseid. "'";
+				$result = mysqli_query($link, $query);
 		}
 		/*END OF HOUSE FUNCTIONS*/
 
@@ -407,6 +431,17 @@
 				return $arr_pen;
 		}
 
+		public function updatePen($penid, $penno, $location, $house, $fxn)
+		{
+				$link = $this->connect();
+				$query = "UPDATE pen 
+							set pen_no = '" .$penno. "',
+								loc_id = '" .$location. "',
+								house_id = '" .$house. "',
+								function = '" .$fxn. "',
+						WHERE pen_id = '" . $penid. "'";
+				$result = mysqli_query($link, $query);
+		}
 		/* END OF pen.php FUNCTIONS*/
 
 		/* pig.php functions */
@@ -851,6 +886,15 @@
 			    }
 			    return $data;
 		}
+		public function updateParent($parentid, $label, $label_id)
+		{
+				$link = $this->connect();
+				$query = "UPDATE parents 
+							set label = '" .$label. "',
+								label_id = '" .$label_id. "'
+						WHERE parent_id = '" . $parentid. "'";
+				$result = mysqli_query($link, $query);
+		}
 		public function addBreed($breed_name)
 		{
 				$link = $this->connect();
@@ -869,6 +913,15 @@
 			                      "error"=>mysqli_error($link));
 			    }
 			    return $data;
+		}
+
+		public function updateBreed($breedname, $breedid)
+		{
+				$link = $this->connect();
+				$query = "UPDATE pig_breeds 
+							set breed_name = '" .$breedname. "'
+						WHERE breed_id = '" . $breedid. "'";
+				$result = mysqli_query($link, $query);
 		}
 		
 		public function ddl_sow()
@@ -1452,6 +1505,15 @@
 	        }
 	        return $arr_mrcrd;
 	    }
+	    public function updateMeds($medid, $medName, $medType)
+		{
+				$link = $this->connect();
+				$query = "UPDATE medication 
+							set med_name = '" .$medName. "',
+								med_type = '" .$medType. "'
+						WHERE med_id = '" . $medid. "'";
+				$result = mysqli_query($link, $query);
+		}
 
 		/* end of meds.php FUNCTIONS*/
 
@@ -1693,6 +1755,15 @@
 								'success' => '0'
 						);
 				}
+		}
+		public function updateFeeds($feedid, $feedName, $feedType)
+		{feed
+				$link = $this->connect();
+				$query = "UPDATE feeds
+							set feed_name = '" .$feedName. "',
+								feed_type = '" .$feedType. "'
+						WHERE feed_id = '" . $feedid. "'";
+				$result = mysqli_query($link, $query);
 		}
 				
 		/* end of feeds.php FUNCTIONS*/
