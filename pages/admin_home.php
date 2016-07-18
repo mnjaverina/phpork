@@ -8,7 +8,8 @@
       header("Location: login.php"); 
     }
     include "../inc/functions.php"; 
-    $db = new phpork_functions (); 
+    $db = new phpork_functions ();
+    $db->connect(); 
   ?> 
 
   <head> 
@@ -44,7 +45,7 @@
     </form> 
 
       <div class="box userDiv" data-toggle="tooltip" title="Click to add user." data-trigger= "hover" >
-        <button id="addUser" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalUser"">
+        <button id="addUser" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalUser">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add User.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>Add User</span>
         </button>
@@ -102,6 +103,10 @@
     <div class="page-footer"> 
       Prototype Pork Traceability System || Copyright &copy; 2014 - <?php echo date("Y");?> UPLB || funded by PCAARRD 
     </div>
+    <?php
+        $u = $_SESSION['user_id']; 
+        echo "<input type='hidden' value='$u' name='user' id='userId'/>";
+    ?>
 
     <!-- Modal for Add User -->
     <div id="myModalUser" class="modal fade" role="dialog" >
@@ -109,9 +114,21 @@
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add User</h4>
+            <h4 class="modal-title">User</h4>
           </div>
           <div class="modal-body"> 
+            
+            <div id="chooseToDo">
+              <button id="addUserBtn" class="btn btn-default">Add User</button>
+              <br/>
+              <br/>
+              <br/>
+              <button id="editUserBtn" class="btn btn-default">Edit User</button>
+            </div>
+
+            <div id="addUserDetails" style="display: none;">
+              <button id="backToUser1">Back</button>
+              <h2 class="modal-title">Add User</h2>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Username: </span>
               <input type="text" class="form-control" id="uname" data-trigger= "hover" data-toggle="tooltip" title="Input new username" aria-describedby="basic-addon3" required>
@@ -130,11 +147,80 @@
               <span class="input-group-addon" id="basic-addon3">Password: </span>
               <input type="password" class="form-control" id="password" data-trigger= "hover" data-toggle="tooltip" title="Input new password." aria-describedby="basic-addon3" required>
             </div>
-          </div>
-          <div class="modal-footer" >
+            <div class="modal-footer" >
             <button type="submit" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save user's details." id="saveUser">Add</button>
+            </div>
           </div>
+
+           <div id="editUserDetails" style="display: none;">
+            <button id="backToUser2">Back</button>
+              <h2 class="modal-title">Edit User</h2>
+            <div class="input-group">
+              <?php
+                $val='';
+                if(isset($_POST['submit'])){
+                  if(!empty($_POST['userName'])){
+                      $val=$_POST['userName'];
+                  }else{
+                    $val='';
+                  }
+                }
+                ?>
+                <center></center>
+                <form method="post" action="">
+                <input type="text" name="userName" id="userName" autocomplete="off" placeholder="Search for user"
+                value="<?php echo $val;?>">
+                <input type="submit" name="submit" id="submit" value="Search">
+                </form>
+            </div>
+            <br/>
+            <div id="displayUser"></div>
+            <?php
+
+              if(isset($_POST['submit'])){
+                if(!empty($_POST['userName'])){
+                  $name=$_POST['userName'];
+                  $query3=mysql_query("SELECT user_name, user_id FROM user WHERE user_name LIKE '%".$name."%'");
+                  $query4=mysql_fetch_array($query3) or die($query3."<br/><br/>".mysql_error());
+                  while($query4){
+                    echo "<div id='box'>";
+                    echo "<button onclick=\"viewDetailsUser(".$query4['user_id'].")\">".$query4['user_name']."</>";
+                    echo "<div id='clear'></div>";
+                  }
+                }else{
+                  echo "No Results";
+                }
+              }
+            ?>
+            <br/>
+            <div id="editUserDetails" style= "display: none;">
+              <div class="input-group" id="editUNAME">
+                <span class="input-group-addon" id="basic-addon3">Username: </span>
+                <input type="text" class="form-control" id="uname" data-trigger= "hover" data-toggle="tooltip" title="Input new username" aria-describedby="basic-addon3" required>
+              </div>
+              <br/>
+              <div class="input-group" id="editUTYPE">
+                <span class="input-group-addon" id="basic-addon3">User Type: </span>
+                <select class="form-control" id="uType" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the user is an admin or encoder." required> 
+                      <option value="" disabled selected>Select user type</option>
+                      <option value="admin">Admin</option> 
+                      <option value="encoder">Encoder</option> 
+                </select>
+              </div>
+              <br/>
+              <div class="input-group" id="editPWORD">
+                <span class="input-group-addon" id="basic-addon3">Password: </span>
+                <input type="password" class="form-control" id="password" data-trigger= "hover" data-toggle="tooltip" title="Input new password." aria-describedby="basic-addon3" required>
+              </div>
+
+              <div class="modal-footer" >
+              <button type="submit" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save user's details." id="saveUser">Edit</button>
+              </div>
+           </div>
+          </div>
+          
         </div>
+      </div>
       </div>
     </div>
 
@@ -372,8 +458,48 @@
          $('#addUser').on("click",function() {
            e.preventDefault(); 
             $('#myModalUser').modal('show');
+            $('#chooseToDo').attr("style", "display: inline-block");
+            $('#addUserDetails').attr("style", "display: none");
+             $('#editUserDetails').attr("style", "display: none");
           
         });
+
+          $('#addUserBtn').on("click",function() {
+          
+            $('#addUserDetails').attr("style", "display: inline-block");
+             $('#editUserDetails').attr("style", "display: none");
+              $('#chooseToDo').attr("style", "display: none");
+          
+        });
+           $('#editUserBtn').on("click",function() {
+          
+            $('#editUserDetails').attr("style", "display: inline-block");
+            $('#addUserDetails').attr("style", "display: none");
+            $('#chooseToDo').attr("style", "display: none");
+          
+        });
+
+        $('#searchUser').on("focusout", function() {
+          var search = $('#searchUser').val();
+
+        });
+
+        $('#backToUser1').on("click",function() {
+          
+            $('#editUserDetails').attr("style", "display: none");
+            $('#addUserDetails').attr("style", "display: none");
+            $('#chooseToDo').attr("style", "display: inline-block");
+          
+        });
+
+          $('#backToUser2').on("click",function() {
+          
+            $('#editUserDetails').attr("style", "display: none");
+            $('#addUserDetails').attr("style", "display: none");
+            $('#chooseToDo').attr("style", "display: inline-block");
+          
+        });
+
 
         $('#saveUser').on("click",function(){
             var uName = $('#uname').val();
@@ -399,6 +525,51 @@
                     },
                     success: function (data) {
                         alert("User added");
+                        window.location = "/phpork/admin/home"; 
+                    }    
+                  });
+          }else{
+            if(uName == ''){
+              alert("Please input username.");
+            }else if(password == ''){
+              alert("Please input password.");              
+            }
+          }
+
+          });
+
+        $('#saveEditUser').on("click",function(){
+            var user = $('#userId').val();
+            var prev_uname = $('#prev_uname').val();
+            var user_name = $('#unameEdit').val();
+            var prev_utype = $('#prev_utype').val();
+            var user_Type = $('#utypeEdit').val();
+            var prev_pword = $('#prev_pword').val();
+            var password = $('#passwordEdit').val();
+            
+            
+          if((uName != '') && (password != '') ){
+              var uType;
+              if(user_Type === "admin"){
+                uType = 1;
+              }else{
+                uType = 2;
+              }
+                 $.ajax({
+                    url: '/phpork/gateway/admin.php',
+                    type: 'post',
+                    data : {
+                      editUser: '1',
+                      user: user,
+                      prev_uname: prev_uname,
+                      username: user_name,
+                      prev_pword: prev_pword,
+                      password: password,
+                      prev_utype: prev_utype,
+                      usertype: user_type
+                    },
+                    success: function (data) {
+                        alert("User edited");
                         window.location = "/phpork/admin/home"; 
                     }    
                   });
@@ -738,6 +909,31 @@
      });
 
     </script>
+    <script type="text/javascript">
+      function fill(Value){
+        $('#userName').val(Value);
+        $('#displayUser').hide();
+      }
+
+      $(document).ready(function(){
+        $("#userName").keyup(function() {
+          var name = $('#userName').val();
+          if(name==""){
+            $("#displayUser").html("");
+          }
+          else{
+            $.ajax({
+              type: "POST",
+              url: "ajax.php",
+              data: "name="+ name ,
+              success: function(html){
+                $("#displayUser").html(html).show();
+              }
+            });
+          }
+        });
+      });
+    </script>
     <script>
     $(document).ready(function(){
         /* Add user's tooltip*/
@@ -794,6 +990,66 @@
 
     });
     </script> 
+    <script type="text/javascript">
+      function fill(Value)
+      {
+      $('#name').val(Value);
+      $('#display').hide();
+      }
+
+      $(document).ready(function(){
+      $("#name").keyup(function() {
+      var name = $('#name').val();
+      if(name=="")
+      {
+      $("#display").html("");
+      }
+      else
+      {
+      $.ajax({
+      type: "POST",
+      url: "ajax.php",
+      data: "name="+ name ,
+      success: function(html){
+      $("#display").html(html).show();
+      }
+      });
+      }
+      });
+      });
+</script>
+<script>
+  function viewDetailsUser(id){
+     $.ajax({
+              url: '/phpork/gateway/auth.php',
+              type: 'post',
+              data : {
+               getUser: '1',
+               user_id: id
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data); 
+                  $('#uname').attr("placeholder", data[0].user_name);
+                  $('#utype').attr("placeholder", data[0].user_type);
+                  $('#password').attr("placeholder", data[0].password);
+
+                  $('#editUNAME').append($("<input>/<input>").attr("type", "hidden")
+                                                              .attr("id", "prev_uname")
+                                                              .attr("value", data[0].user_name));
+                   $('#editUTYPE').append($("<input>/<input>").attr("type", "hidden")
+                                                              .attr("id", "prev_utype")
+                                                              .attr("value", data[0].user_type));
+                    $('#editPWORD').append($("<input>/<input>").attr("type", "hidden")
+                                                              .attr("id", "prev_pword")
+                                                              .attr("value", data[0].password));
+                } 
+                } 
+                } 
+            });
+
+  }
+</script>
+   
   </body>
 </html>
 

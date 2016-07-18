@@ -5,7 +5,7 @@
 	class phpork_functions
 
 	{
-		private function connect() {
+		public function connect() {
 			$link = mysqli_connect ( HOSTNAME, USERNAME, PASSWORD, DATABASE ) or die ( 'Could not connect: ' . mysqli_error () );
 			mysqli_select_db ( $link, DATABASE ) or die ( 'Could not select database' . mysql_error () );
 			return $link;
@@ -47,6 +47,60 @@
 			    }else {
 			      $data = array("success"=>"false",
 			                      "error"=>mysqli_error($link));
+			    }
+			    return $data;
+		}
+		public function getUser($user_id)
+		{
+				$link = $this->connect();
+				$query = "SELECT user_name, 
+							user_type,
+							password 
+						FROM user
+						WHERE user_id = '" .$user_id."'";
+				$result = mysqli_query($link, $query) or die(mysqli_error($link));
+				$loc = array();
+				$arr_loc = array();
+				while ($row = mysqli_fetch_row($result)) {
+						$loc['user_name'] = $row[0];
+						$loc['user_type'] = $row[1];
+						$loc['password'] = $row[2];
+						$arr_loc[] = $loc;
+				}
+
+				return $arr_loc;
+		}
+
+		public function updateUser($username,$password,$usertype, $user_id)
+		{
+				$link = $this->connect();
+				$query = "UPDATE user 
+							set user_name = '" .$username. "', 
+								password = '" . $password . "', 
+								user_type = '" . $usertype . "'
+						WHERE user_id = '" . $user_id. "'";
+				$result = mysqli_query($link, $query);
+		}
+
+		public function userTransactionEdit($user, $date, $time, $edit_id, $edit_type, $prev_val, $curr_val, $flag)
+		{
+				$link = $this->connect();
+				$q = "SELECT max(id)
+					FROM user_transaction";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO user_transaction(trans_id,user_id,date_edited,time_edited,id_edited,type_edited,prev_valye,curr_value,flag) 
+							values('" . $max . "','" . $user . "','" . $date . "','" . $time . "','" . $edit_id . "','" . $edit_type . "','" . $prev_val . "','" . $curr_val . "','". $flag . "');";
+				$result = mysqli_query($link, $query);
+				$data = array("success"=>"true",
+			        "newId"=> $link->insert_id);
+			    if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+			        "newId"=> $link->insert_id);
+		      }else {
+			      $data = array("success"=>"false",
+                  	"error"=>mysqli_error($link));
 			    }
 			    return $data;
 		}
@@ -443,8 +497,8 @@
 		              INNER JOIN parents pa ON
 		              (pa.parent_id = p.boar_id AND pa.label =\"boar\")
 		             	 INNER JOIN parents par ON
-		             	 (par.parent_id = p.sow_id AND par.label=\"sow\") 
-		              where p.pig_id = '".$pigid."'
+		             	 (par.parent_id = p.sow_id AND par.label=\"sow\")
+		             AND p.pig_id = '".$pigid."'
 		              LIMIT 1";
 		              
 		    $result = mysqli_query($link, $query);
@@ -475,13 +529,13 @@
 		        $pig['loc_id'] = $row[20];
 		        $pig['label'] = $row[21];
 		        $pig_arr[] = $pig;
+		     }
 		   
 		   $fp = fopen(getenv("HOMEDRIVE") . getenv("HOMEPATH").'\\Desktop\\reports\\pig_details\\pig_details.json', 'w');
 			fwrite($fp, json_encode($pig_arr));
 			fclose($fp);
 		    return $pig_arr;
 		  }
-		}
 	  	public function getPigLabel($pigid)
 	    {
 	        $link   = $this->connect();
@@ -656,27 +710,15 @@
 	  	public function getLastFeed($pigid)
 	    {
 	        $link   = $this->connect();
-	        $query  = "SELECT ft.pig_id, f.feed_name, 
+	        $query  = "SELECT f.feed_name, 
 	                        f.feed_type, 
-	                        ft.date_given, ft.time_given
+	                        ft.date_given
 	                    FROM feeds f 
 	                        INNER JOIN feed_transaction ft 
 	                            ON ft.feed_id = f.feed_id 
-	                   WHERE ft.time_given = (SELECT max(ft.time_given)
-           									 from feed_transaction ft 
-               									 INNER JOIN feeds f ON 
-               									 	f.feed_id = ft.feed_id 
-   									 		WHERE ft.date_given = (SELECT max(ft.date_given) 
-   									 								from feed_transaction ft 
-   									 									INNER JOIN feeds f ON 
-   									 										f.feed_id = ft.feed_id 
-							 										WHERE ft.pig_id ='" . $pigid . "'))
-	                   AND ft.date_given = (SELECT max(ft.date_given) 
-	                   						from feed_transaction ft 
-	                   							INNER JOIN feeds f ON 
-	                   								f.feed_id = ft.feed_id 
-	                   						WHERE ft.pig_id = '" . $pigid . "') 
-	                   AND ft.pig_id =  '" . $pigid . "'";
+	                   WHERE ft.time_given = (SELECT max(ft.time_given) from feed_transaction ft INNER JOIN feeds f ON f.feed_id = ft.feed_id WHERE ft.date_given = (SELECT max(ft.date_given) from feed_transaction ft INNER JOIN feeds f ON f.feed_id = ft.feed_id WHERE ft.pig_id ='$pigid'))
+	                   AND ft.date_given = (SELECT max(ft.date_given) from feed_transaction ft INNER JOIN feeds f ON f.feed_id = ft.feed_id WHERE ft.pig_id = '$pigid')
+	                   AND ft.pig_id =  $pigid";
 	        $result = mysqli_query($link, $query);
 	        $feeds = array();
 			$arr_feeds = array();
@@ -1075,6 +1117,16 @@
 				$query = "INSERT INTO edit_history(id,pig_id,prevStatus, status, prevRFID, rfid, prevWeight, weight, prevWeightType, weightType,user,edit_date) 
 							values('" . $max . "','" . $pigid . "','" . $prevStatus . "','" . $status . "','" . $prevrfid . "','" . $rfid . "','" . $prevweight . "','" . $weight . "','". $prevweighttype . "','" . $weightype . "','". $user . "', curdate());";
 				$result = mysqli_query($link, $query);
+				$data = array("success"=>"true",
+			        "newId"=> $link->insert_id);
+			    if ($result = mysqli_query( $link, $query )) {
+		      	$data = array("success"=>"true",
+			        "newId"=> $link->insert_id);
+		      }else {
+			      $data = array("success"=>"false",
+                  	"error"=>mysqli_error($link));
+			    }
+			    return $data;
 		}
 		public function addWeight($dateWeighed, $timeWeighed, $weight, $weightType, $pigid, $user)
 		{
@@ -1151,7 +1203,7 @@
 							INNER JOIN pig p on
 								wr.pig_id = p.pig_id
 							WHERE wr.pig_id = '" . $var . "' and
-							wr.record_date BETWEEN '".$from."' and '".$to."'";
+							wr.date_given BETWEEN '".$from."' and '".$to."'";
 				$result = mysqli_query($link, $query);
 				$m = array();
 				$m_arr = array();
@@ -1684,7 +1736,7 @@
 		public function getWeekDateMvmnt($pig)
 		{
 				$link = $this->connect();
-				$query = "SELECT DISTINCT m.date_moved,WEEK(m.date_moved),p.pen_no,p.function
+				$query = "SELECT DISTINCT m.date_moved,WEEK(m.date_moved), m.time_moved,p.pen_no,p.function
 							
 						from movement m 
 						inner join pen p on
@@ -1708,6 +1760,7 @@
 						}
 						$data['x'] = $i;
 						$data['week'] = $row[1];
+						$data['time_moved'] = $row[2];
 						$data['pen'] = $mvmnt[$j];
 
 						$arr[] = $data;
