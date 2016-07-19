@@ -60,13 +60,13 @@
 				<div class="info" id="viewPigDetails">
 				</div>
 				<br/>
-				<div class="col-md-2 col-centered imgHolder1">
+				<div class="col-md-2 col-centered imgPig1">
 					<button id="editPigButton" class="imgBtn">
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png"> 
 						<span>Edit Pig</span>
 					</button>
 				</div>
-				<div class="col-md-2 col-centered imgHolder">
+				<div class="col-md-2 col-centered imgPig2">
 					<button id="changePig" class="imgBtn">
 						<img class="img-responsive"  src="<?php echo HOST;?>/phpork/images/Pig.png"> 
 						<span>   Change Pig</span>
@@ -79,13 +79,13 @@
 			<div id="editPigDetails" style="display: none;">	
 				<div class="info" id="pigInfo">
 				</div>
-				<div class="col-md-2 col-centered imgHolder4">
+				<div class="col-md-2 col-centered imgPig3">
 					<button id="saveEditPig" class="imgBtn">
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> 
 						<span> Save</span>
 					</button>
 				</div>
-				<div class="col-md-2 col-centered imgHolder5">
+				<div class="col-md-2 col-centered imgPig4">
 					<button id="cancelEditPig" class="imgBtn">
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> 
 						<span> Cancel</span>
@@ -137,14 +137,14 @@
 			    	<div id="pigMovementInfo">
 			    	</div>
 			    	<button id="visualizeButton">Visualize</button>
-			    	<div class="col-md-2 col-centered imgHolder3">
+			    	<div class="col-md-2 col-centered imgMvmnt1">
 					    <button id="mvmntRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportMvmnt">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
 					    </button>
 				    </div>
 			    	<div class="mvmnt-table">
-				    	<table class="table table-striped table1">
+				    	<table class="table table-striped tableMvmnt">
 						  <thead>
 						    <tr>
 						      <th>Date</th>
@@ -157,7 +157,7 @@
 						</table>
 					</div>
 					<div class="mvmnt-table">
-						<table class="table table-striped table1">
+						<table class="table table-striped tableMvmnt">
 						  <thead>
 						    <tr>
 						      <th>Pig id</th>
@@ -170,7 +170,7 @@
 					</div>
 			    </div>
 			    <div id="viewMovementGraph" style="display: none;" > 
-			    	<div class="col-md-2 col-centered imgHolder6">
+			    	<div class="col-md-2 col-centered imgMvmnt2">
 					    <button id="backToMovement" class="imgBtn">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png"> 
 					        <span> Back</span>
@@ -186,13 +186,13 @@
 			<div id="viewMeds" style="display: none;"> 
 				<!--view medication-->
 				<div id="viewMedsInfo" class="med-div">
-				    <div class="col-md-2 col-centered imgHolder9">
+				    <div class="col-md-2 col-centered imgMed1">
 					     <button id="editMedsButton" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png">
 					            <span> Edit Medication</span>
 					        </button>
 				    </div>
-				    <div class="col-md-2 col-centered imgHolder7">
+				    <div class="col-md-2 col-centered imgMed2">
 					        <button id="insertMedsButton" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Medications.png">
 					            <span> Insert Medication</span>
@@ -202,7 +202,7 @@
 					    <label>Last medication given: </label><br/>
 				    </div>
 				    <div class="med-table">
-					    <table class="table table-striped table2">
+					    <table class="table table-striped tableMed">
 							<thead>
 							    <tr>
 							    	<th>Medication Name</th>
@@ -215,7 +215,7 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-md-2 col-centered imgHolder8">
+					<div class="col-md-2 col-centered imgMed3">
 					    <button id ="medsRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportMeds">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
@@ -226,13 +226,13 @@
 				<!--edit medication-->
 				<div id="editMedsDetails" style="display: none;"> 
 					<div class="med-div">
-					   	<div class="col-md-2 col-centered imgHolder9">
+					   	<div class="col-md-2 col-centered imgMed1">
 						    <button id="saveEditMeds" class="imgBtn"> 
 						        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> 
 						        <span> Save Medication</span>
 						    </button>
 					   	</div>
-					   	<div class="col-md-2 col-centered imgHolder7">
+					   	<div class="col-md-2 col-centered imgMed2">
 						    <button id="cancelEditMeds" class="imgBtn">
 						        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png">
 						        <span> Cancel Medication</span>
@@ -242,7 +242,7 @@
 						    <label>Last medication given: </label><br/>
 					    </div>
 					    <div class="med-table">
-						    <table class="table table-striped table2">
+						    <table class="table table-striped tableMed">
 								<thead>
 								    <tr>
 								      <th>Medication Name</th>
@@ -260,13 +260,13 @@
 				<!--insert medication-->
 				<div id="insertMedsDetails" style="display: none;"> 
 				    <div class="med-div">
-				    	<div class="col-md-2 col-centered imgHolder10">
+				    	<div class="col-md-2 col-centered imgMed4">
 					       <button id="saveInsertMeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png">
 					            <span>Insert</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgHolder11">
+				   		<div class="col-md-2 col-centered imgMed5">
 					        <button id="backToMeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png">
 					            <span>Back</span>
@@ -288,7 +288,7 @@
 				 				<br/>
 				 			</div>
 							<div>
-								<table class="table table-striped table5" id="insertMeds"> 
+								<table class="table table-striped tableInsertMed" id="insertMeds"> 
 									<tr> 
 										<td> Last Medication Given: 
 											<select name="selectMeds" id="selectMeds" style="color:black;border-radius:5px;"> 
@@ -330,13 +330,13 @@
 			<div id="viewFeeds" style="display: none;"> 
 				<!--view feeds-->
 				<div id="viewFeedsInfo" class="med-div">
-					<div class="col-md-2 col-centered imgHolder9">
+					<div class="col-md-2 col-centered imgFeed1">
 						<button id="editFeedsButton" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png">
 					            <span> Edit Feeds</span>
 					        </button>
 					</div>
-					<div class="col-md-2 col-centered imgHolder7">
+					<div class="col-md-2 col-centered imgFeed2">
 					        <button id="insertFeedsButton" data-toggle="modal" data-target="#modalInsertFeeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Feeds.png">
 					            <span> Insert Feeds</span>
@@ -347,7 +347,7 @@
 						
 					</div>
 					<div class="med-table">
-						<table class="table table-striped table2">
+						<table class="table table-striped tableMed">
 							<thead>
 								<tr>
 								    <th>Feed Name</th>
@@ -361,7 +361,7 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-md-2 col-centered imgHolder8">
+					<div class="col-md-2 col-centered imgMed3">
 						<button id ="feedsRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportFeeds">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
@@ -372,13 +372,13 @@
 				<!--edit feeds-->
 				<div id="editFeeds" style="display: none;"> 
 				    <div class="med-div">
-				    	<div class="col-md-2 col-centered imgHolder9">
+				    	<div class="col-md-2 col-centered imgFeed1">
 					        <button id="saveEditFeeds" class="imgBtn"> 
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png">
 					            <span> Save Feed</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgHolder7">
+				   		<div class="col-md-2 col-centered imgFeed2">
 					        <button id="cancelEditFeeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> 
 					            <span> Cancel Feed</span>
@@ -388,7 +388,7 @@
 					    	<label>Last feed type: </label><br/>
 				    	</div>
 				    	<div class="med-table">
-					    	<table class="table table-striped table2">
+					    	<table class="table table-striped tableMed">
 							  <thead>
 							    <tr class="tr_feeds">
 							      <th>Feed Name</th>
@@ -407,13 +407,13 @@
 				<!-- insert feeds --> 
 				<div id="insertFeedsDetails" style="display: none;"> 
 				    <div class="med-div">
-				    	<div class="col-md-2 col-centered imgHolder10">
+				    	<div class="col-md-2 col-centered imgMed4">
 					       <button id="saveInsertFeeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png"> 
 					            <span>Insert</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgHolder11">
+				   		<div class="col-md-2 col-centered imgMed5">
 					        <button id="backToFeeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/ArroW Left.png"> 
 					            <span>Back</span>
@@ -434,7 +434,7 @@
 			 					<br/>
 			 				</div>
 							<div>
-								<table class="table table-striped table4" id="insertFeeds"> 
+								<table class="table table-striped tableInsertFeed" id="insertFeeds"> 
 									<tr> 
 										<td> Last Feed Given: 
 											<select name="selectFeeds" id="selectFeeds" style="color:black;border-radius:5px;"> 
@@ -477,13 +477,13 @@
 			<div id="viewWeight" style="display: none;">
 				<!--view weight-->
 			    <div id="viewWeightInfo" class="weight-div">
-			    	<div class="col-md-2 col-centered imgHolder12">
+			    	<div class="col-md-2 col-centered imgWeight1">
 				    	<button id ="weightRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportWeight">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
 					    </button>
 					</div>
-					<div class="col-md-2 col-centered imgHolder13">
+					<div class="col-md-2 col-centered imgWeight2">
 					    <button id="insertWeightButton" class="imgBtn">
 							<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Weight.png"> 
 							<span> Insert Weight</span>
@@ -496,13 +496,13 @@
 				<!-- insert weight -->
 				<div id="insertWeightDetails" style="display: none;"> 
 				    <div class="med-div">
-				    	<div class="col-md-2 col-centered imgHolder10">
+				    	<div class="col-md-2 col-centered imgMed4">
 					       <button id="saveInsertWeight" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png"> 
 					            <span>Insert</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgHolder11">
+				   		<div class="col-md-2 col-centered imgMed5">
 					        <button id="backToWeight" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png">
 					            <span>Back</span>
@@ -523,7 +523,7 @@
 			 					<br/>
 			 				</div>
 							<div>
-								<table class="table table-striped table6" id="insertWeight"> 
+								<table class="table table-striped tableWeight" id="insertWeight"> 
 									<tr> 
 										<td> Weight: 
 											<input type="number" id="addWeight" name="medQty" min="0.01"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp; kg

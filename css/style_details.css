@@ -64,39 +64,13 @@ form .logout{
   height: 23px;
   width: 80%;
 }
-/*.input {
-  position: relative;
-  width: 60%;
-  margin: 15px auto;
-
-}
-.input span {
-  position: absolute;
-  display: block;
-  color: #b4b4b4;
-  left: 10px;
-  top: 8px;
-  font-size: 20px;
-}
-.input input {
-  width: 100%;
-  padding: 10px 5px 10px 40px;
-  display: block;
-  
-  border-radius: 4px;
-  transition: 0.2s ease-out;
-  color: #a1a1a1;
-}
-
-.input input:focus {
-  padding: 10px 5px 10px 10px;
-  outline: 0;
-  border-color: #FF7052;
-}*/
 
 @media screen and (max-width: 999px) {
+  body{
+    overflow: hidden;
+  }
   select{
-    width: 80%;
+    width: 70%;
   }
 
   input{
@@ -106,9 +80,14 @@ form .logout{
   label{
     font-size: 11px;
   }
-
+  
   span{
     font-size: 11px;
+  }
+
+  hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   
   .imgBtn{
@@ -117,156 +96,290 @@ form .logout{
     outline: none;
   }
 
-  .imgHolder {
+  .imgPig1 {
+    position: relative;
+    height: 20%; 
+    width: 20%; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-left: 15%;
+  }
+
+  .imgPig1 span {
+    position: absolute;
+    left: 35px;
+    top: 0px;
+  }
+
+  .imgPig2{
     position: relative;
     height: 20%; 
     width: 20%; 
     float: right; 
-    margin-top: 0%; 
+    margin-top: 1%; 
     padding: 0px; 
     margin-right: 33%;
   }
 
-  .imgHolder span {
+  .imgPig2 span {
     position: absolute;
-    left: 40px;
+    left: 35px;
     top: 0px;
   }
 
-  .imgHolder1 {
+  .imgPig3 {
     position: relative;
     height: 20%; 
     width: 20%; 
-    margin-top: 0%; 
+    margin-top: 1%; 
     padding: 0px; 
-    margin-left: 18%;
+    margin-left: 15%;
   }
 
-  .imgHolder1 span {
+  .imgPig3 span {
     position: absolute;
-    left: 40px;
-    top: 0px;
+    left: 35px;
+    top: 6px;
   }
 
-  .imgHolder2 {
-    position: relative;
-    height: 10%; 
-    width: 10%; 
-    float: right; 
-    margin-right: 8%; 
-    margin-top: 1%;
-  }
-
-  .imgHolder2 span {
-    position: absolute;
-    left: 65px;
-    top: 0px;
-  }
-
-  .imgHolder3{
+  .imgPig4 {
     position: relative;
     height: 20%; 
     width: 20%; 
     float: right; 
-    margin-right: 10%; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-right: 33%;
+  }
+
+  .imgPig4 span {
+    position: absolute;
+    left: 35px;
+    top: 6px;
+  }
+
+  .imgMvmnt1{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
+    float: right; 
+    margin-right: 28%; 
+    margin-top: 0%;
+    margin-bottom: 0px;
+  }
+
+  .imgMvmnt1 span {
+    position: absolute;
+    left: 52px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgMvmnt2{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
+    float: left; 
+    margin-left: -4%; 
+    margin-top: 11%;
+    margin-bottom: 0px;
+  }
+
+  .imgMvmnt2 span {
+    position: absolute;
+    left: 52px;
+    top: 6px;
+  }
+
+  .imgMed1{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
+    float: right; 
+    margin-right: 22%; 
+    margin-top: 6%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed1 span {
+    position: absolute;
+    left: 52px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgMed2{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
+    float: right; 
+    margin-right: 4.5%; 
+    margin-top: 6%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed2 span {
+      position: absolute;
+      left: 52px;
+      top: 0px;
+      text-align: left;
+  }
+
+  .imgMed3{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
+    float: right; 
+    margin-right: 22%; 
     margin-top: 0px;
     margin-bottom: 0px;
   }
 
-  .imgHolder3 span {
-      position: absolute;
-      left: 70%;
-      top: -2%;
-  }
-
-  .imgHolder4 {
-    position: relative;
-    height: 20%; 
-    width: 20%; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-left: 14%;
-  }
-
-  .imgHolder4 span {
+  .imgMed3 span {
     position: absolute;
-    left: 40px;
-    top: 10px;
+    left: 52px;
+    top: 0px;
+    text-align: left;
   }
-
-  .imgHolder5 {
+ 
+  .imgMed4{
     position: relative;
-    height: 20%; 
-    width: 20%;
+    height: 18%; 
+    width: 18%; 
     float: right; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-right: 33%;
-  }
-
-  .imgHolder5 span {
-    position: absolute;
-    left: 40px;
-    top: 10px;
-  }
-
-  .imgHolder6{
-    position: relative;
-    height: 20%; 
-    width: 20%; 
-    float: left; 
-    margin-left: -4%; 
-    margin-top: 23%;
+    margin-right: 21%; 
+    margin-top: 1%;
     margin-bottom: 0px;
   }
 
-  .imgHolder6 span {
+  .imgMed4 span {
     position: absolute;
-    left: 75%;
-    top: 20%;
+    left: 52px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgMed5{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
+    float: right; 
+    margin-right: 0%; 
+    margin-top: 1%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed5 span {
+    position: absolute;
+    left: 52px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgFeed1{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
+    float: right; 
+    margin-right: 20%; 
+    margin-top: 6%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed1 span {
+    position: absolute;
+    left: 52px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgFeed2{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
+    float: right; 
+    margin-right: 1.5%; 
+    margin-top: 6%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed2 span {
+    position: absolute;
+    left: 52px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgWeight1{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
+    float: right; 
+    margin-right: 32%; 
+    margin-top: 17%;
+    margin-bottom: 1%;
+  }
+
+  .imgWeight1 span {
+    position: absolute;
+    left: 52px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgWeight2{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
+    float: right; 
+    margin-right: 1%; 
+    margin-top: 17%;
+    margin-bottom: 1%;
+  }
+
+  .imgWeight2 span {
+    position: absolute;
+    left: 52px;
+    top: 0px;
+    text-align: left;
   }
 
   #columnchart_values,#linechart_values {
     position: absolute;
     margin-left: 0%;
-    margin-top: 15%;
-    height: 35%; 
-    width: 40%;
+    margin-top: 10%;
+    height: 30%; 
+    width: 38%;
     border: 2px solid black;
   }
 
   .img-pig{
     width: 40%; 
     height: 40%; 
-    margin-left: 25%; 
-    margin-top: 10%; 
+    margin-left: 28%; 
+    margin-top: 5%; 
     margin-bottom: 2%;
   }
-
   .pigdet-maindiv{
     border: 4px solid; 
     border-color: #bb1d24; 
     border-radius: 10px; 
-    margin: 20px; 
-    margin-left: 4%; //110px; 
-    max-width: 30%; 
-    margin-top: 2%; 
-    max-height: 38%; 
+    margin: 1%; 
+    margin-left: 5%; 
+    max-width: 27%; 
+    margin-top: 3%; 
     padding: 1%; 
     float: left; 
     padding-top: 0px; 
     padding-bottom: 0px;
-    margin-bottom: 1%;
-    padding-bottom: 1%;
+    margin-bottom: 0px;
+    padding-bottom: .5%;
   }
-
   .icons-maindiv{
     float: left; 
-    max-width: 11%; 
-    max-height: 30%; 
+    max-width: 12%;  
     margin-right: 0px; 
-    margin-top: 3%; 
-    margin-left: -2%;
+    margin-top: 5%; 
     padding-left: 0%; 
     padding-right: 0px;
     margin-bottom: 0px;
@@ -274,34 +387,33 @@ form .logout{
   }
 
   .icons-img{
-    height: 150%; 
-    width: 150%; 
+    height: 120%; 
+    width: 120%; 
     margin-right: 0px;
   }
 
   .icons-img1{
-    height: 150%; 
-    width: 150%;
+    height: 120%; 
+    width: 120%; 
   }
 
   .content-maindiv{
-    max-width: 100%; 
-    max-height: 70%; 
-    margin-left: 50%; 
-    margin-top: .5%; 
-    margin-right: 2%; 
-    padding-right: 0px; 
-    padding: 2%; 
-    padding-top: 1%;
+    max-width: 75%; 
+    margin-left: 48%; 
+    margin-top: 1%; 
+    margin-right: 1%; 
     margin-bottom: 0px;
+    padding: 2%; 
+    padding-right: 0px;
+    padding-top: 1%;
     padding-bottom: 0px;
     padding-left: 0px;
-  }
 
+  }
   .mvmnt-table{
     margin: 0px; 
-    max-width: 100%;
-    margin-top: 1%;
+    max-width: 90%;
+    margin-top: 1.5%;
   }
 
   .mvmnt-div{
@@ -315,75 +427,233 @@ form .logout{
     margin-left: 0px;
   }
 
-  th{
-    font-size: 11px;
+  .med-div{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 4%; 
+    display: inline-block;
+  }
+  .med-table{
+    float: left;
+    max-width: 90%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin: 2%;
+    margin-right: 12%;
+    margin-top: 0px; 
+    margin-left: 0px;
+    margin-bottom: 0px;
   }
 
-  tr {
+  table.tableMvmnt tr {
     width: 100%;
     display: inline-table;
-    height:50px;
+    height:30px;
     table-layout: fixed;
     padding: 0px;
-    font-size: 11px;
   }
 
-  table{
-    height:230px; 
+  table.tableMvmnt{
+    height:189.2px;
+    width: 90%; 
     display: -moz-groupbox;
     border: 1px solid;
     border-color: #E0E0E0;
+    font-size: 12px;
   }
 
-  tbody{
+  table.tableMvmnt tbody{
     overflow-y: scroll;
-    height: 175px;
-    width: 45%;
+    height: 150px;
+    width: 40%;
     position: absolute;
   } 
 
-  @media screen and (max-height: 700px){
-     .page-footer {
-      background-color: #bb1d24;
-      text-align: center;
-      color: white;
-      width: 100%;
-      bottom: 0;
-      height: 4%;
-      overflow: hidden;
-      position: relative;
-    }
-   }
+  table.tableMed tr {
+    width: 100%;
+    display: inline-table;
+    height:30px;
+    table-layout: fixed;
+    padding: 0px;
+  }
 
-  @media screen and (min-height: 701px){
-    .page-footer {
-      background-color: #bb1d24;
-      text-align: center;
-      color: white;
-      width: 100%;
-      bottom: 0;
-      height: 4%;
-      overflow: hidden;
-      position: fixed;
-    }
+  table.tableMed{
+    height:300px;
+    width: 100%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+    font-size: 12px;
+  }
+
+  table.tableMed tbody{
+    overflow-y: scroll;
+    height: 250px;
+    width: 44%;
+    position: absolute;
+  } 
+
+  table.tableInsertFeed tr {
+    width: 80%;
+    display: inline-table;
+    height:30px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertFeed{
+    height:300px; 
+    width: 90%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+    font-size: 12px;
+  }
+
+  table.tableInsertFeed tbody{
+    overflow: hidden;
+    height: 300px;
+    width: 55.5%;
+    position: absolute;
+  } 
+
+  table.tableInsertMed tr {
+    width: 80%;
+    display: inline-table;
+    height:30px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertMed{
+    height:300px; 
+    width: 90%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+    font-size: 12px;
+  }
+
+  table.tableInsertMed tbody{
+    overflow: hidden;
+    height: 300px;
+    width: 55.5%;
+    position: absolute;
+  } 
+
+  table.tableWeight tr {
+    width: 80%;
+    display: inline-table;
+    height:30px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableWeight{
+    height:200px; 
+    width: 90%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+    font-size: 12px;
+  }
+
+  table.tableWeight tbody{
+    overflow: hidden;
+    height: 250px;
+    width: 55.5%;
+    position: absolute;
+  } 
+
+  .insert-div{
+    margin-top: 1%; 
+    padding: 1%; 
+    padding-left: 0px;
+  }
+
+  .insertTMed{
+    overflow-y: scroll; 
+    height: 130px; 
+    width: 40%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
+  }
+  .insertTFeed{
+    overflow-y: scroll; 
+    height: 100px; 
+    width: 40%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
+  }
+
+  .select-insert{
+    color:black;
+    border-radius:5px;
+    width:40%;
+  }
+
+  .weight-div{
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 12%; 
+    margin: 2%;
+    margin-top: 0px; 
+    margin-left: 0px; 
+  }
+
+  .weight-graph{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 2%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 25%;
+  }
+
+  .page-footer {
+    background-color: #bb1d24;
+    text-align: center;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    height: 4%;
+    overflow: hidden;
+    position: fixed;
   }
 }
 
 @media (min-width: 1000px) and (max-width: 1219px) {
   select{
-    width: 80%;
+    width: 75%;
   }
 
   input{
     width: 50%;
   }
-
+  
   label{
-    font-size: 11px;
+    font-size: 13px;
   }
   
   span{
-    font-size: 11px;
+    font-size: 12px;
+  }
+
+  hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   
   .imgBtn{
@@ -391,117 +661,264 @@ form .logout{
     border: none;
     outline: none;
   }
-  .imgHolder {
+
+  .imgPig1 {
     position: relative;
-    height: 20%; 
-    width: 20%; 
+    height: 18%; 
+    width: 18%; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-left: 20%;
+  }
+
+  .imgPig1 span {
+    position: absolute;
+    left: 35px;
+    top: 0px;
+  }
+
+  .imgPig2{
+    position: relative;
+    height: 18%; 
+    width: 18%; 
     float: right; 
-    margin-top: 0%; 
+    margin-top: 1%; 
     padding: 0px; 
     margin-right: 33%;
   }
-  .imgHolder span {
+
+  .imgPig2 span {
     position: absolute;
-    left: 40px;
+    left: 35px;
     top: 0px;
   }
 
-  .imgHolder1 {
+  .imgPig3 {
     position: relative;
-    height: 20%; 
-    width: 20%; 
-    margin-top: 0%; 
+    height: 18%; 
+    width: 18%; 
+    margin-top: 1%; 
     padding: 0px; 
-    margin-left: 18%;
-  }
-  .imgHolder1 span {
-    position: absolute;
-    left: 40px;
-    top: 0px;
+    margin-left: 20%;
   }
 
-  .imgHolder2 {
+  .imgPig3 span {
+    position: absolute;
+    left: 35px;
+    top: 6px;
+  }
+
+  .imgPig4 {
     position: relative;
-    height: 10%; 
-    width: 10%; 
+    height: 18%; 
+    width: 18%; 
     float: right; 
-    margin-right: 8%; 
-    margin-top: 1%;
-  }
-  .imgHolder2 span {
-    position: absolute;
-    left: 65px;
-    top: 0px;
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-right: 33%;
   }
 
-  .imgHolder3{
+  .imgPig4 span {
+    position: absolute;
+    left: 35px;
+    top: 6px;
+  }
+
+  .imgMvmnt1{
     position: relative;
     height: 13%; 
     width: 13%; 
     float: right; 
-    margin-right: 18%; 
-    margin-top: 0px;
+    margin-right: 25%; 
+    margin-top: 0%;
     margin-bottom: 0px;
   }
 
-  .imgHolder3 span {
-      position: absolute;
-      left: 50px;
-      top: -4px;
-  }
-
-  .imgHolder4 {
-    position: relative;
-    height: 20%; 
-    width: 20%; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-left: 14%;
-  }
-  .imgHolder4 span {
+  .imgMvmnt1 span {
     position: absolute;
-    left: 40px;
-    top: 10px;
+    left: 55px;
+    top: 0px;
+    text-align: left;
   }
 
-  .imgHolder5 {
-    position: relative;
-    height: 20%; 
-    width: 20%;
-    float: right; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-right: 33%;
-  }
-  .imgHolder5 span {
-    position: absolute;
-    left: 40px;
-    top: 10px;
-  }
-
-  .imgHolder6{
+  .imgMvmnt2{
     position: relative;
     height: 13%; 
     width: 13%; 
     float: left; 
     margin-left: -4%; 
-    margin-top: 15%;
+    margin-top: 11%;
     margin-bottom: 0px;
   }
 
-  .imgHolder6 span {
-      position: absolute;
-      left: 70%;
-      top: 15%;
+  .imgMvmnt2 span {
+    position: absolute;
+    left: 55px;
+    top: 6px;
   }
-   #columnchart_values,#linechart_values {
+
+  .imgMed1{
+    position: relative;
+    height: 13%; 
+    width: 13%; 
+    float: right; 
+    margin-right: 24%; 
+    margin-top: 6%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed1 span {
+    position: absolute;
+    left: 58px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgMed2{
+    position: relative;
+    height: 13%; 
+    width: 13%; 
+    float: right; 
+    margin-right: 4.5%; 
+    margin-top: 6%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed2 span {
+      position: absolute;
+      left: 58px;
+      top: 0px;
+      text-align: left;
+  }
+
+  .imgMed3{
+    position: relative;
+    height: 13%; 
+    width: 13%; 
+    float: right; 
+    margin-right: 24%; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .imgMed3 span {
+    position: absolute;
+    left: 58px;
+    top: 0px;
+    text-align: left;
+  }
+ 
+  .imgMed4{
+    position: relative;
+    height: 13%; 
+    width: 13%; 
+    float: right; 
+    margin-right: 21%; 
+    margin-top: 1%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed4 span {
+    position: absolute;
+    left: 58px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgMed5{
+    position: relative;
+    height: 13%; 
+    width: 13%; 
+    float: right; 
+    margin-right: 0%; 
+    margin-top: 1%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed5 span {
+    position: absolute;
+    left: 58px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgFeed1{
+    position: relative;
+    height: 13%; 
+    width: 13%; 
+    float: right; 
+    margin-right: 20%; 
+    margin-top: 6%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed1 span {
+    position: absolute;
+    left: 58px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgFeed2{
+    position: relative;
+    height: 13%; 
+    width: 13%; 
+    float: right; 
+    margin-right: 1.5%; 
+    margin-top: 6%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed2 span {
+    position: absolute;
+    left: 58px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgWeight1{
+    position: relative;
+    height: 13%; 
+    width: 13%; 
+    float: right; 
+    margin-right: 38%; 
+    margin-top: 11%;
+    margin-bottom: 1%;
+  }
+
+  .imgWeight1 span {
+    position: absolute;
+    left: 58px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgWeight2{
+    position: relative;
+    height: 13%; 
+    width: 13%; 
+    float: right; 
+    margin-right: 1%; 
+    margin-top: 11%;
+    margin-bottom: 1%;
+  }
+
+  .imgWeight2 span {
+    position: absolute;
+    left: 58px;
+    top: 0px;
+    text-align: left;
+  }
+
+  #columnchart_values,#linechart_values {
     position: absolute;
     margin-left: 0%;
-    margin-top: 12%;
-    height: 35%; 
-    width: 40%;
+    margin-top: 10%;
+    height: 30%; 
+    width: 38%;
     border: 2px solid black;
   }
+
   .img-pig{
     width: 40%; 
     height: 40%; 
@@ -513,25 +930,22 @@ form .logout{
     border: 4px solid; 
     border-color: #bb1d24; 
     border-radius: 10px; 
-    margin: 20px; 
-    margin-left: 4%; //110px; 
+    margin: 1%; 
+    margin-left: 5%; 
     max-width: 25%; 
-    margin-top: 2%; 
-    max-height: 38%; 
+    margin-top: 3%; 
     padding: 1%; 
     float: left; 
     padding-top: 0px; 
     padding-bottom: 0px;
-    margin-bottom: 1%;
-    padding-bottom: 1%;
+    margin-bottom: 0px;
+    padding-bottom: .5%;
   }
   .icons-maindiv{
     float: left; 
-    max-width: 11%; 
-    max-height: 30%; 
+    max-width: 10%;  
     margin-right: 0px; 
-    margin-top: 4%; 
-    margin-left: -2%;
+    margin-top: 5%; 
     padding-left: 0%; 
     padding-right: 0px;
     margin-bottom: 0px;
@@ -539,34 +953,35 @@ form .logout{
   }
 
   .icons-img{
-    height: 110%; 
-    width: 110%; 
+    height: 100%; 
+    width: 100%; 
     margin-right: 0px;
   }
 
   .icons-img1{
-    height: 110%; 
-    width: 110%;
+    height: 100%; 
+    width: 100%; 
   }
 
   .content-maindiv{
-    max-width: 100%; 
-    max-height: 70%; 
+    max-width: 78%; 
     margin-left: 42%; 
-    margin-top: .5%; 
-    margin-right: 2%; 
-    padding-right: 0px; 
-    padding: 2%; 
-    padding-top: 1%;
+    margin-top: 1%; 
+    margin-right: 1%; 
     margin-bottom: 0px;
+    padding: 2%; 
+    padding-right: 0px;
+    padding-top: 1%;
     padding-bottom: 0px;
     padding-left: 0px;
+
   }
   .mvmnt-table{
     margin: 0px; 
     max-width: 90%;
-    margin-top: 1%;
+    margin-top: 1.5%;
   }
+
   .mvmnt-div{
     float: left;
     max-width: 100%; 
@@ -577,31 +992,197 @@ form .logout{
     margin: 2%; 
     margin-left: 0px;
   }
-  th{
-    font-size: 11px;
+
+  .med-div{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 4%; 
+    display: inline-block;
   }
-  tr {
-    width: 100%;
-    display: inline-table;
-    height:50px;
-    table-layout: fixed;
-    padding: 0px;
-    font-size: 11px;
+  .med-table{
+    float: left;
+    max-width: 90%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin: 2%;
+    margin-right: 12%;
+    margin-top: 0px; 
+    margin-left: 0px;
+    margin-bottom: 0px;
   }
 
-  table{
-    height:230px; 
+  table.tableMvmnt tr {
+    width: 100%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableMvmnt{
+    height:215px;
+    width: 90%; 
     display: -moz-groupbox;
     border: 1px solid;
     border-color: #E0E0E0;
   }
 
-  tbody{
+  table.tableMvmnt tbody{
     overflow-y: scroll;
-    height: 175px;
-    width: 48%;
+    height: 150px;
+    width: 45.2%;
     position: absolute;
   } 
+
+  table.tableMed tr {
+    width: 100%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableMed{
+    height:325px;
+    width: 95%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableMed tbody{
+    overflow-y: scroll;
+    height: 265px;
+    width: 46.5%;
+    position: absolute;
+  } 
+
+  table.tableInsertFeed tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertFeed{
+    height:300px; 
+    width: 83%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableInsertFeed tbody{
+    overflow: hidden;
+    height: 300px;
+    width: 57.2%;
+    position: absolute;
+  } 
+
+  table.tableInsertMed tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertMed{
+    height:300px; 
+    width: 83%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableInsertMed tbody{
+    overflow: hidden;
+    height: 300px;
+    width: 57.2%;
+    position: absolute;
+  } 
+
+  table.tableWeight tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableWeight{
+    height:250px; 
+    width: 83%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableWeight tbody{
+    overflow: hidden;
+    height: 250px;
+    width: 57.2%;
+    position: absolute;
+  } 
+
+  .insert-div{
+    margin-top: 1%; 
+    padding: 1%; 
+    padding-left: 0px;
+  }
+
+  .insertTMed{
+    overflow-y: scroll; 
+    height: 130px; 
+    width: 50%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;;
+  }
+  .insertTFeed{
+    overflow-y: scroll; 
+    height: 100px; 
+    width: 50%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top: 2px;
+    padding-left: 2px;;
+  }
+
+  .select-insert{
+    color:black;
+    border-radius:5px;
+    width:50%;
+  }
+
+  .weight-div{
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 12%; 
+    margin: 2%;
+    margin-top: 0px; 
+    margin-left: 0px; 
+  }
+
+  .weight-graph{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 2%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 15%;
+  }
+  
   @media screen and (max-height: 700px){
      .page-footer {
       background-color: #bb1d24;
@@ -637,123 +1218,275 @@ form .logout{
   input{
     width: 50%;
   }
+
+  hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
   
   .imgBtn{
     background-color: white; 
     border: none;
     outline: none;
   }
-  .imgHolder {
-    position: relative;
-    height: 18%; 
-    width: 18%; 
-    float: right; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-right: 33%;
-  }
-  .imgHolder span {
-    position: absolute;
-    left: 43px;
-    top: 0px;
-  }
 
-  .imgHolder1 {
+  .imgPig1 {
     position: relative;
-    height: 18%; 
-    width: 18%; 
+    height: 16%; 
+    width: 16%; 
     margin-top: 1%; 
     padding: 0px; 
     margin-left: 20%;
   }
-  .imgHolder1 span {
+
+  .imgPig1 span {
     position: absolute;
     left: 43px;
     top: 0px;
   }
 
-  .imgHolder2 {
+  .imgPig2{
     position: relative;
-    height: 10%; 
-    width: 10%; 
-    float: right; 
-    margin-right: 8%; 
-    margin-top: 1%;
-  }
-  .imgHolder2 span {
-    position: absolute;
-    left: 65px;
-    top: 0px;
-  }
-
-  .imgHolder3{
-    position: relative;
-    height: 10%; 
-    width: 10%; 
-    float: right; 
-    margin-right: 18%; 
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-
-  .imgHolder3 span {
-      position: absolute;
-      left: 60px;
-      top: -4px;
-  }
-
-  .imgHolder4 {
-    position: relative;
-    height: 20%; 
-    width: 20%; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-left: 14%;
-  }
-  .imgHolder4 span {
-    position: absolute;
-    left: 48px;
-    top: 10px;
-  }
-
-  .imgHolder5 {
-    position: relative;
-    height: 20%; 
-    width: 20%;
+    height: 16%; 
+    width: 16%; 
     float: right; 
     margin-top: 1%; 
     padding: 0px; 
     margin-right: 33%;
   }
-  .imgHolder5 span {
+
+  .imgPig2 span {
     position: absolute;
-    left: 48px;
-    top: 10px;
+    left: 43px;
+    top: 0px;
   }
 
-  .imgHolder6{
+  .imgPig3 {
     position: relative;
-    height: 10%; 
-    width: 10%; 
-    float: left; 
-    margin-left: -2%; 
-    margin-top: 12%;
+    height: 16%; 
+    width: 16%; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-left: 20%;
+  }
+
+  .imgPig3 span {
+    position: absolute;
+    left: 43px;
+    top: 6px;
+  }
+
+  .imgPig4 {
+    position: relative;
+    height: 16%; 
+    width: 16%; 
+    float: right; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-right: 33%;
+  }
+
+  .imgPig4 span {
+    position: absolute;
+    left: 43px;
+    top: 6px;
+  }
+
+  .imgMvmnt1{
+    position: relative;
+    height: 11%; 
+    width: 11%; 
+    float: right; 
+    margin-right: 25%; 
+    margin-top: 0%;
     margin-bottom: 0px;
   }
 
-  .imgHolder6 span {
+  .imgMvmnt1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgMvmnt2{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: left; 
+    margin-left: -2%; 
+    margin-top: 13%;
+    margin-bottom: 0px;
+  }
+
+  .imgMvmnt2 span {
+    position: absolute;
+    left: 55px;
+    top: 6px;
+  }
+
+  .imgMed1{
+    position: relative;
+    height: 11%; 
+    width: 11%; 
+    float: right; 
+    margin-right: 24%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgMed2{
+    position: relative;
+    height: 11%; 
+    width: 11%; 
+    float: right; 
+    margin-right: 4.5%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed2 span {
       position: absolute;
       left: 65px;
-      top: 8px;
+      top: 0px;
+      text-align: left;
   }
-   #columnchart_values,#linechart_values {
+
+  .imgMed3{
+    position: relative;
+    height: 10%; 
+    width: 10%; 
+    float: right; 
+    margin-right: 24%; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .imgMed3 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+ 
+  .imgMed4{
+    position: relative;
+    height: 11%; 
+    width: 11%; 
+    float: right; 
+    margin-right: 21%; 
+    margin-top: 1%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed4 span {
+    position: absolute;
+    left: 60px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgMed5{
+    position: relative;
+    height: 11%; 
+    width: 11%; 
+    float: right; 
+    margin-right: 0%; 
+    margin-top: 1%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed5 span {
+    position: absolute;
+    left: 60px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgFeed1{
+    position: relative;
+    height: 11%; 
+    width: 11%; 
+    float: right; 
+    margin-right: 20%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgFeed2{
+    position: relative;
+    height: 11%; 
+    width: 11%; 
+    float: right; 
+    margin-right: 1.5%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed2 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgWeight1{
+    position: relative;
+    height: 11%; 
+    width: 11%; 
+    float: right; 
+    margin-right: 38%; 
+    margin-top: 11%;
+    margin-bottom: 1%;
+  }
+
+  .imgWeight1 span {
+    position: absolute;
+    left: 62px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgWeight2{
+    position: relative;
+    height: 11%; 
+    width: 11%; 
+    float: right; 
+    margin-right: 1%; 
+    margin-top: 11%;
+    margin-bottom: 1%;
+  }
+
+  .imgWeight2 span {
+    position: absolute;
+    left: 62px;
+    top: 0px;
+    text-align: left;
+  }
+
+  #columnchart_values,#linechart_values {
     position: absolute;
     margin-left: 0%;
     margin-top: 10%;
     height: 30%; 
-    width: 35%;
+    width: 38%;
     border: 2px solid black;
   }
+
   .img-pig{
     width: 40%; 
     height: 40%; 
@@ -765,25 +1498,23 @@ form .logout{
     border: 4px solid; 
     border-color: #bb1d24; 
     border-radius: 10px; 
-    margin: 20px; 
-    margin-left: 4%; //110px; 
-    max-width: 21%; 
-    margin-top: 2%; 
-    max-height: 38%; 
+    margin: 1%; 
+    margin-left: 5%; 
+    max-width: 25%; 
+    margin-top: 3%; 
     padding: 1%; 
     float: left; 
     padding-top: 0px; 
     padding-bottom: 0px;
     margin-bottom: 0px;
-    padding-bottom: 1%;
+    padding-bottom: .5%;
   }
   .icons-maindiv{
     float: left; 
-    max-width: 11%; 
-    max-height: 30%; 
+    max-width: 10%;  
     margin-right: 0px; 
     margin-top: 3%; 
-    padding-left: 1%; 
+    padding-left: 0%; 
     padding-right: 0px;
     margin-bottom: 0px;
     padding-bottom: 0px;
@@ -801,23 +1532,24 @@ form .logout{
   }
 
   .content-maindiv{
-    max-width: 100%; 
-    max-height: 70%; 
-    margin-left: 39%; 
-    margin-top: .5%; 
-    margin-right: 2%; 
-    padding-right: 0px; 
-    padding: 2%; 
-    padding-top: 1%;
+    max-width: 78%; 
+    margin-left: 42%; 
+    margin-top: 0px; 
+    margin-right: 1%; 
     margin-bottom: 0px;
+    padding: 2%; 
+    padding-right: 0px;
+    padding-top: 1%;
     padding-bottom: 0px;
     padding-left: 0px;
+
   }
   .mvmnt-table{
     margin: 0px; 
     max-width: 90%;
-    margin-top: 1%;
+    margin-top: 1.5%;
   }
+
   .mvmnt-div{
     float: left;
     max-width: 100%; 
@@ -828,27 +1560,197 @@ form .logout{
     margin: 2%; 
     margin-left: 0px;
   }
-  tr {
+
+  .med-div{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 4%; 
+    display: inline-block;
+  }
+  .med-table{
+    float: left;
+    max-width: 90%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin: 2%;
+    margin-right: 12%;
+    margin-top: 0px; 
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
+
+  table.tableMvmnt tr {
     width: 100%;
     display: inline-table;
-    height:50px;
+    height:60px;
     table-layout: fixed;
     padding: 0px;
   }
 
-  table{
-    height:230px; 
+  table.tableMvmnt{
+    height:215px;
+    width: 90%; 
     display: -moz-groupbox;
     border: 1px solid;
     border-color: #E0E0E0;
   }
 
-  tbody{
+  table.tableMvmnt tbody{
     overflow-y: scroll;
-    height: 175px;
-    width: 50%;
+    height: 150px;
+    width: 45.2%;
     position: absolute;
   } 
+
+  table.tableMed tr {
+    width: 100%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableMed{
+    height:325px;
+    width: 95%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableMed tbody{
+    overflow-y: scroll;
+    height: 265px;
+    width: 46.5%;
+    position: absolute;
+  } 
+
+  table.tableInsertFeed tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertFeed{
+    height:300px; 
+    width: 83%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableInsertFeed tbody{
+    overflow: hidden;
+    height: 300px;
+    width: 57.2%;
+    position: absolute;
+  } 
+
+  table.tableInsertMed tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertMed{
+    height:300px; 
+    width: 83%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableInsertMed tbody{
+    overflow: hidden;
+    height: 300px;
+    width: 57.2%;
+    position: absolute;
+  } 
+
+  table.tableWeight tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableWeight{
+    height:250px; 
+    width: 83%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableWeight tbody{
+    overflow: hidden;
+    height: 250px;
+    width: 57.2%;
+    position: absolute;
+  } 
+
+  .insert-div{
+    margin-top: 1%; 
+    padding: 1%; 
+    padding-left: 0px;
+  }
+
+  .insertTMed{
+    overflow-y: scroll; 
+    height: 130px; 
+    width: 50%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
+  }
+  .insertTFeed{
+    overflow-y: scroll; 
+    height: 100px; 
+    width: 50%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
+  }
+
+  .select-insert{
+    color:black;
+    border-radius:5px;
+    width:50%;
+  }
+
+  .weight-div{
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 12%; 
+    margin: 2%;
+    margin-top: 0px; 
+    margin-left: 0px; 
+  }
+
+  .weight-graph{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 2%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 15%;
+  }
+ 
   @media screen and (max-height: 700px){
      .page-footer {
       background-color: #bb1d24;
@@ -883,116 +1785,264 @@ form .logout{
     border: none;
     outline: none;
   }
-  .imgHolder {
-    position: relative;
-    height: 20%; 
-    width: 20%; 
-    float: right; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-right: 33%;
-  }
-  .imgHolder span {
-    position: absolute;
-    left: 43px;
-    top: 0px;
-  }
 
-  .imgHolder1 {
+  .imgPig1 {
     position: relative;
-    height: 20%; 
-    width: 20%; 
+    height: 15%; 
+    width: 15%; 
     margin-top: 1%; 
     padding: 0px; 
     margin-left: 20%;
   }
-  .imgHolder1 span {
+
+  .imgPig1 span {
     position: absolute;
     left: 43px;
     top: 0px;
   }
 
-  .imgHolder2 {
+  .imgPig2{
     position: relative;
-    height: 10%; 
-    width: 10%; 
-    float: right; 
-    margin-right: 8%; 
-    margin-top: 1%;
-  }
-  .imgHolder2 span {
-    position: absolute;
-    left: 65px;
-    top: 0px;
-  }
-
-  .imgHolder3{
-    position: relative;
-    height: 10%; 
-    width: 10%; 
-    float: right; 
-    margin-right: 26%; 
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-
-  .imgHolder3 span {
-      position: absolute;
-      left: 65px;
-      top: -2px;
-  }
-
-  .imgHolder4 {
-    position: relative;
-    height: 20%; 
-    width: 20%; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-left: 18%;
-  }
-  .imgHolder4 span {
-    position: absolute;
-    left: 48px;
-    top: 10px;
-  }
-
-  .imgHolder5 {
-    position: relative;
-    height: 20%; 
-    width: 20%;
+    height: 15%; 
+    width: 15%; 
     float: right; 
     margin-top: 1%; 
     padding: 0px; 
     margin-right: 33%;
   }
-  .imgHolder5 span {
+
+  .imgPig2 span {
     position: absolute;
-    left: 48px;
-    top: 10px;
+    left: 43px;
+    top: 0px;
   }
-  .imgHolder6{
+
+  .imgPig3 {
+    position: relative;
+    height: 15%; 
+    width: 15%; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-left: 20%;
+  }
+
+  .imgPig3 span {
+    position: absolute;
+    left: 43px;
+    top: 6px;
+  }
+
+  .imgPig4 {
+    position: relative;
+    height: 15%; 
+    width: 15%; 
+    float: right; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-right: 33%;
+  }
+
+  .imgPig4 span {
+    position: absolute;
+    left: 43px;
+    top: 6px;
+  }
+
+  .imgMvmnt1{
     position: relative;
     height: 10%; 
     width: 10%; 
-    float: left; 
-    margin-left: -2%; 
-    margin-top: 9%;
+    float: right; 
+    margin-right: 17.5%; 
+    margin-top: 0%;
     margin-bottom: 0px;
   }
 
-  .imgHolder6 span {
+  .imgMvmnt1 span {
+    position: absolute;
+    left: 65px;
+    top: -1px;
+    text-align: left;
+  }
+
+  .imgMvmnt2{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: left; 
+    margin-left: -3%; 
+    margin-top: 10%;
+    margin-bottom: 0px;
+  }
+
+  .imgMvmnt2 span {
+    position: absolute;
+    left: 55px;
+    top: 6px;
+  }
+
+  .imgMed1{
+    position: relative;
+    height: 10%; 
+    width: 10%; 
+    float: right; 
+    margin-right: 19%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgMed2{
+    position: relative;
+    height: 10%; 
+    width: 10%; 
+    float: right; 
+    margin-right: 4%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed2 span {
       position: absolute;
       left: 65px;
-      top: 8px;
+      top: 0px;
+      text-align: left;
   }
-   #columnchart_values,#linechart_values {
+
+  .imgMed3{
+    position: relative;
+    height: 10%; 
+    width: 10%; 
+    float: right; 
+    margin-right: 18%; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .imgMed3 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+ 
+  .imgMed4{
+    position: relative;
+    height: 10%; 
+    width: 10%; 
+    float: right; 
+    margin-right: 17%; 
+    margin-top: 1%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed4 span {
+    position: absolute;
+    left: 60px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgMed5{
+    position: relative;
+    height: 10%; 
+    width: 10%; 
+    float: right; 
+    margin-right: 0%; 
+    margin-top: 1%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed5 span {
+    position: absolute;
+    left: 60px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgFeed1{
+    position: relative;
+    height: 10%; 
+    width: 10%; 
+    float: right; 
+    margin-right: 16%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgFeed2{
+    position: relative;
+    height: 10%; 
+    width: 10%; 
+    float: right; 
+    margin-right: 1%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed2 span {
+      position: absolute;
+      left: 65px;
+      top: 0px;
+      text-align: left;
+  }
+
+  .imgWeight1{
+    position: relative;
+    height: 10%; 
+    width: 10%; 
+    float: right; 
+    margin-right: 39%; 
+    margin-top: 7%;
+    margin-bottom: 1%;
+  }
+
+  .imgWeight1 span {
+    position: absolute;
+    left: 62px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgWeight2{
+    position: relative;
+    height: 10%; 
+    width: 10%; 
+    float: right; 
+    margin-right: 3%; 
+    margin-top: 7%;
+    margin-bottom: 1%;
+  }
+
+  .imgWeight2 span {
+    position: absolute;
+    left: 62px;
+    top: 0px;
+    text-align: left;
+  }
+
+  #columnchart_values,#linechart_values {
     position: absolute;
     margin-left: 0%;
     margin-top: 8%;
     height: 30%; 
-    width: 40%;
+    width: 38%;
     border: 2px solid black;
   }
+
   .img-pig{
     width: 50%; 
     height: 50%; 
@@ -1004,11 +2054,10 @@ form .logout{
     border: 4px solid; 
     border-color: #bb1d24; 
     border-radius: 10px; 
-    margin: 20px; 
-    margin-left: 4%; //110px; 
-    max-width: 22%; 
+    margin: 1%; 
+    margin-left: 5%; 
+    max-width: 26%; 
     margin-top: 2%; 
-    max-height: 38%; 
     padding: 1%; 
     float: left; 
     padding-top: 0px; 
@@ -1018,45 +2067,45 @@ form .logout{
   }
   .icons-maindiv{
     float: left; 
-    max-width: 11%; 
-    max-height: 30%; 
+    max-width: 10%;  
     margin-right: 0px; 
-    margin-top: 3%; 
-    padding-left: 1%; 
+    margin-top: 4%; 
+    padding-left: 0%; 
     padding-right: 0px;
     margin-bottom: 0px;
     padding-bottom: 0px;
   }
 
   .icons-img{
-    height: 95%; 
-    width: 95%; 
+    height: 90%; 
+    width: 90%; 
     margin-right: 0px;
   }
 
   .icons-img1{
-    height: 95%; 
-    width: 95%; 
+    height: 90%; 
+    width: 90%; 
   }
 
   .content-maindiv{
-    max-width: 100%; 
-    max-height: 80%; 
-    margin-left: 39%; 
-    margin-top: .5%; 
-    margin-right: 2%; 
-    padding-right: 0px; 
-    padding: 2%; 
-    padding-top: 1%;
+    max-width: 78%; 
+    margin-left: 42%; 
+    margin-top: 3%; 
+    margin-right: 1%; 
     margin-bottom: 0px;
+    padding: 2%; 
+    padding-right: 0px;
+    padding-top: 1%;
     padding-bottom: 0px;
     padding-left: 0px;
+
   }
   .mvmnt-table{
     margin: 0px; 
-    max-width: 80%;
-    margin-top: 1%;
+    max-width: 90%;
+    margin-top: 1.5%;
   }
+
   .mvmnt-div{
     float: left;
     max-width: 100%; 
@@ -1067,7 +2116,29 @@ form .logout{
     margin: 2%; 
     margin-left: 0px;
   }
-  tr {
+
+  .med-div{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 4%; 
+    display: inline-block;
+  }
+  .med-table{
+    float: left;
+    max-width: 90%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin: 2%;
+    margin-right: 12%;
+    margin-top: 0px; 
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
+
+  table.tableMvmnt tr {
     width: 100%;
     display: inline-table;
     height:60px;
@@ -1075,19 +2146,165 @@ form .logout{
     padding: 0px;
   }
 
-  table{
-    height:250px; 
+  table.tableMvmnt{
+    height:225px; 
     display: -moz-groupbox;
     border: 1px solid;
     border-color: #E0E0E0;
   }
 
-  tbody{
+  table.tableMvmnt tbody{
     overflow-y: scroll;
-    height: 190px;
-    width: 45%;
+    height: 165px;
+    width: 50.2%;
     position: absolute;
   } 
+
+  table.tableMed tr {
+    width: 100%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableMed{
+    height:325px; 
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableMed tbody{
+    overflow-y: scroll;
+    height: 265px;
+    width: 49.1%;
+    position: absolute;
+  } 
+
+  table.tableInsertFeed tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertFeed{
+    height:300px; 
+    width: 87.5%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableInsertFeed tbody{
+    overflow: hidden;
+    height: 300px;
+    width: 60.3%;
+    position: absolute;
+  } 
+
+  table.tableInsertMed tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertMed{
+    height:300px; 
+    width: 87.5%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableInsertMed tbody{
+    overflow: hidden;
+    height: 300px;
+    width: 60.3%;
+    position: absolute;
+  } 
+
+  table.tableWeight tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableWeight{
+    height:250px; 
+    width: 87.5%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableWeight tbody{
+    overflow: hidden;
+    height: 250px;
+    width: 60.3%;
+    position: absolute;
+  } 
+
+  .insert-div{
+    margin-top: 1%; 
+    padding: 1%; 
+    padding-left: 0px;
+  }
+
+  .insertTMed{
+    overflow-y: scroll; 
+    height: 130px; 
+    width: 60%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
+  }
+  .insertTFeed{
+    overflow-y: scroll; 
+    height: 100px; 
+    width: 60%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
+  }
+
+  .select-insert{
+    color:black;
+    border-radius:5px;
+    width:60%;
+  }
+
+  .weight-div{
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 12%; 
+    margin: 2%;
+    margin-top: 0px; 
+    margin-left: 0px; 
+  }
+
+  .weight-graph{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 2%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 10%;
+  }
+ 
   @media screen and (max-height: 700px){
      .page-footer {
       background-color: #bb1d24;
@@ -1121,7 +2338,23 @@ form .logout{
     border: none;
     outline: none;
   }
-  .imgHolder {
+
+  .imgPig1 {
+    position: relative;
+    height: 15%; 
+    width: 15%; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-left: 20%;
+  }
+
+  .imgPig1 span {
+    position: absolute;
+    left: 43px;
+    top: 0px;
+  }
+
+  .imgPig2{
     position: relative;
     height: 15%; 
     width: 15%; 
@@ -1130,13 +2363,14 @@ form .logout{
     padding: 0px; 
     margin-right: 33%;
   }
-  .imgHolder span {
+
+  .imgPig2 span {
     position: absolute;
     left: 43px;
     top: 0px;
   }
 
-  .imgHolder1 {
+  .imgPig3 {
     position: relative;
     height: 15%; 
     width: 15%; 
@@ -1144,93 +2378,224 @@ form .logout{
     padding: 0px; 
     margin-left: 20%;
   }
-  .imgHolder1 span {
+
+  .imgPig3 span {
     position: absolute;
     left: 43px;
-    top: 0px;
+    top: 6px;
   }
 
-  .imgHolder2 {
+  .imgPig4 {
     position: relative;
-    height: 8%; 
-    width: 8%; 
+    height: 15%; 
+    width: 15%; 
     float: right; 
-    margin-right: 8%; 
-    margin-top: 1%;
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-right: 33%;
   }
-  .imgHolder2 span {
+
+  .imgPig4 span {
+    position: absolute;
+    left: 43px;
+    top: 6px;
+  }
+
+  .imgMvmnt1{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 16%; 
+    margin-top: 0%;
+    margin-bottom: 0px;
+  }
+
+  .imgMvmnt1 span {
+    position: absolute;
+    left: 65px;
+    top: -1px;
+    text-align: left;
+  }
+
+  .imgMvmnt2{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: left; 
+    margin-left: -2%; 
+    margin-top: 11%;
+    margin-bottom: 0px;
+  }
+
+  .imgMvmnt2 span {
+    position: absolute;
+    left: 55px;
+    top: 6px;
+  }
+
+  .imgMed1{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 19%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed1 span {
     position: absolute;
     left: 65px;
     top: 0px;
+    text-align: left;
   }
 
-  .imgHolder3{
+  .imgMed2{
     position: relative;
-    height: 8%; 
-    width: 8%; 
+    height: 9%; 
+    width: 9%; 
     float: right; 
-    margin-right: 22%; 
+    margin-right: 4%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed2 span {
+      position: absolute;
+      left: 65px;
+      top: 0px;
+      text-align: left;
+  }
+
+  .imgMed3{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 18%; 
     margin-top: 0px;
     margin-bottom: 0px;
   }
 
-  .imgHolder3 span {
-      position: absolute;
-      left: 65px;
-      top: 0px;
-  }
-
-  .imgHolder4 {
-    position: relative;
-    height: 15%; 
-    width: 15%; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-left: 20%;
-  }
-  .imgHolder4 span {
+  .imgMed3 span {
     position: absolute;
-    left: 43px;
-    top: 6px;
+    left: 65px;
+    top: 0px;
+    text-align: left;
   }
-
-  .imgHolder5 {
+ 
+  .imgMed4{
     position: relative;
-    height: 15%; 
-    width: 15%; 
+    height: 9%; 
+    width: 9%; 
     float: right; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-right: 33%;
-  }
-  .imgHolder5 span {
-    position: absolute;
-    left: 43px;
-    top: 6px;
-  }
-  .imgHolder6{
-    position: relative;
-    height: 10%; 
-    width: 10%; 
-    float: left; 
-    margin-left: -2%; 
-    margin-top: 10%;
+    margin-right: 17%; 
+    margin-top: 0%;
     margin-bottom: 0px;
   }
 
-  .imgHolder6 span {
+  .imgMed4 span {
+    position: absolute;
+    left: 60px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgMed5{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 0%; 
+    margin-top: 0%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed5 span {
+    position: absolute;
+    left: 60px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgFeed1{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 16%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgFeed2{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 1%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed2 span {
       position: absolute;
       left: 65px;
-      top: 8px;
+      top: 0px;
+      text-align: left;
   }
-   #columnchart_values,#linechart_values {
+
+  .imgWeight1{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 35%; 
+    margin-top: 7.5%;
+    margin-bottom: 0px;
+  }
+
+  .imgWeight1 span {
+    position: absolute;
+    left: 62px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgWeight2{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 3%; 
+    margin-top: 7.5%;
+    margin-bottom: 0px;
+  }
+
+  .imgWeight2 span {
+    position: absolute;
+    left: 62px;
+    top: 0px;
+    text-align: left;
+  }
+
+  #columnchart_values,#linechart_values {
     position: absolute;
     margin-left: 0%;
     margin-top: 8%;
-    height: 30%; 
+    height: 33%; 
     width: 40%;
     border: 2px solid black;
   }
+
   .img-pig{
     width: 50%; 
     height: 50%; 
@@ -1242,11 +2607,11 @@ form .logout{
     border: 4px solid; 
     border-color: #bb1d24; 
     border-radius: 10px; 
-    margin: 20px; 
-    margin-left: 6%; //110px; 
-    max-width: 20%; 
+    margin: 1%; 
+    margin-left: 5%; 
+    max-width: 23%; 
     margin-top: 2%; 
-    max-height: 38%; 
+    max-height: 35%; 
     padding: 1%; 
     float: left; 
     padding-top: 0px; 
@@ -1256,11 +2621,11 @@ form .logout{
   }
   .icons-maindiv{
     float: left; 
-    max-width: 11%; 
+    max-width: 10%; 
     max-height: 30%; 
     margin-right: 0px; 
     margin-top: 2.5%; 
-    padding-left: 1%; 
+    padding-left: 0%; 
     padding-right: 0px;
     margin-bottom: 0px;
     padding-bottom: 0px;
@@ -1278,10 +2643,10 @@ form .logout{
   }
 
   .content-maindiv{
-    max-width: 100%; 
+    max-width: 90%; 
     max-height: 80%; 
     margin-left: 39%; 
-    margin-top: .5%; 
+    margin-top: 3%; 
     margin-right: 2%; 
     padding-right: 0px; 
     padding: 2%; 
@@ -1289,12 +2654,14 @@ form .logout{
     margin-bottom: 0px;
     padding-bottom: 0px;
     padding-left: 0px;
+
   }
   .mvmnt-table{
     margin: 0px; 
-    max-width: 85%;
+    max-width: 90%;
     margin-top: 1.5%;
   }
+
   .mvmnt-div{
     float: left;
     max-width: 100%; 
@@ -1305,7 +2672,29 @@ form .logout{
     margin: 2%; 
     margin-left: 0px;
   }
-  tr {
+
+  .med-div{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 4%; 
+    display: inline-block;
+  }
+  .med-table{
+    float: left;
+    max-width: 90%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin: 2%;
+    margin-right: 12%;
+    margin-top: 0px; 
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
+
+  table.tableMvmnt tr {
     width: 100%;
     display: inline-table;
     height:60px;
@@ -1313,19 +2702,165 @@ form .logout{
     padding: 0px;
   }
 
-  table{
-    height:250px; 
+  table.tableMvmnt{
+    height:225px; 
     display: -moz-groupbox;
     border: 1px solid;
     border-color: #E0E0E0;
   }
 
-  tbody{
+  table.tableMvmnt tbody{
     overflow-y: scroll;
-    height: 190px;
-    width: 48%;
+    height: 165px;
+    width: 50.2%;
     position: absolute;
   } 
+
+  table.tableMed tr {
+    width: 100%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableMed{
+    height:325px; 
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableMed tbody{
+    overflow-y: scroll;
+    height: 265px;
+    width: 49.1%;
+    position: absolute;
+  } 
+
+  table.tableInsertFeed tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertFeed{
+    height:300px; 
+    width: 87.5%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableInsertFeed tbody{
+    overflow: hidden;
+    height: 300px;
+    width: 60.3%;
+    position: absolute;
+  } 
+
+  table.tableInsertMed tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertMed{
+    height:300px; 
+    width: 87.5%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableInsertMed tbody{
+    overflow: hidden;
+    height: 300px;
+    width: 60.3%;
+    position: absolute;
+  } 
+
+  table.tableWeight tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableWeight{
+    height:250px; 
+    width: 87.5%;
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableWeight tbody{
+    overflow: hidden;
+    height: 250px;
+    width: 60.3%;
+    position: absolute;
+  } 
+
+  .insert-div{
+    margin-top: 0%; 
+    padding: 1%; 
+    padding-left: 0px;
+  }
+
+  .insertTMed{
+    overflow-y: scroll; 
+    height: 130px; 
+    width: 60%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
+  }
+  .insertTFeed{
+    overflow-y: scroll; 
+    height: 100px; 
+    width: 60%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
+  }
+
+  .select-insert{
+    color:black;
+    border-radius:5px;
+    width:60%;
+  }
+
+  .weight-div{
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 12%; 
+    margin: 2%;
+    margin-top: 0px; 
+    margin-left: 0px; 
+  }
+
+  .weight-graph{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 2%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 10%;
+  }
+
   @media screen and (max-height: 700px){
      .page-footer {
       background-color: #bb1d24;
@@ -1359,7 +2894,23 @@ form .logout{
     border: none;
     outline: none;
   }
-  .imgHolder {
+
+  .imgPig1 {
+    position: relative;
+    height: 15%; 
+    width: 15%; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-left: 20%;
+  }
+
+  .imgPig1 span {
+    position: absolute;
+    left: 43px;
+    top: 0px;
+  }
+
+  .imgPig2{
     position: relative;
     height: 15%; 
     width: 15%; 
@@ -1368,13 +2919,14 @@ form .logout{
     padding: 0px; 
     margin-right: 33%;
   }
-  .imgHolder span {
+
+  .imgPig2 span {
     position: absolute;
     left: 43px;
     top: 0px;
   }
 
-  .imgHolder1 {
+  .imgPig3 {
     position: relative;
     height: 15%; 
     width: 15%; 
@@ -1382,93 +2934,224 @@ form .logout{
     padding: 0px; 
     margin-left: 20%;
   }
-  .imgHolder1 span {
+
+  .imgPig3 span {
     position: absolute;
     left: 43px;
-    top: 0px;
+    top: 6px;
   }
 
-  .imgHolder2 {
+  .imgPig4 {
     position: relative;
-    height: 8%; 
-    width: 8%; 
+    height: 15%; 
+    width: 15%; 
     float: right; 
-    margin-right: 8%; 
-    margin-top: 1%;
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-right: 33%;
   }
-  .imgHolder2 span {
+
+  .imgPig4 span {
     position: absolute;
-    left: 65px;
-    top: 0px;
+    left: 43px;
+    top: 6px;
   }
 
-  .imgHolder3{
+  .imgMvmnt1{
     position: relative;
-    height: 8%; 
-    width: 8%; 
+    height: 9%; 
+    width: 9%; 
     float: right; 
-    margin-right: 15%; 
-    margin-top: 0px;
+    margin-right: 16%; 
+    margin-top: 0%;
     margin-bottom: 0px;
   }
 
-  .imgHolder3 span {
-      position: absolute;
-      left: 65px;
-      top: 0px;
+  .imgMvmnt1 span {
+    position: absolute;
+    left: 65px;
+    top: -1px;
+    text-align: left;
   }
 
-  .imgHolder4 {
+  .imgMvmnt2{
     position: relative;
-    height: 15%; 
-    width: 15%; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-left: 20%;
-  }
-  .imgHolder4 span {
-    position: absolute;
-    left: 43px;
-    top: 6px;
-  }
-
-  .imgHolder5 {
-    position: relative;
-    height: 15%; 
-    width: 15%; 
-    float: right; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-right: 33%;
-  }
-  .imgHolder5 span {
-    position: absolute;
-    left: 43px;
-    top: 6px;
-  }
-  .imgHolder6{
-    position: relative;
-    height: 10%; 
-    width: 10%; 
+    height: 9%; 
+    width: 9%; 
     float: left; 
     margin-left: -2%; 
     margin-top: 11%;
     margin-bottom: 0px;
   }
 
-  .imgHolder6 span {
+  .imgMvmnt2 span {
+    position: absolute;
+    left: 55px;
+    top: 6px;
+  }
+
+  .imgMed1{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 18%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgMed2{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 3%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgMed2 span {
       position: absolute;
       left: 65px;
-      top: 8px;
+      top: 0px;
+      text-align: left;
   }
-   #columnchart_values,#linechart_values {
+
+  .imgMed3{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 18%; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .imgMed3 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+ 
+  .imgMed4{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 15%; 
+    margin-top: 0%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed4 span {
+    position: absolute;
+    left: 60px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgMed5{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 0%; 
+    margin-top: 0%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed5 span {
+    position: absolute;
+    left: 60px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgFeed1{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 16%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgFeed2{
+    position: relative;
+    height: 9%; 
+    width: 9%; 
+    float: right; 
+    margin-right: 1%; 
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .imgFeed2 span {
+      position: absolute;
+      left: 65px;
+      top: 0px;
+      text-align: left;
+  }
+
+  .imgWeight1{
+    position: relative;
+    height: 8%; 
+    width: 8%; 
+    float: right; 
+    margin-right: 35%; 
+    margin-top: 7.5%;
+    margin-bottom: 0px;
+  }
+
+  .imgWeight1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgWeight2{
+    position: relative;
+    height: 8%; 
+    width: 8%; 
+    float: right; 
+    margin-right: 3%; 
+    margin-top: 7.5%;
+    margin-bottom: 0px;
+  }
+
+  .imgWeight2 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  #columnchart_values,#linechart_values {
     position: absolute;
     margin-left: 0%;
     margin-top: 8%;
-    height: 30%; 
+    height: 33%; 
     width: 40%;
     border: 2px solid black;
   }
+
   .img-pig{
     width: 50%; 
     height: 50%; 
@@ -1480,10 +3163,10 @@ form .logout{
     border: 4px solid; 
     border-color: #bb1d24; 
     border-radius: 10px; 
-    margin: 20px; 
-    margin-left: 110px;
-    max-width: 20%; 
-    margin-top: 2%; 
+    margin: 1%; 
+    margin-left: 5%; 
+    max-width: 22.5%; 
+    margin-top: 3%; 
     max-height: 38%; 
     padding: 1%; 
     float: left; 
@@ -1494,11 +3177,11 @@ form .logout{
   }
   .icons-maindiv{
     float: left; 
-    max-width: 11%; 
+    max-width: 10%; 
     max-height: 30%; 
     margin-right: 0px; 
-    margin-top: 2%; 
-    padding-left: 1%; 
+    margin-top: 4%; 
+    padding-left: 0%; 
     padding-right: 0px;
     margin-bottom: 0px;
     padding-bottom: 0px;
@@ -1516,10 +3199,10 @@ form .logout{
   }
 
   .content-maindiv{
-    max-width: 100%; 
+    max-width: 90%; 
     max-height: 80%; 
     margin-left: 39%; 
-    margin-top: .5%; 
+    margin-top: 3%; 
     margin-right: 2%; 
     padding-right: 0px; 
     padding: 2%; 
@@ -1527,12 +3210,14 @@ form .logout{
     margin-bottom: 0px;
     padding-bottom: 0px;
     padding-left: 0px;
+
   }
   .mvmnt-table{
     margin: 0px; 
     max-width: 90%;
     margin-top: 1.5%;
   }
+
   .mvmnt-div{
     float: left;
     max-width: 100%; 
@@ -1543,7 +3228,29 @@ form .logout{
     margin: 2%; 
     margin-left: 0px;
   }
-  tr {
+
+  .med-div{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 4%; 
+    display: inline-block;
+  }
+  .med-table{
+    float: left;
+    max-width: 90%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin: 2%;
+    margin-right: 12%;
+    margin-top: 0px; 
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
+
+  table.tableMvmnt tr {
     width: 100%;
     display: inline-table;
     height:60px;
@@ -1551,21 +3258,164 @@ form .logout{
     padding: 0px;
   }
 
-  table{
+  table.tableMvmnt{
     height:250px; 
     display: -moz-groupbox;
     border: 1px solid;
     border-color: #E0E0E0;
   }
 
-  tbody{
+  table.tableMvmnt tbody{
     overflow-y: scroll;
     height: 190px;
     width: 50.5%;
     position: absolute;
   } 
+
+  table.tableMed tr {
+    width: 100%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableMed{
+    height:325px; 
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.tableMed tbody{
+    overflow-y: scroll;
+    height: 265px;
+    width: 49.5%;
+    position: absolute;
+  } 
+
+  table.tableInsertFeed tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertFeed{
+    height:350px; 
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+    max-width: 88.5%;
+  }
+
+  table.tableInsertFeed tbody{
+    height: 250px;
+    max-width: 70%;
+    position: absolute;
+  } 
+
+  table.tableInsertMed tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableInsertMed{
+    height:300px; 
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+    max-width: 88.5%;
+  }
+
+  table.tableInsertMed tbody{
+    height: 250px;
+    max-width: 70%;
+    position: absolute;
+  } 
+
+  table.tableWeight tr {
+    width: 80%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
+
+  table.tableWeight{
+    height:250px; 
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+    max-width: 88.5%;
+  }
+
+  table.tableWeight tbody{
+    height: 250px;
+    max-width: 70%;
+    position: absolute;
+  } 
+
+  .insert-div{
+    margin-top: 0%; 
+    padding: 1%; 
+    padding-left: 0px;
+  }
+
+  .insertTMed{
+    overflow-y: scroll; 
+    height: 130px; 
+    width: 60%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
+  }
+  .insertTFeed{
+    overflow-y: scroll; 
+    height: 100px; 
+    width: 60%; 
+    position: relative; 
+    border: 1px solid;
+    border-color: #9ecf95; 
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
+  }
+
+  .select-insert{
+    color:black;
+    border-radius:5px;
+    width:60%;
+  }
+
+  .weight-div{
+    max-width: 100%; 
+    padding-top: 0%; 
+    padding-left: 0px; 
+    margin-right: 12%; 
+    margin: 2%;
+    margin-top: 0px; 
+    margin-left: 0px; 
+  }
+
+  .weight-graph{
+    margin-left: 0%; 
+    max-width: 100%; 
+    padding-top: 2%; 
+    padding-left: 0px; 
+    margin-right: 2%; 
+    margin-top: 10%;
+  }
+
   @media screen and (max-height: 700px){
-     .page-footer {
+    .page-footer {
       background-color: #bb1d24;
       text-align: center;
       color: white;
@@ -1592,41 +3442,7 @@ form .logout{
 }
 
 @media screen and (min-width: 1755px) {
-  .imgBtn{
-    background-color: white; 
-    border: none;
-    outline: none;
-  }
-  .imgHolder {
-    position: relative;
-    height: 15%; 
-    width: 15%; 
-    float: right; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-right: 33%;
-  }
-  .imgHolder span {
-    position: absolute;
-    left: 43px;
-    top: 0px;
-  }
-
-  .imgHolder1 {
-    position: relative;
-    height: 15%; 
-    width: 15%; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-left: 20%;
-  }
-  .imgHolder1 span {
-    position: absolute;
-    left: 43px;
-    top: 0px;
-  }
-
-  .imgHolder2 {
+  /*.imgHolder2 {
     position: relative;
     height: 8%; 
     width: 8%; 
@@ -1639,8 +3455,98 @@ form .logout{
     left: 65px;
     top: 0px;
   }
+   table.table3 tr {
+    width: 70%;
+    display: inline-table;
+    height:60px;
+    table-layout: fixed;
+    padding: 0px;
+  }
 
-  .imgHolder3{
+  table.table3{
+    height:300px; 
+    display: -moz-groupbox;
+    border: 1px solid;
+    border-color: #E0E0E0;
+  }
+
+  table.table3 tbody{
+    height: 240px;
+    width: 50.5%;
+    position: absolute;
+  } */
+
+
+
+  .imgBtn{
+    background-color: white; 
+    border: none;
+    outline: none;
+  }
+
+  .imgPig1 {
+    position: relative;
+    height: 15%; 
+    width: 15%; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-left: 20%;
+  }
+
+  .imgPig1 span {
+    position: absolute;
+    left: 43px;
+    top: 0px;
+  }
+
+  .imgPig2{
+    position: relative;
+    height: 15%; 
+    width: 15%; 
+    float: right; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-right: 33%;
+  }
+
+  .imgPig2 span {
+    position: absolute;
+    left: 43px;
+    top: 0px;
+  }
+
+  .imgPig3 {
+    position: relative;
+    height: 15%; 
+    width: 15%; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-left: 20%;
+  }
+
+  .imgPig3 span {
+    position: absolute;
+    left: 43px;
+    top: 6px;
+  }
+
+  .imgPig4 {
+    position: relative;
+    height: 15%; 
+    width: 15%; 
+    float: right; 
+    margin-top: 1%; 
+    padding: 0px; 
+    margin-right: 33%;
+  }
+
+  .imgPig4 span {
+    position: absolute;
+    left: 43px;
+    top: 6px;
+  }
+
+  .imgMvmnt1{
     position: relative;
     height: 8%; 
     width: 8%; 
@@ -1650,43 +3556,14 @@ form .logout{
     margin-bottom: 0px;
   }
 
-  .imgHolder3 span {
-      position: absolute;
-      left: 65px;
-      top: 0px;
-      text-align: left;
-  }
-
-  .imgHolder4 {
-    position: relative;
-    height: 15%; 
-    width: 15%; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-left: 20%;
-  }
-  .imgHolder4 span {
+  .imgMvmnt1 span {
     position: absolute;
-    left: 43px;
-    top: 6px;
+    left: 65px;
+    top: 0px;
+    text-align: left;
   }
 
-  .imgHolder5 {
-    position: relative;
-    height: 15%; 
-    width: 15%; 
-    float: right; 
-    margin-top: 1%; 
-    padding: 0px; 
-    margin-right: 33%;
-  }
-  .imgHolder5 span {
-    position: absolute;
-    left: 43px;
-    top: 6px;
-  }
-
-  .imgHolder6{
+  .imgMvmnt2{
     position: relative;
     height: 10%; 
     width: 10%; 
@@ -1696,30 +3573,47 @@ form .logout{
     margin-bottom: 0px;
   }
 
-  .imgHolder6 span {
-      position: absolute;
-      left: 65px;
-      top: 8px;
+  .imgMvmnt2 span {
+    position: absolute;
+    left: 65px;
+    top: 8px;
   }
 
-  .imgHolder7{
+  .imgMed1{
+    position: relative;
+    height: 8%; 
+    width: 8%; 
+    float: right; 
+    margin-right: 15%; 
+    margin-top: 2%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgMed2{
     position: relative;
     height: 8%; 
     width: 8%; 
     float: right; 
     margin-right: 4%; 
-    margin-top: 3%;
+    margin-top: 2%;
     margin-bottom: 0px;
   }
 
-  .imgHolder7 span {
+  .imgMed2 span {
       position: absolute;
       left: 65px;
       top: 0px;
       text-align: left;
   }
 
-  .imgHolder8{
+  .imgMed3{
     position: relative;
     height: 8%; 
     width: 8%; 
@@ -1729,62 +3623,82 @@ form .logout{
     margin-bottom: 0px;
   }
 
-  .imgHolder8 span {
-      position: absolute;
-      left: 65px;
-      top: 0px;
-      text-align: left;
+  .imgMed3 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
   }
-  .imgHolder9{
+ 
+  .imgMed4{
     position: relative;
     height: 8%; 
     width: 8%; 
     float: right; 
     margin-right: 15%; 
-    margin-top: 3%;
+    margin-top: 0%;
     margin-bottom: 0px;
   }
 
-  .imgHolder9 span {
-      position: absolute;
-      left: 65px;
-      top: 0px;
-      text-align: left;
+  .imgMed4 span {
+    position: absolute;
+    left: 65px;
+    top: 8px;
+    text-align: left;
   }
 
-  .imgHolder10{
-    position: relative;
-    height: 8%; 
-    width: 8%; 
-    float: right; 
-    margin-right: 15%; 
-    margin-top: 2%;
-    margin-bottom: 0px;
-  }
-
-  .imgHolder10 span {
-      position: absolute;
-      left: 65px;
-      top: 8px;
-      text-align: left;
-  }
-  .imgHolder11{
+  .imgMed5{
     position: relative;
     height: 8%; 
     width: 8%; 
     float: right; 
     margin-right: 2%; 
+    margin-top: 0%;
+    margin-bottom: 0px;
+  }
+
+  .imgMed5 span {
+    position: absolute;
+    left: 65px;
+    top: 8px;
+    text-align: left;
+  }
+
+  .imgFeed1{
+    position: relative;
+    height: 8%; 
+    width: 8%; 
+    float: right; 
+    margin-right: 12%; 
     margin-top: 2%;
     margin-bottom: 0px;
   }
 
-  .imgHolder11 span {
+  .imgFeed1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
+  }
+
+  .imgFeed2{
+    position: relative;
+    height: 8%; 
+    width: 8%; 
+    float: right; 
+    margin-right: 1%; 
+    margin-top: 2%;
+    margin-bottom: 0px;
+  }
+
+  .imgFeed2 span {
       position: absolute;
       left: 65px;
-      top: 8px;
+      top: 0px;
       text-align: left;
   }
-  .imgHolder12{
+
+  .imgWeight1{
     position: relative;
     height: 8%; 
     width: 8%; 
@@ -1794,13 +3708,14 @@ form .logout{
     margin-bottom: 0px;
   }
 
-  .imgHolder12 span {
-      position: absolute;
-      left: 65px;
-      top: 0px;
-      text-align: left;
+  .imgWeight1 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
   }
-  .imgHolder13{
+
+  .imgWeight2{
     position: relative;
     height: 8%; 
     width: 8%; 
@@ -1810,12 +3725,13 @@ form .logout{
     margin-bottom: 0px;
   }
 
-  .imgHolder13 span {
-      position: absolute;
-      left: 65px;
-      top: 0px;
-      text-align: left;
+  .imgWeight2 span {
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    text-align: left;
   }
+
   #columnchart_values,#linechart_values {
     position: absolute;
     margin-left: 0%;
@@ -1890,6 +3806,7 @@ form .logout{
     max-width: 90%;
     margin-top: 1.5%;
   }
+
   .mvmnt-div{
     float: left;
     max-width: 100%; 
@@ -1900,27 +3817,7 @@ form .logout{
     margin: 2%; 
     margin-left: 0px;
   }
-  table.table1 tr {
-    width: 100%;
-    display: inline-table;
-    height:60px;
-    table-layout: fixed;
-    padding: 0px;
-  }
 
-  table.table1{
-    height:250px; 
-    display: -moz-groupbox;
-    border: 1px solid;
-    border-color: #E0E0E0;
-  }
-
-  table.table1 tbody{
-    overflow-y: scroll;
-    height: 190px;
-    width: 50.5%;
-    position: absolute;
-  } 
   .med-div{
     margin-left: 0%; 
     max-width: 100%; 
@@ -1943,7 +3840,7 @@ form .logout{
     
   }
 
-  table.table2 tr {
+  table.tableMvmnt tr {
     width: 100%;
     display: inline-table;
     height:60px;
@@ -1951,42 +3848,43 @@ form .logout{
     padding: 0px;
   }
 
-  table.table2{
-    height:300px; 
+  table.tableMvmnt{
+    height:250px; 
     display: -moz-groupbox;
     border: 1px solid;
     border-color: #E0E0E0;
   }
 
-  table.table2 tbody{
+  table.tableMvmnt tbody{
     overflow-y: scroll;
-    height: 240px;
+    height: 190px;
     width: 50.5%;
     position: absolute;
   } 
 
-  table.table3 tr {
-    width: 70%;
+  table.tableMed tr {
+    width: 100%;
     display: inline-table;
     height:60px;
     table-layout: fixed;
     padding: 0px;
   }
 
-  table.table3{
+  table.tableMed{
     height:300px; 
     display: -moz-groupbox;
     border: 1px solid;
     border-color: #E0E0E0;
   }
 
-  table.table3 tbody{
+  table.tableMed tbody{
+    overflow-y: scroll;
     height: 240px;
     width: 50.5%;
     position: absolute;
   } 
 
-   table.table4 tr {
+  table.tableInsertFeed tr {
     width: 80%;
     display: inline-table;
     height:60px;
@@ -1994,7 +3892,7 @@ form .logout{
     padding: 0px;
   }
 
-  table.table4{
+  table.tableInsertFeed{
     height:350px; 
     display: -moz-groupbox;
     border: 1px solid;
@@ -2002,13 +3900,13 @@ form .logout{
     max-width: 88.5%;
   }
 
-  table.table4 tbody{
+  table.tableInsertFeed tbody{
     height: 250px;
     max-width: 70%;
     position: absolute;
   } 
 
-  table.table5 tr {
+  table.tableInsertMed tr {
     width: 80%;
     display: inline-table;
     height:60px;
@@ -2016,7 +3914,7 @@ form .logout{
     padding: 0px;
   }
 
-  table.table5{
+  table.tableInsertMed{
     height:300px; 
     display: -moz-groupbox;
     border: 1px solid;
@@ -2024,13 +3922,13 @@ form .logout{
     max-width: 88.5%;
   }
 
-  table.table5 tbody{
+  table.tableInsertMed tbody{
     height: 250px;
     max-width: 70%;
     position: absolute;
   } 
 
-  table.table6 tr {
+  table.tableWeight tr {
     width: 80%;
     display: inline-table;
     height:60px;
@@ -2038,7 +3936,7 @@ form .logout{
     padding: 0px;
   }
 
-  table.table6{
+  table.tableWeight{
     height:250px; 
     display: -moz-groupbox;
     border: 1px solid;
@@ -2046,14 +3944,14 @@ form .logout{
     max-width: 88.5%;
   }
 
-  table.table6 tbody{
+  table.tableWeight tbody{
     height: 250px;
     max-width: 70%;
     position: absolute;
   } 
 
   .insert-div{
-    margin-top: 2%; 
+    margin-top: 0%; 
     padding: 1%; 
     padding-left: 0px;
   }
@@ -2065,9 +3963,9 @@ form .logout{
     position: relative; 
     border: 1px solid;
     border-color: #9ecf95; 
-    margin-bottom: 1%;
-    margin-top:1%;
-    padding-left: 1%;
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
   }
   .insertTFeed{
     overflow-y: scroll; 
@@ -2076,9 +3974,9 @@ form .logout{
     position: relative; 
     border: 1px solid;
     border-color: #9ecf95; 
-    margin-bottom: 1%;
-    margin-top:1%;
-    padding-left: 1%;
+    margin-bottom: 2px;
+    margin-top:2px;
+    padding-left: 2px;
   }
 
   .select-insert{
