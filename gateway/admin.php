@@ -4,6 +4,8 @@
 	include "../inc/functions.php"; 
 	
 	$db = new phpork_functions (); 
+
+	//add
 	if(isset($_GET['addBreed'])){
 		$bname = $_GET['breed_name'];
 		echo json_encode($db->addBreed($bname)); 
@@ -53,11 +55,11 @@
 	//edit
 	if(isset($_POST['editUser'])){
 	$user = $_POST['user'];
-	$prev_uname = $_POST['prev_uname']
+	$prev_uname = $_POST['prev_uname'];
 	$username = $_POST['user_name'];
-	$prev_pword = $_POST['prev_pword']
+	$prev_pword = $_POST['prev_pword'];
 	$password = $_POST['password'];
-	$prev_utype = $_POST['prev_utype']
+	$prev_utype = $_POST['prev_utype'];
 	$user_type = $_POST['user_type'];
 	$user_id = $_POST['user_id'];
 	$date = curdate();
@@ -71,7 +73,7 @@
 
 	if(isset($_POST['editBreed'])){
 	$user = $_POST['user'];
-	$prev_bname = $_POST['prev_bname']
+	$prev_bname = $_POST['prev_bname'];
 	$bname = $_POST['breed_name'];
 	$edit_id = $_POST['breed_id'];
 	$date = curdate();
@@ -143,7 +145,7 @@
 		echo json_encode($db->userTransactionEdit($user, $date, $time, $pen_id, 'pen', $prev_fxn, $fxn, '2'));
 		echo json_encode($db->userTransactionEdit($user, $date, $time, $pen_id, 'pen', $prev_h_id, $h_id, '2'));
 		echo json_encode($db->userTransactionEdit($user, $date, $time, $pen_id, 'pen', $prev_loc_id, $loc_id, '2'));
-		echo json_encode()$db->updatePen($pen_id, $penno, $loc_id, $h_id, $fxn));
+		echo json_encode($db->updatePen($pen_id, $penno, $loc_id, $h_id, $fxn));
 		//localhost/phpork2/gateway/pen.php?addPenName=1&penno=1&fxn=weaning&h_id=5
 	} 
 	if(isset($_POST['editFeedName'])){
@@ -175,5 +177,15 @@
 		//localhost/phpork2/gateway/meds.php?addMedName=1&mname=med&mtype=medtype
 	}
 	
+	if(isset($_POST['type'])){
+		$name = $_POST['name_startsWith'];
+		echo json_encode($db->searchUser($name));
+	}
+
+	if(isset($_POST['farm'])){
+		$name = $_POST['name_startsWith'];
+		echo json_encode($db->searchLoc($name));
+		
+}
 	
 ?>

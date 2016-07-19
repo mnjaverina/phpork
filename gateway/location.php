@@ -17,8 +17,8 @@
 						
 	}
 	
-	if(isset($_GET['getLocDetails'])){
-		$loc_id = $_GET['loc'];
+	if(isset($_POST['getLocDetails'])){
+		$loc_id = $_POST['loc'];
 		$arr_house = $db->getLocDetails($loc_id); 
 		echo json_encode($arr_house);
 		//localhost/phpork2/gateway/location.php?getLocDetails=1&loc=1

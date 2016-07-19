@@ -24,4 +24,11 @@
     
   
   }
+
+  if(isset($_POST['getUser'])){
+    $user_id = $_POST['user_id'];
+    echo json_encode($db->getUser($user_id)); 
+    
+  
+  }
 ?>
