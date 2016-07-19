@@ -1,7 +1,6 @@
 RewriteEngine On
 
-RewriteRule ^user pages/choose_user.php [L]
-RewriteRule ^in/([0-9]) pages/login.php?user=$1 [L]
+RewriteRule ^in pages/login.php [L]
 
 RewriteRule ^admin/home pages/admin_home.php [L]
 RewriteRule ^encoder/home pages/encoder_home.php [L]
