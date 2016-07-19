@@ -46,57 +46,57 @@
 
       <div class="box userDiv" data-toggle="tooltip" title="Click to add user." data-trigger= "hover" >
         <button id="addUser" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalUser">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add User.png" style="width:50%; height: 50%; margin: auto;"> 
-          <span>Add User</span>
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Username.png" style="width:50%; height: 50%; margin: auto;"> 
+          <span>USER</span>
         </button>
       </div>
 
       <div class="box farmDiv" data-toggle="tooltip" title="Click to add farm." data-trigger= "hover">
         <button id="addFarm" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalFarm">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Farm.png" style="width:50%; height: 50%; margin: auto;"> 
-          <span>Add Farm</span>
+          <span>FARM</span>
         </button>
       </div>
 
       <div class="box houseDiv" data-toggle="tooltip" title="Click to add house." data-trigger= "hover">
        <button id="addHouse" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalHouse">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add House.png" style="width:50%; height: 50%; margin: auto;"> 
-          <span>Add House</span>
+          <span>HOUSE</span>
         </button>
       </div>
 
       <div class="box penDiv" data-toggle="tooltip" title="Click to add pen." data-trigger= "hover">
          <button id="addPen" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalPen">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Pen.png" style="width:50%; height: 50%; margin: auto;"> 
-          <span>Add Pen</span>
+          <span>PEN</span>
         </button>
       </div>
 
     <div class="box parentDiv" data-toggle="tooltip" title="Click to add parents." data-trigger= "hover">
         <button id="addParent" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalPig">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Parent.png" style="width:50%; height: 50%; margin: auto;"> 
-          <span>Add Parent</span>
+          <span>PARENT</span>
         </button>
       </div>
 
       <div class="box breedDiv" data-toggle="tooltip" title="Click to add breed." data-trigger= "hover">
         <button id="addBreed" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalBreed">
           <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Breed.png" style="width:50%; height: 50%; margin: auto;"> 
-          <span>Add Breed</span>
+          <span>BREED</span>
         </button>
       </div>
 
       <div class="box feedsDiv" data-toggle="tooltip" title="Click to add feed." data-trigger= "hover">
          <button id="addFeeds" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalFeed">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Feeds.png" style="width:50%; height: 50%; margin: auto;"> 
-          <span>Add Feeds</span>
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Feeds2.png" style="width:50%; height: 50%; margin: auto;"> 
+          <span>FEED</span>
         </button>
       </div>
 
       <div class="box medsDiv" data-toggle="tooltip" title="Click to add medication." data-trigger= "hover">
          <button id="addMeds" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalMeds">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Medications.png" style="width:50%; height: 50%; margin: auto;"> 
-          <span>Add Medication</span>
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Medications.png" style="width:50%; height: 50%; margin: auto;"> 
+          <span>MEDICATION</span>
         </button>
       </div>
    
