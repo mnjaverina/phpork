@@ -76,50 +76,102 @@
 	$edit_id = $_POST['breed_id'];
 	$date = curdate();
 	$time = curtime();
-	echo json_encode($db->userTransactionEdit($user, $date, $time, $edit_id, 'breed', $prev_bname, $bname, '2')); 
+	echo json_encode($db->userTransactionEdit($user, $date, $time, $edit_id, 'breed', $prev_bname, $bname, '2'));
+	echo json_encode($db->addBreed($breed_name));
 	//localhost/phpork/gateway/admin.php?addBreed=1&breed_name=Breed1
 	}
 	if(isset($POST['editParent'])){
 		$user = $_POST['user'];
 		$prev_lbl = $_POST['prev_parent'];
 		$lbl = $POST['parent'];
+		$prev_lbl_id = $_POST['prev_id'];
 		$lbl_id = $POST['id'];
+		$parent_id = $_POST['parent_id'];
 		$date = curdate();
 		$time = curtime();
-		echo json_encode($db->userTransactionEdit($user, $date, $time, $$lbl_id, 'parent', $lbl, '2')); 
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $parent_id, 'parent', $prev_lbl, $lbl, '2'));
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $parent_id, 'parent', $prev_lbl_id, $lbl_id, '2')); 
+		echo json_encode($db->updateParent($parent_id, $lbl, $lbl_id)); 
 		//localhost/phpork/gateway/admin.php?addParent=1&parent=boar&id=E34.921
 	} 
 	if(isset($_POST['editHouseName'])){
+		$user = $_POST['user'];
+		$prev_hno = $_POST['prev_hno'];
 		$hno = $_POST['hno'];
+		$prev_hname = $_POST['prev_hname'];
 		$hname = $_POST['hname'];
+		$prev_fxn = $_POST['prev_fxn'];
 		$fxn = $_POST['fxn'];
+		$prev_loc_id = $_POST['prev_loc'];
 		$loc_id = $_POST['loc'];
-		echo json_encode($db->userTransactionEdit($hno,$hname,$fxn,$loc_id)); 
+		$house_id = $_POST['house_id'];
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $house_id, 'house', $prev_hname, $hname, '2'));
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $house_id, 'house', $prev_hno, $hno, '2'));
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $house_id, 'house', $prev_fxn, $fxn, '2'));
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $house_id, 'house', $prev_loc_id, $loc_id, '2'));
+		echo json_encode($db->updateHouse($houseid, $hno, $hname, $loc_id, $fxn));
 		//localhost/phpork2/gateway/house.php?addHouseName=1&hno=1&hname=House1&fxn=weaning&loc_id=3
 	} 
 	if(isset($_POST['editLocationName'])){
+		$user = $_POST['user'];
+		$prev_lname = $_POST['prev_lname'];
 		$lname = $_POST['lname'];
+		$prev_addr = $_POST['prev_addr'];
 		$addr = $_POST['addr'];
-		echo json_encode($db->userTransactionEdit($lname,$addr)); 
+		$loc_id = $_POST['loc_id'];
+		$date = curdate();
+		$time = curtime();
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $loc_id, 'farm', $prev_lname, $lname, '2'));
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $loc_id, 'farm', $prev_addr, $addr, '2'));
+		echo json_encode($db->updateLocation($loc_id, $lname, $addr));
 		//localhost/phpork2/gateway/location.php?addLocationName=1&lname=Farm4&addr=antipolo
 	} 
 	if(isset($_POST['editPenName'])){
+		$user = $_POST['user'];
+		$prev_penno = $_POST['prev_penno'];
 		$penno = $_POST['penno'];
+		$prev_fxn = $_POST['prev_fxn'];
 		$fxn = $_POST['fxn'];
+		$prev_h_id = $_POST['prev_h_id'];	
 		$h_id = $_POST['h_id'];
-		echo json_encode($db->userTransactionEdit($penno,$fxn,$h_id)); 
+		$prev_loc_id = $_POST['prev_loc_id'];	
+		$loc_id = $_POST['loc_id'];
+		$pen_id = $_pOST['pen_id'];
+		$date = curdate();
+		$time = curtime();
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $pen_id, 'pen', $prev_penno, $penno, '2'));
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $pen_id, 'pen', $prev_fxn, $fxn, '2'));
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $pen_id, 'pen', $prev_h_id, $h_id, '2'));
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $pen_id, 'pen', $prev_loc_id, $loc_id, '2'));
+		echo json_encode()$db->updatePen($pen_id, $penno, $loc_id, $h_id, $fxn));
 		//localhost/phpork2/gateway/pen.php?addPenName=1&penno=1&fxn=weaning&h_id=5
 	} 
-	if(isset($_GET['editFeedName'])){
-		$fname = $_GET['fname'];
-		$ftype = $_GET['ftype'];
-		echo json_encode($db->userTransactionEdit($fname,$ftype)); 
+	if(isset($_POST['editFeedName'])){
+		$user = $_POST['user'];
+		$prev_fname = $_POST['prev_fname'];
+		$fname = $_POST['fname'];
+		$prev_ftype = $_POST['prev_ftype'];
+		$ftype = $_POST['ftype'];
+		$feed_id = $_POST['feed_id'];
+		$date = curdate();
+		$time = curtime();
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $feed_id, 'feeds', $prev_fname, $fname, '2'));
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $feed_id, 'feeds', $prev_ftype, $ftype, '2'));
+		echo json_encode($db->updateFeed($feed_id, $fname, $ftype));
 		//localhost/phpork2/gateway/feeds.php?addFeedName=1&fname=feed&ftype=feedtype
 	} 
-	if(isset($_GET['editMedName'])){
-		$mname = $_GET['mname'];
-		$mtype = $_GET['mtype'];
-		echo json_encode($db->userTransactionEdit($mname,$mtype)); 
+	if(isset($_POST['editMedName'])){
+		$user = $_POST['user'];
+		$prev_mname = $_POST['prev_mname'];
+		$mname = $_POST['mname'];
+		$prev_mtype = $_POST['prev_mtype'];
+		$mtype = $_POST['mtype'];
+		$med_id = $_POST['med_id'];
+		$date = curdate();
+		$time = curtime();
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $med_id, 'meds', $prev_mname, $mname, '2'));
+		echo json_encode($db->userTransactionEdit($user, $date, $time, $med_id, 'meds', $prev_mtype, $mtype, '2'));
+		echo json_encode($db->updateMedication($med_id, $mname, $mtype)); 
 		//localhost/phpork2/gateway/meds.php?addMedName=1&mname=med&mtype=medtype
 	}
 	

@@ -1505,7 +1505,7 @@
 	        }
 	        return $arr_mrcrd;
 	    }
-	    public function updateMeds($medid, $medName, $medType)
+	    public function updateMedication($medid, $medName, $medType)
 		{
 				$link = $this->connect();
 				$query = "UPDATE medication 
@@ -1756,8 +1756,8 @@
 						);
 				}
 		}
-		public function updateFeeds($feedid, $feedName, $feedType)
-		{feed
+		public function updateFeed($feedid, $feedName, $feedType)
+		{
 				$link = $this->connect();
 				$query = "UPDATE feeds
 							set feed_name = '" .$feedName. "',
