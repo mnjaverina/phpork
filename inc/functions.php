@@ -53,18 +53,20 @@
 		public function getUser($user_id)
 		{
 				$link = $this->connect();
-				$query = "SELECT user_name, 
+				$query = "SELECT user_id,
+							user_name, 
 							user_type,
 							password 
 						FROM user
-						WHERE user_id = '" .$user_id."'";
+						WHERE user_name LIKE '%" .$user_name. "%'";
 				$result = mysqli_query($link, $query) or die(mysqli_error($link));
 				$userDetails = array();
 				$arr_user = array();
 				while ($row = mysqli_fetch_row($result)) {
-						$userDetails['user_name'] = $row[0];
-						$userDetails['user_type'] = $row[1];
-						$userDetails['password'] = $row[2];
+						$userDetails['user_id'] = $row[0];
+						$userDetails['user_name'] = $row[1];
+						$userDetails['user_type'] = $row[2];
+						$userDetails['password'] = $row[3];
 						$arr_user[] = $userDetails;
 				}
 
@@ -103,6 +105,28 @@
                   	"error"=>mysqli_error($link));
 			    }
 			    return $data;
+		}
+		public function searchUser($user_name)
+		{
+				$link = $this->connect();
+				$query = "SELECT user_id,
+							user_name, 
+							user_type,
+							password 
+						FROM user
+						WHERE user_name LIKE '%" .$user_name. "%'";
+				$result = mysqli_query($link, $query) or die(mysqli_error($link));
+				$userDetails = array();
+				$arr_user = array();
+				while ($row = mysqli_fetch_row($result)) {
+						$userDetails['user_id'] = $row[0];
+						$userDetails['user_name'] = $row[1];
+						$userDetails['user_type'] = $row[2];
+						$userDetails['password'] = $row[3];
+						$arr_user[] = $userDetails;
+				}
+
+				return $arr_user;
 		}
 
 	  	/* Location functions*/
