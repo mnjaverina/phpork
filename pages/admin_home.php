@@ -159,7 +159,7 @@
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Search: </span>
                 <select id="searchUser" type="search" class="form-control" title="Search for farm to be edited">
-                 <option> </option>
+                 <option></option>
                </select>
               </div>
               <br/>
@@ -234,7 +234,7 @@
             <div class="input-group" id="editFarmSearch">
                 <center></center>
                 
-                <label> Search: </label> &nbsp;
+                <span class="input-group-addon" id="basic-addon3">Search: </span>
                 <select id="farmOptions" type="search" class="form-control" title="Search for farm to be edited">
                  <option> </option>
                </select>
@@ -1531,6 +1531,7 @@
           },
           success: function (data) { 
              var data = jQuery.parseJSON(data);
+             console.log('User');
                 for(i=0;i<data.length;i++){
                   $("#searchUser").append($("<option></option>").attr("value",data[i].user_id)
                     .attr("name","user")
@@ -1880,10 +1881,9 @@
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data);
-                  $('#editfarm2').attr("placeholder", data[0].loc_id);
-                   $('#edithouse2').attr("placeholder", data[0].h_no);
-                  $('#editpennum').attr("placeholder", data[0].h_name);
-                  $('#editfunc2').attr("placeholder", data[0].fxn);
+                  $('#editlabel_id').attr("placeholder", data[0].label_id);
+                   $('#editparentLabel').attr("placeholder", data[0].label);
+                 
 
 
                   $('#editPARENTLABELID').append($("<input></input>").attr("type", "hidden")
