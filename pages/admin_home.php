@@ -53,35 +53,35 @@
 
       <div class="box farmDiv" data-toggle="tooltip" title="Click to add farm." data-trigger= "hover">
         <button id="addFarm" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalFarm">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Farm.png" style="width:50%; height: 50%; margin: auto;"> 
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Farm.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>FARM</span>
         </button>
       </div>
 
       <div class="box houseDiv" data-toggle="tooltip" title="Click to add house." data-trigger= "hover">
        <button id="addHouse" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalHouse">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add House.png" style="width:50%; height: 50%; margin: auto;"> 
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/House.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>HOUSE</span>
         </button>
       </div>
 
       <div class="box penDiv" data-toggle="tooltip" title="Click to add pen." data-trigger= "hover">
          <button id="addPen" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalPen">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Pen.png" style="width:50%; height: 50%; margin: auto;"> 
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Pen.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>PEN</span>
         </button>
       </div>
 
     <div class="box parentDiv" data-toggle="tooltip" title="Click to add parents." data-trigger= "hover">
         <button id="addParent" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalPig">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Parent.png" style="width:50%; height: 50%; margin: auto;"> 
-          <span>PARENT</span>
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Parentage.png" style="width:50%; height: 50%; margin: auto;"> 
+          <span>PARENTAGE</span>
         </button>
       </div>
 
       <div class="box breedDiv" data-toggle="tooltip" title="Click to add breed." data-trigger= "hover">
         <button id="addBreed" style="background-color: white; border: none; outline: none;" data-toggle="modal" data-target="#myModalBreed">
-          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Add Breed.png" style="width:50%; height: 50%; margin: auto;"> 
+          <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Breed.png" style="width:50%; height: 50%; margin: auto;"> 
           <span>BREED</span>
         </button>
       </div>
@@ -117,81 +117,79 @@
             <h4 class="modal-title">User</h4>
           </div>
           <div class="modal-body"> 
-            
-            <div id="chooseToDo">
-              <button id="addUserBtn" class="btn btn-default">Add User</button>
-              <br/>
-              <br/>
-              <br/>
-              <button id="editUserBtn" class="btn btn-default">Edit User</button>
+            <div id="chooseToDo" class="btnCenter">
+              <button id="addUserBtn" class="btnModal">Add User</button>
+              <br/><br/>
+              <button id="editUserBtn" class="btnModal">Edit User</button>
             </div>
 
             <div id="addUserDetails" style="display: none;">
-              <button id="backToUser1">Back</button>
-              <h2 class="modal-title">Add User</h2>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Username: </span>
-              <input type="text" class="form-control" id="uname" data-trigger= "hover" data-toggle="tooltip" title="Input new username" aria-describedby="basic-addon3" required>
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">User Type: </span>
-              <select class="form-control" id="uType" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the user is an admin or encoder." required> 
-                    <option value="" disabled selected>Select user type</option>
-                    <option value="admin">Admin</option> 
-                    <option value="encoder">Encoder</option> 
-              </select>
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Password: </span>
-              <input type="password" class="form-control" id="password" data-trigger= "hover" data-toggle="tooltip" title="Input new password." aria-describedby="basic-addon3" required>
-            </div>
-            <div class="modal-footer" >
-            <button type="submit" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save user's details." id="saveUser">Add</button>
-            </div>
-          </div>
-
-           <div id="editUser" style="display: none;">
-            <button id="backToUser2">Back</button>
-              <h2 class="modal-title">Edit User</h2>
-            <div class="input-group" id="editUserSearch">
-                <center></center>
-                
-            <label> Search: </label> &nbsp;
-            <input type="text" name="userName" id="searchUser" class="form-control" placeholder="Search for user">
-              <br/>
-            <div id="displayUser"></div>
-            </div>
-            <br/>
-            <div id="editUserDetails" style= "display: none;">
-              <div class="input-group" id="editUNAME">
+              <div style="margin-bottom: 10%;">
+                <button id="backToUser1" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Add User</h3>
+              </div>
+              <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Username: </span>
-                <input type="text" class="form-control" id="unameEdit" data-trigger= "hover" data-toggle="tooltip" title="Edit username" aria-describedby="basic-addon3" required>
+                <input type="text" class="form-control" id="uname" data-trigger= "hover" data-toggle="tooltip" title="Input new username" aria-describedby="basic-addon3" required>
               </div>
               <br/>
-              <div class="input-group" id="editUTYPE">
+              <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">User Type: </span>
-                <select class="form-control" id="uTypeEdit" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit if the user is an admin or encoder." required> 
+                <select class="form-control" id="uType" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the user is an admin or encoder." required> 
                       <option value="" disabled selected>Select user type</option>
                       <option value="admin">Admin</option> 
                       <option value="encoder">Encoder</option> 
                 </select>
               </div>
               <br/>
-              <div class="input-group" id="editPWORD">
+              <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Password: </span>
-                <input type="password" class="form-control" id="passwordEdit" data-trigger= "hover" data-toggle="tooltip" title="Edit or change password." aria-describedby="basic-addon3" required>
+                <input type="password" class="form-control" id="password" data-trigger= "hover" data-toggle="tooltip" title="Input new password." aria-describedby="basic-addon3" required>
               </div>
-
               <div class="modal-footer" >
-              <button type="submit" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to edit user's details." id="saveEditUser">Edit</button>
+                <button type="submit" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save user's details." id="saveUser">Add</button>
               </div>
-           </div>
+            </div>
+
+            <div id="editUser" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToUser2" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Edit User</h3>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Search: </span>
+                <input type="text" name="userName" id="searchUser" class="form-control" placeholder="Search for user" aria-describedby="basic-addon3" required>
+              </div>
+              <br/>
+              <div id="displayUser"></div>
+            </div>
+
+            <div id="editUserDetails" style="display: none;">
+                <div class="input-group" id="editUNAME">
+                  <span class="input-group-addon" id="basic-addon3">Username: </span>
+                  <input type="text" class="form-control" id="unameEdit" data-trigger= "hover" data-toggle="tooltip" title="Edit username" aria-describedby="basic-addon3" required>
+                </div>
+                <br/>
+                <div class="input-group" id="editUTYPE">
+                  <span class="input-group-addon" id="basic-addon3">User Type: </span>
+                  <select class="form-control" id="uTypeEdit" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit if the user is an admin or encoder." required> 
+                        <option value="" disabled selected>Select user type</option>
+                        <option value="admin">Admin</option> 
+                        <option value="encoder">Encoder</option> 
+                  </select>
+                </div>
+                <br/>
+                <div class="input-group" id="editPWORD">
+                  <span class="input-group-addon" id="basic-addon3">Password: </span>
+                  <input type="password" class="form-control" id="passwordEdit" data-trigger= "hover" data-toggle="tooltip" title="Edit or change password." aria-describedby="basic-addon3" required>
+                </div>
+                <div class="modal-footer" >
+                  <button type="submit" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to edit user's details." id="saveEditUser">Edit</button>
+                </div>
+              </div>
+            </div>
           </div>
-          
         </div>
-      </div>
       </div>
     </div>
 
@@ -426,30 +424,27 @@
             window.location = "/phpork/admin/home"; 
            });
 
-         $('#addUser').on("click",function() {
-           e.preventDefault(); 
-            $('#myModalUser').modal('show');
-            $('#chooseToDo').attr("style", "display: inline-block");
-            $('#addUserDetails').attr("style", "display: none");
-             $('#editUserDetails').attr("style", "display: none");
-          
+        $('#addUser').on("click",function() {
+          e.preventDefault(); 
+          $('#myModalUser').modal('show');
+          $('#chooseToDo').attr("style", "display: inline-block");
+          $('#addUserDetails').attr("style", "display: none");
+          $('#editUser').attr("style", "display: none");
+          $('#editUserDetails').attr("style", "display: none");
         });
 
-          $('#addUserBtn').on("click",function() {
-          
-            $('#addUserDetails').attr("style", "display: inline-block");
-             $('#editUser').attr("style", "display: none");
-             $('#editUserSearch').attr("style", "display: none");
-             $('#editUserDetails').attr("style", "display: none");
-              $('#chooseToDo').attr("style", "display: none");
-          
+        $('#addUserBtn').on("click",function() {
+          $('#chooseToDo').attr("style", "display: none");
+          $('#addUserDetails').attr("style", "display: inline-block");
+          $('#editUser').attr("style", "display: none");
+          $('#editUserDetails').attr("style", "display: none");
         });
-           $('#editUserBtn').on("click",function() {
-            $('#editUser').attr("style", "display: inline-block");
-            $('#editUserSearch').attr("style", "display: inline-block");
-            $('#addUserDetails').attr("style", "display: none");
-            $('#chooseToDo').attr("style", "display: none");
-          
+
+        $('#editUserBtn').on("click",function() {
+          $('#chooseToDo').attr("style", "display: none");
+          $('#addUserDetails').attr("style", "display: none"); 
+          $('#editUser').attr("style", "display: inline-block");
+          $('#addUserDetails').attr("style", "display: none");
         });
 
          $('#searchUser').on('focusout',function(){
@@ -477,19 +472,17 @@
 
 
         $('#backToUser1').on("click",function() {
-          
-            $('#editUserDetails').attr("style", "display: none");
-            $('#addUserDetails').attr("style", "display: none");
-            $('#chooseToDo').attr("style", "display: inline-block");
-          
+          $('#chooseToDo').attr("style", "display: inline-block");
+          $('#addUserDetails').attr("style", "display: none"); 
+          $('#editUser').attr("style", "display: none");
+          $('#addUserDetails').attr("style", "display: none");
         });
 
-          $('#backToUser2').on("click",function() {
-          
-            $('#editUserDetails').attr("style", "display: none");
-            $('#addUserDetails').attr("style", "display: none");
-            $('#chooseToDo').attr("style", "display: inline-block");
-          
+        $('#backToUser2').on("click",function() {
+          $('#chooseToDo').attr("style", "display: inline-block");
+          $('#addUserDetails').attr("style", "display: none"); 
+          $('#editUser').attr("style", "display: none");
+          $('#addUserDetails').attr("style", "display: none"); 
         });
 
 

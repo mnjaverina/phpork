@@ -70,6 +70,21 @@ a:active {
   font-size: 1.2em;
 }
 
+.btnModal{
+  width: 50%;
+  background-color: white; 
+  border-radius: 10px;
+  font-size: 18px;
+  background-image: linear-gradient(to bottom,#ccc 0,#e0e0e0 100%);
+}
+
+.btnCenter{
+  width: 100%; 
+  margin-left:25%;
+  margin-right: 25%;
+  padding: 0 0 0 0;
+}
+
 @media screen and (max-width: 991px){
   .image1{
     height: 18%; 
