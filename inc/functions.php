@@ -106,6 +106,22 @@
 			    }
 			    return $data;
 		}
+		public function ddl_user()
+	    {
+	        $link     = $this->connect();
+	        $search   = "SELECT user_id,user_name,user_type,password FROM user";
+	        $resultq  = mysqli_query($link, $search);
+	        $usr    = array();
+	        $usrArr = array();
+	        while ($row = mysqli_fetch_row($resultq)) {
+	            $usr['user_id']   = $row[0];
+	            $usr['username'] = $row[1];
+	            $usr['user_type']   = $row[2];
+	            $usr['password'] = $row[3];
+	            $usrArr[]      = $usr;
+	        }
+	        return $usrArr;
+	    }
 		public function searchUser($user_name)
 		{
 				$link = $this->connect();
@@ -184,6 +200,26 @@
 						$loc['loc_name'] = $row[0];
 						$loc['loc_id'] = $row[1];
 						$loc['address'] = $row[2];
+						$arr_loc[] = $loc;
+				}
+
+				return $arr_loc;
+		}
+		public function searchLoc($loc_name)
+		{
+				$link = $this->connect();
+				$query = "SELECT l.loc_name, 
+							l.loc_id,
+							l.address
+						FROM location l 
+						where l.loc_name LIKE '%".$loc_name."%'";
+				$result = mysqli_query($link, $query) or die(mysqli_error($link));
+				$loc = array();
+				$arr_loc = array();
+				while ($row = mysqli_fetch_row($result)) {
+						$loc['loc_name'] = $row[0];
+						$loc['loc_id'] = $row[1];
+						$loc['addr'] = $row[2];
 						$arr_loc[] = $loc;
 				}
 
@@ -433,11 +469,13 @@
 		public function getPenDetails($pen_id)
 		{
 				$link = $this->connect();
-				$pquery = "SELECT pen_id, 
-							pen_no,
-							function,
-							house_id
-						FROM pen 
+				$pquery = "SELECT p.pen_id, 
+							p.pen_no,
+							p.function,
+							p.house_id,
+							h.loc_id
+						FROM pen p
+						INNER JOIN house h on p.h_id = h.h_id 
 						WHERE pen_id = '" . $pen_id . "'
 						ORDER BY pen_no ASC
 						LIMIT 1";
@@ -449,6 +487,7 @@
 						$pen['pen_id'] = $row[0];
 						$pen['fxn'] = $row[2];
 						$pen['h_id'] = $row[3];
+						$pen['loc_id'] = $row[4];
 						$arr_pen[] = $pen;
 				}
 
@@ -999,6 +1038,43 @@
 
 				return $fsow_arr;
 		}
+
+		public function ddl_parent()
+		{
+				$link = $this->connect();
+				$search = "SELECT DISTINCT parent_id, label_id, label
+							FROM parents";
+				$resultq = mysqli_query($link, $search);
+				$sow = array();
+				$sow_arr = array();
+				while ($row = mysqli_fetch_row($resultq)) {	
+					$sow['parent_id'] =$row[0];
+					$sow['label_id'] =$row[1];
+					$sow['label'] =$row[2];
+					$fsow_arr[] = $sow;
+						
+				}
+
+				return $fsow_arr;
+		}
+		public function getParentDetails($parent_id)
+		{
+				$link = $this->connect();
+				$search = "SELECT DISTINCT parent_id, label_id, label
+							FROM parents WHERE parent_id = '" .$parent_id. "'";
+				$resultq = mysqli_query($link, $search);
+				$sow = array();
+				$sow_arr = array();
+				while ($row = mysqli_fetch_row($resultq)) {	
+					$sow['parent_id'] =$row[0];
+					$sow['label_id'] =$row[1];
+					$sow['label'] =$row[2];
+					$fsow_arr[] = $sow;
+						
+				}
+
+				return $fsow_arr;
+		}
 		public function ddl_breeds()
 	    {
 	        $link     = $this->connect();
@@ -1013,6 +1089,44 @@
 	        }
 	        return $breedArr;
 	    }
+	    public function searchBreed($br_name)
+		{
+				$link = $this->connect();
+				$query = "SELECT breed_id,breed_name
+						FROM pig_breeds 
+						where breed_name LIKE '%".$br_name."%'";
+				$result = mysqli_query($link, $query) or die(mysqli_error($link));
+				$breed = array();
+				$arr_breed = array();
+				while ($row = mysqli_fetch_row($result)) {
+						$breed['loc_id'] = $row[0];
+						$breed['loc_name'] = $row[1];
+						$arr_breed[] = $breed;
+				}
+
+				return $arr_breed;
+		}
+
+		public function getBreed($br_id)
+		{
+				$link = $this->connect();
+				$query = "SELECT breed_id,breed_name
+						FROM pig_breeds 
+						where breed_id = '".$br_id."'";
+				$result = mysqli_query($link, $query) or die(mysqli_error($link));
+				$breed = array();
+				$arr_breed = array();
+				while ($row = mysqli_fetch_row($result)) {
+						$breed['loc_id'] = $row[0];
+						$breed['loc_name'] = $row[1];
+						$arr_breed[] = $breed;
+				}
+
+				return $arr_breed;
+		}
+		
+
+
 	    public function ddl_batch()
 	    {
 	        $link     = $this->connect();
@@ -1699,6 +1813,8 @@
 
 				return $arr_feed;
 		}
+		
+	
 		public function ddl_feedRecordEdit($pig)
 	    {
 	        $link      = $this->connect();

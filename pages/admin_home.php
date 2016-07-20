@@ -158,7 +158,9 @@
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Search: </span>
-                <input type="text" name="userName" id="searchUser" class="form-control" placeholder="Search for user" aria-describedby="basic-addon3" required>
+                <select id="searchUser" type="search" class="form-control" title="Search for farm to be edited">
+                 <option> </option>
+               </select>
               </div>
               <br/>
               <div id="displayUser"></div>
@@ -191,34 +193,73 @@
           </div>
         </div>
       </div>
-    </div>
 
 
-     <!-- Modal for Add Farm -->
+         <!-- Modal for Add Farm -->
     <div id="myModalFarm" class="modal fade" role="dialog" >
       <div class="modal-dialog">
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add Farm</h4>
+            <h4 class="modal-title">Farm</h4>
           </div>
           <div class="modal-body">
             <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
-              <input type="text" class="form-control" id="farmname" data-trigger= "hover"  data-toggle="tooltip" title="Input the name of the farm you want to add." aria-describedby="basic-addon3">
+            <div id="chooseToDoFarm" class="btnCenter">
+              <button id="addFarmBtn" class="btn btn-default">Add Farm</button>
+              <br/><br/>
+              <button id="editFarmBtn" class="btn btn-default">Edit Farm</button>
+            </div>
+
+             <div id="addFarmDetails" style="display: none;">
+                <button id="backToFarm1">Back</button>
+                <h2 class="modal-title">Add Farm</h2>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
+                <input type="text" class="form-control" id="farmname" data-trigger= "hover"  data-toggle="tooltip" title="Input the name of the farm you want to add." aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Address: </span>
+                <input type="text" class="form-control" id="fadd" data-trigger= "hover" data-toggle="tooltip" title="Input the address of the new farm." aria-describedby="basic-addon3">
+              </div>
+            <div class="modal-footer" >
+              <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save farm's details." id="saveFarm">Add</button>
+            </div>
+          </div>
+
+          <div id="editFarm" style="display: none;">
+            <button id="backToFarm2">Back</button>
+              <h2 class="modal-title">Edit Farm</h2>
+            <div class="input-group" id="editFarmSearch">
+                <center></center>
+                
+                <label> Search: </label> &nbsp;
+                <select id="farmOptions" type="search" class="form-control" title="Search for farm to be edited">
+                 <option> </option>
+               </select>
             </div>
             <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Address: </span>
-              <input type="text" class="form-control" id="fadd" data-trigger= "hover" data-toggle="tooltip" title="Input the address of the new farm." aria-describedby="basic-addon3">
+            <div id="editFarmDetails" style="display: none;">
+                 <div class="input-group" id="editFARMNAME">
+                  <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
+                  <input type="text" class="form-control" id="farmnameEdit" data-trigger= "hover"  data-toggle="tooltip" title="Edit the name of the farm." aria-describedby="basic-addon3">
+                </div>
+                <br/>
+                 <div class="input-group" id="editFADD">
+                  <span class="input-group-addon" id="basic-addon3">Address: </span>
+                  <input type="text" class="form-control" id="faddEdit" data-trigger= "hover" data-toggle="tooltip" title="Edit the address of the farm." aria-describedby="basic-addon3">
+                </div>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save farm's details." id="saveEditFarm">Edit</button>
+              </div>
             </div>
-          </div>
-          <div class="modal-footer" >
-            <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save farm's details." id="saveFarm">Add</button>
-          </div>
+        </div>
+
+
         </div>
       </div>
+    </div>
     </div>
 
     <!-- Modal for add House-->
@@ -227,39 +268,105 @@
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add House</h4>
+            <h4 class="modal-title">House</h4>
           </div>
           <div class="modal-body">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Location: </span>
-              <select class="form-control" id="loc" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the house you want to add." required> 
-                    <option value="" disabled selected>Select farm location...</option> 
-            </select>
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">House Number: </span>
-              <input type="text" class="form-control" id="hnum" data-trigger= "hover" data-toggle="tooltip" title="Input the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">House Name: </span>
-              <input type="text" class="form-control" id="hname" data-trigger= "hover" data-toggle="tooltip" title="Input the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Function: </span>
-              <select  class="form-control" id="func" name="selStat" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Input the function of the new house. Ex: Weaning" required> 
-                <option value="" disabled selected>Select function</option>
-                <option value="Weaning">Weaning</option> 
-                <option value="Growing">Growing</option> 
-                <option value="Slaughter">Slaughter</option> 
-              </select> 
-            </div>
-            <br/>
-          </div>
-          <div class="modal-footer" >
-            <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save house's details." id="saveHouse">Add</button>
+
+                <div id="chooseToDoHouse">
+                  <button id="addHouseBtn" class="btn btn-default">Add House</button>
+                  <br/><br/>
+                  <button id="editHouseBtn" class="btn btn-default">Edit House</button>
+                </div>
+
+                <div id="addHouseDetails" style="display: none;">
+                    <button id="backToHouse1">Back</button>
+                    <h2 class="modal-title">Add House</h2>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">Location: </span>
+                      <select class="form-control" id="loc" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the house you want to add." required> 
+                            <option value="" disabled selected>Select farm location...</option> 
+                    </select>
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                      <input type="text" class="form-control" id="hnum" data-trigger= "hover" data-toggle="tooltip" title="Input the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">House Name: </span>
+                      <input type="text" class="form-control" id="hname" data-trigger= "hover" data-toggle="tooltip" title="Input the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">Function: </span>
+                      <select  class="form-control" id="func" name="selStat" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Input the function of the new house. Ex: Weaning" required> 
+                        <option value="" disabled selected>Select function</option>
+                        <option value="Weaning">Weaning</option> 
+                        <option value="Growing">Growing</option> 
+                        <option value="Slaughter">Slaughter</option> 
+                      </select> 
+                    </div>
+                    <br/>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save house's details." id="saveHouse">Add</button>
+                  </div>
+                </div>
+
+                <div id="editHouse" style="display: none;">
+                    <button id="backToHouse2">Back</button>
+                    <h2 class="modal-title">Edit House</h2>
+
+                    <div class="input-group" id="editHouseSearch">
+                      <center></center>
+
+                      <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">Search for Location: </span>
+                      <select class="form-control" id="loc1" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the house you want to edit." required> 
+                            <option value="" disabled selected>Select farm location...</option> 
+                    </select>
+                    </div>
+                       <span class="input-group-addon" id="basic-addon3">Search: </span>
+                      <select type="search" name="userName" id="searchHouse" class="form-control" placeholder="Search for House">
+                        <option></option>
+                      </select>
+                  </div>
+                  <br/>
+                  
+                  <div id="editHouseDetails" style="display: none;">
+                      <div class="input-group" id="editHOUSELOC">
+                        <span class="input-group-addon" id="basic-addon3">Location: </span>
+                        <select class="form-control" id="editloc2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit the location/farm." required> 
+                              <option value="" disabled selected>Select farm location...</option> 
+                      </select>
+                      </div>
+                      <br/>
+                      <div class="input-group" id="EDITHOUSENUM">
+                        <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                        <input type="text" class="form-control" id="edithnum" data-trigger= "hover" data-toggle="tooltip" title="Edit the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
+                      </div>
+                      <br/>
+                      <div class="input-group" id="editHOUSENAME">
+                        <span class="input-group-addon" id="basic-addon3">House Name: </span>
+                        <input type="text" class="form-control" id="edithname" data-trigger= "hover" data-toggle="tooltip" title="Edit the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
+                      </div>
+                      <br/>
+                      <div class="input-group" id="editHOUSEFXN">
+                        <span class="input-group-addon" id="basic-addon3">Function: </span>
+                        <select  class="form-control" id="editfunc" name="selStat" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit the function of the new house. Ex: Weaning" required> 
+                          <option value="" disabled selected>Select function</option>
+                          <option value="Weaning">Weaning</option> 
+                          <option value="Growing">Growing</option> 
+                          <option value="Slaughter">Slaughter</option> 
+                        </select> 
+                      </div>
+                      <br/>
+                    <div class="modal-footer" >
+                      <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to edit house's details." id="saveEditHouse">Edit</button>
+                    </div>
+                </div>
+             </div>
+
           </div>
         </div>
       </div>
@@ -271,41 +378,115 @@
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add Pen</h4>
+            <h4 class="modal-title">Pen</h4>
           </div>
           <div class="modal-body">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Location: </span>
-              <select class="form-control" id="farm" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
-                    <option value="" disabled selected>Select farm location...</option> 
-            </select>
+
+            <div id="chooseToDoPen">
+                  <button id="addPenBtn" class="btn btn-default">Add Pen</button>
+                  <br/><br/>
+                  <button id="editPenBtn" class="btn btn-default">Edit Pen</button>
             </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">House Number: </span>
-               <select class='form-control'  id='house' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
-                      <option value='' disabled selected>Select house...</option> 
-            </select> 
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
-              <input type="text" class="form-control" id="pennum" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
-            </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Function: </span>
-              <select  class="form-control" id="func2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
-                <option value="" disabled selected>Select function</option>
-                <option value="Weaning">Weaning</option> 
-                <option value="Growing">Growing</option> 
-                <option value="Medication">Medication</option>
-                <option value="Mortality">Mortality</option> 
-              </select> 
-            </div>
+
+             <div id="addPenDetails" style="display: none;">
+                    <button id="backToPen1">Back</button>
+                    <h2 class="modal-title">Add House</h2>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">Location: </span>
+                      <select class="form-control" id="farm" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
+                            <option value="" disabled selected>Select farm location...</option> 
+                    </select>
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                       <select class='form-control'  id='house' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
+                              <option value='' disabled selected>Select house...</option> 
+                    </select> 
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
+                      <input type="text" class="form-control" id="pennum" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">Function: </span>
+                      <select  class="form-control" id="func2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
+                        <option value="" disabled selected>Select function</option>
+                        <option value="Weaning">Weaning</option> 
+                        <option value="Growing">Growing</option> 
+                        <option value="Medication">Medication</option>
+                        <option value="Mortality">Mortality</option> 
+                      </select> 
+                    </div>
+                    <div class="modal-footer" >
+                      <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save pen's details." id="savePen">Add</button>
+                    </div>
+                </div>
+
+                <div id="editPen" style="display: none;">
+                    <button id="backToPen2">Back</button>
+                    <h2 class="modal-title">Edit Pen</h2>
+
+                    <div class="input-group" id="editPenSearch">
+                      <center></center>
+                      <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">Location: </span>
+                      <select class="form-control" id="farm1" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
+                            <option value="" disabled selected>Select farm location...</option> 
+                      </select>
+                      </div>
+                      <br/>
+                      <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                         <select class='form-control'  id='house1' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
+                                <option value='' disabled selected>Select house...</option> 
+                      </select> 
+                      </div>
+                      <br/>
+                      <span class="input-group-addon" id="basic-addon3">Search: </span>
+                      <select type="search" name="userName" id="searchPen" class="form-control" placeholder="Search for Pen">
+                        <option></option>
+                      </select>
+                    </div>
+
+                     <div id="editPenDetails" style="display: none;">
+                        <div class="input-group" id="editPENLOC">
+                        <span class="input-group-addon" id="basic-addon3">Location: </span>
+                        <select class="form-control" id="editfarm2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
+                              <option value="" disabled selected>Select farm location...</option> 
+                      </select>
+                      </div>
+                      <br/>
+                      <div class="input-group" id="editPENHOUSE">
+                        <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                         <select class='form-control'  id='edithouse2' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
+                                <option value='' disabled selected>Select house...</option> 
+                      </select> 
+                      </div>
+                      <br/>
+                      <div class="input-group" id="editPENNUM">
+                        <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
+                        <input type="text" class="form-control" id="editpennum" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
+                      </div>
+                      <br/>
+                      <div class="input-group" id="editPENFXN">
+                        <span class="input-group-addon" id="basic-addon3">Function: </span>
+                        <select  class="form-control" id="editfunc2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
+                          <option value="" disabled selected>Select function</option>
+                          <option value="Weaning">Weaning</option> 
+                          <option value="Growing">Growing</option> 
+                          <option value="Medication">Medication</option>
+                          <option value="Mortality">Mortality</option> 
+                        </select> 
+                      </div>
+                      <div class="modal-footer" >
+                        <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save pen's details." id="saveEditPen">Add</button>
+                      </div>
+
+                </div>
           </div>
-          <div class="modal-footer" >
-            <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save pen's details." id="savePen">Add</button>
           </div>
         </div>
       </div>
@@ -317,27 +498,70 @@
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add Parent</h4>
+            <h4 class="modal-title">Parent</h4>
           </div>
           <div class="modal-body">
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Label: </span>
-              <select  class="form-control" id="parentLabel"  style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the parent you will add is boar or sow." required> 
-                      <option value="" disabled selected>Select parent label</option> 
-                      <option value="boar">Boar</option> 
-                      <option value="sow">Sow</option> 
-              </select> 
+
+            <div id="chooseToDoParent">
+              <button id="addParentBtn" class="btn btn-default">Add Parent</button>
+              <br/><br/>
+              <button id="editParentBtn" class="btn btn-default">Edit Parent</button>
             </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Label ID: </span>
-              <input type="text" class="form-control" id="label_id" data-trigger= "hover" data-toggle="tooltip" title="Input the label id of the new boar/sow. Ex: AB123" aria-describedby="basic-addon3">
+            
+            <div id="addParentDetails" style="display: none;">
+                <button id="backToParent1">Back</button>
+                <h2 class="modal-title">Add Parent</h2>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Label: </span>
+                <select  class="form-control" id="parentLabel"  style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the parent you will add is boar or sow." required> 
+                        <option value="" disabled selected>Select parent label</option> 
+                        <option value="boar">Boar</option> 
+                        <option value="sow">Sow</option> 
+                </select> 
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Label ID: </span>
+                <input type="text" class="form-control" id="label_id" data-trigger= "hover" data-toggle="tooltip" title="Input the label id of the new boar/sow. Ex: AB123" aria-describedby="basic-addon3">
+              </div>
+            <div class="modal-footer" >
+              <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save parent's details." id="saveParent">Add</button>
             </div>
           </div>
-          <div class="modal-footer" >
-            <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save parent's details." id="saveParent">Add</button>
-          </div>
+          
+           <div id="editParent" style="display: none;">
+                <button id="backToParent2">Back</button>
+                <h2 class="modal-title">Edit Parent</h2>
+
+                <div class="input-group" id="editParentSearch">
+                    <center></center>
+                    
+                    <span class="input-group-addon" id="basic-addon3">Search: </span>
+                    <select type="search" name="userName" id="searchParent" class="form-control" placeholder="Search for parent">
+                    </option></option>
+                  </select>
+                </div>
+            
+                <div id="editParentDetails" style="display: none;">
+                     <div class="input-group" id="editPARENTLABEL">
+                      <span class="input-group-addon" id="basic-addon3">Label: </span>
+                      <select  class="form-control" id="editparentLabel"  style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the parent you will add is boar or sow." required> 
+                              <option value="" disabled selected>Select parent label</option> 
+                              <option value="boar">Boar</option> 
+                              <option value="sow">Sow</option> 
+                      </select> 
+                    </div>
+                    <br/>
+                    <div class="input-group" id="editPARENTLABELID">
+                      <span class="input-group-addon" id="basic-addon3">Label ID: </span>
+                      <input type="text" class="form-control" id="editlabel_id" data-trigger= "hover" data-toggle="tooltip" title="Input the label id of the new boar/sow. Ex: AB123" aria-describedby="basic-addon3">
+                    </div>
+                  <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save parent's details." id="saveEditParent">Edit</button>
+                  </div>
+              </div>
+               </div>
+      </div>
         </div>
       </div>
     </div>
@@ -348,17 +572,54 @@
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add Breed</h4>
+            <h4 class="modal-title">Breed</h4>
           </div>
           <div class="modal-body">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Breed Name: </span>
-              <input type="text" class="form-control" id="breed_name" data-trigger= "hover" data-toggle="tooltip" title="Input new breed's name." aria-describedby="basic-addon3">
+             <div id="chooseToDoBreed">
+              <button id="addBreedBtn" class="btn btn-default">Add Breed</button>
+              <br/><br/>
+              <button id="editBreedBtn" class="btn btn-default">Edit Breed</button>
             </div>
+
+
+            <div id="addBreedDetails" style="display: none;">
+                <button id="backToBreed1">Back</button>
+                <h2 class="modal-title">Add Breed</h2>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon3">Breed Name: </span>
+                  <input type="text" class="form-control" id="searchBreed" data-trigger= "hover" data-toggle="tooltip" title="Input new breed's name." aria-describedby="basic-addon3">
+                </div>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save breed's details." id="saveBreed">Add</button>
+              </div>
           </div>
-          <div class="modal-footer" >
-            <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save breed's details." id="saveBreed">Add</button>
-          </div>
+
+          <div id="editBreed" style="display: none;">
+                <button id="backToBreed2">Back</button>
+                <h2 class="modal-title">Edit Breed</h2>
+
+                <div class="input-group" id="editBreedSearch">
+                    <center></center>
+                    
+                    <span class="input-group-addon" id="basic-addon3">Search: </span>
+                    <select type="search" id="searchBreed" class="form-control" placeholder="Search for breed">
+                      <option></option>
+                     </select>
+                </div>
+            
+                <div id="editBreedDetails" style="display: none;">
+
+                     <div class="input-group" id="editBREEDNAME">
+                      <span class="input-group-addon" id="basic-addon3">Breed Name: </span>
+                      <input type="text" class="form-control" id="breed_name" data-trigger= "hover" data-toggle="tooltip" title="Input new breed's name." aria-describedby="basic-addon3">
+                    </div>
+                  <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save breed's details." id="saveEditBreed">Edit</button>
+                  </div>
+              </div>
+
+        </div>
+      </div>
         </div>
       </div>
     </div>
@@ -370,25 +631,67 @@
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add Feed</h4>
+            <h4 class="modal-title">Feed</h4>
           </div>
           <div class="modal-body">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Feed Name: </span>
-              <input type="text" class="form-control" id="feed_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new feed." aria-describedby="basic-addon3">
+
+            <div id="chooseToDoFeed">
+              <button id="addFeedBtn" class="btn btn-default">Add Feed</button>
+              <br/><br/>
+              <button id="editFeedBtn" class="btn btn-default">Edit Feed</button>
             </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Feed Type: </span>
-              <input type="text" class="form-control" id="feed_type" data-trigger= "hover" data-toggle="tooltip" title="Input the type of the new feed. Ex: Type 1 " aria-describedby="basic-addon3">
+
+            <div id="addFeedDetails" style="display: none;">
+                <button id="backToFeed1">Back</button>
+                <h2 class="modal-title">Add Feed</h2>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Feed Name: </span>
+                <input type="text" class="form-control" id="feed_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new feed." aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Feed Type: </span>
+                <input type="text" class="form-control" id="feed_type" data-trigger= "hover" data-toggle="tooltip" title="Input the type of the new feed. Ex: Type 1 " aria-describedby="basic-addon3">
+              </div>
+            <div class="modal-footer" >
+              <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveFeed">Add</button>
             </div>
           </div>
-          <div class="modal-footer" >
-            <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveFeed">Add</button>
+
+
+          <div id="editFeed" style="display: none;">
+                <button id="backToFeed2">Back</button>
+                <h2 class="modal-title">Edit Feed</h2>
+
+                <div class="input-group" id="editFeedSearch">
+                    <center></center>
+                    
+                    <span class="input-group-addon" id="basic-addon3">Search: </span>
+                    <select type="search" id="searchFeed" class="form-control" placeholder="Search for breed">
+                      <option></option>
+                     </select>
+                </div>
+
+                <div id="editFeedDetails" style="display: none;">
+                  <div class="input-group" id="editFEEDNAME">
+                <span class="input-group-addon" id="basic-addon3">Feed Name: </span>
+                <input type="text" class="form-control" id="edit_feed_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new feed." aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group" id="editFEEDTYPE">
+                <span class="input-group-addon" id="basic-addon3">Feed Type: </span>
+                <input type="text" class="form-control" id="edit_feed_type" data-trigger= "hover" data-toggle="tooltip" title="Input the type of the new feed. Ex: Type 1 " aria-describedby="basic-addon3">
+              </div>
+            <div class="modal-footer" >
+              <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveEditFeed">Edit</button>
+            </div>
+                </div>
+            </div>
+
           </div>
         </div>
+        </div>
       </div>
-    </div>
 
     <!-- Modal for Add Med -->
      <div id="myModalMeds" class="modal fade" role="dialog" >
@@ -396,25 +699,67 @@
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
-            <h4 class="modal-title">Add Medication</h4>
+            <h4 class="modal-title">Medication</h4>
           </div>
           <div class="modal-body">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Med Name: </span>
-              <input type="text" class="form-control" id="med_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new medication." aria-describedby="basic-addon3">
+
+            <div id="chooseToDoMeds">
+              <button id="addMedsBtn" class="btn btn-default">Add Meds</button>
+              <br/><br/>
+              <button id="editMedsBtn" class="btn btn-default">Edit Meds</button>
             </div>
-            <br/>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Med Type: </span>
-              <input type="text" class="form-control" id="med_type" data-trigger= "hover" data-toggle="tooltip" title="Input the type of the new medication. Ex: Type 2" aria-describedby="basic-addon3">
+
+            <div id="addMedsDetails" style="display: none;">
+                <button id="backToMeds1">Back</button>
+                <h2 class="modal-title">Add Meds</h2>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Meds Name: </span>
+                <input type="text" class="form-control" id="med_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new feed." aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Meds Type: </span>
+                <input type="text" class="form-control" id="med_type" data-trigger= "hover" data-toggle="tooltip" title="Input the type of the new feed. Ex: Type 1 " aria-describedby="basic-addon3">
+              </div>
+            <div class="modal-footer" >
+              <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveMeds">Add</button>
             </div>
           </div>
-          <div class="modal-footer" >
-            <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save medication details." id="saveMeds">Add</button>
+
+
+          <div id="editMeds" style="display: none;">
+                <button id="backToMeds2">Back</button>
+                <h2 class="modal-title">Edit Meds</h2>
+
+                <div class="input-group" id="editMedsSearch">
+                    <center></center>
+                    
+                    <span class="input-group-addon" id="basic-addon3">Search: </span>
+                    <select type="search" id="searchMeds" class="form-control" placeholder="Search for medications">
+                      <option></option>
+                     </select>
+                </div>
+
+                <div id="editMedsDetails" style="display: none;">
+                  <div class="input-group" id="editMEDNAME">
+                <span class="input-group-addon" id="basic-addon3">Meds Name: </span>
+                <input type="text" class="form-control" id="edit_med_name" data-trigger= "hover" data-toggle="tooltip" title="Edit name of medication." aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group" id="editMEDTYPE">
+                <span class="input-group-addon" id="basic-addon3">Meds Type: </span>
+                <input type="text" class="form-control" id="edit_med_type" data-trigger= "hover" data-toggle="tooltip" title="Edit the type of the new feed. Ex: Type 1 " aria-describedby="basic-addon3">
+              </div>
+            <div class="modal-footer" >
+              <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveEditMeds">Edit</button>
+            </div>
+                </div>
+            </div>
+
           </div>
         </div>
+        </div>
       </div>
-    </div>
 
      
     <script type="text/javascript"> 
@@ -447,28 +792,11 @@
           $('#addUserDetails').attr("style", "display: none");
         });
 
-         $('#searchUser').on('focusout',function(){
+         
+         $('#searchUser').on('change',function(){
           var name = $("#searchUser").val();
-          console.log(name);
-          $.ajax({
-            url : '/phpork/gateway/admin.php',
-            type: 'post',
-            data: {
-              type: '1',
-               name_startsWith: name
-            },
-             success: function(data) {
-              var data = jQuery.parseJSON(data);
-              for(i=0; i<data.length;i++){
-               $('#displayUser').append($("<button id='"+i+"' onclick='viewDetailsUser("+data[i].user_id+")'></button>").text(data[i].user_name));
-
-             
-              }
-            }
-            
-          });       
+          viewDetailsUser(name);
         });
-
 
 
         $('#backToUser1').on("click",function() {
@@ -523,7 +851,7 @@
 
           });
 
-        $('#saveEditUser').on("click",function(){
+         $('#saveEditUser').on("click",function(){
             var user = $('#userId').val();
             var prev_uname = $('#prev_uname').val();
             var user_name = $('#unameEdit').val();
@@ -560,11 +888,59 @@
 
           });
 
+//FARM
+
+          /*Farm*/
 
          $('#addFarm').on("click",function() {
            e.preventDefault(); 
             $('#myModalFarm').modal('show');
-          });
+            $('#chooseToDoFarm').attr("style", "display: inline-block");
+            $('#addFarmDetails').attr("style", "display: none");
+             $('#editFarm').attr("style", "display: none");
+          
+        });
+
+          $('#addFarmBtn').on("click",function() {
+          
+            $('#addFarmDetails').attr("style", "display: inline-block");
+             $('#editFarm').attr("style", "display: none");
+             $('#editFarmSearch').attr("style", "display: none");
+             $('#editFarmDetails').attr("style", "display: none");
+              $('#chooseToDoFarm').attr("style", "display: none");
+          
+        });
+           $('#editFarmBtn').on("click",function() {
+            $('#editFarm').attr("style", "display: inline-block");
+            $('#editFarmSearch').attr("style", "display: inline-block");
+            $('#editFarmDetails').attr("style", "display: none");
+            $('#addFarmDetails').attr("style", "display: none");
+            $('#chooseToDoFarm').attr("style", "display: none");
+          
+        });
+
+        $('#farmOptions').on('change',function(){
+          var id = $("#farmOptions").val();
+          viewDetailsFarm(id);
+        });
+
+
+         $('#backToFarm1').on("click",function() {
+          
+            $('#editFarm').attr("style", "display: none");
+            $('#addFarmDetails').attr("style", "display: none");
+            $('#chooseToDoFarm').attr("style", "display: inline-block");
+          
+        });
+
+          $('#backToFarm2').on("click",function() {
+          
+            $('#editFarm').attr("style", "display: none");
+            $('#addFarmDetails').attr("style", "display: none");
+            $('#chooseToDoFarm').attr("style", "display: inline-block");
+          
+        });
+
          
          $('#saveFarm').on("click",function(){
           var locName = $("#farmname").val(); 
@@ -598,11 +974,54 @@
        });
 
          /*Add House*/
-          $('#addHouse').on("click",function() {
-             e.preventDefault(); 
+        $('#addHouse').on("click",function() {
+           e.preventDefault(); 
             $('#myModalHouse').modal('show');
-          });
+            $('#chooseToDoHouse').attr("style", "display: inline-block");
+            $('#addHouseDetails').attr("style", "display: none");
+             $('#editHouse').attr("style", "display: none");
           
+        });
+
+          $('#addHouseBtn').on("click",function() {
+         
+            $('#addHouseDetails').attr("style", "display: inline-block");
+             $('#editHouse').attr("style", "display: none");
+             $('#editHouseSearch').attr("style", "display: none");
+             $('#editHouseDetails').attr("style", "display: none");
+              $('#chooseToDoHouse').attr("style", "display: none");
+          
+        });
+           $('#editHouseBtn').on("click",function() {
+            $('#editHouse').attr("style", "display: inline-block");
+            $('#editHouseSearch').attr("style", "display: inline-block");
+            $('#editHouseDetails').attr("style", "display: none");
+            $('#addHouseDetails').attr("style", "display: none");
+            $('#chooseToDoHouse').attr("style", "display: none");
+          
+        });
+           $('#searchHouse').on('change',function(){
+              var id = $("#searchHouse").val();
+              viewDetailsHouse(id);
+            });
+
+        $('#backToHouse1').on("click",function() {
+          
+            $('#editHouse').attr("style", "display: none");
+            $('#addHouseDetails').attr("style", "display: none");
+            $('#chooseToDoHouse').attr("style", "display: inline-block");
+          
+        });
+
+          $('#backToHouse2').on("click",function() {
+          
+            $('#editHouse').attr("style", "display: none");
+            $('#addHouseDetails').attr("style", "display: none");
+            $('#chooseToDoHouse').attr("style", "display: inline-block");
+          
+        });
+        
+
 
         $('#saveHouse').on("click",function(){
           var location = $('#loc').val();
@@ -641,7 +1060,53 @@
 
 
         /*Add Pen */
-        $('#farm').on("change", function(e) {
+        $('#farm1').on("change", function(e) {
+            e.preventDefault(); 
+              var location = $('#farm1').val();
+
+              $.ajax({
+                url: '/phpork/gateway/house.php',
+                type: 'post',
+                data : {
+                  getHouseByLoc: '1',
+                  loc: location
+                },
+                success: function (data) { 
+                   var data = jQuery.parseJSON(data); 
+                      for(i=0;i<data.length;i++){
+                        $("#house1").append($("<option></option>").attr("value",data[i].h_id)
+                          .attr("name","house")
+                          .text("House " +data[i].h_no)); 
+                      }
+
+                    } 
+              });
+           });
+
+        $('#house1').on("change", function(e) {
+            e.preventDefault(); 
+              var house = $('#house1').val();
+
+              $.ajax({
+                url: '/phpork/gateway/pen.php',
+                type: 'post',
+                data : {
+                  getPenByHouse: '1',
+                  h_id: house
+                },
+                success: function (data) { 
+                   var data = jQuery.parseJSON(data); 
+                      for(i=0;i<data.length;i++){
+                        $("#searchPen").append($("<option></option>").attr("value",data[i].pen_id)
+                          .attr("name","pen")
+                          .text("Pen " +data[i].pen_no)); 
+                      }
+
+                    } 
+              });
+           });
+
+        $('#farm2').on("change", function(e) {
             e.preventDefault(); 
               var location = $('#farm').val();
 
@@ -655,7 +1120,7 @@
                 success: function (data) { 
                    var data = jQuery.parseJSON(data); 
                       for(i=0;i<data.length;i++){
-                        $("#house").append($("<option></option>").attr("value",data[i].h_id)
+                        $("#house2").append($("<option></option>").attr("value",data[i].h_id)
                           .attr("name","house")
                           .text("House " +data[i].h_no)); 
                       }
@@ -667,7 +1132,49 @@
          $('#addPen').on("click",function() {
            e.preventDefault(); 
             $('#myModalPen').modal('show');
-          });
+            $('#chooseToDoPen').attr("style", "display: inline-block");
+            $('#addPenDetails').attr("style", "display: none");
+             $('#editPen').attr("style", "display: none");
+          
+        });
+
+          $('#addPenBtn').on("click",function() {
+         
+            $('#addPenDetails').attr("style", "display: inline-block");
+             $('#editPen').attr("style", "display: none");
+             $('#editPenSearch').attr("style", "display: none");
+             $('#editPenDetails').attr("style", "display: none");
+              $('#chooseToDoPen').attr("style", "display: none");
+          
+        });
+           $('#editPenBtn').on("click",function() {
+            $('#editPen').attr("style", "display: inline-block");
+            $('#editPenSearch').attr("style", "display: inline-block");
+            $('#editPenDetails').attr("style", "display: none");
+            $('#addPenDetails').attr("style", "display: none");
+            $('#chooseToDoPen').attr("style", "display: none");
+          
+        });
+           $('#searchPen').on('change',function(){
+              var id = $("#searchPen").val();
+              viewDetailsPen(id);
+            });
+
+        $('#backToPen1').on("click",function() {
+          
+            $('#editPen').attr("style", "display: none");
+            $('#addPenDetails').attr("style", "display: none");
+            $('#chooseToDoPen').attr("style", "display: inline-block");
+          
+        });
+
+          $('#backToPen2').on("click",function() {
+          
+            $('#editPen').attr("style", "display: none");
+            $('#addPenDetails').attr("style", "display: none");
+            $('#chooseToDoPen').attr("style", "display: inline-block");
+          
+        });
 
          $('#savePen').on("click",function(){
           var houseno = $("#house").val();
@@ -703,11 +1210,52 @@
          /*End of Add Pen*/
 
          /*Add Parent*/
-         $('#addParent').on("click",function() {
-          // e.preventDefault(); 
+         $('#addParent').on("click",function(e) {
+           e.preventDefault(); 
             $('#myModalParent').modal('show');
-          });
+            $('#chooseToDoParent').attr("style", "display: inline-block");
+            $('#addParentDetails').attr("style", "display: none");
+             $('#editParent').attr("style", "display: none");
+          
+        });
 
+          $('#addParentBtn').on("click",function() {
+         
+            $('#addParentDetails').attr("style", "display: inline-block");
+             $('#editParent').attr("style", "display: none");
+             $('#editParentSearch').attr("style", "display: none");
+             $('#editParentDetails').attr("style", "display: none");
+              $('#chooseToDoParent').attr("style", "display: none");
+          
+        });
+           $('#editParentBtn').on("click",function() {
+            $('#editParent').attr("style", "display: inline-block");
+            $('#editParentSearch').attr("style", "display: inline-block");
+            $('#editParentDetails').attr("style", "display: none");
+            $('#addParentDetails').attr("style", "display: none");
+            $('#chooseToDoParent').attr("style", "display: none");
+          
+        });
+           $('#searchParent').on('change',function(){
+              var id = $("#searchParent").val();
+              viewDetailsParent(id);
+            });
+
+        $('#backToParent1').on("click",function() {
+          
+            $('#editParent').attr("style", "display: none");
+            $('#addParentDetails').attr("style", "display: none");
+            $('#chooseToDoParent').attr("style", "display: inline-block");
+          
+        });
+
+          $('#backToParent2').on("click",function() {
+          
+            $('#editParent').attr("style", "display: none");
+            $('#addParentDetails').attr("style", "display: none");
+            $('#chooseToDoParent').attr("style", "display: inline-block");
+          
+        });
          $('#saveParent').on("click",function(){
           var label = $("#parentLabel").val();
           var label_id = $('#label_id').val();
@@ -742,7 +1290,50 @@
          $('#addBreed').on("click",function() {
            e.preventDefault(); 
             $('#myModalBreed').modal('show');
-          });
+            $('#chooseToDoBreed').attr("style", "display: inline-block");
+            $('#addBreedDetails').attr("style", "display: none");
+             $('#editBreed').attr("style", "display: none");
+          
+        });
+
+          $('#addBreedBtn').on("click",function() {
+          console.log("add");
+            $('#addBreedDetails').attr("style", "display: inline-block");
+             $('#editBreed').attr("style", "display: none");
+             $('#editBreedSearch').attr("style", "display: none");
+             $('#editBreedDetails').attr("style", "display: none");
+              $('#chooseToDoBreed').attr("style", "display: none");
+          
+        });
+           $('#editBreedBtn').on("click",function() {
+            $('#editBreed').attr("style", "display: inline-block");
+            $('#editBreedSearch').attr("style", "display: inline-block");
+            $('#editBreedDetails').attr("style", "display: none");
+            $('#addBreedDetails').attr("style", "display: none");
+            $('#chooseToDoBreed').attr("style", "display: none");
+          
+        });
+
+        $('#searchBreed').on('change',function(){
+              var id = $("#searchBreed").val();
+              viewDetailsBreed(id);
+            });
+
+        $('#backToBreed1').on("click",function() {
+          
+            $('#editBreed').attr("style", "display: none");
+            $('#addBreedDetails').attr("style", "display: none");
+            $('#chooseToDoBreed').attr("style", "display: inline-block");
+          
+        });
+
+          $('#backToBreed2').on("click",function() {
+          
+            $('#editBreed').attr("style", "display: none");
+            $('#addBreedDetails').attr("style", "display: none");
+            $('#chooseToDoBreed').attr("style", "display: inline-block");
+          
+        });
 
          $('#saveBreed').on("click",function(){
           var breed_name = $("#breed_name").val();
@@ -773,7 +1364,50 @@
          $('#addFeed').on("click",function() {
            e.preventDefault(); 
             $('#myModalFeed').modal('show');
+            $('#chooseToDoFeed').attr("style", "display: inline-block");
+            $('#addFeedDetails').attr("style", "display: none");
+             $('#editFeed').attr("style", "display: none");
+          
+        });
+
+          $('#addFeedBtn').on("click",function() {
+          console.log("add");
+            $('#addFeedDetails').attr("style", "display: inline-block");
+             $('#editFeed').attr("style", "display: none");
+             $('#editFeedSearch').attr("style", "display: none");
+             $('#editFeedDetails').attr("style", "display: none");
+              $('#chooseToDoFeed').attr("style", "display: none");
+          
+        });
+           $('#editFeedBtn').on("click",function() {
+            $('#editFeed').attr("style", "display: inline-block");
+            $('#editFeedSearch').attr("style", "display: inline-block");
+            $('#editFeedDetails').attr("style", "display: none");
+            $('#addFeedDetails').attr("style", "display: none");
+            $('#chooseToDoFeed').attr("style", "display: none");
+          
+        });
+
+        $('#searchFeed').on('change',function(){
+              var id = $("#searchFeed").val();
+              viewDetailsFeed(id);
+            });
+
+        $('#backToFeed1').on("click",function() {
+          
+            $('#editFeed').attr("style", "display: none");
+            $('#addFeedDetails').attr("style", "display: none");
+            $('#chooseToDoFeed').attr("style", "display: inline-block");
+          
+        });
+
+          $('#backToFeed2').on("click",function() {
+          
+            $('#editFeed').attr("style", "display: none");
+            $('#addFeedDetails').attr("style", "display: none");
+            $('#chooseToDoFeed').attr("style", "display: inline-block");
           });
+          
 
          $('#saveFeed').on("click",function(){
           var feed_name = $("#feed_name").val();
@@ -808,10 +1442,53 @@
 
 
          /*Add Med*/
-         $('#addMeds').on("click",function() {
+          $('#addMeds').on("click",function() {
            e.preventDefault(); 
             $('#myModalMeds').modal('show');
+            $('#chooseToDoMeds').attr("style", "display: inline-block");
+            $('#addMedsDetails').attr("style", "display: none");
+             $('#editMeds').attr("style", "display: none");
+          
+        });
+
+          $('#addMedsBtn').on("click",function() {
+          console.log("add");
+            $('#addMedsDetails').attr("style", "display: inline-block");
+             $('#editMeds').attr("style", "display: none");
+             $('#editMedsSearch').attr("style", "display: none");
+             $('#editMedsDetails').attr("style", "display: none");
+              $('#chooseToDoMeds').attr("style", "display: none");
+          
+        });
+           $('#editMedsBtn').on("click",function() {
+            $('#editMeds').attr("style", "display: inline-block");
+            $('#editMedsSearch').attr("style", "display: inline-block");
+            $('#editMedsDetails').attr("style", "display: none");
+            $('#addMedsDetails').attr("style", "display: none");
+            $('#chooseToDoMeds').attr("style", "display: none");
+          
+        });
+
+        $('#searchMeds').on('change',function(){
+              var id = $("#searchMeds").val();
+              viewDetailsMeds(id);
+            });
+
+        $('#backToMeds1').on("click",function() {
+          
+            $('#editMeds').attr("style", "display: none");
+            $('#addMedsDetails').attr("style", "display: none");
+            $('#chooseToDoMeds').attr("style", "display: inline-block");
+          
+        });
+
+          $('#backToMeds2').on("click",function() {
+          
+            $('#editMeds').attr("style", "display: none");
+            $('#addMedsDetails').attr("style", "display: none");
+            $('#chooseToDoMeds').attr("style", "display: inline-block");
           });
+
 
          $('#saveMeds').on("click",function(){
           var med_name = $("#med_name").val();
@@ -846,7 +1523,23 @@
           
 
   
-
+        $.ajax({
+          url: '/phpork/gateway/auth.php',
+          type: 'post',
+          data : {
+            ddl_user: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data);
+                for(i=0;i<data.length;i++){
+                  $("#searchUser").append($("<option></option>").attr("value",data[i].user_id)
+                    .attr("name","user")
+                    .text(data[i].username)); 
+                }
+                   
+              } 
+          
+        });
     //select farm
     $.ajax({
           url: '/phpork/gateway/location.php',
@@ -855,27 +1548,24 @@
             ddl_location: '1'
           },
           success: function (data) { 
-             var data = jQuery.parseJSON(data); 
+             var data = jQuery.parseJSON(data);
+
                 for(i=0;i<data.length;i++){
                   $("#farm").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
                     .text(data[i].loc_name)); 
-                }
+                   $("#farm1").append($("<option></option>").attr("value",data[i].loc_id)
+                    .attr("name","location")
+                    .text(data[i].loc_name)); 
                    
-              } 
-          
-        });
-     //select farm
-    $.ajax({
-          url: '/phpork/gateway/location.php',
-          type: 'post',
-          data : {
-            ddl_location: '1'
-          },
-          success: function (data) { 
-             var data = jQuery.parseJSON(data); 
-                for(i=0;i<data.length;i++){
-                  $("#loc").append($("<option></option>").attr("value",data[i].loc_id)
+                   $("#farmOptions").append($("<option></option>").attr("value",data[i].loc_id)
+                    .attr("name","location")
+                    .text(data[i].loc_name)); 
+
+                   $("#loc1").append($("<option></option>").attr("value",data[i].loc_id)
+                    .attr("name","location")
+                    .text(data[i].loc_name));
+                  $("#loc2").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
                     .text(data[i].loc_name)); 
                 }
@@ -883,7 +1573,102 @@
               } 
           
         });
-     });
+
+        $('#loc1').on("change", function(e) {
+            e.preventDefault(); 
+              var location = $('#loc1').val();
+
+              $.ajax({
+                url: '/phpork/gateway/house.php',
+                type: 'post',
+                data : {
+                  getHouseByLoc: '1',
+                  loc: location
+                },
+                success: function (data) { 
+                   var data = jQuery.parseJSON(data); 
+                      for(i=0;i<data.length;i++){
+                        $("#searchHouse").append($("<option></option>").attr("value",data[i].h_id)
+                          .attr("name","house")
+                          .text("House " +data[i].h_no)); 
+                      }
+
+                    } 
+              });
+           });
+
+          $.ajax({
+          url: '/phpork/gateway/pig.php',
+          type: 'post',
+          data : {
+            ddl_parent: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data);
+                for(i=0;i<data.length;i++){
+                  $("#searchParent").append($("<option></option>").attr("value",data[i].parent_id)
+                    .attr("name","user")
+                    .text(data[i].label+ "-" +data[i].label_id)); 
+                }
+                   
+              } 
+          
+        });
+
+          $.ajax({
+          url: '/phpork/gateway/pig.php',
+          type: 'post',
+          data : {
+            ddl_breeds: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data);
+                for(i=0;i<data.length;i++){
+                  $("#searchBreed").append($("<option></option>").attr("value",data[i].brid)
+                    .attr("name","breed")
+                    .text(data[i].brname)); 
+                }
+                   
+              } 
+          
+        });
+
+          $.ajax({
+          url: '/phpork/gateway/feeds.php',
+          type: 'post',
+          data : {
+            ddl_feeds: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data);
+                for(i=0;i<data.length;i++){
+                  $("#searchFeed").append($("<option></option>").attr("value",data[i].feed_id)
+                    .attr("name","user")
+                    .text(data[i].feed_name)); 
+                }
+                   
+              } 
+          
+        });
+           $.ajax({
+          url: '/phpork/gateway/meds.php',
+          type: 'post',
+          data : {
+            ddl_meds: '1'
+          },
+          success: function (data) { 
+             var data = jQuery.parseJSON(data);
+                for(i=0;i<data.length;i++){
+                  $("#searchMeds").append($("<option></option>").attr("value",data[i].med_id)
+                    .attr("name","user")
+                    .text(data[i].med_name)); 
+                }
+                   
+              } 
+          
+        });
+    });
+
 
     </script>
     <script>
@@ -957,19 +1742,248 @@
                   $('#uTypeEdit').attr("placeholder", data[0].user_type);
                   $('#passwordEdit').attr("placeholder", data[0].password);
 
-                  $('#editUNAME').append($("<input>/<input>").attr("type", "hidden")
+                  $('#editUNAME').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_uname")
                                                               .attr("value", data[0].user_name));
-                   $('#editUTYPE').append($("<input>/<input>").attr("type", "hidden")
+                  $('#editUNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "user_id")
+                                                              .attr("value", data[0].user_id));
+
+                   $('#editUTYPE').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_utype")
                                                               .attr("value", data[0].user_type));
-                    $('#editPWORD').append($("<input>/<input>").attr("type", "hidden")
+
+                    $('#editPWORD').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_pword")
                                                               .attr("value", data[0].password));
+
+                    $('#editUserSearch').attr("style", "display: none");
+                    $('#editUserDetails').attr("style", "display: inline-block");
                 }  
             });
 
+            
+
   }
+
+   function viewDetailsFarm(id){
+     $.ajax({
+              url: '/phpork/gateway/location.php',
+              type: 'post',
+              data : {
+               getLocDetails: '1',
+               loc: id
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data);
+                  $('#farmnameEdit').attr("placeholder", data[0].loc_name);
+                  $('#faddEdit').attr("placeholder", data[0].addr);
+
+                  $('#editFARMNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_loc_name")
+                                                              .attr("value", data[0].loc_name));
+                  $('#editFARMNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "loc_id")
+                                                              .attr("value", data[0].loc_id));
+                   $('#editFADD').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_addr")
+                                                              .attr("value", data[0].addr));
+
+                   $('#editFarmSearch').attr("style", "display: none");
+                  $('#editFarmDetails').attr("style", "display: inline-block");
+                   
+                }  
+            });
+  }
+
+      function viewDetailsHouse(id){
+     $.ajax({
+              url: '/phpork/gateway/house.php',
+              type: 'post',
+              data : {
+               getHouseDetails: '1',
+               h_id: id
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data);
+                  $('#editlabel_id').attr("placeholder", data[0].label_id);
+                   $('#editparentLabel').attr("placeholder", data[0].label);
+                  
+
+
+                  $('#editHOUSELOC').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_loc_id")
+                                                              .attr("value", data[0].loc_id));
+                  $('#editHOUSENUM').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_h_no")
+                                                              .attr("value", data[0].h_no));
+                  $('#editHOUSENUM').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_h_id")
+                                                              .attr("value", data[0].h_id));
+                  $('#editHOUSENAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_h_name")
+                                                              .attr("value", data[0].h_name));
+                   $('#editHOUSEFXN').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_fxn")
+                                                              .attr("value", data[0].fxn));
+
+                   $('#editHouseSearch').attr("style", "display: none");
+                  $('#editHouseDetails').attr("style", "display: inline-block");
+                   
+                }  
+            });
+      }
+
+       function viewDetailsPen(id){
+     $.ajax({
+              url: '/phpork/gateway/pen.php',
+              type: 'post',
+              data : {
+               getPenDetails: '1',
+               pen: id
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data);
+                  $('#editfarm2').attr("placeholder", data[0].loc_id);
+                   $('#edithouse2').attr("placeholder", data[0].h_no);
+                  $('#editpennum').attr("placeholder", data[0].h_name);
+                  $('#editfunc2').attr("placeholder", data[0].fxn);
+
+
+                  $('#editPENLOC').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_pen_loc")
+                                                              .attr("value", data[0].loc_id));
+                  $('#editPENNUM').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_pen_no")
+                                                              .attr("value", data[0].pen_no));
+                  $('#editPENNUM').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_pen_id")
+                                                              .attr("value", data[0].pen_id));
+                   $('#editPENFXN').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_pen_fxn")
+                                                              .attr("value", data[0].fxn));
+
+                   $('#editPenSearch').attr("style", "display: none");
+                  $('#editPenDetails').attr("style", "display: inline-block");
+                   
+                }  
+            });
+      }
+
+      function viewDetailsParent(id){
+     $.ajax({
+              url: '/phpork/gateway/pig.php',
+              type: 'post',
+              data : {
+               getParentDetails: '1',
+               parent: id
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data);
+                  $('#editfarm2').attr("placeholder", data[0].loc_id);
+                   $('#edithouse2').attr("placeholder", data[0].h_no);
+                  $('#editpennum').attr("placeholder", data[0].h_name);
+                  $('#editfunc2').attr("placeholder", data[0].fxn);
+
+
+                  $('#editPARENTLABELID').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_label_id")
+                                                              .attr("value", data[0].label_id));
+                  $('#editPARENTLABELID').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_parent_id")
+                                                              .attr("value", data[0].parent_id));
+                  $('#editPARENTLABEL').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_parent_label")
+                                                              .attr("value", data[0].label));
+                   
+                   $('#editParentSearch').attr("style", "display: none");
+                  $('#editParentDetails').attr("style", "display: inline-block");
+                   
+                }  
+            });
+      }
+            
+    function viewDetailsBreed(id){
+     $.ajax({
+              url: '/phpork/gateway/pig.php',
+              type: 'post',
+              data : {
+               getBreed: '1',
+               breed_id: id
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data);
+                  $('#breednameEdit').attr("placeholder", data[0].breed_name);
+
+                  $('#editBREEDNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_br_name")
+                                                              .attr("value", data[0].breed_name));
+                  $('#editBREEDNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_br_id")
+                                                              .attr("value", data[0].breed_id));
+                  
+                   $('#editBreedSearch').attr("style", "display: none");
+                  $('#editBreedDetails').attr("style", "display: inline-block");
+                   
+                }  
+            });
+      }
+      function viewDetailsFeed(id){
+     $.ajax({
+              url: '/phpork/gateway/feeds.php',
+              type: 'post',
+              data : {
+               getFeedsDetails: '1',
+               feed: id
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data);
+                  $('#edit_feed_name').attr("placeholder", data[0].fname);
+                  $('#edit_feed_type').attr("placeholder", data[0].ftype);
+
+                  $('#editFEEDNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_feed_name")
+                                                              .attr("value", data.fname));
+                  $('#editFEEDNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_feed_type")
+                                                              .attr("value", data.ftype));
+                  
+                   $('#editFeedSearch').attr("style", "display: none");
+                  $('#editFeedDetails').attr("style", "display: inline-block");
+                   
+                }  
+            });
+      }
+       function viewDetailsMeds(id){
+         $.ajax({
+              url: '/phpork/gateway/meds.php',
+              type: 'post',
+              data : {
+               getMedsDetails: '1',
+               meds: id
+              },
+              success: function (data) { 
+                var data = jQuery.parseJSON(data);
+                  $('#edit_med_name').attr("placeholder", data.mname);
+                  $('#edit_med_type').attr("placeholder", data.mtype);
+
+                  $('#editMEDSNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_med_name")
+                                                              .attr("value", data[0].mname));
+                  $('#editMEDSNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_med_id")
+                                                              .attr("value", data[0].mid));
+                  $('#editMEDSTYPE').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_med_type")
+                                                              .attr("value", data[0].mtype));
+                  
+                   $('#editMedsSearch').attr("style", "display: none");
+                  $('#editMedsDetails').attr("style", "display: inline-block");
+                   
+                }  
+            });
+      }
+
 </script>
    
   </body>

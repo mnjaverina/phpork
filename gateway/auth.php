@@ -31,4 +31,10 @@
     
   
   }
+
+  if(isset($_POST['ddl_user'])){
+     echo json_encode($db->ddl_user()); 
+  }
+
+
 ?>

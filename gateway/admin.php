@@ -9,7 +9,7 @@
 	if(isset($_GET['addBreed'])){
 		$bname = $_GET['breed_name'];
 		echo json_encode($db->addBreed($bname)); 
-		echo json_encode($db->userTransactionEdit($user, curdate(), curtime(), $edit_id, 'breed', '-', $bname, '1')); 
+		echo json_encode($db->userTransactionEdit($user, curdate(), curtime(), $add_id, 'breed', '-', $bname, '1')); 
 		//localhost/phpork/gateway/admin.php?addBreed=1&breed_name=Breed1
 	} 
 	if(isset($_GET['addParent'])){
@@ -55,18 +55,15 @@
 	//edit
 	if(isset($_POST['editUser'])){
 	$user = $_POST['user'];
-	$prev_uname = $_POST['prev_uname'];
-	$username = $_POST['user_name'];
-	$prev_pword = $_POST['prev_pword'];
-	$password = $_POST['password'];
-	$prev_utype = $_POST['prev_utype'];
-	$user_type = $_POST['user_type'];
+	$prev_val = $_POST['prev_val'];
+	$new_val = $_POST['new_val'];
 	$user_id = $_POST['user_id'];
+	$username = $_POST['user_name'];
+	$password = $_POST['password'];
+	$user_type = $_POST['user_type'];
 	$date = curdate();
 	$time = curtime();
-	echo json_encode($db->userTransactionEdit($user, $date, $time, $user_id, 'user', $prev_uname, $username, '2'));
-	echo json_encode($db->userTransactionEdit($user, $date, $time, $user_id, 'user', $prev_utype, $user_type, '2'));
-	echo json_encode($db->userTransactionEdit($user, $date, $time, $user_id, 'user', $prev_pword, $password, '2'));
+	echo json_encode($db->userTransactionEdit($user, $date, $time, $user_id, 'user', $prev_val, $new_val, '2'));
 	echo json_encode($db->updateUser($username,$password,$usertype, $user_id));
 	//localhost/phpork/gateway/admin.php?addBreed=1&breed_name=Breed1
 	}

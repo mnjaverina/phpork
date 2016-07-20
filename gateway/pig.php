@@ -165,14 +165,27 @@
 		echo json_encode($db->ddl_foster());
 		//http://localhost/phpork2/gateway/pig.php?ddl_foster=1
 	}
+	if(isset($_POST['ddl_parent'])){
+		echo json_encode($db->ddl_parent());
+		//http://localhost/phpork2/gateway/pig.php?ddl_foster=1
+	}
+	if(isset($_POST['getParentDetails'])){
+		$parent = $_POST['parent'];
+		echo json_encode($db->getParentDetails($parent));
+		//http://localhost/phpork2/gateway/pig.php?ddl_foster=1
+	}
 	if(isset($_GET['ddl_pig'])){
 		
 		echo json_encode($db->ddl_pig());
 		//http://localhost/phpork2/gateway/pig.php?ddl_pig=1
 	}
 	if(isset($_POST['ddl_breeds'])){
-		
 		echo json_encode($db->ddl_breeds());
+		//http://localhost/phpork2/gateway/pig.php?ddl_breeds=1
+	}
+	if(isset($_POST['getBreed'])){
+		$id = $_POST['breed_id'];
+		echo json_encode($db->getBreeds($id));
 		//http://localhost/phpork2/gateway/pig.php?ddl_breeds=1
 	}
 	if(isset($_POST['ddl_batch'])){
