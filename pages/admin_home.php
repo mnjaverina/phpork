@@ -869,7 +869,14 @@
             var prev_pword = $('#prev_pword').val();
             var password = $('#passwordEdit').val();
             
-              if((user_name != '') || (password != '') ){
+              if((user_name != '') || (password != '')){
+                
+                var uType;
+              if(user_Type === "admin"){
+                uType = 1;
+              }else{
+                uType = 2;
+              }
              
                  $.ajax({
                     url: '/phpork/gateway/admin.php',
@@ -886,7 +893,7 @@
                     },
                     success: function (data) {
                         alert("User edited");
-                        window.location = "/phpork/admin/home"; 
+                       // window.location = "/phpork/admin/home"; 
                     }    
                   });
                 }
