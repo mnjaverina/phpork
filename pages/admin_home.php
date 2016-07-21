@@ -162,11 +162,10 @@
                  <option></option>
                </select>
               </div>
-              <br/>
-              <div id="displayUser"></div>
             </div>
 
             <div id="editUserDetails" style="display: none;">
+                <hr/>
                 <div class="input-group" id="editUNAME">
                   <span class="input-group-addon" id="basic-addon3">Username: </span>
                   <input type="text" class="form-control" id="unameEdit" data-trigger= "hover" data-toggle="tooltip" title="Edit username" aria-describedby="basic-addon3" required>
@@ -245,6 +244,7 @@
             </div>
       
             <div id="editFarmDetails" style="display: none;">
+              <hr/>
               <div class="input-group" id="editFARMNAME">
                 <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
                 <input type="text" class="form-control" id="farmnameEdit" data-trigger= "hover"  data-toggle="tooltip" title="Edit the name of the farm." aria-describedby="basic-addon3">
@@ -337,6 +337,7 @@
             </div>
                   
             <div id="editHouseDetails" style="display: none;">
+               <hr/>
               <div class="input-group" id="editHOUSELOC">
                 <span class="input-group-addon" id="basic-addon3">Location: </span>
                 <select class="form-control" id="editloc2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit the location/farm." required> 
@@ -456,6 +457,7 @@
             </div>
             
             <div id="editPenDetails" style="display: none;">
+               <hr/>
               <div class="input-group" id="editPENLOC">
                 <span class="input-group-addon" id="basic-addon3">Location: </span>
                 <select class="form-control" id="editfarm2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
@@ -486,7 +488,7 @@
                 </select> 
               </div>
               <div class="modal-footer" >
-                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save pen's details." id="saveEditPen">Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save pen's details." id="saveEditPen">Edit</button>
               </div>
             </div>
           </div>
@@ -547,6 +549,7 @@
             </div>
             
             <div id="editParentDetails" style="display: none;">
+               <hr/>
               <div class="input-group" id="editPARENTLABEL">
                 <span class="input-group-addon" id="basic-addon3">Label: </span>
                 <select  class="form-control" id="editparentLabel"  style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the parent you will add is boar or sow." required> 
@@ -614,9 +617,10 @@
             </div>
             
             <div id="editBreedDetails" style="display: none;">
+               <hr/>
               <div class="input-group" id="editBREEDNAME">
                 <span class="input-group-addon" id="basic-addon3">Breed Name: </span>
-                <input type="text" class="form-control" id="breed_name" data-trigger= "hover" data-toggle="tooltip" title="Input new breed's name." aria-describedby="basic-addon3">
+                <input type="text" class="form-control" id="breednameEdit" data-trigger= "hover" data-toggle="tooltip" title="Input new breed's name." aria-describedby="basic-addon3">
               </div>
               <div class="modal-footer" >
                 <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save breed's details." id="saveEditBreed">Edit</button>
@@ -679,6 +683,7 @@
             </div>
 
             <div id="editFeedDetails" style="display: none;">
+               <hr/>
               <div class="input-group" id="editFEEDNAME">
                 <span class="input-group-addon" id="basic-addon3">Feed Name: </span>
                 <input type="text" class="form-control" id="edit_feed_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new feed." aria-describedby="basic-addon3">
@@ -746,6 +751,7 @@
             </div>
 
             <div id="editMedsDetails" style="display: none;">
+               <hr/>
               <div class="input-group" id="editMEDNAME">
                 <span class="input-group-addon" id="basic-addon3">Medication Name: </span>
                 <input type="text" class="form-control" id="edit_med_name" data-trigger= "hover" data-toggle="tooltip" title="Edit name of medication." aria-describedby="basic-addon3">
@@ -813,7 +819,7 @@
           $('#chooseToDo').attr("style", "display: inline-block");
           $('#addUserDetails').attr("style", "display: none"); 
           $('#editUser').attr("style", "display: none");
-          $('#addUserDetails').attr("style", "display: none"); 
+          $('#editUserDetails').attr("style", "display: none"); 
         });
 
 
@@ -863,12 +869,8 @@
             var prev_pword = $('#prev_pword').val();
             var password = $('#passwordEdit').val();
             
-              var uType;
-              if(user_Type === "admin"){
-                uType = 1;
-              }else{
-                uType = 2;
-              }
+              if((user_name != '') || (password != '') ){
+             
                  $.ajax({
                     url: '/phpork/gateway/admin.php',
                     type: 'post',
@@ -887,11 +889,11 @@
                         window.location = "/phpork/admin/home"; 
                     }    
                   });
+                }
          
 
           });
 
-//FARM
 
           /*Farm*/
 
@@ -978,7 +980,7 @@
             var loc_id = $('#loc_id').val();
            
             
-              if((farnameEdit != '') && (faddEdit != '') ){
+              if((farmnameEdit != '') || (faddEdit != '') ){
                  $.ajax({
                     url: '/phpork/gateway/admin.php',
                     type: 'post',
@@ -993,7 +995,7 @@
                     },
                     success: function (data) {
                         alert("Farm edited");
-                        window.location = "/phpork/admin/home"; 
+                       // window.location = "/phpork/admin/home"; 
                     }    
                   });
                 }
@@ -1038,6 +1040,7 @@
             $('#editHouse').attr("style", "display: none");
             $('#addHouseDetails').attr("style", "display: none");
             $('#chooseToDoHouse').attr("style", "display: inline-block");
+            $('#editHouseDetails').attr("style", "display: none");
           
         });
 
@@ -1046,6 +1049,7 @@
             $('#editHouse').attr("style", "display: none");
             $('#addHouseDetails').attr("style", "display: none");
             $('#chooseToDoHouse').attr("style", "display: inline-block");
+            $('#editHouseDetails').attr("style", "display: none");
           
         });
         
@@ -1098,7 +1102,7 @@
             var h_id = $('#h_id').val();
            
             
-              if((edithnum != '') && (edithname != '') && (editfunc != '') ){
+              if((edithnum != '') || (edithname != '') ||(editfunc != '') ){
                  $.ajax({
                     url: '/phpork/gateway/admin.php',
                     type: 'post',
@@ -1117,7 +1121,7 @@
                     },
                     success: function (data) {
                         alert("House edited");
-                        window.location = "/phpork/admin/home"; 
+                        //window.location = "/phpork/admin/home"; 
                     }    
                   });
                 }
@@ -1128,6 +1132,51 @@
 
 
         /*Add Pen */
+        $('#farm').on("change", function(e) {
+            e.preventDefault(); 
+              var location = $('#farm1').val();
+
+              $.ajax({
+                url: '/phpork/gateway/house.php',
+                type: 'post',
+                data : {
+                  getHouseByLoc: '1',
+                  loc: location
+                },
+                success: function (data) { 
+                   var data = jQuery.parseJSON(data); 
+                      for(i=0;i<data.length;i++){
+                        $("#house").append($("<option></option>").attr("value",data[i].h_id)
+                          .attr("name","house")
+                          .text("House " +data[i].h_no)); 
+                      }
+
+                    } 
+              });
+           });
+        $('#house').on("change", function(e) {
+            e.preventDefault(); 
+              var house = $('#house1').val();
+
+              $.ajax({
+                url: '/phpork/gateway/pen.php',
+                type: 'post',
+                data : {
+                  getPenByHouse: '1',
+                  house: house
+                },
+                success: function (data) { 
+                   var data = jQuery.parseJSON(data); 
+                      for(i=0;i<data.length;i++){
+                        $("#pennum").append($("<option></option>").attr("value",data[i].pen_id)
+                          .attr("name","pen")
+                          .text("Pen " +data[i].pen_no)); 
+                      }
+
+                    } 
+              });
+           });
+
         $('#farm1').on("change", function(e) {
             e.preventDefault(); 
               var location = $('#farm1').val();
@@ -1160,7 +1209,7 @@
                 type: 'post',
                 data : {
                   getPenByHouse: '1',
-                  h_id: house
+                  house: house
                 },
                 success: function (data) { 
                    var data = jQuery.parseJSON(data); 
@@ -1174,9 +1223,9 @@
               });
            });
 
-        $('#farm2').on("change", function(e) {
+        $('#editfarm2').on("change", function(e) {
             e.preventDefault(); 
-              var location = $('#farm').val();
+              var location = $('#editfarm2').val();
 
               $.ajax({
                 url: '/phpork/gateway/house.php',
@@ -1188,7 +1237,7 @@
                 success: function (data) { 
                    var data = jQuery.parseJSON(data); 
                       for(i=0;i<data.length;i++){
-                        $("#house2").append($("<option></option>").attr("value",data[i].h_id)
+                        $("#edithouse2").append($("<option></option>").attr("value",data[i].h_id)
                           .attr("name","house")
                           .text("House " +data[i].h_no)); 
                       }
@@ -1233,6 +1282,7 @@
             $('#editPen').attr("style", "display: none");
             $('#addPenDetails').attr("style", "display: none");
             $('#chooseToDoPen').attr("style", "display: inline-block");
+             $('#editPenDetails').attr("style", "display: none");
           
         });
 
@@ -1241,6 +1291,7 @@
             $('#editPen').attr("style", "display: none");
             $('#addPenDetails').attr("style", "display: none");
             $('#chooseToDoPen').attr("style", "display: inline-block");
+             $('#editPenDetails').attr("style", "display: none");
           
         });
 
@@ -1289,7 +1340,7 @@
             var prev_pen_id = $('#prev_pen_id').val();
            
             
-             if((editpennum != '') && (editfunc2 != '') ){
+             if((editpennum != '') || (editfunc2 != '') ){
                  $.ajax({
                     url: '/phpork/gateway/admin.php',
                     type: 'post',
@@ -1354,6 +1405,7 @@
             $('#editParent').attr("style", "display: none");
             $('#addParentDetails').attr("style", "display: none");
             $('#chooseToDoParent').attr("style", "display: inline-block");
+             $('#editParentDetails').attr("style", "display: none");
           
         });
 
@@ -1362,6 +1414,7 @@
             $('#editParent').attr("style", "display: none");
             $('#addParentDetails').attr("style", "display: none");
             $('#chooseToDoParent').attr("style", "display: inline-block");
+             $('#editParentDetails').attr("style", "display: none");
           
         });
          $('#saveParent').on("click",function(){
@@ -1402,7 +1455,7 @@
             var prev_parent_id = $('#prev_parent_id').val();
            
             
-             if((editlabel_id != '') && (editparentLabel != '') ){
+             if((editlabel_id != '') || (editparentLabel != '') ){
                  $.ajax({
                     url: '/phpork/gateway/admin.php',
                     type: 'post',
@@ -1484,7 +1537,7 @@
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
-                  alert("Parent added");
+                  alert("Breed added");
                   window.location = "/phpork/admin/home";
                 } 
             });
@@ -1561,6 +1614,7 @@
             $('#editFeed').attr("style", "display: none");
             $('#addFeedDetails').attr("style", "display: none");
             $('#chooseToDoFeed').attr("style", "display: inline-block");
+             $('#editFeedDetails').attr("style", "display: none");
           
         });
 
@@ -1569,6 +1623,7 @@
             $('#editFeed').attr("style", "display: none");
             $('#addFeedDetails').attr("style", "display: none");
             $('#chooseToDoFeed').attr("style", "display: inline-block");
+            $('#editFeedDetails').attr("style", "display: none");
           });
           
 
@@ -1611,7 +1666,7 @@
             var prev_feed_id = $('#prev_feed_id').val();
            
             
-             if((edit_feed_name != '') && (edit_feed_type != '') ){
+             if((edit_feed_name != '') || (edit_feed_type != '') ){
                  $.ajax({
                     url: '/phpork/gateway/admin.php',
                     type: 'post',
@@ -1674,6 +1729,7 @@
             $('#editMeds').attr("style", "display: none");
             $('#addMedsDetails').attr("style", "display: none");
             $('#chooseToDoMeds').attr("style", "display: inline-block");
+             $('#editMedsDetails').attr("style", "display: none");
           
         });
 
@@ -1682,6 +1738,7 @@
             $('#editMeds').attr("style", "display: none");
             $('#addMedsDetails').attr("style", "display: none");
             $('#chooseToDoMeds').attr("style", "display: inline-block");
+             $('#editMedsDetails').attr("style", "display: none");
           });
 
 
@@ -1725,7 +1782,7 @@
             var prev_med_id = $('#prev_med_id').val();
            
             
-             if((edit_med_name != '') && (edit_med_type != '') ){
+             if((edit_med_name != '') || (edit_med_type != '') ){
                  $.ajax({
                     url: '/phpork/gateway/admin.php',
                     type: 'post',
@@ -1740,7 +1797,7 @@
                     },
                     success: function (data) {
                         alert("Medication edited");
-                        window.location = "/phpork/admin/home"; 
+                        //window.location = "/phpork/admin/home"; 
                     }    
                   });
                 }
@@ -1786,15 +1843,22 @@
                    $("#farm1").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
                     .text(data[i].loc_name)); 
+                   $("#editfarm2").append($("<option></option>").attr("value",data[i].loc_id)
+                    .attr("name","location")
+                    .text(data[i].loc_name)); 
                    
                    $("#farmOptions").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
-                    .text(data[i].loc_name)); 
+                    .text(data[i].loc_name));
 
+
+                  $("#loc").append($("<option></option>").attr("value",data[i].loc_id)
+                    .attr("name","location")
+                    .text(data[i].loc_name));
                    $("#loc1").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
                     .text(data[i].loc_name));
-                  $("#loc2").append($("<option></option>").attr("value",data[i].loc_id)
+                  $("#editloc2").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
                     .text(data[i].loc_name)); 
                 }
@@ -2005,8 +2069,9 @@
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data);
+                console.log(data[0].loc_name);
                   $('#farmnameEdit').attr("placeholder", data[0].loc_name);
-                  $('#faddEdit').attr("placeholder", data[0].addr);
+                  $('#faddEdit').attr("placeholder", data[0].address);
 
                   $('#editFARMNAME').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_loc_name")
@@ -2016,7 +2081,7 @@
                                                               .attr("value", data[0].loc_id));
                    $('#editFADD').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_addr")
-                                                              .attr("value", data[0].addr));
+                                                              .attr("value", data[0].address));
 
                    $('#editFarmSearch').attr("style", "display: none");
                   $('#editFarmDetails').attr("style", "display: inline-block");
@@ -2026,17 +2091,21 @@
   }
 
       function viewDetailsHouse(id){
+        console.log("HOUSE");
      $.ajax({
               url: '/phpork/gateway/house.php',
               type: 'post',
               data : {
                getHouseDetails: '1',
-               h_id: id
+               house: id
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data);
-                  $('#editlabel_id').attr("placeholder", data[0].label_id);
-                   $('#editparentLabel').attr("placeholder", data[0].label);
+                  $('#editloc2').attr("placeholder", data[0].loc_id);
+                   $('#edithnum').attr("placeholder", data[0].h_no);
+                    $('#editfunc').attr("placeholder", data[0].fxn);
+                   $('#edithname').attr("placeholder", data[0].h_name);
+
                   
 
 
@@ -2050,13 +2119,11 @@
                                                               .attr("id", "prev_h_id")
                                                               .attr("value", data[0].h_id));
                   $('#editHOUSENAME').append($("<input></input>").attr("type", "hidden")
-                                                              .attr("id", "prev_h_name")
+                                                              .attr("id", "prev_hname")
                                                               .attr("value", data[0].h_name));
                    $('#editHOUSEFXN').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_fxn")
                                                               .attr("value", data[0].fxn));
-
-                   $('#editHouseSearch').attr("style", "display: none");
                   $('#editHouseDetails').attr("style", "display: inline-block");
                    
                 }  
@@ -2064,6 +2131,7 @@
       }
 
        function viewDetailsPen(id){
+        console.log("PEN");
      $.ajax({
               url: '/phpork/gateway/pen.php',
               type: 'post',
@@ -2074,8 +2142,8 @@
               success: function (data) { 
                 var data = jQuery.parseJSON(data);
                   $('#editfarm2').attr("placeholder", data[0].loc_id);
-                   $('#edithouse2').attr("placeholder", data[0].h_no);
-                  $('#editpennum').attr("placeholder", data[0].h_name);
+                   $('#edithouse2').attr("placeholder", data[0].h_id);
+                  $('#editpennum').attr("placeholder", data[0].pen_no);
                   $('#editfunc2').attr("placeholder", data[0].fxn);
 
 
@@ -2188,12 +2256,12 @@
               type: 'post',
               data : {
                getMedsDetails: '1',
-               meds: id
+               med: id
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data);
-                  $('#edit_med_name').attr("placeholder", data.mname);
-                  $('#edit_med_type').attr("placeholder", data.mtype);
+                  $('#edit_med_name').attr("placeholder", data[0].mname);
+                  $('#edit_med_type').attr("placeholder", data[0].mtype);
 
                   $('#editMEDSNAME').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_med_name")

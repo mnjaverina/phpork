@@ -185,7 +185,7 @@
 	}
 	if(isset($_POST['getBreed'])){
 		$id = $_POST['breed_id'];
-		echo json_encode($db->getBreeds($id));
+		echo json_encode($db->getBreed($id));
 		//http://localhost/phpork2/gateway/pig.php?ddl_breeds=1
 	}
 	if(isset($_POST['ddl_batch'])){

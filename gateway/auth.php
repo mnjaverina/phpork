@@ -19,10 +19,6 @@
     
     $db->signup($u, $p , $uType);
      
-  }else{
-      header("location: /phpork/in");
-    
-  
   }
 
   if(isset($_POST['getUser'])){

@@ -31,8 +31,8 @@
 		//localhost/phpork2/gateway/pen.php?getPenByHouse=1&house=1
 						
 	}
-	if(isset($_GET['getPenDetails'])){
-		$h_id = $_GET['pen'];
+	if(isset($_POST['getPenDetails'])){
+		$h_id = $_POST['pen'];
 		$arr_pen = $db->getPenDetails($h_id); 
 		echo json_encode($arr_pen);
 		//localhost/phpork2/gateway/pen.php?getPenDetails=1&pen=1

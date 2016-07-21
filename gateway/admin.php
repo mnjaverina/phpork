@@ -183,6 +183,12 @@
 		$name = $_POST['name_startsWith'];
 		echo json_encode($db->searchLoc($name));
 		
-}
+	}
+
+	if(isset($_POST['breed'])){
+		$name = $_POST['name_startsWith'];
+		echo json_encode($db->searchBreed($name));
+		
+	}
 	
 ?>

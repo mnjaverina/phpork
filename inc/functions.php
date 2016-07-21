@@ -58,7 +58,7 @@
 							user_type,
 							password 
 						FROM user
-						WHERE user_name LIKE '%" .$user_name. "%'";
+						WHERE user_id = '" .$user_id. "'";
 				$result = mysqli_query($link, $query) or die(mysqli_error($link));
 				$userDetails = array();
 				$arr_user = array();
@@ -345,9 +345,7 @@
 							function,
 							loc_id
 						FROM house 
-						WHERE house_id = '" . $h_id . "'
-						ORDER BY house_no ASC
-						LIMIT 1";
+						WHERE house_id = '" . $h_id . "'";
 			$hresult = mysqli_query($link, $hquery);
 			$house = array();
 			$arr_house = array();
@@ -451,8 +449,7 @@
 							function,
 							house_id
 						FROM pen 
-						WHERE house_id = '" . $house . "'
-						ORDER BY pen_no ASC";
+						WHERE house_id = '" . $house . "'";
 				$presult = mysqli_query($link, $pquery);
 				$pen = array();
 				$arr_pen = array();
@@ -475,10 +472,8 @@
 							p.house_id,
 							h.loc_id
 						FROM pen p
-						INNER JOIN house h on p.h_id = h.h_id 
-						WHERE pen_id = '" . $pen_id . "'
-						ORDER BY pen_no ASC
-						LIMIT 1";
+						INNER JOIN house h on p.house_id = h.house_id 
+						WHERE p.pen_id = '" . $pen_id . "'";
 				$presult = mysqli_query($link, $pquery);
 				$pen = array();
 				$arr_pen = array();
@@ -1117,8 +1112,8 @@
 				$breed = array();
 				$arr_breed = array();
 				while ($row = mysqli_fetch_row($result)) {
-						$breed['loc_id'] = $row[0];
-						$breed['loc_name'] = $row[1];
+						$breed['breed_id'] = $row[0];
+						$breed['breed_name'] = $row[1];
 						$arr_breed[] = $breed;
 				}
 
