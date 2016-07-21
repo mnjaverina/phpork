@@ -1091,7 +1091,7 @@
 
         $('#saveEditHouse').on("click",function(){
             var user = $('#userId').val();
-            var prev_loc_id = $('#prev_loc_id').val();
+            //var prev_loc = $('#prev_loc').val();
             var editLoc = $('#editloc2').val();
             var prev_h_no = $('#prev_h_no').val();
             var edithnum = $('#edithnum').val();
@@ -1109,13 +1109,13 @@
                     data : {
                       editHouseName: '1',
                       user: user,
-                      prev_hno: prev_h_no,
+                      prev_hno: '33',
                       hno: edithnum, 
-                      prev_hname: prev_hname,
+                      prev_hname: 'house',
                       hname: edithname,
-                      prev_fxn: prev_fxn,
+                      prev_fxn: 'weaning',
                       fxn: editfunc,
-                      prev_loc: prev_loc_id,
+                      prev_loc: '1',
                       loc: editLoc,
                       house_id: h_id
                     },
@@ -1773,7 +1773,7 @@
         });
 
          
-          $('#saveEditMed').on("click",function(){
+          $('#saveEditMeds').on("click",function(){
             var user = $('#userId').val();
             var prev_med_name = $('#prev_med_name').val();
             var edit_med_name = $('#edit_med_name').val();
@@ -2109,9 +2109,9 @@
                   
 
 
-                  $('#editHOUSELOC').append($("<input></input>").attr("type", "hidden")
-                                                              .attr("id", "prev_loc_id")
-                                                              .attr("value", data[0].loc_id));
+                //  $('#editHOUSELOC').append($("<input></input>").attr("type", "hidden")
+                //                                              .attr("id", "prev_loc")
+                 //                                             .attr("value", data[0].loc_id));
                   $('#editHOUSENUM').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_h_no")
                                                               .attr("value", data[0].h_no));
