@@ -159,7 +159,7 @@
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Search: </span>
                 <select id="searchUser" type="search" class="form-control" title="Search for farm to be edited">
-                 <option> </option>
+                 <option></option>
                </select>
               </div>
               <br/>
@@ -230,12 +230,21 @@
               </div>
             </div>
 
+<<<<<<< HEAD
+          <div id="editFarm" style="display: none;">
+            <button id="backToFarm2">Back</button>
+              <h2 class="modal-title">Edit Farm</h2>
+            <div class="input-group" id="editFarmSearch">
+                <center></center>
+                
+=======
             <div id="editFarm" style="display: none;">
               <div style="margin-bottom: 10%;">
                 <button id="backToFarm2" style="float: right;">Back</button>
                 <h3 class="modal-title" style="float: left;">Edit Farm</h3>
               </div>
               <div class="input-group">
+>>>>>>> 0ce054b781dffc354c0e6221ef020b0582411985
                 <span class="input-group-addon" id="basic-addon3">Search: </span>
                 <select id="farmOptions" type="search" class="form-control" title="Search for farm to be edited">
                   <option> </option>
@@ -853,7 +862,7 @@
 
           });
 
-         $('#saveEditUser').on("click",function(){
+        $('#saveEditUser').on("click",function(){
             var user = $('#userId').val();
             var prev_uname = $('#prev_uname').val();
             var user_name = $('#unameEdit').val();
@@ -968,6 +977,38 @@
          
        });
 
+         $('#saveEditFarm').on("click",function(){
+            var user = $('#userId').val();
+            var prev_loc_name = $('#prev_loc_name').val();
+            var farmnameEdit = $('#farmnameEdit').val();
+            var prev_addr = $('#prev_addr').val();
+            var faddEdit = $('#faddEdit').val();
+            var loc_id = $('#loc_id').val();
+           
+            
+              if((farnameEdit != '') && (faddEdit != '') ){
+                 $.ajax({
+                    url: '/phpork/gateway/admin.php',
+                    type: 'post',
+                    data : {
+                      editLocationName: '1',
+                      user: user,
+                      prev_lname: prev_loc_name,
+                      lname: farmnameEdit,
+                      prev_addr: prev_addr,
+                      addr: faddEdit,
+                      loc_id: loc_id
+                    },
+                    success: function (data) {
+                        alert("Farm edited");
+                        window.location = "/phpork/admin/home"; 
+                    }    
+                  });
+                }
+         
+
+          });
+
          /*Add House*/
         $('#addHouse').on("click",function() {
            e.preventDefault(); 
@@ -1051,6 +1092,46 @@
           }
          
         });
+
+        $('#saveEditHouse').on("click",function(){
+            var user = $('#userId').val();
+            var prev_loc_id = $('#prev_loc_id').val();
+            var editLoc = $('#editloc2').val();
+            var prev_h_no = $('#prev_h_no').val();
+            var edithnum = $('#edithnum').val();
+            var prev_h_name = $('#prev_h_name').val();
+            var edithname = $('#edithname').val();
+            var prev_fxn = $('#prev_fxn').val();
+            var editfunc = $('#editfunc').val();
+            var h_id = $('#h_id').val();
+           
+            
+              if((edithnum != '') && (edithname != '') && (editfunc != '') ){
+                 $.ajax({
+                    url: '/phpork/gateway/admin.php',
+                    type: 'post',
+                    data : {
+                      editHouseName: '1',
+                      user: user,
+                      prev_hno: prev_h_no,
+                      hno: edithnum, 
+                      prev_hname: prev_hname,
+                      hname: edithname,
+                      prev_fxn: prev_fxn
+                      fxn: editfunc,
+                      prev_loc: prev_loc_id,
+                      loc: editLoc
+                      house_id: h_id
+                    },
+                    success: function (data) {
+                        alert("House edited");
+                        window.location = "/phpork/admin/home"; 
+                    }    
+                  });
+                }
+         
+
+          });
         /*End of Add House*/
 
 
@@ -1202,6 +1283,46 @@
           }
           
         });
+
+         $('#saveEditPen').on("click",function(){
+            var user = $('#userId').val();
+            var prev_pen_loc = $('#prev_pen_loc').val();
+            var editfarm = $('#editfarm2').val();
+            var prev_pen_house = $('#prev_pen_house').val();
+            var edithouse2 = $('#edithouse2').val();
+            var prev_pen_no = $('#prev_pen_no').val();
+            var editpennum = $('#editpennum').val();
+            var prev_pen_fxn = $('#prev_pen_fxn').val();
+            var editfunc2 = $('#editfunc2').val();
+            var prev_pen_id = $('#prev_pen_id').val();
+           
+            
+             if((editpennum != '') && (editfunc2 != '') ){
+                 $.ajax({
+                    url: '/phpork/gateway/admin.php',
+                    type: 'post',
+                    data : {
+                      editHouseName: '1',
+                      user: user,
+                      prev_penno: prev_pen_no,
+                      penno: editpennum,
+                      prev_fxn: prev_pen_fxn,
+                      fxn: editfunc2,
+                      prev_h_id: prev_pen_house,
+                      h_id: edithouse2,
+                      prev_loc_id: prev_pen_loc,
+                      loc_id: prev_pen_loc,
+                      pen_id: prev_pen_id
+                    },
+                    success: function (data) {
+                        alert("Pen edited");
+                        window.location = "/phpork/admin/home"; 
+                    }    
+                  });
+                }
+         
+
+          });
          /*End of Add Pen*/
 
          /*Add Parent*/
@@ -1279,6 +1400,38 @@
           }
            
         });
+
+          $('#saveEditParent').on("click",function(){
+            var user = $('#userId').val();
+            var prev_label_id = $('#prev_label_id').val();
+            var editlabel_id = $('#editlabel_id').val();
+            var prev_parent_label = $('#prev_parent_label').val();
+            var editparentLabel = $('#editparentLabel').val();
+            var prev_parent_id = $('#prev_parent_id').val();
+           
+            
+             if((editlabel_id != '') && (editparentLabel != '') ){
+                 $.ajax({
+                    url: '/phpork/gateway/admin.php',
+                    type: 'post',
+                    data : {
+                      editParent: '1',
+                      user: user,
+                      prev_parent: prev_parent_label,
+                      parent: editparentLabel,
+                      prev_id: prev_label_id,
+                      id: editlabel_id,
+                      parent_id: prev_parent_id
+                    },
+                    success: function (data) {
+                        alert("Parent edited");
+                        window.location = "/phpork/admin/home"; 
+                    }    
+                  });
+                }
+         
+
+          });
          /*End of Add Parent*/
 
          /*Add Breed*/
@@ -1348,6 +1501,34 @@
           }
            
         });
+
+         $('#saveEditBreed').on("click",function(){
+            var user = $('#userId').val();
+            var prev_br_name = $('#prev_br_name').val();
+            var breednameEdit = $('#breednameEdit').val();
+            var prev_br_id = $('#prev_br_id').val();
+           
+            
+              if((breed_name != '') ){
+                 $.ajax({
+                    url: '/phpork/gateway/admin.php',
+                    type: 'post',
+                    data : {
+                      editBreed: '1',
+                      user: user,
+                      prev_bname: prev_br_name,
+                      breed_name: breednameEdit,
+                      breed_id: prev_br_id
+                    },
+                    success: function (data) {
+                        alert("Breed edited");
+                        window.location = "/phpork/admin/home"; 
+                    }    
+                  });
+                }
+         
+
+          });
          /*End of Add Breed*/
 
           /*Add Feed*/
@@ -1428,6 +1609,38 @@
           }
            
         });
+
+         $('#saveEditFeed').on("click",function(){
+            var user = $('#userId').val();
+            var prev_feed_name = $('#prev_feed_name').val();
+            var edit_feed_name = $('#edit_feed_name').val();
+            var prev_feed_type = $('#prev_feed_type').val();
+            var edit_feed_type = $('#edit_feed_type').val();
+            var prev_feed_id = $('#prev_feed_id').val();
+           
+            
+             if((edit_feed_name != '') && (edit_feed_type != '') ){
+                 $.ajax({
+                    url: '/phpork/gateway/admin.php',
+                    type: 'post',
+                    data : {
+                      editFeedName: '1',
+                      user: user,
+                      prev_fname: prev_feed_name,
+                      fname: edit_feed_name,
+                      prev_ftype: prev_feed_type,
+                      ftype: prev_feed_type,
+                      feed_id: prev_feed_id
+                    },
+                    success: function (data) {
+                        alert("Feed edited");
+                        window.location = "/phpork/admin/home"; 
+                    }    
+                  });
+                }
+         
+
+          });
          /*End of Add Feed*/
 
 
@@ -1509,6 +1722,39 @@
           }
            
         });
+
+         
+          $('#saveEditMed').on("click",function(){
+            var user = $('#userId').val();
+            var prev_med_name = $('#prev_med_name').val();
+            var edit_med_name = $('#edit_med_name').val();
+            var prev_med_type = $('#prev_med_type').val();
+            var edit_med_type = $('#edit_med_type').val();
+            var prev_med_id = $('#prev_med_id').val();
+           
+            
+             if((edit_med_name != '') && (edit_med_type != '') ){
+                 $.ajax({
+                    url: '/phpork/gateway/admin.php',
+                    type: 'post',
+                    data : {
+                      editMedName: '1',
+                      user: user,
+                      prev_mname: prev_med_name,
+                      mname: edit_med_name,
+                      prev_mtype: prev_med_type,
+                      mtype: prev_med_type,
+                      med_id: prev_med_id
+                    },
+                    success: function (data) {
+                        alert("Medication edited");
+                        window.location = "/phpork/admin/home"; 
+                    }    
+                  });
+                }
+         
+
+          });
          /*End of Add Med*/
           
 
@@ -1521,6 +1767,7 @@
           },
           success: function (data) { 
              var data = jQuery.parseJSON(data);
+             console.log('User');
                 for(i=0;i<data.length;i++){
                   $("#searchUser").append($("<option></option>").attr("value",data[i].user_id)
                     .attr("name","user")
@@ -1870,10 +2117,9 @@
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data);
-                  $('#editfarm2').attr("placeholder", data[0].loc_id);
-                   $('#edithouse2').attr("placeholder", data[0].h_no);
-                  $('#editpennum').attr("placeholder", data[0].h_name);
-                  $('#editfunc2').attr("placeholder", data[0].fxn);
+                  $('#editlabel_id').attr("placeholder", data[0].label_id);
+                   $('#editparentLabel').attr("placeholder", data[0].label);
+                 
 
 
                   $('#editPARENTLABELID').append($("<input></input>").attr("type", "hidden")
