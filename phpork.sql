@@ -20527,7 +20527,7 @@ CREATE TABLE IF NOT EXISTS `weight_record` (
   `weight` decimal(10,2) NOT NULL,
   `pig_id` int(10) NOT NULL,
   `remarks` varchar(20) NOT NULL,
-  `user` int(11) NOT NULL
+  `user` int(11) NOT NULL,
   PRIMARY KEY (`record_id`),
   KEY `pig_id` (`pig_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=205 ;

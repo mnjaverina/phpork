@@ -127,9 +127,12 @@
 		echo json_encode($db->updatePigWeight($pig_id, $weight, $record_id, $remarks));
 		
 	}
+
 	if(isset($_POST['editHistory'])){
 		$user = $_POST['user'];
 		$pigid = $_POST['pig'];
+		$prevWeekFar = $_POST['prevWeekFar'];
+		$week_far = $_POST['week_far'];
 		$prevStatus = $_POST['prevStatus'];
 		$status = $_POST['stat'];
 		$prevrfid = $_POST['prevRFID'];
@@ -138,8 +141,8 @@
 		$weight = $_POST['weight'];
 		$prevweighttype = $_POST['prevWeightType'];
 		$weighttype = $_POST['weightType'];
-		echo json_encode($db->insertEditHistory($user, $pigid, $prevStatus, $status, $prevrfid, $rfid,  $prevWeight, $weight, $prevweighttype, $weighttype));
-		
+		echo json_encode($db->insertEditHistory($user, $pigid,$prevWeekFar,$week_far, $prevStatus, $status, $prevrfid, $rfid,  $prevWeight, $weight, $prevweighttype, $weighttype));
+		echo json_encode($db->updateWeekFar($pigid,$week_far));
 	}
 
 	if(isset($_POST['addParent'])){
@@ -261,6 +264,9 @@
 		echo json_encode($db->getWeightReport($pig,$from,$to)); 
 		//localhost/phpork2/gateway/meds.php?getMedsDetails=1&med=1
 	} 
+	if(isset($_POST['ddl_inactiveRFID'])){
+		echo json_encode($db->ddl_inactiveRFID());
+	}
 
 	
 ?>   

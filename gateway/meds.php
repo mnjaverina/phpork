@@ -18,7 +18,7 @@
 			}
 			$fqty = $qty/$size;
 			
-			$medqty = number_format($fqty, 2, '.', ',');
+			$medqty = number_format($fqty, 4, '.', ',');
 			foreach ($_POST['pensel'] as $key) {
 				$sparray = $db->ddl_perpen($key);
 				foreach ($sparray as $a ) {
@@ -88,5 +88,11 @@
 		echo json_encode($db->getLastMed($pid)); 
 		//localhost/phpork2/gateway/meds.php?ddl_medRecord=1&pig=1
 	} 
-
+	if(isset($_POST['updateMeds'])){
+		$mrid = $_POST['mrid']; 
+		$medid = $_POST['med_id']; 
+		$user = $_POST['user']; 
+		echo json_encode($db->updateMeds($mrid,$medid,$user)); 
+		//localhost/phpork2/gateway/meds.php?ddl_medRecord=1&pig=1
+	} 
 ?>

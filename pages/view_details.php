@@ -426,11 +426,11 @@
 			 					<option value="perpigF">Select per pig</option>
 			 				</select>
 			 				<div id="insertperPenF" style="display: none;">
-			 					<input type="checkbox" value="selectAllPen" onchange='checkAllPenF(this)' >Select All Pens</input>
+			 					<input type="checkbox" value="selectAllPen" onchange='checkAllPenF(this)' />Select All Pens
 			 					<br/>
 			 				</div>
 			 				<div id="insertperPigF" style="display: none;">
-			 					<input type="checkbox" value="selectAllPig" onchange='checkAllPigF(this)' >Select All Pigs</input>
+			 					<input type="checkbox" value="selectAllPig" onchange='checkAllPigF(this)' />Select All Pigs
 			 					<br/>
 			 				</div>
 							<div>
@@ -444,7 +444,7 @@
 									</tr>
 									<tr>
 										<td> Feed type:
-											<input type="text" readonly id="feedType"></input>
+											<input type="text" readonly id="feedType"/>
 										</td>
 
 									</tr>
@@ -455,14 +455,13 @@
 									<tr> 
 										<td> Date Given: <input type="date" class="form-control" id="dateFeedGiven" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy"/>
 										</td>
-									</tr>
-									<tr> 
-										<td> Time Given: <input type="time" class="form-control" id="timeFeedGiven" aria-describedby="basic-addon3"/>
+										<td>
+											Time Given: <input type="time" class="form-control" id="timeFeedGiven" aria-describedby="basic-addon3"/>
 										</td>
 									</tr>
+									
 									<tr>
-										<td>
-										Quantity: <input type="number" id="feedQty" name="medQty" min="0"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp; <span>kg</span> 
+										<td>Quantity: <input type="number" id="feedQty" name="feedQty" min="0"  step="0.01" style="color:black;border-radius:5px;height:25px;width:50%"/> &nbsp;&nbsp; <span>kg</span>
 										</td>
 									</tr>
 								</table>
@@ -526,7 +525,7 @@
 								<table class="table table-striped tableWeight" id="insertWeight"> 
 									<tr> 
 										<td> Weight: 
-											<input type="number" id="addWeight" name="medQty" min="0.01"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp; kg
+											<input type="number" id="addWeight" name="weight" min="0.01"  step="0.01" style="color:black;border-radius:5px;height:25px;"/> &nbsp; kg
 										</td>
 									</tr>
 									<tr>
@@ -712,10 +711,26 @@
 	            $("#viewPigDetails").append($("<hr>").attr("style", "border-color: #9ecf95;")); 
 	            $("#viewPigDetails").append($("<span></span>").text("Farm:                       "  +data[0].loc_name));
 	            $("#viewPigDetails").append($("<br/>")); 
-	            $("#viewPigDetails").append($("<span></span>").text("Farrowing Date:            "  +data[0].far_date));
+	            $("#viewPigDetails").append($("<span></span>").text("Week farrowed:            "  +data[0].week_far));
 	            $("#viewPigDetails").append($("<br/>")); 
-	            $("#viewPigDetails").append($("<span></span>").text("Weight:                  "  +data[0].weight+ "kg"));
-	            $("#viewPigDetails").append($("<br/>")); 
+	            $.ajax({
+		            type: "post", 
+		            url: "/phpork/gateway/pig.php", 
+		            data: {
+		              getPigWeightDetails: '1',
+		              pig_id: pig_id
+		            }, 
+		          success: function (data) { 
+		             var data = jQuery.parseJSON(data); 
+		                 $("#viewPigDetails").append($("<span></span>").text("Weight:                  "  +data[0].weight+ " kg"));
+	            		$("#viewPigDetails").append($("<br/>")); 
+	            		$("#viewPigDetails").append($("<span></span>").text("Weight Type:                  "  +data[0].remarks));
+	            		$("#viewPigDetails").append($("<br/>")); 
+                   
+              		} 
+          
+    			});
+	           
 	             $("#viewPigDetails").append($("<hr>").attr("style", "border-color: #9ecf95;")); 
 	            $("#viewPigDetails").append($("<label></label>").text("Parents:                       "));
 	            $("#viewPigDetails").append($("<br/>")); 
@@ -932,10 +947,13 @@
 	              $("#pigInfo").append($("<br/>"));  
 	              $("#pigInfo").append($("<label></label>").text("Breed:                  "  +data[0].br_name));
 	              $("#pigInfo").append($("<br/>"));  
-	              $("#pigInfo").append($("<label></label>").text("Farrowing Date:         "  +data[0].far_date));
-	              $("#pigInfo").append($("<br/>"));
+	             
 	              $("#pigInfo").append($("<label></label>").text("Farm Location:         "  +data[0].loc_name));
                   $("#pigInfo").append($("<hr>").attr("style", "border-color: #9ecf95;"));
+                   $("#pigInfo").append($("<label></label>").text("Week Farrowed:         "));
+                    $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevWeekFar").attr("value",data[0].week_far));
+                    $("#pigInfo").append($("<input></input)").attr("type", "text").attr("id","editWeekFar").attr("value",data[0].week_far));
+	              $("#pigInfo").append($("<br/>"));
                   $("#pigInfo").append($("<label></label>").text("Status: "));
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevStatus").attr("value", data[0].pig_stat));
                   $("#pigInfo").append($("<select id='editStatus'><option value='"+data[0].pig_stat+"' selected>Currently: "+data[0].pig_stat+"</option></option><option value='weaning'>Weaning</option><option value='growing'>Growing</option></option><option value='sow'>Sow</option></option><option value='boar'>Boar</option></option><option value='sick'>Sick</option><option value='dead'>Dead</option><option value='slaughtered'>Slaugthered</option></select>"));
@@ -945,40 +963,56 @@
                   $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","pigLabel").attr("value", data[0].rfid_label));
                   $("#pigInfo").append($("<select id='editRFID'><option value='"+data[0].rfid_tag+"' selected>Currently: "+data[0].rfid_tag+"</option></select>"));
                   $("#pigInfo").append($("<br/>"));
-                  $("#pigInfo").append($("<label></label>").text("Weight: "));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","weightRecordId").attr("value", data[0].record_id));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevWeight").attr("value", data[0].weight));
-                  $("#pigInfo").append($("<input></input)").attr("type", "number").attr("id","editWeight").attr("value", data[0].weight));
-                  $("#pigInfo").append($("<label></label>").text("kg"));
-                  $("#pigInfo").append($("<br/>"));
-                  $("#pigInfo").append($("<label></label>").text("Weight Type: "));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevWeightType").attr("value", data[0].weight_type));
-                  $("#pigInfo").append($("<input></input)").attr("type", "text").attr("id","editWeightType").attr("value", data[0].weight_type));
-                  $("#pigInfo").append($("<hr>").attr("style", "border-color: #9ecf95;"));
+              	  
+                  
+                  
+
+	      		$.ajax({
+		            type: "post", 
+		            url: "/phpork/gateway/pig.php", 
+		            data: {
+		              getPigWeightDetails: '1',
+		              pig_id: pig_id
+		            }, 
+		          success: function (data) { 
+		             var data = jQuery.parseJSON(data); 
+		             $("#pigInfo").append($("<hr>").attr("style", "border-color: #9ecf95;"));
+		                $("#pigInfo").append($("<label></label>").text("Weight"));
+	                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","weightRecordId").attr("value", data[0].record_id));
+	                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevWeight").attr("value", data[0].weight));
+	                  $("#pigInfo").append($("<input></input)").attr("type", "number").attr("id","editWeight").attr("value", data[0].weight));
+	                  $("#pigInfo").append($("<label></label>").text("kg"));
+	                  $("#pigInfo").append($("<br/>"));
+	                  $("#pigInfo").append($("<label></label>").text("Weight Type: "));
+	                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevWeightType").attr("value", data[0].remarks));
+	                  $("#pigInfo").append($("<input></input)").attr("type", "text").attr("id","editWeightType").attr("value", data[0].remarks));
+                   
+              		} 
+          
+    			});
+    			$("#pigInfo").append($("<hr>").attr("style", "border-color: #9ecf95;"));
                   $("#pigInfo").append($("<label></label>").text("Parents                       "));
 		          $("#pigInfo").append($("<br/>")); 
 		          $("#pigInfo").append($("<span></span>").text("Boar:            "  +data[0].boar));
 		          $("#pigInfo").append($("<br/>")); 
 		          $("#pigInfo").append($("<span></span>").text("Sow:                  "  +data[0].sow));
 		          $("#pigInfo").append($("<br/>")); 
-
-		          $.ajax({
+    			$.ajax({
 		            type: "post", 
 		            url: "/phpork/gateway/pig.php", 
 		            data: {
-		              getinsertRFID: '1',
-		              pig: pig_id
+		              ddl_inactiveRFID: '1'
 		            }, 
 		          success: function (data) { 
 		             var data = jQuery.parseJSON(data); 
 		                for(i=0;i<data.length;i++){
-		                  $("#editRFID").append($("<option></option>").attr("value",data[i].t_id)
-		                    .text(data[i].t_rfid)); 
+		                  $("#editRFID").append($("<option></option>").attr("value",data[i].tag_id)
+		                    .text(data[i].rfid)); 
 		                }
                    
               		} 
           
-        		});
+    			});
 
 						
 	        }    
@@ -987,6 +1021,8 @@
         $('#saveEditPig').on("click",function() {
            var prevStatus = $('#prevStatus').val();
            var newStatus = $('#editStatus').val();
+           var prevWeekFar = $('#prevWeekFar').val();
+           var newWeekFar = $('#editWeekFar').val();
            var prevRFID = $('#prevRfid').val();
            var newRFID = $('#editRFID').val();
            var prevWeight = $('#prevWeight').val();
@@ -1046,6 +1082,8 @@
 							          editHistory: '1',
 							          user: user_id,
 							          pig: pig_id,
+							          prevWeekFar: prevWeekFar,
+							          week_far: newWeekFar,
 							          prevStatus: prevStatus,
 							          stat: newStatus,
 							          prevRFID: prevRFID,
@@ -1149,42 +1187,47 @@
 	        },
 	        success: function (data) { 
 	          var data = jQuery.parseJSON(data); 
-	          ;
-	           for(i=0;i<data.length;i++){
-
+	          var count = 0;
+	           for(var i=0;i<data.length;i++){
 	           		$("#editMedsBody").append($("<tr><td>" +data[i].mname+ "</td><td>" +data[i].mtype+ "</td><td><select style='color: black; width: 50%' id='selectmedication"+i+"'>"));
 
-	           		$.ajax({
-						url: '/phpork/gateway/meds.php',
-						type: 'post',
-						data : {
-						 ddl_meds: '1'
-						},
-						success: function (data) { 
-						   var data = jQuery.parseJSON(data); 
-						      for(j=0;j<data.length;j++){
-						      	
-						       $("#selectmedication" +j).append($("<option></option>").attr("value", data[j].med_id)
-						          .attr("name","meds")
-						          .text(data[j].med_name)); 
-						      }
-
-						    } 
-						});
-	           		$("#editMedsBody").append($("</select></td><td><input type='hidden' value='"+data[i].mr_id+"' id='med"+data[i].mr_id+"'></td></tr>"));
+	           		
+	           		 $("#editMedsBody").append($("</select></td><td><input type='hidden' value='"+data[i].mr_id+"' id='med"+data[i].mr_id+"'></td></tr>"));
 
 
-	           		$("#selectmedication" +i).on("change", function(){
-	           			var editedMeds = {};
-	           			editedMeds['medid'] = $('#selectmedication'+i).val();
-	           			editedMeds['mrid'] = $('#med'+data[i].mr_id).val();
+	           		
+		          count = count +1;
+	       		}
+	       		$("#selectmedication0").on("change", function(){//NOTYET
+	           			var editedMeds = {};	
+	           			var a =  $(this).id;//NOTYET
+	           			editedMeds['medid'] = $('#selectmedication0').val();//NOTYET
+	           			editedMeds['mrid'] = 3; //NOTYET
 
 	           			editedMedications.push(editedMeds);
 
 
 	           		});
+				$.ajax({
+					url: '/phpork/gateway/meds.php',
+					type: 'post',
+					data : {
+					 ddl_meds: '1'
+					},
+					success: function (data) { 
+						var data = jQuery.parseJSON(data); 
+						for(k=0;k<count;k++){
+						   	for(j=0;j<data.length;j++){
+						      	
+								$("#selectmedication"+k).append($("<option></option>").attr("value", data[j].med_id)
+								  .attr("name","meds")
+								  .text(data[j].med_name)); 
+							}
+						}
+					      
 
-	           }
+				    } 
+				});
 	        }    
 	      });
 
@@ -1207,7 +1250,7 @@
 		                  user: user
 	                    },
 	                    success: function (data) { 
-	                      alert("Added!"); 
+	                      alert("Saved details successfully!"); 
 	                      location.reload();
 
 	                          
@@ -1393,58 +1436,62 @@
 
         });
 
-          $.ajax({
-	        url: '/phpork/gateway/feeds.php',
-	        type: 'post',
-	        data : {
-	          ddl_feedRecordEdit: '1',
-	          pig: pig_id
-	        },
-	        success: function (data) { 
-	          var data = jQuery.parseJSON(data); 
-	       
-	           for(i=0;i<data.length;i++){
+		$.ajax({
+			url: '/phpork/gateway/feeds.php',
+			type: 'post',
+			data : {
+			  ddl_feedRecordEdit: '1',
+			  pig: pig_id
+			},
+			success: function (data) { 
+			  var data = jQuery.parseJSON(data); 
+					var count = 0;
+			   for(i=0;i<data.length;i++){
 
-	           		$("#editFeedsBody").append($("<tr><td>" +data[i].fname+ "</td><td>" +data[i].ftype+ "</td><td>"+data[i].proddate+"<td><select style='color: black; width: 50%' id='selectfeed"+i+"'>"));
+			   		$("#editFeedsBody").append($("<tr><td>" +data[i].fname+ "</td><td>" +data[i].ftype+ "</td><td>"+data[i].proddate+"<td><select style='color: black; width: 50%' id='selectfeed"+i+"'>"));
 
-	           		$.ajax({
-						url: '/phpork/gateway/feeds.php',
-						type: 'post',
-						data : {
-						 ddl_feeds: '1'
-						},
-						success: function (data) { 
-						   var data = jQuery.parseJSON(data); 
-						      for(j=0;j<data.length;j++){
-						      	
-						       $("#selectfeed" +j).append($("<option></option>").attr("value", data[j].feed_id)
-						          .attr("name","feeds")
-						          .text(data[j].feed_name)); 
-						      }
-
-						    } 
-						});
-	           		$("#editFeedsBody").append($("</select></td><td><input type='hidden' value='"+data[i].ft_id+"' id='feed"+data[i].ft_id+"'></td></tr>"));
+			   		$("#editFeedsBody").append($("</select></td><td><input type='hidden' value='"+data[i].ft_id+"' id='feed"+data[i].ft_id+"'></td></tr>"));
 
 
-	           		$("#selectfeed" +i).on("change", function(){
-	           			var editedFeeds = {};
-	           			editedFeeds['fid'] = $('#selectfeed'+i).val();
-	           			editedFeeds['ft_id'] = $('#feed'+data[i].ft_id).val();
+			   		
+			   		count = count +1;
+			   }
+			   $("#selectfeed0" ).on("change", function(){ //NOTYET
+						var editedF = {};
+						editedF['fid'] = $('#selectfeed0').val(); //NOTYET
+						//editedFeeds['ft_id'] = $('#feed'+data[i].ft_id).val();
+						editedF['ft_id'] = 2; //NOTYET
+						editedFeeds.push(editedF);
 
-	           			editedMedications.push(editedFeeds);
 
+					});
+			   $.ajax({
+					url: '/phpork/gateway/feeds.php',
+					type: 'post',
+					data : {
+					 ddl_feeds: '1'
+					},
+					success: function (data) { 
+					   var data = jQuery.parseJSON(data); 
+					   for(k=0;k<count;k++){
+					   		for(j=0;j<data.length;j++){
+					      	
+					       $("#selectfeed" +k).append($("<option></option>").attr("value", data[j].feed_id)
+					          .attr("name","feeds")
+					          .text(data[j].feed_name)); 
+					      }
+					   }
+					      
 
-	           		});
-
-	           }
-	        }    
-	      });
+				    } 
+				});
+			}    
+		});
 
          $('#saveEditFeeds').on("click",function() {
-
+         	
 		 	
-		 	var user = $("#user_id").val();
+		 	var user = $("#user_id").val(); //NOTYET
 
 		 	$.each(editedFeeds, function(key, value) {
 		 			var ft_id = value.ft_id;
@@ -1460,7 +1507,7 @@
 		                  user: user
 	                    },
 	                    success: function (data) { 
-	                      alert("Added!"); 
+	                      alert("Saved details successfully!"); 
 	                      location.reload();
 
 	                          
@@ -1879,7 +1926,7 @@
                 }
             });
           }
-          window.location = "/phpork/encoder_home";
+          window.location = "/phpork/encoder/home";
         });
         /* report meds*/
         $('#medsRprt').on("click",function() {
@@ -1907,7 +1954,7 @@
                 }
             });
           }
-          window.location = "/phpork/encoder_home";
+          window.location = "/phpork/encoder/home";
         });
         /* report feeds*/
         $('#feedsRprt').on("click",function() {
@@ -1936,7 +1983,7 @@
                 }
             });
           }
-          window.location = "/phpork/encoder_home";
+          window.location = "/phpork/encoder/home";
         }); 
          /* report feeds*/
         $('#weightRprt').on("click",function() {
@@ -1965,7 +2012,7 @@
                 }
             });
           }
-          window.location = "/phpork/encoder_home";
+          window.location = "/phpork/encoder/home";
         });     
        
       //}); 

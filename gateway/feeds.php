@@ -93,4 +93,11 @@
 		echo json_encode($db->getLastFeed($pid)); 
 		
 	} 
+	if(isset($_POST['updateFeeds'])){
+		$fid = $_POST['fid']; 
+		$ft_id = $_POST['ft_id']; 
+		$user = $_POST['user']; 
+		echo json_encode($db->updateFeeds($fid,$ft_id,$user)); 
+		//localhost/phpork2/gateway/meds.php?ddl_medRecord=1&pig=1
+	} 
 ?>

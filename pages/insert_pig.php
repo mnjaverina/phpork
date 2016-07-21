@@ -71,7 +71,8 @@
               <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">RFID: </span>
                 <input type="text" readonly class="form-control" id="rfid" aria-describedby="basic-addon3">
-              </div>
+
+                <input type="hidden" id="tag_id" >              </div>
               <br/>
               <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Farrowing Date: </span>
@@ -80,7 +81,7 @@
               <br/>
               <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Week farrowed: </span>
-                <input type="number" min = "1" max = "52" class="form-control" name="weekFarrowed" value="" id = "weekFarrowed"> 
+                <input type="text"  class="form-control" name="weekFarrowed" value="" id = "weekFarrowed"> 
               </div>
               <br/>
               <div class="input-group gro">
@@ -330,6 +331,7 @@
             success: function(data) {
               var data = jQuery.parseJSON(data); 
               $("#rfid").attr("value",data[0].t_rfid);  
+              $("#tag_id").attr("value",data[0].t_id); 
             } 
           }); 
         }); 
@@ -470,7 +472,7 @@
                 var pigStatus= $('#pigStatus').val();
                 var weight = $('#weight').val();
                 var weightType = $('#weightType').val();
-                var rfid = $('#rfid').val();
+                var rfid = $('#tag_id').val();
                 var farm = $('#farm').val();
                 var house = $('#house').val();
                 var pen = $('#pen').val();
@@ -535,10 +537,12 @@
                        var data = jQuery.parseJSON(data); 
                        alert("Pig Added!");
 
-                      window.location = "/phpork/view/farm/house/pen/pig/" +data.ploc+ "/" +data.selHouse+ "/" +data.selPen+ "/" +data.new_pid; 
+                     
                      }
                   });
+
             });
+          window.location = "/phpork/view/farm/house/pen/pig/" +data.ploc+ "/" +data.selHouse+ "/" +data.selPen+ "/" +data.new_pid;
       });
       </script>
       <script>

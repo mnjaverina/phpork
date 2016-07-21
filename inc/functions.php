@@ -570,10 +570,9 @@
 		                      p.pen_id,
 		                      pb.breed_name,
 		                      rfid.tag_rfid,
-		                      wt.weight,
-		                      wt.remarks,
 		                      l.loc_id,
-		                      rfid.label
+		                      rfid.label,
+		                      rfid.tag_id
 		              FROM pig p
 		              INNER JOIN pen pe ON 
 		              p.pen_id = pe.pen_id
@@ -585,8 +584,6 @@
 		              p.breed_id = pb.breed_id
 		              INNER JOIN rfid_tags rfid ON
 		              rfid.pig_id = p.pig_id
-		              INNER JOIN weight_record wt ON
-		              wt.pig_id = p.pig_id
 		              INNER JOIN parents pa ON
 		              (pa.parent_id = p.boar_id AND pa.label =\"boar\")
 		             	 INNER JOIN parents par ON
@@ -597,6 +594,7 @@
 		    $result = mysqli_query($link, $query);
 		   	$pig = array();
 			$pig_arr = array();
+			//$aa = $this->getPigWeightDetails($pig_id);
 			while ($row = mysqli_fetch_row($result))
 		    {
 		        $pig['pid'] = $row[0];
@@ -617,10 +615,9 @@
 		        $pig['p_name'] = $row[15];
 		        $pig['br_name'] = $row[16];
 		        $pig['rfid_tag'] = $row[17];
-		        $pig['weight'] = $row[18];
-		        $pig['weight_type'] = $row[19];
-		        $pig['loc_id'] = $row[20];
-		        $pig['label'] = $row[21];
+		        $pig['loc_id'] = $row[18];
+		        $pig['label'] = $row[19];
+		        $pig['tag_id'] = $row[20];
 		        $pig_arr[] = $pig;
 		     }
 		   
@@ -662,7 +659,7 @@
 		    $query  = "SELECT tag_rfid,
 		                tag_id 
 		                FROM rfid_tags 
-		                WHERE label = '" . $pigid . "' and status='inactive'
+		                WHERE pig_id = '" . $pigid . "' and status='inactive'
 		                LIMIT 1";
 		    $result = mysqli_query($link, $query);
 		    $row    = mysqli_fetch_row($result);
@@ -1276,6 +1273,14 @@
 				where record_id = '".$record_id."'";
 				$result = mysqli_query($link, $query);
 		}
+		public function updateWeekFar($pig_id, $weekfar)
+		{
+				$link = $this->connect();
+				$query = "UPDATE   pig
+				set week_farrowed = '".$weekfar."'
+				where pig_id = '".$pig_id."'";
+				$result = mysqli_query($link, $query);
+		}
 		public function updateRFIDdetails($pig_id, $rfid, $prevrfid, $plabel)
 		{
 				$link = $this->connect();
@@ -1292,39 +1297,33 @@
 						WHERE tag_id = '" . $rfid . "'";
 				$result = mysqli_query($link, $query);
 		}
-		public function insertEditHistory($user, $pigid, $prevStatus, $status, $prevrfid, $rfid,  $prevweight, $weight, $prevweighttype, $weightype)
+		public function insertEditHistory($user, $pigid,$prevWeekFar,$newWeekFar, $prevStatus, $status, $prevrfid, $rfid,  $prevweight, $weight, $prevweighttype, $weightype)
 		{
 				$link = $this->connect();
-				$q = "SELECT max(id)
-					FROM edit_history";
-				$r = mysqli_query($link, $q);
-				$ro = mysqli_fetch_row($r);
-				$max = $ro[0] + 1;
-				$query = "INSERT INTO edit_history(id,pig_id,prevStatus, status, prevRFID, rfid, prevWeight, weight, prevWeightType, weightType,user,edit_date) 
-							values('" . $max . "','" . $pigid . "','" . $prevStatus . "','" . $status . "','" . $prevrfid . "','" . $rfid . "','" . $prevweight . "','" . $weight . "','". $prevweighttype . "','" . $weightype . "','". $user . "', curdate());";
-				$result = mysqli_query($link, $query);
-				$data = array("success"=>"true",
-			        "newId"=> $link->insert_id);
+				$query = "INSERT INTO edit_history(pig_id,prevWeekFar,newWeekFar,prevStatus, status, prevRFID, rfid, prevWeight, weight, prevWeightType, weightType,user,edit_date) 
+							values('" . $pigid . "','" . $prevWeekFar . "','" . $newWeekFar . "','" . $prevStatus . "','" . $status . "','" . $prevrfid . "','" . $rfid . "','" . $prevweight . "','" . $weight . "','". $prevweighttype . "','" . $weightype . "','". $user . "', curdate());";
+				
+				//$result = mysqli_query($link, $query);
+				
 			    if ($result = mysqli_query( $link, $query )) {
-		      	$data = array("success"=>"true",
-			        "newId"=> $link->insert_id);
-		      }else {
-			      $data = array("success"=>"false",
-                  	"error"=>mysqli_error($link));
+			      	$data = array("success"=>"true",
+				        "newId"=> $link->insert_id);
+		      	}else {
+			      	$data = array("success"=>"false",
+	                  	"error"=>mysqli_error($link));
 			    }
 			    return $data;
 		}
 		public function addWeight($dateWeighed, $timeWeighed, $weight, $weightType, $pigid, $user)
 		{
 				$link = $this->connect();
-				$link = $this->connect();
 				$q = "SELECT max(record_id)
 					FROM weight_record";
 				$r = mysqli_query($link, $q);
 				$ro = mysqli_fetch_row($r);
 				$max = $ro[0] + 1;
-				$query = "INSERT INTO weight_record(record_id, record_date, record_time, weight, pig_id, remarks, user) 
-							VALUES('" .$max. "','" .$dateWeighed. "','" .$timeWeighed. "','" .$weight. "','" .$pigid. "','" .$weightType. "','" .$user. "');";
+				$query = "INSERT INTO weight_record(record_date, record_time, weight, pig_id, remarks, user) 
+							VALUES('" .$dateWeighed. "','" .$timeWeighed. "','" .$weight. "','" .$pigid. "','" .$weightType. "','" .$user. "');";
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 			        "newId"=> $link->insert_id);
@@ -1967,7 +1966,7 @@
 						$data['x'] = $i;
 						$data['week'] = $row[1];
 						$data['time_moved'] = $row[2];
-						$data['pen'] = $mvmnt[$j];
+						$data['move'] = $mvmnt[$j];
 
 						$arr[] = $data;
 						$j++;
