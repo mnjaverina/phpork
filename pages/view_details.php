@@ -280,12 +280,14 @@
 			 				</select>
 			 				<br/>
 				 			<div id="insertperPen" style="display: none;">
-				 				<input type="checkbox" value="selectAllPen" onchange='checkAllPen(this)' >Select All Pens</input>
-				 				<br/>
+				 				<table id="insertPenTable" class="table table-striped">
+			 					<tr><td><input type="checkbox" value="selectAllPen" onchange='checkAllPenF(this)' />Select All Pens</td></tr>
+			 					</table>
 				 			</div>
 				 			<div id="insertperPig" style="display: none;">
-				 				<input type="checkbox" value="selectAllPig" onchange='checkAllPig(this)' >Select All Pigs</input>
-				 				<br/>
+				 				<table id="insertPigTable" class="table table-striped">
+				 				<tr><td><input type="checkbox" value="selectAllPig" onchange='checkAllPig(this)' >Select All Pigs</input></td></tr>
+				 				</table>
 				 			</div>
 							<div>
 								<table class="table table-striped tableInsertMed" id="insertMeds"> 
@@ -426,12 +428,14 @@
 			 					<option value="perpigF">Select per pig</option>
 			 				</select>
 			 				<div id="insertperPenF" style="display: none;">
-			 					<input type="checkbox" value="selectAllPen" onchange='checkAllPenF(this)' />Select All Pens
-			 					<br/>
+			 					<table id="insertPenFTable" class="table table-striped">
+			 					<tr><td><input type="checkbox" value="selectAllPen" onchange='checkAllPenF(this)' />Select All Pens</td></tr>
+			 					</table>
 			 				</div>
 			 				<div id="insertperPigF" style="display: none;">
-			 					<input type="checkbox" value="selectAllPig" onchange='checkAllPigF(this)' />Select All Pigs
-			 					<br/>
+			 					<table id="insertPigFTable" class="table table-striped">
+				 				<tr><td><input type="checkbox" value="selectAllPig" onchange='checkAllPig(this)' >Select All Pigs</input></td></tr>
+				 				</table>
 			 				</div>
 							<div>
 								<table class="table table-striped tableInsertFeed" id="insertFeeds"> 
@@ -514,12 +518,14 @@
 			 					<option value="perpigW">Select per pig</option>
 			 				</select>
 			 				<div id="insertperBatch" style="display: none;">
-			 					<input type="checkbox" value="selectAllBatch" onchange='checkAllBatchW(this)' >Select All Batches</input>
-			 					<br/>
+			 					<table id="insertBatchWTable" class="table table-striped">
+			 					<tr><td><input type="checkbox" value="selectAllBatch" onchange='checkAllBatchW(this)' >Select All Batches</input></td></tr>
+			 					</table>
 			 				</div>
 			 				<div id="insertperPigW" style="display: none;">
-			 					<input type="checkbox" value="selectAllPig" onchange='checkAllPigW(this)' >Select All Pigs</input>
-			 					<br/>
+			 					<table id="insertPigWTable" class="table table-striped">
+				 				<tr><td><input type="checkbox" value="selectAllPig" onchange='checkAllPig(this)' >Select All Pigs</input></td></tr>
+				 				</table>
 			 				</div>
 							<div>
 								<table class="table table-striped tableWeight" id="insertWeight"> 
@@ -840,11 +846,8 @@
 			        success: function (data) { 
 			          var data = jQuery.parseJSON(data);
 			          for(i=0;i<data.length;i++){
-			             $('#insertperPen').append($('<input type="checkbox" class="penclass" value="'+data[i].pen_id+'">'+data[i].pen_no+'</input>'));
-			             $('#insertperPen').append($('<br/>'));
-
-			             $('#insertperPenF').append($('<input type="checkbox" class="penclassF" value="'+data[i].pen_id+'">'+data[i].pen_no+'</input>'));
-			             $('#insertperPenF').append($('<br/>'));
+			              $('#insertPenTable').append($("<tr><td><input type=\"checkbox\" class=\"penclass\" value=\""+data[i].pen_id+"\">"+data[i].pen_no+"</input></td></tr>"));
+			             $('#insertPenFTable').append($("<tr><td><input type=\"checkbox\" class=\"penclassF\" value=\""+data[i].pen_id+"\">"+data[i].pen_no+"</input></td></tr>"));
 			            }
 								
 			        }    
@@ -859,14 +862,9 @@
 			        success: function (data) { 
 			          var data = jQuery.parseJSON(data);
 			          for(i=0;i<data.length;i++){
-			             $('#insertperPig').append($('<input type="checkbox" class="pigclass" value="'+data[i].pig_id+'">'+data[i].lbl+'</input>'));
-			             $('#insertperPig').append($('<br/>'));
-
-			             $('#insertperPigF').append($('<input type="checkbox" class="pigclassF" value="'+data[i].pig_id+'">'+data[i].lbl+'</input>'));
-			             $('#insertperPigF').append($('<br/>'));
-
-			             $('#insertperPigW').append($('<input type="checkbox" class="pigclassW" value="'+data[i].pig_id+'">'+data[i].lbl+'</input>'));
-			             $('#insertperPigW').append($('<br/>'));
+			             $('#insertPigTable').append($('<tr><td><input type="checkbox" class="pigclass" value="'+data[i].pig_id+'">'+data[i].lbl+'</input></td></tr>'));
+			              $('#insertPigFTable').append($('<tr><td><input type="checkbox" class="pigclass" value="'+data[i].pig_id+'">'+data[i].lbl+'</input></td></tr>'));
+			               $('#insertPigWTable').append($('<tr><td><input type="checkbox" class="pigclass" value="'+data[i].pig_id+'">'+data[i].lbl+'</input></td></tr>'));
 
 		            }
 								
@@ -882,8 +880,8 @@
 			        success: function (data) { 
 			          var data = jQuery.parseJSON(data);
 			          for(i=0;i<data.length;i++){
-			             $('#insertperBatch').append($('<input type="checkbox" class="batchclass" value="'+data[i].batch+'">'+data[i].batch+'</input>'));
-			             $('#insertperBatch').append($('<br/>'));
+			             $('#insertBatchWTable').append($('<tr><td><input type="checkbox" class="batchclass" value="'+data[i].batch+'">'+data[i].batch+'</input></td></tr>'));
+			            
 
 			            }
 								
