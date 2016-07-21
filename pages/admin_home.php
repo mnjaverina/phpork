@@ -230,14 +230,6 @@
               </div>
             </div>
 
-
-          <div id="editFarm" style="display: none;">
-            <button id="backToFarm2">Back</button>
-              <h2 class="modal-title">Edit Farm</h2>
-            <div class="input-group" id="editFarmSearch">
-                <center></center>
-                
-
             <div id="editFarm" style="display: none;">
               <div style="margin-bottom: 10%;">
                 <button id="backToFarm2" style="float: right;">Back</button>
@@ -270,8 +262,6 @@
         </div>
       </div>
     </div>
-   </div>
-   </div> 
 
     <!-- Modal for add House-->
     <div id="myModalHouse" class="modal fade" role="dialog">
@@ -551,7 +541,7 @@
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Search: </span>
                 <select type="search" name="userName" id="searchParent" class="form-control" placeholder="Search for parent">
-                  </option></option>
+                  <option></option>
                 </select>
               </div>
             </div>
