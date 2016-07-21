@@ -203,17 +203,19 @@
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Farm</h4>
           </div>
-          <div class="modal-body">
-            <br/>
-            <div id="chooseToDoFarm" class="btnCenter">
-              <button id="addFarmBtn" class="btn btn-default">Add Farm</button>
-              <br/><br/>
-              <button id="editFarmBtn" class="btn btn-default">Edit Farm</button>
-            </div>
 
-             <div id="addFarmDetails" style="display: none;">
-                <button id="backToFarm1">Back</button>
-                <h2 class="modal-title">Add Farm</h2>
+          <div class="modal-body">
+            <div id="chooseToDoFarm" class="btnCenter">
+              <button id="addFarmBtn" class="btnModal">Add Farm</button>
+              <br/><br/>
+              <button id="editFarmBtn" class="btnModal">Edit Farm</button>
+            </div>
+            
+            <div id="addFarmDetails" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToFarm1" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Add Farm</h3>
+              </div>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
                 <input type="text" class="form-control" id="farmname" data-trigger= "hover"  data-toggle="tooltip" title="Input the name of the farm you want to add." aria-describedby="basic-addon3">
@@ -223,300 +225,301 @@
                 <span class="input-group-addon" id="basic-addon3">Address: </span>
                 <input type="text" class="form-control" id="fadd" data-trigger= "hover" data-toggle="tooltip" title="Input the address of the new farm." aria-describedby="basic-addon3">
               </div>
-            <div class="modal-footer" >
-              <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save farm's details." id="saveFarm">Add</button>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save farm's details." id="saveFarm">Add</button>
+              </div>
             </div>
-          </div>
 
-          <div id="editFarm" style="display: none;">
-            <button id="backToFarm2">Back</button>
-              <h2 class="modal-title">Edit Farm</h2>
-            <div class="input-group" id="editFarmSearch">
-                <center></center>
-                
-                <label> Search: </label> &nbsp;
+            <div id="editFarm" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToFarm2" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Edit Farm</h3>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Search: </span>
                 <select id="farmOptions" type="search" class="form-control" title="Search for farm to be edited">
-                 <option> </option>
-               </select>
+                  <option> </option>
+                </select>
+              </div>
             </div>
-            <br/>
+      
             <div id="editFarmDetails" style="display: none;">
-                 <div class="input-group" id="editFARMNAME">
-                  <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
-                  <input type="text" class="form-control" id="farmnameEdit" data-trigger= "hover"  data-toggle="tooltip" title="Edit the name of the farm." aria-describedby="basic-addon3">
-                </div>
-                <br/>
-                 <div class="input-group" id="editFADD">
-                  <span class="input-group-addon" id="basic-addon3">Address: </span>
-                  <input type="text" class="form-control" id="faddEdit" data-trigger= "hover" data-toggle="tooltip" title="Edit the address of the farm." aria-describedby="basic-addon3">
-                </div>
+              <div class="input-group" id="editFARMNAME">
+                <span class="input-group-addon" id="basic-addon3">Farm Name: </span>
+                <input type="text" class="form-control" id="farmnameEdit" data-trigger= "hover"  data-toggle="tooltip" title="Edit the name of the farm." aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group" id="editFADD">
+                <span class="input-group-addon" id="basic-addon3">Address: </span>
+                <input type="text" class="form-control" id="faddEdit" data-trigger= "hover" data-toggle="tooltip" title="Edit the address of the farm." aria-describedby="basic-addon3">
+              </div>
               <div class="modal-footer" >
                 <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save farm's details." id="saveEditFarm">Edit</button>
               </div>
             </div>
-        </div>
-
-
+          </div>
         </div>
       </div>
-    </div>
     </div>
 
     <!-- Modal for add House-->
     <div id="myModalHouse" class="modal fade" role="dialog">
       <div class="modal-dialog">
-        <div class="modal-content"> <!-- Modal content-->
+        <div class="modal-content">
+          
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">House</h4>
           </div>
+
           <div class="modal-body">
+            <div id="chooseToDoHouse" class="btnCenter">
+              <button id="addHouseBtn" class="btnModal">Add House</button>
+              <br/><br/>
+              <button id="editHouseBtn" class="btnModal">Edit House</button>
+            </div>
 
-                <div id="chooseToDoHouse">
-                  <button id="addHouseBtn" class="btn btn-default">Add House</button>
-                  <br/><br/>
-                  <button id="editHouseBtn" class="btn btn-default">Edit House</button>
-                </div>
+            <div id="addHouseDetails" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToHouse1" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Add House</h3>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Location: </span>
+                <select class="form-control" id="loc" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the house you want to add." required> 
+                  <option value="" disabled selected>Select farm location...</option> 
+                </select>
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                <input type="text" class="form-control" id="hnum" data-trigger= "hover" data-toggle="tooltip" title="Input the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">House Name: </span>
+                <input type="text" class="form-control" id="hname" data-trigger= "hover" data-toggle="tooltip" title="Input the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Function: </span>
+                <select  class="form-control" id="func" name="selStat" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Input the function of the new house. Ex: Weaning" required> 
+                  <option value="" disabled selected>Select function</option>
+                  <option value="Weaning">Weaning</option> 
+                  <option value="Growing">Growing</option> 
+                  <option value="Slaughter">Slaughter</option> 
+                </select> 
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save house's details." id="saveHouse">Add</button>
+              </div>
+            </div>
 
-                <div id="addHouseDetails" style="display: none;">
-                    <button id="backToHouse1">Back</button>
-                    <h2 class="modal-title">Add House</h2>
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon3">Location: </span>
-                      <select class="form-control" id="loc" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the house you want to add." required> 
-                            <option value="" disabled selected>Select farm location...</option> 
-                    </select>
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon3">House Number: </span>
-                      <input type="text" class="form-control" id="hnum" data-trigger= "hover" data-toggle="tooltip" title="Input the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon3">House Name: </span>
-                      <input type="text" class="form-control" id="hname" data-trigger= "hover" data-toggle="tooltip" title="Input the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon3">Function: </span>
-                      <select  class="form-control" id="func" name="selStat" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Input the function of the new house. Ex: Weaning" required> 
-                        <option value="" disabled selected>Select function</option>
-                        <option value="Weaning">Weaning</option> 
-                        <option value="Growing">Growing</option> 
-                        <option value="Slaughter">Slaughter</option> 
-                      </select> 
-                    </div>
-                    <br/>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save house's details." id="saveHouse">Add</button>
-                  </div>
-                </div>
-
-                <div id="editHouse" style="display: none;">
-                    <button id="backToHouse2">Back</button>
-                    <h2 class="modal-title">Edit House</h2>
-
-                    <div class="input-group" id="editHouseSearch">
-                      <center></center>
-
-                      <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon3">Search for Location: </span>
-                      <select class="form-control" id="loc1" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the house you want to edit." required> 
-                            <option value="" disabled selected>Select farm location...</option> 
-                    </select>
-                    </div>
-                       <span class="input-group-addon" id="basic-addon3">Search: </span>
-                      <select type="search" name="userName" id="searchHouse" class="form-control" placeholder="Search for House">
-                        <option></option>
-                      </select>
-                  </div>
-                  <br/>
+            <div id="editHouse" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToHouse2" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Edit House</h3>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Location: </span>
+                <select class="form-control" id="loc1" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm." required> 
+                  <option value="" disabled selected>Select farm location...</option> 
+                </select>
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Search: </span>
+                <select type="search" name="userName" id="searchHouse" class="form-control" placeholder="Search for House">
+                  <option></option>
+                </select>
+              </div>
+            </div>
                   
-                  <div id="editHouseDetails" style="display: none;">
-                      <div class="input-group" id="editHOUSELOC">
-                        <span class="input-group-addon" id="basic-addon3">Location: </span>
-                        <select class="form-control" id="editloc2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit the location/farm." required> 
-                              <option value="" disabled selected>Select farm location...</option> 
-                      </select>
-                      </div>
-                      <br/>
-                      <div class="input-group" id="EDITHOUSENUM">
-                        <span class="input-group-addon" id="basic-addon3">House Number: </span>
-                        <input type="text" class="form-control" id="edithnum" data-trigger= "hover" data-toggle="tooltip" title="Edit the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
-                      </div>
-                      <br/>
-                      <div class="input-group" id="editHOUSENAME">
-                        <span class="input-group-addon" id="basic-addon3">House Name: </span>
-                        <input type="text" class="form-control" id="edithname" data-trigger= "hover" data-toggle="tooltip" title="Edit the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
-                      </div>
-                      <br/>
-                      <div class="input-group" id="editHOUSEFXN">
-                        <span class="input-group-addon" id="basic-addon3">Function: </span>
-                        <select  class="form-control" id="editfunc" name="selStat" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit the function of the new house. Ex: Weaning" required> 
-                          <option value="" disabled selected>Select function</option>
-                          <option value="Weaning">Weaning</option> 
-                          <option value="Growing">Growing</option> 
-                          <option value="Slaughter">Slaughter</option> 
-                        </select> 
-                      </div>
-                      <br/>
-                    <div class="modal-footer" >
-                      <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to edit house's details." id="saveEditHouse">Edit</button>
-                    </div>
-                </div>
-             </div>
+            <div id="editHouseDetails" style="display: none;">
+              <div class="input-group" id="editHOUSELOC">
+                <span class="input-group-addon" id="basic-addon3">Location: </span>
+                <select class="form-control" id="editloc2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit the location/farm." required> 
+                  <option value="" disabled selected>Select farm location...</option> 
+                </select>
+              </div>
+              <br/>
+              <div class="input-group" id="EDITHOUSENUM">
+                <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                <input type="text" class="form-control" id="edithnum" data-trigger= "hover" data-toggle="tooltip" title="Edit the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group" id="editHOUSENAME">
+                <span class="input-group-addon" id="basic-addon3">House Name: </span>
+                <input type="text" class="form-control" id="edithname" data-trigger= "hover" data-toggle="tooltip" title="Edit the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group" id="editHOUSEFXN">
+                <span class="input-group-addon" id="basic-addon3">Function: </span>
+                <select  class="form-control" id="editfunc" name="selStat" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit the function of the new house. Ex: Weaning" required> 
+                  <option value="" disabled selected>Select function</option>
+                  <option value="Weaning">Weaning</option> 
+                  <option value="Growing">Growing</option> 
+                  <option value="Slaughter">Slaughter</option> 
+                </select> 
+              </div>
 
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to edit house's details." id="saveEditHouse">Edit</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-     <!-- Modal for add Pen-->
+    <!-- Modal for add Pen-->
     <div id="myModalPen" class="modal fade" role="dialog">
       <div class="modal-dialog">
-        <div class="modal-content"> <!-- Modal content-->
+        <div class="modal-content"> 
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Pen</h4>
           </div>
-          <div class="modal-body">
 
-            <div id="chooseToDoPen">
-                  <button id="addPenBtn" class="btn btn-default">Add Pen</button>
-                  <br/><br/>
-                  <button id="editPenBtn" class="btn btn-default">Edit Pen</button>
+          <div class="modal-body">
+            <div id="chooseToDoPen" class="btnCenter">
+              <button id="addPenBtn" class="btnModal">Add Pen</button>
+              <br/><br/>
+              <button id="editPenBtn" class="btnModal">Edit Pen</button>
             </div>
 
-             <div id="addPenDetails" style="display: none;">
-                    <button id="backToPen1">Back</button>
-                    <h2 class="modal-title">Add House</h2>
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon3">Location: </span>
-                      <select class="form-control" id="farm" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
-                            <option value="" disabled selected>Select farm location...</option> 
-                    </select>
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon3">House Number: </span>
-                       <select class='form-control'  id='house' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
-                              <option value='' disabled selected>Select house...</option> 
-                    </select> 
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
-                      <input type="text" class="form-control" id="pennum" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon3">Function: </span>
-                      <select  class="form-control" id="func2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
-                        <option value="" disabled selected>Select function</option>
-                        <option value="Weaning">Weaning</option> 
-                        <option value="Growing">Growing</option> 
-                        <option value="Medication">Medication</option>
-                        <option value="Mortality">Mortality</option> 
-                      </select> 
-                    </div>
-                    <div class="modal-footer" >
-                      <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save pen's details." id="savePen">Add</button>
-                    </div>
-                </div>
+            <div id="addPenDetails" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToPen1" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Add Pen</h3>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Location: </span>
+                <select class="form-control" id="farm" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
+                  <option value="" disabled selected>Select farm location...</option> 
+                </select>
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                <select class='form-control'  id='house' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
+                  <option value='' disabled selected>Select house...</option> 
+                </select> 
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
+                <input type="text" class="form-control" id="pennum" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Function: </span>
+                <select  class="form-control" id="func2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
+                  <option value="" disabled selected>Select function</option>
+                  <option value="Weaning">Weaning</option> 
+                  <option value="Growing">Growing</option> 
+                  <option value="Medication">Medication</option>
+                  <option value="Mortality">Mortality</option> 
+                </select> 
+              </div>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save pen's details." id="savePen">Add</button>
+              </div>
+            </div>
 
-                <div id="editPen" style="display: none;">
-                    <button id="backToPen2">Back</button>
-                    <h2 class="modal-title">Edit Pen</h2>
-
-                    <div class="input-group" id="editPenSearch">
-                      <center></center>
-                      <div class="input-group">
-                      <span class="input-group-addon" id="basic-addon3">Location: </span>
-                      <select class="form-control" id="farm1" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
-                            <option value="" disabled selected>Select farm location...</option> 
-                      </select>
-                      </div>
-                      <br/>
-                      <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon3">House Number: </span>
-                         <select class='form-control'  id='house1' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
-                                <option value='' disabled selected>Select house...</option> 
-                      </select> 
-                      </div>
-                      <br/>
-                      <span class="input-group-addon" id="basic-addon3">Search: </span>
-                      <select type="search" name="userName" id="searchPen" class="form-control" placeholder="Search for Pen">
-                        <option></option>
-                      </select>
-                    </div>
-
-                     <div id="editPenDetails" style="display: none;">
-                        <div class="input-group" id="editPENLOC">
-                        <span class="input-group-addon" id="basic-addon3">Location: </span>
-                        <select class="form-control" id="editfarm2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
-                              <option value="" disabled selected>Select farm location...</option> 
-                      </select>
-                      </div>
-                      <br/>
-                      <div class="input-group" id="editPENHOUSE">
-                        <span class="input-group-addon" id="basic-addon3">House Number: </span>
-                         <select class='form-control'  id='edithouse2' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
-                                <option value='' disabled selected>Select house...</option> 
-                      </select> 
-                      </div>
-                      <br/>
-                      <div class="input-group" id="editPENNUM">
-                        <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
-                        <input type="text" class="form-control" id="editpennum" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
-                      </div>
-                      <br/>
-                      <div class="input-group" id="editPENFXN">
-                        <span class="input-group-addon" id="basic-addon3">Function: </span>
-                        <select  class="form-control" id="editfunc2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
-                          <option value="" disabled selected>Select function</option>
-                          <option value="Weaning">Weaning</option> 
-                          <option value="Growing">Growing</option> 
-                          <option value="Medication">Medication</option>
-                          <option value="Mortality">Mortality</option> 
-                        </select> 
-                      </div>
-                      <div class="modal-footer" >
-                        <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save pen's details." id="saveEditPen">Add</button>
-                      </div>
-
-                </div>
-          </div>
+            <div id="editPen" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToPen2" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Edit Pen</h3>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Location: </span>
+                <select class="form-control" id="farm1" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
+                  <option value="" disabled selected>Select farm location...</option> 
+                </select>
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                <select class='form-control'  id='house1' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
+                  <option value='' disabled selected>Select house...</option> 
+                </select> 
+              </div>
+              <br/>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Search: </span>
+                <select type="search" name="userName" id="searchPen" class="form-control" placeholder="Search for Pen">
+                  <option></option>
+                </select>
+              </div>
+            </div>
+            
+            <div id="editPenDetails" style="display: none;">
+              <div class="input-group" id="editPENLOC">
+                <span class="input-group-addon" id="basic-addon3">Location: </span>
+                <select class="form-control" id="editfarm2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
+                  <option value="" disabled selected>Select farm location...</option> 
+                </select>
+              </div>
+              <br/>
+              <div class="input-group" id="editPENHOUSE">
+                <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                <select class='form-control'  id='edithouse2' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
+                  <option value='' disabled selected>Select house...</option> 
+                </select> 
+              </div>
+              <br/>
+              <div class="input-group" id="editPENNUM">
+                <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
+                <input type="text" class="form-control" id="editpennum" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
+              </div>
+              <br/>
+              <div class="input-group" id="editPENFXN">
+                <span class="input-group-addon" id="basic-addon3">Function: </span>
+                <select  class="form-control" id="editfunc2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
+                  <option value="" disabled selected>Select function</option>
+                  <option value="Weaning">Weaning</option> 
+                  <option value="Growing">Growing</option> 
+                  <option value="Medication">Medication</option>
+                  <option value="Mortality">Mortality</option> 
+                </select> 
+              </div>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save pen's details." id="saveEditPen">Add</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Modal for Add Parent -->
-     <div id="myModalParent" class="modal fade" role="dialog" >
+    <div id="myModalParent" class="modal fade" role="dialog" >
       <div class="modal-dialog">
-        <div class="modal-content"> <!-- Modal content-->
+        <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Parent</h4>
           </div>
-          <div class="modal-body">
 
-            <div id="chooseToDoParent">
-              <button id="addParentBtn" class="btn btn-default">Add Parent</button>
+          <div class="modal-body">
+            <div id="chooseToDoParent" class="btnCenter">
+              <button id="addParentBtn" class="btnModal">Add Parent</button>
               <br/><br/>
-              <button id="editParentBtn" class="btn btn-default">Edit Parent</button>
+              <button id="editParentBtn" class="btnModal">Edit Parent</button>
             </div>
             
             <div id="addParentDetails" style="display: none;">
-                <button id="backToParent1">Back</button>
-                <h2 class="modal-title">Add Parent</h2>
+              <div style="margin-bottom: 10%;">
+                <button id="backToParent1" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Add Parent</h3>
+              </div>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Label: </span>
                 <select  class="form-control" id="parentLabel"  style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the parent you will add is boar or sow." required> 
-                        <option value="" disabled selected>Select parent label</option> 
-                        <option value="boar">Boar</option> 
-                        <option value="sow">Sow</option> 
+                  <option value="" disabled selected>Select parent label</option> 
+                  <option value="boar">Boar</option> 
+                  <option value="sow">Sow</option> 
                 </select> 
               </div>
               <br/>
@@ -524,126 +527,128 @@
                 <span class="input-group-addon" id="basic-addon3">Label ID: </span>
                 <input type="text" class="form-control" id="label_id" data-trigger= "hover" data-toggle="tooltip" title="Input the label id of the new boar/sow. Ex: AB123" aria-describedby="basic-addon3">
               </div>
-            <div class="modal-footer" >
-              <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save parent's details." id="saveParent">Add</button>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save parent's details." id="saveParent">Add</button>
+              </div>
+            </div>
+          
+            <div id="editParent" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToParent2" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Edit Parent</h3>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Search: </span>
+                <select type="search" name="userName" id="searchParent" class="form-control" placeholder="Search for parent">
+                  </option></option>
+                </select>
+              </div>
+            </div>
+            
+            <div id="editParentDetails" style="display: none;">
+              <div class="input-group" id="editPARENTLABEL">
+                <span class="input-group-addon" id="basic-addon3">Label: </span>
+                <select  class="form-control" id="editparentLabel"  style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the parent you will add is boar or sow." required> 
+                  <option value="" disabled selected>Select parent label</option> 
+                  <option value="boar">Boar</option> 
+                  <option value="sow">Sow</option> 
+                </select> 
+              </div>
+              <br/>
+              <div class="input-group" id="editPARENTLABELID">
+                <span class="input-group-addon" id="basic-addon3">Label ID: </span>
+                <input type="text" class="form-control" id="editlabel_id" data-trigger= "hover" data-toggle="tooltip" title="Input the label id of the new boar/sow. Ex: AB123" aria-describedby="basic-addon3">
+              </div>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save parent's details." id="saveEditParent">Edit</button>
+              </div>
             </div>
           </div>
-          
-           <div id="editParent" style="display: none;">
-                <button id="backToParent2">Back</button>
-                <h2 class="modal-title">Edit Parent</h2>
-
-                <div class="input-group" id="editParentSearch">
-                    <center></center>
-                    
-                    <span class="input-group-addon" id="basic-addon3">Search: </span>
-                    <select type="search" name="userName" id="searchParent" class="form-control" placeholder="Search for parent">
-                    </option></option>
-                  </select>
-                </div>
-            
-                <div id="editParentDetails" style="display: none;">
-                     <div class="input-group" id="editPARENTLABEL">
-                      <span class="input-group-addon" id="basic-addon3">Label: </span>
-                      <select  class="form-control" id="editparentLabel"  style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select if the parent you will add is boar or sow." required> 
-                              <option value="" disabled selected>Select parent label</option> 
-                              <option value="boar">Boar</option> 
-                              <option value="sow">Sow</option> 
-                      </select> 
-                    </div>
-                    <br/>
-                    <div class="input-group" id="editPARENTLABELID">
-                      <span class="input-group-addon" id="basic-addon3">Label ID: </span>
-                      <input type="text" class="form-control" id="editlabel_id" data-trigger= "hover" data-toggle="tooltip" title="Input the label id of the new boar/sow. Ex: AB123" aria-describedby="basic-addon3">
-                    </div>
-                  <div class="modal-footer" >
-                    <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save parent's details." id="saveEditParent">Edit</button>
-                  </div>
-              </div>
-               </div>
-      </div>
         </div>
       </div>
     </div>
 
     <!-- Modal for Add Breed -->
-     <div id="myModalBreed" class="modal fade" role="dialog" >
+    <div id="myModalBreed" class="modal fade" role="dialog" >
       <div class="modal-dialog">
-        <div class="modal-content"> <!-- Modal content-->
+        <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Breed</h4>
           </div>
+
           <div class="modal-body">
-             <div id="chooseToDoBreed">
-              <button id="addBreedBtn" class="btn btn-default">Add Breed</button>
+
+            <div id="chooseToDoBreed" class="btnCenter">
+              <button id="addBreedBtn" class="btnModal">Add Breed</button>
               <br/><br/>
-              <button id="editBreedBtn" class="btn btn-default">Edit Breed</button>
+              <button id="editBreedBtn" class="btnModal">Edit Breed</button>
             </div>
 
-
             <div id="addBreedDetails" style="display: none;">
-                <button id="backToBreed1">Back</button>
-                <h2 class="modal-title">Add Breed</h2>
-                <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon3">Breed Name: </span>
-                  <input type="text" class="form-control" id="searchBreed" data-trigger= "hover" data-toggle="tooltip" title="Input new breed's name." aria-describedby="basic-addon3">
-                </div>
+              <div style="margin-bottom: 10%;">
+                <button id="backToBreed1" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Add Breed</h3>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Breed Name: </span>
+                <input type="text" class="form-control" id="breed_name" data-trigger= "hover" data-toggle="tooltip" title="Input new breed's name." aria-describedby="basic-addon3">
+              </div>
               <div class="modal-footer" >
                 <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save breed's details." id="saveBreed">Add</button>
               </div>
-          </div>
+            </div>
 
-          <div id="editBreed" style="display: none;">
-                <button id="backToBreed2">Back</button>
-                <h2 class="modal-title">Edit Breed</h2>
-
-                <div class="input-group" id="editBreedSearch">
-                    <center></center>
-                    
-                    <span class="input-group-addon" id="basic-addon3">Search: </span>
-                    <select type="search" id="searchBreed" class="form-control" placeholder="Search for breed">
-                      <option></option>
-                     </select>
-                </div>
-            
-                <div id="editBreedDetails" style="display: none;">
-
-                     <div class="input-group" id="editBREEDNAME">
-                      <span class="input-group-addon" id="basic-addon3">Breed Name: </span>
-                      <input type="text" class="form-control" id="breed_name" data-trigger= "hover" data-toggle="tooltip" title="Input new breed's name." aria-describedby="basic-addon3">
-                    </div>
-                  <div class="modal-footer" >
-                    <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save breed's details." id="saveEditBreed">Edit</button>
-                  </div>
+            <div id="editBreed" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToBreed2" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Edit Breed</h3>
               </div>
-
-        </div>
-      </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Search: </span>
+                <select type="search" id="searchBreed" class="form-control" placeholder="Search for breed">
+                  <option></option>
+                </select>
+              </div>
+            </div>
+            
+            <div id="editBreedDetails" style="display: none;">
+              <div class="input-group" id="editBREEDNAME">
+                <span class="input-group-addon" id="basic-addon3">Breed Name: </span>
+                <input type="text" class="form-control" id="breed_name" data-trigger= "hover" data-toggle="tooltip" title="Input new breed's name." aria-describedby="basic-addon3">
+              </div>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to save breed's details." id="saveEditBreed">Edit</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
 
     <!-- Modal for Add Feed -->
-     <div id="myModalFeed" class="modal fade" role="dialog" >
+    <div id="myModalFeed" class="modal fade" role="dialog" >
       <div class="modal-dialog">
         <div class="modal-content"> <!-- Modal content-->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Feed</h4>
           </div>
+
           <div class="modal-body">
 
-            <div id="chooseToDoFeed">
-              <button id="addFeedBtn" class="btn btn-default">Add Feed</button>
+            <div id="chooseToDoFeed" class="btnCenter">
+              <button id="addFeedBtn" class="btnModal">Add Feed</button>
               <br/><br/>
-              <button id="editFeedBtn" class="btn btn-default">Edit Feed</button>
+              <button id="editFeedBtn" class="btnModal">Edit Feed</button>
             </div>
 
             <div id="addFeedDetails" style="display: none;">
-                <button id="backToFeed1">Back</button>
-                <h2 class="modal-title">Add Feed</h2>
+              <div style="margin-bottom: 10%;">
+                <button id="backToFeed1" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Add Feed</h3>
+              </div>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Feed Name: </span>
                 <input type="text" class="form-control" id="feed_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new feed." aria-describedby="basic-addon3">
@@ -653,27 +658,27 @@
                 <span class="input-group-addon" id="basic-addon3">Feed Type: </span>
                 <input type="text" class="form-control" id="feed_type" data-trigger= "hover" data-toggle="tooltip" title="Input the type of the new feed. Ex: Type 1 " aria-describedby="basic-addon3">
               </div>
-            <div class="modal-footer" >
-              <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveFeed">Add</button>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveFeed">Add</button>
+              </div>
             </div>
-          </div>
 
 
-          <div id="editFeed" style="display: none;">
-                <button id="backToFeed2">Back</button>
-                <h2 class="modal-title">Edit Feed</h2>
+            <div id="editFeed" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToFeed2" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Edit Feed</h3>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Search: </span>
+                <select type="search" id="searchFeed" class="form-control" placeholder="Search for breed">
+                  <option></option>
+                </select>
+              </div>
+            </div>
 
-                <div class="input-group" id="editFeedSearch">
-                    <center></center>
-                    
-                    <span class="input-group-addon" id="basic-addon3">Search: </span>
-                    <select type="search" id="searchFeed" class="form-control" placeholder="Search for breed">
-                      <option></option>
-                     </select>
-                </div>
-
-                <div id="editFeedDetails" style="display: none;">
-                  <div class="input-group" id="editFEEDNAME">
+            <div id="editFeedDetails" style="display: none;">
+              <div class="input-group" id="editFEEDNAME">
                 <span class="input-group-addon" id="basic-addon3">Feed Name: </span>
                 <input type="text" class="form-control" id="edit_feed_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new feed." aria-describedby="basic-addon3">
               </div>
@@ -682,84 +687,81 @@
                 <span class="input-group-addon" id="basic-addon3">Feed Type: </span>
                 <input type="text" class="form-control" id="edit_feed_type" data-trigger= "hover" data-toggle="tooltip" title="Input the type of the new feed. Ex: Type 1 " aria-describedby="basic-addon3">
               </div>
-            <div class="modal-footer" >
-              <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveEditFeed">Edit</button>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveEditFeed">Edit</button>
+              </div>
             </div>
-                </div>
-            </div>
-
           </div>
         </div>
-        </div>
       </div>
+    </div>
 
     <!-- Modal for Add Med -->
-     <div id="myModalMeds" class="modal fade" role="dialog" >
+    <div id="myModalMeds" class="modal fade" role="dialog" >
       <div class="modal-dialog">
-        <div class="modal-content"> <!-- Modal content-->
+        <div class="modal-content"> 
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
             <h4 class="modal-title">Medication</h4>
           </div>
           <div class="modal-body">
 
-            <div id="chooseToDoMeds">
-              <button id="addMedsBtn" class="btn btn-default">Add Meds</button>
+            <div id="chooseToDoMeds" class="btnCenter">
+              <button id="addMedsBtn" class="btnModal">Add Meds</button>
               <br/><br/>
-              <button id="editMedsBtn" class="btn btn-default">Edit Meds</button>
+              <button id="editMedsBtn" class="btnModal">Edit Meds</button>
             </div>
 
             <div id="addMedsDetails" style="display: none;">
-                <button id="backToMeds1">Back</button>
-                <h2 class="modal-title">Add Meds</h2>
+              <div style="margin-bottom: 10%;">
+                <button id="backToMeds1" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Add Medication</h3>
+              </div>
               <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">Meds Name: </span>
+                <span class="input-group-addon" id="basic-addon3">Medication Name: </span>
                 <input type="text" class="form-control" id="med_name" data-trigger= "hover" data-toggle="tooltip" title="Input the name of the new feed." aria-describedby="basic-addon3">
               </div>
               <br/>
               <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">Meds Type: </span>
+                <span class="input-group-addon" id="basic-addon3">Medication Type: </span>
                 <input type="text" class="form-control" id="med_type" data-trigger= "hover" data-toggle="tooltip" title="Input the type of the new feed. Ex: Type 1 " aria-describedby="basic-addon3">
               </div>
-            <div class="modal-footer" >
-              <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveMeds">Add</button>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveMeds">Add</button>
+              </div>
             </div>
-          </div>
 
+            <div id="editMeds" style="display: none;">
+              <div style="margin-bottom: 10%;">
+                <button id="backToMeds2" style="float: right;">Back</button>
+                <h3 class="modal-title" style="float: left;">Edit Medication</h3>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Search: </span>
+                <select type="search" id="searchMeds" class="form-control" placeholder="Search for medications">
+                  <option></option>
+                </select>
+              </div>
+            </div>
 
-          <div id="editMeds" style="display: none;">
-                <button id="backToMeds2">Back</button>
-                <h2 class="modal-title">Edit Meds</h2>
-
-                <div class="input-group" id="editMedsSearch">
-                    <center></center>
-                    
-                    <span class="input-group-addon" id="basic-addon3">Search: </span>
-                    <select type="search" id="searchMeds" class="form-control" placeholder="Search for medications">
-                      <option></option>
-                     </select>
-                </div>
-
-                <div id="editMedsDetails" style="display: none;">
-                  <div class="input-group" id="editMEDNAME">
-                <span class="input-group-addon" id="basic-addon3">Meds Name: </span>
+            <div id="editMedsDetails" style="display: none;">
+              <div class="input-group" id="editMEDNAME">
+                <span class="input-group-addon" id="basic-addon3">Medication Name: </span>
                 <input type="text" class="form-control" id="edit_med_name" data-trigger= "hover" data-toggle="tooltip" title="Edit name of medication." aria-describedby="basic-addon3">
               </div>
               <br/>
               <div class="input-group" id="editMEDTYPE">
-                <span class="input-group-addon" id="basic-addon3">Meds Type: </span>
+                <span class="input-group-addon" id="basic-addon3">Medication Type: </span>
                 <input type="text" class="form-control" id="edit_med_type" data-trigger= "hover" data-toggle="tooltip" title="Edit the type of the new feed. Ex: Type 1 " aria-describedby="basic-addon3">
               </div>
-            <div class="modal-footer" >
-              <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveEditMeds">Edit</button>
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-trigger= "hover" data-dismiss="modal" data-toggle="tooltip" title="Click to save feed details." id="saveEditMeds">Edit</button>
+              </div>
             </div>
-                </div>
-            </div>
-
           </div>
         </div>
-        </div>
       </div>
+    </div>
 
      
     <script type="text/javascript"> 
@@ -892,53 +894,46 @@
 
           /*Farm*/
 
-         $('#addFarm').on("click",function() {
-           e.preventDefault(); 
-            $('#myModalFarm').modal('show');
-            $('#chooseToDoFarm').attr("style", "display: inline-block");
-            $('#addFarmDetails').attr("style", "display: none");
-             $('#editFarm').attr("style", "display: none");
-          
+        $('#addFarm').on("click",function() {
+          e.preventDefault(); 
+          $('#myModalFarm').modal('show');
+          $('#chooseToDoFarm').attr("style", "display: inline-block");
+          $('#addFarmDetails').attr("style", "display: none");
+          $('#editFarm').attr("style", "display: none");
+          $('#editFarmDetails').attr("style", "display: none");
         });
 
-          $('#addFarmBtn').on("click",function() {
-          
-            $('#addFarmDetails').attr("style", "display: inline-block");
-             $('#editFarm').attr("style", "display: none");
-             $('#editFarmSearch').attr("style", "display: none");
-             $('#editFarmDetails').attr("style", "display: none");
-              $('#chooseToDoFarm').attr("style", "display: none");
-          
+        $('#addFarmBtn').on("click",function() {
+          $('#chooseToDoFarm').attr("style", "display: none");
+          $('#addFarmDetails').attr("style", "display: inline-block");
+          $('#editFarm').attr("style", "display: none");
+          $('#editFarmDetails').attr("style", "display: none");
         });
-           $('#editFarmBtn').on("click",function() {
-            $('#editFarm').attr("style", "display: inline-block");
-            $('#editFarmSearch').attr("style", "display: inline-block");
-            $('#editFarmDetails').attr("style", "display: none");
-            $('#addFarmDetails').attr("style", "display: none");
-            $('#chooseToDoFarm').attr("style", "display: none");
-          
+
+        $('#editFarmBtn').on("click",function() {
+          $('#chooseToDoFarm').attr("style", "display: none");
+          $('#addFarmDetails').attr("style", "display: none");
+          $('#editFarm').attr("style", "display: inline-block");
+          $('#editFarmDetails').attr("style", "display: none");
         });
 
         $('#farmOptions').on('change',function(){
           var id = $("#farmOptions").val();
           viewDetailsFarm(id);
         });
-
-
-         $('#backToFarm1').on("click",function() {
-          
-            $('#editFarm').attr("style", "display: none");
-            $('#addFarmDetails').attr("style", "display: none");
-            $('#chooseToDoFarm').attr("style", "display: inline-block");
-          
+        
+        $('#backToFarm1').on("click",function() {
+          $('#chooseToDoFarm').attr("style", "display: inline-block");
+          $('#addFarmDetails').attr("style", "display: none");
+          $('#editFarm').attr("style", "display: none");
+          $('#editFarmDetails').attr("style", "display: none");
         });
 
-          $('#backToFarm2').on("click",function() {
-          
-            $('#editFarm').attr("style", "display: none");
-            $('#addFarmDetails').attr("style", "display: none");
-            $('#chooseToDoFarm').attr("style", "display: inline-block");
-          
+        $('#backToFarm2').on("click",function() {
+          $('#chooseToDoFarm').attr("style", "display: inline-block"); 
+          $('#addFarmDetails').attr("style", "display: none"); 
+          $('#editFarm').attr("style", "display: none");
+          $('#editFarmDetails').attr("style", "display: none");
         });
 
          
@@ -979,22 +974,22 @@
             $('#myModalHouse').modal('show');
             $('#chooseToDoHouse').attr("style", "display: inline-block");
             $('#addHouseDetails').attr("style", "display: none");
-             $('#editHouse').attr("style", "display: none");
-          
+            $('#editHouse').attr("style", "display: none"); 
+            $('#editHouseDetails').attr("style", "display: none");
         });
 
           $('#addHouseBtn').on("click",function() {
          
             $('#addHouseDetails').attr("style", "display: inline-block");
              $('#editHouse').attr("style", "display: none");
-             $('#editHouseSearch').attr("style", "display: none");
+             
              $('#editHouseDetails').attr("style", "display: none");
               $('#chooseToDoHouse').attr("style", "display: none");
           
         });
            $('#editHouseBtn').on("click",function() {
             $('#editHouse').attr("style", "display: inline-block");
-            $('#editHouseSearch').attr("style", "display: inline-block");
+           
             $('#editHouseDetails').attr("style", "display: none");
             $('#addHouseDetails').attr("style", "display: none");
             $('#chooseToDoHouse').attr("style", "display: none");
@@ -1292,26 +1287,23 @@
             $('#myModalBreed').modal('show');
             $('#chooseToDoBreed').attr("style", "display: inline-block");
             $('#addBreedDetails').attr("style", "display: none");
-             $('#editBreed').attr("style", "display: none");
-          
+            $('#editBreed').attr("style", "display: none");
+          $('#editBreedDetails').attr("style", "display: none");
         });
 
-          $('#addBreedBtn').on("click",function() {
+        $('#addBreedBtn').on("click",function() {
           console.log("add");
-            $('#addBreedDetails').attr("style", "display: inline-block");
-             $('#editBreed').attr("style", "display: none");
-             $('#editBreedSearch').attr("style", "display: none");
-             $('#editBreedDetails').attr("style", "display: none");
-              $('#chooseToDoBreed').attr("style", "display: none");
-          
+          $('#chooseToDoBreed').attr("style", "display: none");
+          $('#addBreedDetails').attr("style", "display: inline-block");
+          $('#editBreed').attr("style", "display: none");
+          $('#editBreedDetails').attr("style", "display: none");
         });
-           $('#editBreedBtn').on("click",function() {
-            $('#editBreed').attr("style", "display: inline-block");
-            $('#editBreedSearch').attr("style", "display: inline-block");
-            $('#editBreedDetails').attr("style", "display: none");
-            $('#addBreedDetails').attr("style", "display: none");
-            $('#chooseToDoBreed').attr("style", "display: none");
-          
+
+        $('#editBreedBtn').on("click",function() {
+          $('#chooseToDoBreed').attr("style", "display: none"); 
+          $('#addBreedDetails').attr("style", "display: none");
+          $('#editBreed').attr("style", "display: inline-block");
+          $('#editBreedDetails').attr("style", "display: none");
         });
 
         $('#searchBreed').on('change',function(){
@@ -1320,19 +1312,17 @@
             });
 
         $('#backToBreed1').on("click",function() {
-          
-            $('#editBreed').attr("style", "display: none");
-            $('#addBreedDetails').attr("style", "display: none");
-            $('#chooseToDoBreed').attr("style", "display: inline-block");
-          
+          $('#chooseToDoBreed').attr("style", "display: inline-block"); 
+          $('#addBreedDetails').attr("style", "display: none");
+          $('#editBreed').attr("style", "display: none");
+          $('#editBreedDetails').attr("style", "display: none");
         });
 
-          $('#backToBreed2').on("click",function() {
-          
-            $('#editBreed').attr("style", "display: none");
-            $('#addBreedDetails').attr("style", "display: none");
-            $('#chooseToDoBreed').attr("style", "display: inline-block");
-          
+        $('#backToBreed2').on("click",function() {
+          $('#chooseToDoBreed').attr("style", "display: inline-block"); 
+          $('#addBreedDetails').attr("style", "display: none");
+          $('#editBreed').attr("style", "display: none");
+          $('#editBreedDetails').attr("style", "display: none");
         });
 
          $('#saveBreed').on("click",function(){
