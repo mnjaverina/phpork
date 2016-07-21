@@ -230,21 +230,21 @@
               </div>
             </div>
 
-<<<<<<< HEAD
+
           <div id="editFarm" style="display: none;">
             <button id="backToFarm2">Back</button>
               <h2 class="modal-title">Edit Farm</h2>
             <div class="input-group" id="editFarmSearch">
                 <center></center>
                 
-=======
+
             <div id="editFarm" style="display: none;">
               <div style="margin-bottom: 10%;">
                 <button id="backToFarm2" style="float: right;">Back</button>
                 <h3 class="modal-title" style="float: left;">Edit Farm</h3>
               </div>
               <div class="input-group">
->>>>>>> 0ce054b781dffc354c0e6221ef020b0582411985
+
                 <span class="input-group-addon" id="basic-addon3">Search: </span>
                 <select id="farmOptions" type="search" class="form-control" title="Search for farm to be edited">
                   <option> </option>
@@ -270,6 +270,8 @@
         </div>
       </div>
     </div>
+   </div>
+   </div> 
 
     <!-- Modal for add House-->
     <div id="myModalHouse" class="modal fade" role="dialog">
@@ -1117,10 +1119,10 @@
                       hno: edithnum, 
                       prev_hname: prev_hname,
                       hname: edithname,
-                      prev_fxn: prev_fxn
+                      prev_fxn: prev_fxn,
                       fxn: editfunc,
                       prev_loc: prev_loc_id,
-                      loc: editLoc
+                      loc: editLoc,
                       house_id: h_id
                     },
                     success: function (data) {
