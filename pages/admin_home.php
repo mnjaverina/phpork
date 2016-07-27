@@ -22,12 +22,19 @@
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-responsive.css"> 
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/style_home.css"> 
+     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/js/chosen_v1.1.0/chosen.css">  
+
+    
 
     <script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script> 
     
     <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
+     <script src="<?php echo HOST;?>/phpork/js/jquery.min.js" type="text/javascript"></script>
+  
+  <script src="<?php echo HOST;?>/phpork/js/chosen_v1.1.0/chosen.jquery.js" type="text/javascript"></script>
     <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
+      
    
   </head> 
   <body> 
@@ -125,7 +132,7 @@
 
             <div id="addUserDetails" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToUser1" style="float: right;">Back</button>
+                <button id="backToUser1" style="float: left;border-radius:5px;">Back</button><br><br>
                 <h3 class="modal-title" style="float: left;">Add User</h3>
               </div>
               <div class="input-group">
@@ -153,13 +160,15 @@
 
             <div id="editUser" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToUser2" style="float: right;">Back</button>
+                <button id="backToUser2" style="float: left;border-radius:5px;">Back</button><br><br>
                 <h3 class="modal-title" style="float: left;">Edit User</h3>
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">Search: </span>
-                <select id="searchUser" type="search" class="form-control" title="Search for farm to be edited">
-                 <option></option>
+              <br>
+              
+                <select  data-placeholder="Search user.."  id ="searchUser" class="form-control" title="Search for user to be edited">
+                <option selected></option>
+                <option disabled style="font-weight:bold;color:black;">Select user name...</option>
                </select>
               </div>
             </div>
@@ -212,7 +221,7 @@
             
             <div id="addFarmDetails" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToFarm1" style="float: right;">Back</button>
+                <button id="backToFarm1" style="float: left;border-radius:5px;">Back</button><br><br>
                 <h3 class="modal-title" style="float: left;">Add Farm</h3>
               </div>
               <div class="input-group">
@@ -231,14 +240,15 @@
 
             <div id="editFarm" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToFarm2" style="float: right;">Back</button>
+                <button id="backToFarm2" style="float: left;border-radius:5px;">Back</button><br><br>
                 <h3 class="modal-title" style="float: left;">Edit Farm</h3>
               </div>
               <div class="input-group">
 
-                <span class="input-group-addon" id="basic-addon3">Search: </span>
-                <select id="farmOptions" type="search" class="form-control" title="Search for farm to be edited">
-                  <option> </option>
+               <!--  <span class="input-group-addon" id="basic-addon3">Search: </span> -->
+                <select  data-placeholder="Search farm name.." id="farmOptions" class="form-control" >
+                  <option selected></option>
+                  <option disabled style="font-weight:bold;color:black;">Select farm name.. </option>
                 </select>
               </div>
             </div>
@@ -282,7 +292,7 @@
 
             <div id="addHouseDetails" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToHouse1" style="float: right;">Back</button>
+                <button id="backToHouse1" style="float: right;border-radius:5px;">Back</button>
                 <h3 class="modal-title" style="float: left;">Add House</h3>
               </div>
               <div class="input-group">
@@ -318,7 +328,7 @@
 
             <div id="editHouse" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToHouse2" style="float: right;">Back</button>
+                <button id="backToHouse2" style="float: right;border-radius:5px;">Back</button>
                 <h3 class="modal-title" style="float: left;">Edit House</h3>
               </div>
               <div class="input-group">
@@ -329,21 +339,22 @@
               </div>
               <br/>
               <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">Search: </span>
-                <select type="search" name="userName" id="searchHouse" class="form-control" placeholder="Search for House">
-                  <option></option>
+               
+                <select  name="userName" id="searchHouse" class="form-control"  data-placeholder="Search house name..">
+                  <option selected></option>
+                  <option disabled style="font-weight:bold;color:black;">Select house number..</option>
                 </select>
               </div>
             </div>
                   
             <div id="editHouseDetails" style="display: none;">
                <hr/>
-              <div class="input-group" id="editHOUSELOC">
+              <!-- <div class="input-group" id="editHOUSELOC">
                 <span class="input-group-addon" id="basic-addon3">Location: </span>
                 <select class="form-control" id="editloc2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit the location/farm." required> 
                   <option value="" disabled selected>Select farm location...</option> 
                 </select>
-              </div>
+              </div> -->
               <br/>
               <div class="input-group" id="EDITHOUSENUM">
                 <span class="input-group-addon" id="basic-addon3">House Number: </span>
@@ -392,7 +403,7 @@
 
             <div id="addPenDetails" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToPen1" style="float: right;">Back</button>
+                <button id="backToPen1" style="float: right;border-radius:5px;">Back</button>
                 <h3 class="modal-title" style="float: left;">Add Pen</h3>
               </div>
               <div class="input-group">
@@ -431,7 +442,7 @@
 
             <div id="editPen" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToPen2" style="float: right;">Back</button>
+                <button id="backToPen2" style="float: right;border-radius:5px;">Back</button>
                 <h3 class="modal-title" style="float: left;">Edit Pen</h3>
               </div>
               <div class="input-group">
@@ -449,9 +460,10 @@
               </div>
               <br/>
               <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">Search: </span>
-                <select type="search" name="userName" id="searchPen" class="form-control" placeholder="Search for Pen">
-                  <option></option>
+                <!-- <span class="input-group-addon" id="basic-addon3">Search: </span> -->
+                <select name="userName" id="searchPen" class="form-control"  data-placeholder="Search pen number..">
+                  <option selected></option>
+                  <option disabled style="font-weight:bold;color:black;">Select pen number...</option>
                 </select>
               </div>
             </div>
@@ -514,7 +526,7 @@
             
             <div id="addParentDetails" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToParent1" style="float: right;">Back</button>
+                <button id="backToParent1" style="float: right;border-radius:5px;">Back</button>
                 <h3 class="modal-title" style="float: left;">Add Parent</h3>
               </div>
               <div class="input-group">
@@ -537,13 +549,14 @@
           
             <div id="editParent" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToParent2" style="float: right;">Back</button>
+                <button id="backToParent2" style="float: left;border-radius:5px;">Back</button><br><br>
                 <h3 class="modal-title" style="float: left;">Edit Parent</h3>
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">Search: </span>
-                <select type="search" name="userName" id="searchParent" class="form-control" placeholder="Search for parent">
-                  <option></option>
+                <!-- <span class="input-group-addon" id="basic-addon3">Search: </span> -->
+                <select  name="userName" id="searchParent" class="form-control"  data-placeholder="Search parent...">
+                  <option selected></option>
+                  <option disabled style="font-weight:bold;color:black;"> Select parent..</option>
                 </select>
               </div>
             </div>
@@ -591,7 +604,7 @@
 
             <div id="addBreedDetails" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToBreed1" style="float: right;">Back</button>
+                <button id="backToBreed1" style="float: right;border-radius:5px;">Back</button>
                 <h3 class="modal-title" style="float: left;">Add Breed</h3>
               </div>
               <div class="input-group">
@@ -605,13 +618,14 @@
 
             <div id="editBreed" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToBreed2" style="float: right;">Back</button>
+                <button id="backToBreed2" style="float: left;border-radius:5px;">Back</button><br><br>
                 <h3 class="modal-title" style="float: left;">Edit Breed</h3>
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">Search: </span>
-                <select type="search" id="searchBreed" class="form-control" placeholder="Search for breed">
-                  <option></option>
+               <!--  <span class="input-group-addon" id="basic-addon3">Search: </span> -->
+                <select  id="searchBreed" class="form-control"  data-placeholder="Search breed name... ">
+                  <option selected></option>
+                  <option disabled style="font-weight:bold;color:black;">Select breed...</option>
                 </select>
               </div>
             </div>
@@ -651,7 +665,7 @@
 
             <div id="addFeedDetails" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToFeed1" style="float: right;">Back</button>
+                <button id="backToFeed1" style="float: right;border-radius:5px;">Back</button>
                 <h3 class="modal-title" style="float: left;">Add Feed</h3>
               </div>
               <div class="input-group">
@@ -671,13 +685,14 @@
 
             <div id="editFeed" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToFeed2" style="float: right;">Back</button>
+                <button id="backToFeed2" style="float: left;border-radius:5px;">Back</button><br><br>
                 <h3 class="modal-title" style="float: left;">Edit Feed</h3>
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">Search: </span>
-                <select type="search" id="searchFeed" class="form-control" placeholder="Search for breed">
-                  <option></option>
+                <!-- <span class="input-group-addon" id="basic-addon3">Search: </span> -->
+                <select  id="searchFeed" class="form-control" data-placeholder="Search feed name...">
+                  <option selected></option>
+                  <option disabled style="font-weight:bold;color:black;">Select feed name..</option>
                 </select>
               </div>
             </div>
@@ -720,7 +735,7 @@
 
             <div id="addMedsDetails" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToMeds1" style="float: right;">Back</button>
+                <button id="backToMeds1" style="float: right;border-radius:5px;">Back</button>
                 <h3 class="modal-title" style="float: left;">Add Medication</h3>
               </div>
               <div class="input-group">
@@ -739,13 +754,14 @@
 
             <div id="editMeds" style="display: none;">
               <div style="margin-bottom: 10%;">
-                <button id="backToMeds2" style="float: right;">Back</button>
+                <button id="backToMeds2" style="float: left;border-radius:5px;">Back</button><br><br>
                 <h3 class="modal-title" style="float: left;">Edit Medication</h3>
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">Search: </span>
-                <select type="search" id="searchMeds" class="form-control" placeholder="Search for medications">
-                  <option></option>
+               <!--  <span class="input-group-addon" id="basic-addon3">Search: </span> -->
+                <select id="searchMeds" class="form-control"  data-placeholder="Search medication name...">
+                  <option selected></option>
+                  <option disabled style="font-weight:bold;color:black;"> Select medication name...</option>
                 </select>
               </div>
             </div>
@@ -769,7 +785,26 @@
         </div>
       </div>
     </div>
-
+   
+   <script type="text/javascript">
+    var config = {
+      '#searchUser'           : {width: "100%",search_contains: true},
+      '#farmOptions'           : {width: "100%",search_contains: true},
+      '#searchHouse'           : {width: "100%",search_contains: true},
+      '#searchPen'           : {width: "100%",search_contains: true},
+      '#searchParent'           : {width: "100%",search_contains: true},
+      '#searchBreed'           : {width: "100%",search_contains: true},
+      '#searchFeed'           : {width: "100%",search_contains: true},
+      '#searchMeds'           : {width: "100%",search_contains: true},
+       '.s_select'  : {}
+    }
+   
+    
+     for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+    
+  </script>
      
     <script type="text/javascript"> 
        $(document).ready(function () {
@@ -910,6 +945,7 @@
           $('#chooseToDoFarm').attr("style", "display: inline-block");
           $('#addFarmDetails').attr("style", "display: none");
           $('#editFarm').attr("style", "display: none");
+
           $('#editFarmDetails').attr("style", "display: none");
         });
 
@@ -1099,7 +1135,7 @@
         $('#saveEditHouse').on("click",function(){
             var user = $('#userId').val();
             //var prev_loc = $('#prev_loc').val();
-            var editLoc = $('#editloc2').val();
+            var editLoc = $('#loc1').val();
             var prev_h_no = $('#prev_h_no').val();
             var edithnum = $('#edithnum').val();
             var prev_h_name = $('#prev_h_name').val();
@@ -1225,6 +1261,7 @@
                           .attr("name","pen")
                           .text("Pen " +data[i].pen_no)); 
                       }
+                       $("#searchPen").trigger("chosen:updated");
 
                     } 
               });
@@ -1829,7 +1866,7 @@
                     .attr("name","user")
                     .text(data[i].username)); 
                 }
-                   
+                   $("#searchUser").trigger("chosen:updated");
               } 
           
         });
@@ -1865,10 +1902,11 @@
                    $("#loc1").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
                     .text(data[i].loc_name));
-                  $("#editloc2").append($("<option></option>").attr("value",data[i].loc_id)
-                    .attr("name","location")
-                    .text(data[i].loc_name)); 
+                  // $("#editloc2").append($("<option></option>").attr("value",data[i].loc_id)
+                  //   .attr("name","location")
+                  //   .text(data[i].loc_name)); 
                 }
+                $("#farmOptions").trigger("chosen:updated");
                    
               } 
           
@@ -1892,7 +1930,7 @@
                           .attr("name","house")
                           .text("House " +data[i].h_no)); 
                       }
-
+                       $("#searchHouse").trigger("chosen:updated");
                     } 
               });
            });
@@ -1910,8 +1948,8 @@
                     .attr("name","user")
                     .text(data[i].label+ "-" +data[i].label_id)); 
                 }
-                   
-              } 
+                 $("#searchParent").trigger("chosen:updated");  
+              }   
           
         });
 
@@ -1928,7 +1966,7 @@
                     .attr("name","breed")
                     .text(data[i].brname)); 
                 }
-                   
+                  $("#searchBreed").trigger("chosen:updated");  
               } 
           
         });
@@ -1946,7 +1984,7 @@
                     .attr("name","user")
                     .text(data[i].feed_name)); 
                 }
-                   
+                  $("#searchFeed").trigger("chosen:updated");  
               } 
           
         });
@@ -1963,7 +2001,7 @@
                     .attr("name","user")
                     .text(data[i].med_name)); 
                 }
-                   
+                  $("#searchMeds").trigger("chosen:updated");  
               } 
           
         });
@@ -2108,7 +2146,7 @@
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data);
-                  $('#editloc2').attr("placeholder", data[0].loc_id);
+                  // $('#editloc2').attr("placeholder", data[0].loc_id);
                    $('#edithnum').attr("placeholder", data[0].h_no);
                     $('#editfunc').attr("placeholder", data[0].fxn);
                    $('#edithname').attr("placeholder", data[0].h_name);
@@ -2287,8 +2325,9 @@
             });
       }
 
-</script>
-   
+  </script>
+  
+  
   </body>
 </html>
 

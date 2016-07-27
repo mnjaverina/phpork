@@ -84,26 +84,15 @@
 				$result = mysqli_query($link, $query);
 		}
 
-		public function userTransactionEdit($user, $date, $time, $edit_id, $edit_type, $prev_val, $curr_val, $flag)
+		public function userTransactionEdit($user,$edit_id, $edit_type, $prev_val, $curr_val, $flag,$pig)
 		{
 				$link = $this->connect();
-				$q = "SELECT max(id)
-					FROM user_transaction";
-				$r = mysqli_query($link, $q);
-				$ro = mysqli_fetch_row($r);
-				$max = $ro[0] + 1;
-				$query = "INSERT INTO user_transaction(trans_id,user_id,date_edited,time_edited,id_edited,type_edited,prev_valye,curr_value,flag) 
-							values('" . $max . "','" . $user . "','" . $date . "','" . $time . "','" . $edit_id . "','" . $edit_type . "','" . $prev_val . "','" . $curr_val . "','". $flag . "');";
+				
+				$query = "INSERT INTO user_transaction(user_id,id_edited,type_edited,prev_value,curr_value,pig_id,flag) 
+							values('" . $user . "','" . $edit_id . "','" . $edit_type . "','" . $prev_val . "','" . $curr_val . "','". $pig . "','". $flag . "');";
 				$result = mysqli_query($link, $query);
-				$data = array("success"=>"true",
-			        "newId"=> $link->insert_id);
-			    if ($result = mysqli_query( $link, $query )) {
-		      	$data = array("success"=>"true",
-			        "newId"=> $link->insert_id);
-		      }else {
-			      $data = array("success"=>"false",
-                  	"error"=>mysqli_error($link));
-			    }
+				
+			    
 			    return $data;
 		}
 		public function ddl_user()
@@ -537,6 +526,7 @@
 		      $data = array("success"=>"false",
 		                      "error"=>mysqli_error($link));
 		    }
+		    $this->userTransactionEdit($user,0,"new pig",0,0,1,$pid);
 		    return $data;
 		}
 
@@ -548,6 +538,7 @@
 			$t = date("h:i:s");
 			$query = "INSERT INTO  weight_record(record_date,record_time,weight,pig_id,remarks) 
 					VALUES ('" . $d . "','" . $t . "','" . $pweight . "','" . $pid . "','" . $remarks . "')";
+			$this->userTransactionEdit($user,0,"weight",0,$pweight,1,$pid);
 			$result = mysqli_query($link, $query);
 		}
 		  public function getPigDetails($pigid){
@@ -659,7 +650,7 @@
 		    $query  = "SELECT tag_rfid,
 		                tag_id 
 		                FROM rfid_tags 
-		                WHERE pig_id = '" . $pigid . "' and status='inactive'
+		                WHERE label = '" . $pigid . "' and status='inactive'
 		                LIMIT 1";
 		    $result = mysqli_query($link, $query);
 		    $row    = mysqli_fetch_row($result);
@@ -1207,7 +1198,6 @@
 	                    FROM  pig p
 	                    WHERE p.pig_batch = '" . $batch . "' ";
 	        $result   = mysqli_query($link, $query);
-	        $ppen     = array();
 	        $arr_ppen = array();
 	        while ($row = mysqli_fetch_row($result)) {
 	            $arr_ppen[]    = $row[0];
@@ -1224,8 +1214,9 @@
 								label = '" . $pig_id . "'
 						WHERE tag_id = '" . $rfid . "'";
 				$result = mysqli_query($link, $query);
+				$this->userTransactionEdit($user,0,"rfid",0,$rfid,1,$pig_id);
 		}
-		public function updatePigDetails($pig_id, $user, $stat)
+		public function updatePigDetails($pig_id, $user, $stat,$prev)
 		{
 				$link = $this->connect();
 				if ($stat == 'Dead') {
@@ -1249,6 +1240,7 @@
 									pen_id = '" . $row2[0] . "', 
 									user = '" . $user . "'
 								WHERE pig_id = '" . $pig_id . "'";
+
 				}
 				else {
 						$query = "UPDATE pig 
@@ -1256,10 +1248,14 @@
 									user = '" . $user . "'
 								WHERE pig_id = '" . $pig_id . "'";
 				}
+				if($stat!=$prev){
+					$this->userTransactionEdit($user,0,"status",$prev,$stat,2,$pig_id);
+				}
+				
 
 				$result = mysqli_query($link, $query);
 		}
-		public function updatePigWeight($pig_id, $weight, $record_id, $remarks)
+		public function updatePigWeight($pig_id,$prev, $weight, $record_id, $remarks,$prevremarks,$user)
 		{
 				$link = $this->connect();
 				date_default_timezone_set("Asia/Manila");
@@ -1272,16 +1268,26 @@
 				remarks = '".$remarks."'
 				where record_id = '".$record_id."'";
 				$result = mysqli_query($link, $query);
+				if($weight!=$prev){
+					$this->userTransactionEdit($user,0,"weight",$prev,$weight,2,$pig_id);
+				}
+				
+				if($remarks!=$prevremarks){
+					$this->userTransactionEdit($user,0,"weight type",$prevremarks,$remarks,2,$pig_id);
+				}
 		}
-		public function updateWeekFar($pig_id, $weekfar)
+		public function updateWeekFar($user,$pig_id, $weekfar,$prev)
 		{
 				$link = $this->connect();
 				$query = "UPDATE   pig
 				set week_farrowed = '".$weekfar."'
 				where pig_id = '".$pig_id."'";
 				$result = mysqli_query($link, $query);
+				if($weekfar!=$prev){
+					$this->userTransactionEdit($user,0,"weekfar",$prev,$weekfar,2,$pig_id);
+				}
 		}
-		public function updateRFIDdetails($pig_id, $rfid, $prevrfid, $plabel)
+		public function updateRFIDdetails($pig_id, $rfid, $prevrfid, $plabel,$user)
 		{
 				$link = $this->connect();
 				$query = "UPDATE rfid_tags 
@@ -1296,6 +1302,10 @@
 							label = '" . $plabel . "'
 						WHERE tag_id = '" . $rfid . "'";
 				$result = mysqli_query($link, $query);
+				if($rfid!=$prevrfid){
+					$this->userTransactionEdit($user,0,"rfid",$prevrfid,$rfid,2,$pig_id);	
+				}
+				
 		}
 		public function insertEditHistory($user, $pigid,$prevWeekFar,$newWeekFar, $prevStatus, $status, $prevrfid, $rfid,  $prevweight, $weight, $prevweighttype, $weightype)
 		{
@@ -1324,6 +1334,7 @@
 				$max = $ro[0] + 1;
 				$query = "INSERT INTO weight_record(record_date, record_time, weight, pig_id, remarks, user) 
 							VALUES('" .$dateWeighed. "','" .$timeWeighed. "','" .$weight. "','" .$pigid. "','" .$weightType. "','" .$user. "');";
+				
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 			        "newId"=> $link->insert_id);
@@ -1331,14 +1342,17 @@
 			      $data = array("success"=>"false",
                   	"error"=>mysqli_error($link));
 			    }
+			    $this->userTransactionEdit($user,$max,"weight",0,$weight,1,$pigid);
 			    return $data;
 		}
 		public function getPigWeight($pig)
 		{
 				$link = $this->connect();
-				$query = "SELECT DISTINCT record_date, 
+				$query = "SELECT DISTINCT record_date,
+
 							weight, 
-							WEEK(record_date) 
+							WEEK(record_date),
+							record_time
 						FROM weight_record 
 						WHERE pig_id = '" . $pig . " '
 						ORDER BY record_date ASC,record_time asc";
@@ -1412,11 +1426,17 @@
 			/* end of pig.php details */
 
 		/*  med.php FUNCTIONS  */
-		public function addMeds($mid, $mdate, $mtime, $pig,$qty,$unit)
+		public function addMeds($mid, $mdate, $mtime, $pig,$qty,$unit,$user)
 		{
 				$link = $this->connect();
-				$query = "INSERT INTO med_record(date_given,time_given,quantity,unit,pig_id,med_id) 
-							VALUES('" . $mdate . "','" . $mtime . "','" . $qty . "','" . $unit . "','" . $pig . "','" . $mid . "');";
+				$q = "SELECT max(mr_id)
+					FROM med_record";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO med_record(mr_id,date_given,time_given,quantity,unit,pig_id,med_id) 
+							VALUES('" . $max . "','" . $mdate . "','" . $mtime . "','" . $qty . "','" . $unit . "','" . $pig . "','" . $mid . "');";
+				$this->userTransactionEdit($user,$max,"medication",0,$mid,1,$pig);
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 			        "newId"=> $link->insert_id);
@@ -1542,22 +1562,23 @@
 				return $m_arr;
 				
 		}
-		public function insertMedEditHistory($medid, $user, $mrid)
-		{
-				$link = $this->connect();
-				$query = "INSERT INTO med_edit_history(mr_id,med_id,user) values('" . $mrid . "','" . $medid . "','" . $user . "');";
-				$result = mysqli_query($link, $query);
-		}
+		// public function insertMedEditHistory($medid, $user, $mrid)
+		// {
+		// 		$link = $this->connect();
+		// 		$query = "INSERT INTO med_edit_history(mr_id,med_id,user) values('" . $mrid . "','" . $medid . "','" . $user . "');";
+		// 		$result = mysqli_query($link, $query);
+		// }
 		public function updateMeds($med_id, $mrid, $user)
 		{
 				$link = $this->connect();
-				$query2 = "SELECT med_id FROM med_record WHERE mr_id='" . $mrid . "'";
+				$query2 = "SELECT med_id,pig_id FROM med_record WHERE mr_id='" . $mrid . "'";
 				$result2 = mysqli_query($link, $query2);
 				$row = mysqli_fetch_row($result2);
 				$query = "UPDATE med_record set med_id = '" . $med_id . "'WHERE mr_id = '" . $mrid . "'";
 				$result = mysqli_query($link, $query);
 				if ($result) {
-						$this->insertMedEditHistory($row[0], $user, $mrid);
+						//$this->insertMedEditHistory($row[0], $user, $mrid);
+						$this->userTransactionEdit($user,$mrid,"medication",$row[0],$med_id,2,$row[1]);
 						return array(
 								'success' => '1'
 						);
@@ -1598,7 +1619,8 @@
 	                    FROM medication m 
 	                        INNER JOIN med_record mr 
 	                            ON mr.med_id = m.med_id 
-	                    WHERE mr.pig_id = '" . $pig . "'";
+	                    WHERE mr.pig_id = '" . $pig . "'
+	                    order by mr.date_given desc";
 	        $result    = mysqli_query($link, $query);
 	        $mrcrd     = array();
 	        $arr_mrcrd = array();
@@ -1622,7 +1644,8 @@
 	                    FROM medication m 
 	                        INNER JOIN med_record mr 
 	                            ON mr.med_id = m.med_id 
-	                    WHERE mr.pig_id = '" . $pig . "'";
+	                    WHERE mr.pig_id = '" . $pig . "'
+	                     order by mr.date_given DESC";
 	        $result    = mysqli_query($link, $query);
 	        $mrcrd     = array();
 	        $arr_mrcrd = array();
@@ -1651,11 +1674,17 @@
 
 
 		/*  feeds.php FUNCTIONS  */
-		public function addFeeds($fid, $fdate, $ftime, $pig, $proddate,$qty)
+		public function addFeeds($fid, $fdate, $ftime, $pig, $proddate,$qty,$user)
 		{
 				$link = $this->connect();
-				$query = "INSERT INTO feed_transaction(quantity,unit,date_given,time_given,pig_id,feed_id,prod_date) 
-						VALUES('" . $qty . "','kg','" . $fdate . "','" . $ftime . "','" . $pig . "','" . $fid . "','" . $proddate . "');";
+				$q = "SELECT max(ft_id)
+					FROM feed_transaction";
+				$r = mysqli_query($link, $q);
+				$ro = mysqli_fetch_row($r);
+				$max = $ro[0] + 1;
+				$query = "INSERT INTO feed_transaction(ft_id,quantity,unit,date_given,time_given,pig_id,feed_id,prod_date) 
+						VALUES('" . $max . "','" . $qty . "','kg','" . $fdate . "','" . $ftime . "','" . $pig . "','" . $fid . "','" . $proddate . "');";
+				$this->userTransactionEdit($user,$max,"feeds",0,$fid,1,$pig);
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 		                    "newId"=> $link->insert_id);
@@ -1815,12 +1844,12 @@
 	        $query     = "SELECT f.feed_name, 
 	                            f.feed_type, 
 	                            ft.prod_date, 
-	                            ft.ft_id 
+	                            ft.ft_id
 	                    FROM feeds f 
 	                        INNER JOIN feed_transaction ft 
 	                                ON ft.feed_id = f.feed_id 
 	                    WHERE ft.pig_id = '" . $pig . "'
-	                    order by ft.ft_id asc";
+	                    order by ft.date_given DESC,ft_id asc";
 	        $result    = mysqli_query($link, $query);
 	        $frcrd     = array();
 	        $arr_frcrd = array();
@@ -1847,7 +1876,8 @@
 	                    FROM feeds f 
 	                        INNER JOIN feed_transaction ft 
 	                            ON ft.feed_id = f.feed_id 
-	                    WHERE ft.pig_id = '" . $pig . "'";
+	                    WHERE ft.pig_id = '" . $pig . "'
+	                    order by ft.date_given DESC";
 	        $result    = mysqli_query($link, $query);
 	        $frcrd     = array();
 	        $arr_frcrd = array();
@@ -1864,22 +1894,23 @@
 	        }
 	        return $arr_frcrd;
 	    }
-		public function insertFeedsEditHistory($medid, $user, $mrid)
-		{
-				$link = $this->connect();
-				$query = "INSERT INTO feeds_edit_history(fr_id,feed_id,user) values('" . $mrid . "','" . $medid . "','" . $user . "');";
-				$result = mysqli_query($link, $query);
-		}
+		// public function insertFeedsEditHistory($prev, $user,$mrid, $curr)
+		// {
+		// 		$link = $this->connect();
+		// 		$query = "INSERT INTO feeds_edit_history(fr_id,prev_feed_id,curr_feed_id,user) values('" . $mrid . "','" . $prev . "','" . $curr . "','" . $user . "');";
+		// 		$result = mysqli_query($link, $query);
+		// }
 		public function updateFeeds($fid, $ftid, $user)
 		{
 				$link = $this->connect();
-				$query2 = "SELECT feed_id FROM feed_transaction WHERE ft_id='" . $ftid . "'";
+				$query2 = "SELECT feed_id,pig_id FROM feed_transaction WHERE ft_id='" . $ftid . "'";
 				$result2 = mysqli_query($link, $query2);
 				$row = mysqli_fetch_row($result2);
 				$query = "UPDATE feed_transaction set feed_id = '" . $fid . "'WHERE ft_id = '" . $ftid . "'";
 				$result = mysqli_query($link, $query);
 				if ($result) {
-						$this->insertFeedsEditHistory($row[0], $user, $ftid);
+						//$this->insertFeedsEditHistory($row[0], $user, $ftid,$fid);
+						$this->userTransactionEdit($user,$ftid,"feeds",$row[0],$fid,2,$row[1]);
 						return array(
 								'success' => '1'
 						);
@@ -1966,6 +1997,7 @@
 						$data['x'] = $i;
 						$data['week'] = $row[1];
 						$data['time_moved'] = $row[2];
+						$data['pen']=$row[3];
 						$data['move'] = $mvmnt[$j];
 
 						$arr[] = $data;
@@ -2051,6 +2083,7 @@
 	        $row    = mysqli_fetch_row($result);
 	        return $row[0];
 	    }
+	    
 		
 	}
 ?>

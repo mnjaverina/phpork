@@ -154,7 +154,7 @@
             <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">House: </span>
               <select class='form-control'  id='house' style='color:black;' required> 
-                <option value='' disabled selected>Select house...</option> 
+                <option value='' disabled selected>Select House...</option> 
               </select> 
             </div>
             <br/>
@@ -310,7 +310,7 @@
     <?php 
       $u = $_SESSION['user_id']; 
       echo "<input type='hidden' value='$u' name='user' id='userId'/>";
-      echo"<script>console.log(\"user_id:\" +$u);</script>"; 
+      // echo"<script>console.log(\"user_id:\" +$u);</script>"; 
     ?> 
   </div>  
 
@@ -396,12 +396,17 @@
                 },
                 success: function (data) { 
                    var data = jQuery.parseJSON(data); 
+                  // $("#house").append($("<option></option>").attr("disabled",true).attr("value","").text("Select house.."));
+                    
                       for(i=0;i<data.length;i++){
+                        // document.getElementById("house").innerHTML = '<option value="" disabled selected style="display:none;">Select house..</option>';
+                        // document.getElementById("house").innerHTML = '<option value='+data[i].h_id+' name="house">House '+data[i].h_no+'</option>';
                         $("#house").append($("<option></option>").attr("value",data[i].h_id)
                           .attr("name","house")
                           .text("House " +data[i].h_no)); 
                       }
-                    } 
+                     // $("<option>", { value: '', selected: true }).prependTo("#house");​​​​​​​​​​​
+                } 
               });
            });
 
@@ -419,7 +424,7 @@
                     success: function (data) { 
                        var data = jQuery.parseJSON(data); 
                           for(i=0;i<data.length;i++){
-                            $("#pen").append($("<option></option>").attr("value",data[i].pen_id)
+                            $("#pen").html($("<option></option>").attr("value",data[i].pen_id)
                               .attr("name","pen")
                               .text("Pen " +data[i].pen_no)); 
                           }
@@ -540,9 +545,9 @@
                      
                      }
                   });
-
+                  window.location = "/phpork/view/farm/house/pen/pig/" +farm+ "/" +house+ "/" +pen+ "/" +pigId;
             });
-          window.location = "/phpork/view/farm/house/pen/pig/" +data.ploc+ "/" +data.selHouse+ "/" +data.selPen+ "/" +data.new_pid;
+         
       });
       </script>
       <script>

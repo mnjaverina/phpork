@@ -27,8 +27,9 @@
        <script src="<?php echo HOST;?>/phpork/js/amcharts/amcharts.js" type="text/javascript"></script>
         <script src="<?php echo HOST;?>/phpork/js/amcharts/serial.js" type="text/javascript"></script>
         <script src="<?php echo HOST;?>/phpork/js/jquery.js"></script> 
-		<script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
-	    
+     	<script src="<?php echo HOST;?>/phpork/js/jquery-2.1.4.js" type="text/javascript"></script> 
+	    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.js" type="text/javascript"></script>
+	    <script src="<?php echo HOST;?>/phpork/js/jquery-latest.min.js" type="text/javascript"></script> 
 	    <script src="<?php echo HOST;?>/phpork/js/bootstrap.js" type="text/javascript"></script> 
 
 	   
@@ -60,13 +61,13 @@
 				<div class="info" id="viewPigDetails">
 				</div>
 				<br/>
-				<div class="col-md-2 col-centered imgPig1">
-					<button id="editPigButton" class="imgBtn">
+				<div class="col-md-2 col-centered imgPig1" data-trigger= "hover" data-toggle="tooltip" title="Click to edit pig details.(week farrowed,rfid,status,weight or weight type) " data-placement="top">
+					<button id="editPigButton" class="imgBtn" >
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png"> 
 						<span>Edit Pig</span>
 					</button>
 				</div>
-				<div class="col-md-2 col-centered imgPig2">
+				<div class="col-md-2 col-centered imgPig2" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to select farm,select pen or select pig." data-placement="top">
 					<button id="changePig" class="imgBtn">
 						<img class="img-responsive"  src="<?php echo HOST;?>/phpork/images/Pig.png"> 
 						<span>   Change Pig</span>
@@ -79,13 +80,13 @@
 			<div id="editPigDetails" style="display: none;">	
 				<div class="info" id="pigInfo">
 				</div>
-				<div class="col-md-2 col-centered imgPig3">
+				<div class="col-md-2 col-centered imgPig3" data-trigger= "hover" data-toggle="tooltip" title="Click to save the details that you edited." data-placement="top">
 					<button id="saveEditPig" class="imgBtn">
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> 
 						<span> Save</span>
 					</button>
 				</div>
-				<div class="col-md-2 col-centered imgPig4">
+				<div class="col-md-2 col-centered imgPig4" data-trigger= "hover" data-toggle="tooltip" title="Click if you want to cancel editing." data-placement="top">
 					<button id="cancelEditPig" class="imgBtn">
 						<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> 
 						<span> Cancel</span>
@@ -97,31 +98,31 @@
 
 		<!--Icons-->
 		<div class="icons-maindiv"> 
-			<div class="col-md-2 col-centered icons-img">
-				<button id="movement" class="imgBtn">
+			<div class="col-md-2 col-centered icons-img panel1" data-trigger= "hover" data-toggle="tooltip" title="Click to display movement panel. This is where you can view or print pig's movement." data-placement="left">
+				<button id="movement" class="imgBtn" >
 			       <img class="img-responsive" id="movement" src="<?php echo HOST;?>/phpork/images/Movement.png">
 			    </button>
 			</div>
 			<br/>
-			<div class="col-md-2 col-centered icons-img1">
-			    <button id="medication" class="imgBtn">
+			<div class="col-md-2 col-centered icons-img1 panel2"  data-trigger= "hover" data-toggle="tooltip" title="Click to display medication panel. This is where you can view,edit,insert or print pig's medication." data-placement="left">
+			    <button id="medication" class="imgBtn"">
 			        <img class="img-responsive"  src="<?php echo HOST;?>/phpork/images/Medications.png">
 			    </button>
 			</div>
 			<br/>
-			<div class="col-md-2 col-centered icons-img1">
+			<div class="col-md-2 col-centered icons-img1 panel3" data-trigger= "hover" data-toggle="tooltip" title="Click to display feed panel. This is where you can view,edit,insert or print pig's feed intake." data-placement="left">
 			    <button id="feeds" class="imgBtn">
 			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Feeds2.png">
 			    </button> 
 			</div>
 			<br/>
-			<div class="col-md-2 col-centered icons-img1">
+			<div class="col-md-2 col-centered icons-img1 panel4" data-trigger= "hover" data-toggle="tooltip" title="Click to display weight panel. This is where you can view or print pig's weight." data-placement="left">
 			    <button id="weight" class="imgBtn">
 			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Weight.png">
 			    </button>
 			</div>
 			<br/>
-			<div class="col-md-2 col-centered icons-img1">
+			<div class="col-md-2 col-centered icons-img1 panel5" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to 'Select pig'." data-placement="left">
 			    <button id="backToPig" class="imgBtn">
 			        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png">
 			    </button> 
@@ -136,8 +137,8 @@
 			    <div id="viewMovementDetails" class="mvmnt-div">
 			    	<div id="pigMovementInfo">
 			    	</div>
-			    	<button id="visualizeButton">Visualize</button>
-			    	<div class="col-md-2 col-centered imgMvmnt1">
+			    	<button id="visualizeButton" data-trigger= "hover" data-toggle="tooltip" title="Click to view pig's movement." data-placement="bottom">Visualize</button>
+			    	<div class="col-md-2 col-centered imgMvmnt1" data-trigger= "hover" data-toggle="tooltip" title="Click if you want to  download movement's report. " data-placement="top">
 					    <button id="mvmntRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportMvmnt">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
@@ -170,7 +171,7 @@
 					</div>
 			    </div>
 			    <div id="viewMovementGraph" style="display: none;" > 
-			    	<div class="col-md-2 col-centered imgMvmnt2">
+			    	<div class="col-md-2 col-centered imgMvmnt2" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to movement panel." data-placement="bottom">
 					    <button id="backToMovement" class="imgBtn">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png"> 
 					        <span> Back</span>
@@ -186,13 +187,13 @@
 			<div id="viewMeds" style="display: none;"> 
 				<!--view medication-->
 				<div id="viewMedsInfo" class="med-div">
-				    <div class="col-md-2 col-centered imgMed1">
+				    <div class="col-md-2 col-centered imgMed1 med1" data-trigger= "hover" data-toggle="tooltip" title="Click if you want to edit the name of medication that you inserted." data-placement="top">
 					     <button id="editMedsButton" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png">
 					            <span> Edit Medication</span>
 					        </button>
 				    </div>
-				    <div class="col-md-2 col-centered imgMed2">
+				    <div class="col-md-2 col-centered imgMed2 med2" data-trigger= "hover" data-toggle="tooltip" title="Click to insert new medication of the pig." data-placement="top">
 					        <button id="insertMedsButton" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Medications.png">
 					            <span> Insert Medication</span>
@@ -215,7 +216,7 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-md-2 col-centered imgMed3">
+					<div class="col-md-2 col-centered imgMed3 med3" data-trigger= "hover" data-toggle="tooltip" title="Click if you want to download a report of pig's medication." data-placement="bottom">
 					    <button id ="medsRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportMeds">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
@@ -226,13 +227,13 @@
 				<!--edit medication-->
 				<div id="editMedsDetails" style="display: none;"> 
 					<div class="med-div">
-					   	<div class="col-md-2 col-centered imgMed1">
+					   	<div class="col-md-2 col-centered imgMed1 med4" data-trigger= "hover" data-toggle="tooltip" title="Click to save edited medication details." data-placement="top">
 						    <button id="saveEditMeds" class="imgBtn"> 
 						        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png"> 
 						        <span> Save Medication</span>
 						    </button>
 					   	</div>
-					   	<div class="col-md-2 col-centered imgMed2">
+					   	<div class="col-md-2 col-centered imgMed2 med5" data-trigger= "hover" data-toggle="tooltip" title="Click to cancel edited medication details." data-placement="top">
 						    <button id="cancelEditMeds" class="imgBtn">
 						        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png">
 						        <span> Cancel Medication</span>
@@ -241,7 +242,7 @@
 					    <div id="lastMedInfoEdit">
 						    <label>Last medication given: </label><br/>
 					    </div>
-					    <div class="med-table">
+					    <div class="med-table" data-target=".sel">
 						    <table class="table table-striped tableMed">
 								<thead>
 								    <tr>
@@ -250,7 +251,7 @@
 								      <th>Edit to</th>
 								    </tr>
 								</thead>
-								<tbody id="editMedsBody">
+								<tbody id="editMedsBody"  class="sel">
 								</tbody>
 							</table>
 						</div>
@@ -260,13 +261,13 @@
 				<!--insert medication-->
 				<div id="insertMedsDetails" style="display: none;"> 
 				    <div class="med-div">
-				    	<div class="col-md-2 col-centered imgMed4">
+				    	<div class="col-md-2 col-centered imgMed4 med6" data-trigger= "hover" data-toggle="tooltip" title="Click to insert medication details of pig/s." data-placement="top">
 					       <button id="saveInsertMeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png">
 					            <span>Insert</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgMed5">
+				   		<div class="col-md-2 col-centered imgMed5 med7" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to medication panel." data-placement="top">
 					        <button id="backToMeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png">
 					            <span>Back</span>
@@ -332,13 +333,13 @@
 			<div id="viewFeeds" style="display: none;"> 
 				<!--view feeds-->
 				<div id="viewFeedsInfo" class="med-div">
-					<div class="col-md-2 col-centered imgFeed1">
+					<div class="col-md-2 col-centered imgFeed1 feed1" data-trigger= "hover" data-toggle="tooltip" title="Click if you want to edit the name of feed that you inserted." data-placement="top">
 						<button id="editFeedsButton" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Edit.png">
 					            <span> Edit Feeds</span>
 					        </button>
 					</div>
-					<div class="col-md-2 col-centered imgFeed2">
+					<div class="col-md-2 col-centered imgFeed2 feed2" data-trigger= "hover" data-toggle="tooltip" title="Click to insert new feed intake of pigs." data-placement="top">
 					        <button id="insertFeedsButton" data-toggle="modal" data-target="#modalInsertFeeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert Feeds.png">
 					            <span> Insert Feeds</span>
@@ -363,7 +364,7 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-md-2 col-centered imgMed3">
+					<div class="col-md-2 col-centered imgMed3 feed3" data-trigger= "hover" data-toggle="tooltip" title="Click if you want to download a report of pig's feed intake. " data-placement="bottom">
 						<button id ="feedsRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportFeeds">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
@@ -374,13 +375,13 @@
 				<!--edit feeds-->
 				<div id="editFeeds" style="display: none;"> 
 				    <div class="med-div">
-				    	<div class="col-md-2 col-centered imgFeed1">
+				    	<div class="col-md-2 col-centered imgFeed1 feed4" data-trigger= "hover" data-toggle="tooltip" title="Click to save feed intake details." data-placement="top">
 					        <button id="saveEditFeeds" class="imgBtn"> 
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Save.png">
 					            <span> Save Feed</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgFeed2">
+				   		<div class="col-md-2 col-centered imgFeed2 feed5" data-trigger= "hover" data-toggle="tooltip" title="Click to cancel edited feed intake details." data-placement="top">
 					        <button id="cancelEditFeeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Cancel.png"> 
 					            <span> Cancel Feed</span>
@@ -389,7 +390,7 @@
 				    	<div id="lastFeedInfoEdit">
 					    	<label>Last feed type: </label><br/>
 				    	</div>
-				    	<div class="med-table">
+				    	<div class="med-table" data-target=".selFeed" >
 					    	<table class="table table-striped tableMed">
 							  <thead>
 							    <tr class="tr_feeds">
@@ -399,7 +400,7 @@
 							      <th>Edit to</th>
 							    </tr>
 							  </thead>
-							  <tbody id="editFeedsBody">
+							  <tbody id="editFeedsBody"  class='selFeed'>
 							  </tbody>
 							</table>
 						</div>
@@ -409,13 +410,13 @@
 				<!-- insert feeds --> 
 				<div id="insertFeedsDetails" style="display: none;"> 
 				    <div class="med-div">
-				    	<div class="col-md-2 col-centered imgMed4">
+				    	<div class="col-md-2 col-centered imgMed4 feed6" data-trigger= "hover" data-toggle="tooltip" title="Click if you want to insert new feed intake details of pigs." data-placement="top">
 					       <button id="saveInsertFeeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png"> 
 					            <span>Insert</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgMed5">
+				   		<div class="col-md-2 col-centered imgMed5 feed7" data-trigger= "hover" data-toggle="tooltip" title="Click to go back to feed panel." data-placement="top">
 					        <button id="backToFeeds" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/ArroW Left.png"> 
 					            <span>Back</span>
@@ -480,13 +481,13 @@
 			<div id="viewWeight" style="display: none;">
 				<!--view weight-->
 			    <div id="viewWeightInfo" class="weight-div">
-			    	<div class="col-md-2 col-centered imgWeight1">
+			    	<div class="col-md-2 col-centered imgWeight1 weight1" data-trigger= "hover" data-toggle="tooltip" title="Click if you want to download a report of pig's weight details. " data-placement="top">
 				    	<button id ="weightRprt" class="imgBtn" data-toggle="modal" data-target="#myModalReportWeight">
 					        <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Download Report.png">
 					        <span> Download Report</span>
 					    </button>
 					</div>
-					<div class="col-md-2 col-centered imgWeight2">
+					<div class="col-md-2 col-centered imgWeight2 weight2" data-trigger= "hover" data-toggle="tooltip" title="Click if you want to insert new weight of pigs." data-placement="top">
 					    <button id="insertWeightButton" class="imgBtn">
 							<img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Weight.png"> 
 							<span> Insert Weight</span>
@@ -499,13 +500,13 @@
 				<!-- insert weight -->
 				<div id="insertWeightDetails" style="display: none;"> 
 				    <div class="med-div">
-				    	<div class="col-md-2 col-centered imgMed4">
+				    	<div class="col-md-2 col-centered imgMed4 weight3" data-trigger= "hover" data-toggle="tooltip" title="Click to save new weight details." data-placement="top">
 					       <button id="saveInsertWeight" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Insert.png"> 
 					            <span>Insert</span>
 					        </button>
 				    	</div>
-				   		<div class="col-md-2 col-centered imgMed5">
+				   		<div class="col-md-2 col-centered imgMed5 weight4" data-trigger= "hover" data-toggle="tooltip" title="Click go back to weight panel." data-placement="top">
 					        <button id="backToWeight" class="imgBtn">
 					            <img class="img-responsive" src="<?php echo HOST;?>/phpork/images/Arrow Left.png">
 					            <span>Back</span>
@@ -562,7 +563,7 @@
 		<div id="myModalReportMvmnt" class="modal fade" role="dialog">
 		    <div class="modal-dialog">
 		        <div class="modal-content">
-			        <div class="modal-header">
+			        <div class="modal-header" > 
 			            <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
 			            <h4 class="modal-title">Download Movement Details Report</h4>
 			        </div>
@@ -577,7 +578,7 @@
 				            <input style="height: 5%;" type="date" class="form-control" id="to" aria-describedby="basic-addon3" required>
 				        </div>
 			        </div>
-			        <div class="modal-footer">
+			        <div class="modal-footer mvmnt1" data-trigger= "hover" data-toggle="tooltip" title="Click to download the report. It will be saved in your Desktop inside 'reports/movement_reports' folder." data-placement="bottom">
 			        	<button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_mvmntrprt">Download</button>
 			        </div>
 		        </div>
@@ -603,7 +604,7 @@
 				            <input style="height: 5%;" type="date" class="form-control" id="toMeds" aria-describedby="basic-addon3" required>
 				        </div>
 			        </div>
-			        <div class="modal-footer">
+			        <div class="modal-footer med8" data-trigger= "hover" data-toggle="tooltip" title="Click to download the report. It will be saved in your Desktop inside 'reports/medication_reports' folder." data-placement="bottom">
 			            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_medsrprt">Download</button>
 			        </div>
 		        </div>
@@ -629,7 +630,7 @@
 				            <input style="height: 5%;" type="date" class="form-control" id="toFeeds" aria-describedby="basic-addon3" required>
 				        </div> 
 			        </div>
-			        <div class="modal-footer">
+			        <div class="modal-footer feed8" data-trigger= "hover" data-toggle="tooltip" title="Click to download the report.It will be saved in your Desktop inside 'reports/feed_reports' folder." data-placement="bottom">
 			            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_feedsrprt">Download</button>
 			        </div>
 		        </div>
@@ -655,7 +656,7 @@
 				            <input style="height: 5%;" type="date" class="form-control" id="toWeight" aria-describedby="basic-addon3" required>
 				        </div>
 			        </div>
-			        <div class="modal-footer">
+			        <div class="modal-footer weight5" data-trigger= "hover" data-toggle="tooltip" title="Click to download the report. It will be saved in your Desktop inside 'reports/weight_reports' folder." data-placement="bottom">
 			            <button type="submit" class="btn btn-default" data-dismiss="modal" id="gen_weightrprt">Download</button>
 			          </div>
 			        </div>
@@ -914,8 +915,8 @@
 	        },
 	        success: function (data) { 
 	          var data = jQuery.parseJSON(data); 
-	           $("#lastFeedInfo").append($("<label>Name: "+data.feedname+"</label><br/><label>Type: "+data.feed_type+"</label>"));
-	           $("#lastFeedInfoEdit").append($("<label>Name: "+data.feedname+"</label><br/><label>Type: "+data.feed_type+"</label>"));
+	           $("#lastFeedInfo").append($("<label>Name: "+data[0].feedname+"</label><br/><label>Type: "+data[0].feed_type+"</label>"));
+	           $("#lastFeedInfoEdit").append($("<label>Name: "+data[0].feedname+"</label><br/><label>Type: "+data[0].feed_type+"</label>"));
 	        }    
 	            
 	      });
@@ -957,9 +958,9 @@
                   $("#pigInfo").append($("<select id='editStatus'><option value='"+data[0].pig_stat+"' selected>Currently: "+data[0].pig_stat+"</option></option><option value='weaning'>Weaning</option><option value='growing'>Growing</option></option><option value='sow'>Sow</option></option><option value='boar'>Boar</option></option><option value='sick'>Sick</option><option value='dead'>Dead</option><option value='slaughtered'>Slaugthered</option></select>"));
                   $("#pigInfo").append($("<br/>"));
                   $("#pigInfo").append($("<label></label>").text("RFID: "));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevRfid").attr("value", data[0].rfid_tag));
-                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","pigLabel").attr("value", data[0].rfid_label));
-                  $("#pigInfo").append($("<select id='editRFID'><option value='"+data[0].rfid_tag+"' selected>Currently: "+data[0].rfid_tag+"</option></select>"));
+                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","prevRfid").attr("value", data[0].tag_id));
+                  $("#pigInfo").append($("<input></input)").attr("type", "hidden").attr("id","pigLabel").attr("value", data[0].label));
+                  $("#pigInfo").append($("<select id='editRFID'><option value='"+data[0].tag_id+"' selected >Currently: "+data[0].rfid_tag+"</option></select>"));
                   $("#pigInfo").append($("<br/>"));
               	  
                   
@@ -1038,7 +1039,8 @@
 	          updatePig: '1',
 	          pig: pig_id,
 	          user: user_id,
-	          stat: newStatus
+	          stat: newStatus,
+	          prevStatus: prevStatus,
 	        },
 	        success: function (data) { 
 	          
@@ -1052,7 +1054,8 @@
 			          pig: pig_id,
 					  rfid: newRFID,
 		              prevRFID: prevRFID,
-					  label: pigLabel
+					  label: pigLabel,
+					  user: user_id
 			        },
 			        success: function (data) { 
 			           
@@ -1067,7 +1070,10 @@
 					          pig: pig_id,
 							  weight: newWeight,
 				              record_id: weightrecord,
-							  remarks: newWeightType
+							  remarks: newWeightType,
+							  prevWeight: prevWeight,
+							  prevWeightType: prevWeightType,
+							  user: user_id
 					        },
 					        success: function (data) { 
 					           
@@ -1077,19 +1083,11 @@
 							        url: '/phpork/gateway/pig.php',
 							        type: 'post',
 							        data : {
-							          editHistory: '1',
+							          updateWeekFar: '1',
 							          user: user_id,
 							          pig: pig_id,
 							          prevWeekFar: prevWeekFar,
-							          week_far: newWeekFar,
-							          prevStatus: prevStatus,
-							          stat: newStatus,
-							          prevRFID: prevRFID,
-							          rfid: newRFID,
-									  prevWeight: prevWeight,
-									  weight: newWeight, 
-									  prevWeightType: prevWeightType,
-									  weightType: newWeightType
+							          week_far: newWeekFar
 							        },
 							        success: function (data) { 
 							          
@@ -1187,20 +1185,20 @@
 	          var data = jQuery.parseJSON(data); 
 	          var count = 0;
 	           for(var i=0;i<data.length;i++){
-	           		$("#editMedsBody").append($("<tr><td>" +data[i].mname+ "</td><td>" +data[i].mtype+ "</td><td><select style='color: black; width: 50%' id='selectmedication"+i+"'>"));
+	           		$("#editMedsBody").append($("<tr><td>" +data[i].mname+ "</td><td>" +data[i].mtype+ "</td><td ><select style='color: black; width: 50%' id='selectmedication"+i+"' ><option selected='true' disabled='disabled'>Select medication..</option></select><input type='hidden' value='"+data[i].mr_id+"' id='med"+data[i].mr_id+"'/></td></tr>"));
 
 	           		
-	           		 $("#editMedsBody").append($("</select></td><td><input type='hidden' value='"+data[i].mr_id+"' id='med"+data[i].mr_id+"'></td></tr>"));
 
 
 	           		
 		          count = count +1;
 	       		}
-	       		$("#selectmedication0").on("change", function(){//NOTYET
+	       		$(".sel").children("tr").children("td").children("select").on("change", function(){//NOTYET
+	       				var mrid = $(this).parent("td").children('input').attr('value');
+	       				var med_id = $(this).attr('id');
 	           			var editedMeds = {};	
-	           			var a =  $(this).id;//NOTYET
-	           			editedMeds['medid'] = $('#selectmedication0').val();//NOTYET
-	           			editedMeds['mrid'] = 3; //NOTYET
+	           			editedMeds['medid'] = $('#'+med_id).val();//NOTYET
+	           			editedMeds['mrid'] = mrid; //NOTYET
 
 	           			editedMedications.push(editedMeds);
 
@@ -1219,7 +1217,8 @@
 						      	
 								$("#selectmedication"+k).append($("<option></option>").attr("value", data[j].med_id)
 								  .attr("name","meds")
-								  .text(data[j].med_name)); 
+								  .text(data[j].med_name));	
+
 							}
 						}
 					      
@@ -1232,7 +1231,7 @@
          $('#saveEditMeds').on("click",function() {
 
 		 	
-		 	var user = $("#user_id").val();
+		 	var user = $("#userId").val();
 
 		 	$.each(editedMedications, function(key, value) {
 		 			var mrid = value.mrid;
@@ -1249,6 +1248,7 @@
 	                    },
 	                    success: function (data) { 
 	                      alert("Saved details successfully!"); 
+	                     // alert(mrid);
 	                      location.reload();
 
 	                          
@@ -1342,6 +1342,7 @@
 		 	var timeGiven = $('#timeMedGiven').val();
 		 	var medQuantity = $('#medQty').val();
 		 	var qtyUnit = $('#qtyUnit').val();
+		 	var user = $('#userId').val();
 
 		 	var choice = $('#selectMedchoice').val();
 
@@ -1366,7 +1367,8 @@
 			             medTime: timeGiven, 
 		                 medQty: medQuantity,
 			             selUnit: qtyUnit,
-			             pensel: selPen
+			             pensel: selPen,
+			             user: user
 	                    },
 	                    success: function (data) { 
 	                       alert("Added!");
@@ -1398,7 +1400,8 @@
 		             medTime: timeGiven, 
 	                 medQty: medQuantity,
 		             selUnit: qtyUnit,
-		             pigpen: selPig
+		             pigpen: selPig,
+		             user: user
                     },
                     success: function (data) { 
                       alert("Added!");
@@ -1446,19 +1449,22 @@
 					var count = 0;
 			   for(i=0;i<data.length;i++){
 
-			   		$("#editFeedsBody").append($("<tr><td>" +data[i].fname+ "</td><td>" +data[i].ftype+ "</td><td>"+data[i].proddate+"<td><select style='color: black; width: 50%' id='selectfeed"+i+"'>"));
+			   		$("#editFeedsBody").append($("<tr><td>" +data[i].fname+ "</td><td>" +data[i].ftype+ "</td><td>"+data[i].proddate+"</td><td ><select style='color: black; width: 50%' id='selectfeed"+i+"'><option selected='true' disabled='disabled'>Select feed..</option></select><input type='hidden' value='"+data[i].ft_id+"' id='feed"+data[i].ft_id+"'></td></tr>"));
 
-			   		$("#editFeedsBody").append($("</select></td><td><input type='hidden' value='"+data[i].ft_id+"' id='feed"+data[i].ft_id+"'></td></tr>"));
 
 
 			   		
 			   		count = count +1;
 			   }
-			   $("#selectfeed0" ).on("change", function(){ //NOTYET
+			   $(".selFeed").children('tr').children('td').children('select').on("change", function(){ //NOTYET
+			   			var ft_id = $(this).parent('td').children('input').attr('value');
+	       				var fid = $(this).attr('id');
 						var editedF = {};
-						editedF['fid'] = $('#selectfeed0').val(); //NOTYET
+						//alert(ft_id);
+						editedF['fid'] = $('#'+fid).val(); //NOTYET
 						//editedFeeds['ft_id'] = $('#feed'+data[i].ft_id).val();
-						editedF['ft_id'] = 2; //NOTYET
+						editedF['ft_id'] =ft_id; //NOTYET
+						//alert(prev_fid);
 						editedFeeds.push(editedF);
 
 
@@ -1489,12 +1495,11 @@
          $('#saveEditFeeds').on("click",function() {
          	
 		 	
-		 	var user = $("#user_id").val(); //NOTYET
+		 	var user = $("#userId").val(); //NOTYET
 
 		 	$.each(editedFeeds, function(key, value) {
 		 			var ft_id = value.ft_id;
 		 			var fid = value.fid;
-
 		 			 $.ajax({
 	                    url: '/phpork/gateway/feeds.php',
 	                    type: 'post',
@@ -1599,6 +1604,7 @@
 		 	var dateFeedGiven = $('#dateFeedGiven').val();
 		 	var timeFeedGiven = $('#timeFeedGiven').val();
 		 	var feedQuantity = $('#feedQty').val();
+		 	var user = $('#userId').val();
 		 	
 		 	var choice = $('#selectFeedchoice').val();
 
@@ -1623,7 +1629,8 @@
 						ftime: timeFeedGiven, 
 						feedtypeDate: feedProdDate, 
 						feedQty: feedQuantity,
-						pensel: selPen
+						pensel: selPen,
+						user: user
 	                    },
 	                    success: function (data) { 
 	                       
@@ -1656,7 +1663,8 @@
 					  ftime: timeFeedGiven,
 					  feedtypeDate: feedProdDate, 
 					  feedQty: feedQuantity,
-					  pigpen: selPig
+					  pigpen: selPig,
+					  user: user
                     },
                     success: function (data) { 
                       alert("Added!"); 
@@ -1722,9 +1730,9 @@
 		 	var choice = $('#selectWeightchoice').val();
 		 	var user = $('#userId').val();
 
-		 	if(choice === "perbatch"){
+		 	if(choice == "perbatch"){
 
-		 		var checkedBatch = document.getElementsByClassName('batchlass');
+		 		var checkedBatch = document.getElementsByClassName('batchclass');
 		 		var selBatch = [];
 
 		 		for(var i=0;i<checkedBatch.length; i++){
@@ -1747,7 +1755,7 @@
 			             batchsel: selBatch
 	                    },
 	                    success: function (data) { 
-	                       alert("Added!");
+	                       alert("Added q!");
 	                        location.reload();
 
 	                       
@@ -1755,7 +1763,7 @@
 	                  });
 
 
-		 	}else if(choice === "perpigW"){
+		 	}else if(choice == "perpigW"){
 		 		var checkedPig = document.getElementsByClassName('pigclassW');
 		 		var selPig = [];
 
@@ -2135,6 +2143,45 @@
 			    chart.validateData();
 			  });
 			}
+        /* Add user's tooltip*/
+        $('.page-header').tooltip({trigger: "hover"});
+         $('.imgPig1').tooltip({trigger: "hover"});
+         $('.imgPig2').tooltip({trigger: "hover"});
+         $('.imgPig3').tooltip({trigger: "hover"});
+         $('.imgPig4').tooltip({trigger: "hover"});
+         $('.panel1').tooltip({trigger: "hover"});
+         $('.panel2').tooltip({trigger: "hover"});
+         $('.panel3').tooltip({trigger: "hover"});
+         $('.panel4').tooltip({trigger: "hover"});
+         $('.panel5').tooltip({trigger: "hover"});
+         $('#visualizeButton').tooltip({trigger: "hover"});
+         $('.imgMvmnt1').tooltip({trigger: "hover"});
+         $('.imgMvmnt2').tooltip({trigger: "hover"});
+         $('.med1').tooltip({trigger: "hover"});
+         $('.med2').tooltip({trigger: "hover"});
+         $('.med3').tooltip({trigger: "hover"});
+         $('.med4').tooltip({trigger: "hover"});
+         $('.med5').tooltip({trigger: "hover"});
+         $('.med6').tooltip({trigger: "hover"});
+         $('.med7').tooltip({trigger: "hover"});
+         $('.med8').tooltip({trigger: "hover"});
+         $('.feed1').tooltip({trigger: "hover"});
+         $('.feed2').tooltip({trigger: "hover"});
+         $('.feed3').tooltip({trigger: "hover"});
+         $('.feed4').tooltip({trigger: "hover"});
+         $('.feed5').tooltip({trigger: "hover"});
+         $('.feed6').tooltip({trigger: "hover"});
+         $('.feed7').tooltip({trigger: "hover"});
+         $('.feed8').tooltip({trigger: "hover"});
+         $('.weight1').tooltip({trigger: "hover"});
+         $('.weight2').tooltip({trigger: "hover"});
+         $('.weight3').tooltip({trigger: "hover"});
+         $('.weight4').tooltip({trigger: "hover"});
+         $('.weight5').tooltip({trigger: "hover"});
+         $('.mvmnt1').tooltip({trigger: "hover"});
+
+
+     
     </script> 
 
 	</body> 

@@ -9,6 +9,7 @@
 		$medTime = $_POST['medTime']; 
 		$qty = $_POST['medQty'];
 		$unit = $_POST['selUnit'];
+		$user = $_POST['user'];
 		$sparray = array();
 		$size = 0;
 		if (isset($_POST['pensel'])) {
@@ -23,7 +24,7 @@
 				$sparray = $db->ddl_perpen($key);
 				foreach ($sparray as $a ) {
 					
-					$db->addMeds($medid,$medDate,$medTime,$a,$medqty,$unit); 
+					$db->addMeds($medid,$medDate,$medTime,$a,$medqty,$unit,$user); 
 				
 				}
 				
@@ -35,7 +36,7 @@
 			$pigsize = sizeof($_POST['pigpen']);
 			$fqty = $qty/$pigsize;
 			foreach($_POST['pigpen'] as $pid){
-				$db->addMeds($medid,$medDate,$medTime,$pid,$fqty,$unit);  					
+				$db->addMeds($medid,$medDate,$medTime,$pid,$fqty,$unit,$user);  					
 			} 
 		}
 	} 
@@ -92,7 +93,7 @@
 		$mrid = $_POST['mrid']; 
 		$medid = $_POST['med_id']; 
 		$user = $_POST['user']; 
-		echo json_encode($db->updateMeds($mrid,$medid,$user)); 
+		echo json_encode($db->updateMeds($medid,$mrid,$user)); 
 		//localhost/phpork2/gateway/meds.php?ddl_medRecord=1&pig=1
 	} 
 ?>

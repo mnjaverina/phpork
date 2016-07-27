@@ -12,6 +12,7 @@
 		$selpig = $_POST['selpig']; 
 		$proddate = $_POST['feedtypeDate']; 
 		$qty = $_POST['feedQty'];
+		$user = $_POST['user'];
 
 		$sparray = array();
 		$size = 0;
@@ -32,7 +33,7 @@
 				$sparray = $db->ddl_perpen($key);
 				foreach ($sparray as $a ) {
 					
-					echo json_encode($db->addFeeds($fid,$fdate,$ftime,$a,$proddate,$feedqty)); 
+					echo json_encode($db->addFeeds($fid,$fdate,$ftime,$a,$proddate,$feedqty,$user)); 
 				
 				}
 			}
@@ -43,7 +44,7 @@
 			$pigsize = sizeof($_POST['pigpen']);
 			$fqty = $qty/$pigsize;
 			foreach($_POST['pigpen'] as $pid){
-				echo json_encode($db->addFeeds($fid,$fdate,$ftime,$pid,$proddate,$fqty)); 					
+				echo json_encode($db->addFeeds($fid,$fdate,$ftime,$pid,$proddate,$fqty,$user)); 					
 			} 
 		}
 //localhost/phpork2/gateway/feeds.php?addFeeds=1&selectFeeds=2&fdate=2016-03-05&ftime=08:00:00&feedtypeDate=2016-03-05&feedQty=0.20&selpig=1

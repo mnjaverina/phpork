@@ -107,8 +107,9 @@
 	if(isset($_POST['updatePig'])){
 		$pid = $_POST['pig'];
 		$user = $_POST['user'];
+		$prevStatus = $_POST['prevStatus'];
 		$stat = $_POST['stat'];
-		echo json_encode($db->updatePigDetails($pid, $user, $stat));
+		echo json_encode($db->updatePigDetails($pid, $user, $stat,$prevStatus));
 		//http://localhost/phpork2/gateway/pig.php?getUserEdited=1&pig=1
 	}
 	if(isset($_POST['updateRFID'])){
@@ -116,7 +117,8 @@
 		$rfid = $_POST['rfid'];
 		$prevrfid = $_POST['prevRFID'];
 		$label = $_POST['label'];
-		echo json_encode($db->updateRFIDdetails($pid, $rfid, $prevrfid, $label));
+		$user = $_POST['user'];
+		echo json_encode($db->updateRFIDdetails($pid, $rfid, $prevrfid, $label,$user));
 		
 	}
 	if(isset($_POST['updatePigWeight'])){
@@ -124,25 +126,19 @@
 		$weight = $_POST['weight'];
 		$record_id = $_POST['record_id'];
 		$remarks = $_POST['remarks'];
-		echo json_encode($db->updatePigWeight($pig_id, $weight, $record_id, $remarks));
+		$user = $_POST['user'];
+		$prevWeight = $_POST['prevWeight'];
+		$prevweighttype = $_POST['prevWeightType'];
+		echo json_encode($db->updatePigWeight($pig_id, $prevWeight,$weight, $record_id, $remarks,$prevweighttype,$user));
 		
 	}
 
-	if(isset($_POST['editHistory'])){
+	if(isset($_POST['updateWeekFar'])){
 		$user = $_POST['user'];
 		$pigid = $_POST['pig'];
 		$prevWeekFar = $_POST['prevWeekFar'];
 		$week_far = $_POST['week_far'];
-		$prevStatus = $_POST['prevStatus'];
-		$status = $_POST['stat'];
-		$prevrfid = $_POST['prevRFID'];
-		$rfid = $_POST['rfid'];
-		$prevWeight = $_POST['prevWeight'];
-		$weight = $_POST['weight'];
-		$prevweighttype = $_POST['prevWeightType'];
-		$weighttype = $_POST['weightType'];
-		echo json_encode($db->insertEditHistory($user, $pigid,$prevWeekFar,$week_far, $prevStatus, $status, $prevrfid, $rfid,  $prevWeight, $weight, $prevweighttype, $weighttype));
-		echo json_encode($db->updateWeekFar($pigid,$week_far));
+		echo json_encode($db->updateWeekFar($user,$pigid,$week_far,$prevWeekFar));
 	}
 
 	if(isset($_POST['addParent'])){
