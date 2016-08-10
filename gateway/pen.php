@@ -8,7 +8,8 @@
 		$penno = $_POST['penno'];
 		$fxn = $_POST['fxn'];
 		$h_id = $_POST['h_id'];
-		echo json_encode($db->addPenName($penno,$fxn,$h_id)); 
+		$user = $_POST['user'];
+		echo json_encode($db->addPenName($penno,$fxn,$h_id,$user)); 
 		//localhost/phpork2/gateway/pen.php?addPenName=1&penno=1&fxn=weaning&h_id=5
 	} 
 	if(isset($_GET['ddl_pen'])){

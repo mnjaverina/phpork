@@ -31,7 +31,7 @@
 		      return false;
 		    }
 	  	}
-	  	public function signup($username,$password,$usertype)
+	  	public function signup($username,$password,$usertype,$user)
 		{
 				$link = $this->connect();
 				$q = "SELECT max(user_id)
@@ -42,8 +42,9 @@
 				$query = "INSERT INTO user(user_id,user_name,password,user_type) 
 						VALUES('" . $max . "','" . $username . "','" . $password . "','" . $usertype . "');";
 				if ($result = mysqli_query( $link, $query )) {
-		      	$data = array("success"=>"true",
+		      		$data = array("success"=>"true",
 		                    "newId"=> $link->insert_id);
+		      		$this->userTransactionEdit($user,$max,"user",0,$username,1,0);
 			    }else {
 			      $data = array("success"=>"false",
 			                      "error"=>mysqli_error($link));
@@ -93,7 +94,7 @@
 				$result = mysqli_query($link, $query);
 				
 			    
-			    return $data;
+			   
 		}
 		public function ddl_user()
 	    {
@@ -135,7 +136,7 @@
 		}
 
 	  	/* Location functions*/
-	  	public function addLocationName($lname,$addr)
+	  	public function addLocationName($lname,$addr,$user)
 		{
 				$link = $this->connect();
 				$q = "SELECT max(loc_id)
@@ -148,6 +149,7 @@
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 		                    "newId"=> $link->insert_id);
+		      	$this->userTransactionEdit($user,$max,"location",0,$lname,1,0);
 			    }else {
 			      $data = array("success"=>"false",
 			                      "error"=>mysqli_error($link));
@@ -247,9 +249,10 @@
 				$link = $this->connect();
 				$query = "UPDATE location 
 							set loc_name = '" .$loc_name. "',
-								addr = '" .$addr. "'
+								address = '" .$addr. "'
 						WHERE loc_id = '" . $loc_id. "'";
 				$result = mysqli_query($link, $query);
+
 		}
 
 
@@ -257,7 +260,7 @@
 		/* end of location functions*/
 
 		/*    HOUSE FUNCTIONS  */
-		public function addHouseName($hno, $hname,$fxn,$loc)
+		public function addHouseName($hno, $hname,$fxn,$loc,$user)
 		{
 				$link = $this->connect();
 				$q = "SELECT max(house_id)
@@ -270,6 +273,7 @@
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 		                    "newId"=> $link->insert_id);
+		      		$this->userTransactionEdit($user,$max,"house",0,$hname,1,0);
 			    }else {
 			      $data = array("success"=>"false",
 			                      "error"=>mysqli_error($link));
@@ -366,7 +370,7 @@
 		/*END OF HOUSE FUNCTIONS*/
 
 		/*   PEN FUNCTIONS   */
-		public function addPenName($penno,$fxn,$h_id)
+		public function addPenName($penno,$fxn,$h_id,$user)
 		{
 				$link = $this->connect();
 				$q = "SELECT max(pen_id)
@@ -379,6 +383,7 @@
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 		                    "newId"=> $link->insert_id);
+		      		 $this->userTransactionEdit($user,$max,"pen",0,$penno,1,0);
 			    }else {
 			      $data = array("success"=>"false",
 			                      "error"=>mysqli_error($link));
@@ -478,14 +483,12 @@
 				return $arr_pen;
 		}
 
-		public function updatePen($penid, $penno, $location, $house, $fxn)
+		public function updatePen($penid, $penno, $fxn)
 		{
 				$link = $this->connect();
 				$query = "UPDATE pen 
 							set pen_no = '" .$penno. "',
-								loc_id = '" .$location. "',
-								house_id = '" .$house. "',
-								function = '" .$fxn. "',
+								function = '" .$fxn. "'
 						WHERE pen_id = '" . $penid. "'";
 				$result = mysqli_query($link, $query);
 		}
@@ -913,7 +916,7 @@
 		    return $pig_arr;
 		}
 
-		public function addParent($label, $label_id)
+		public function addParent($label, $label_id,$user)
 		{
 				$link = $this->connect();
 				$q = "SELECT max(parent_id)
@@ -926,6 +929,7 @@
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 		                    "newId"=> $link->insert_id);
+	      			$this->userTransactionEdit($user,$max,"parent",0,$label,1,0);	
 			    }else {
 			      $data = array("success"=>"false",
 			                      "error"=>mysqli_error($link));
@@ -941,7 +945,7 @@
 						WHERE parent_id = '" . $parentid. "'";
 				$result = mysqli_query($link, $query);
 		}
-		public function addBreed($breed_name)
+		public function addBreed($breed_name,$user)
 		{
 				$link = $this->connect();
 				$q = "SELECT max(breed_id)
@@ -954,6 +958,7 @@
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 		                    "newId"=> $link->insert_id);
+	      			$this->userTransactionEdit($user,$max,"breed",0,$breed_name,1,0);
 			    }else {
 			      $data = array("success"=>"false",
 			                      "error"=>mysqli_error($link));
@@ -1263,8 +1268,6 @@
 				$t = date("h:i:s");
 				$query = "UPDATE   weight_record
 				set weight = '".$weight."',
-				record_time = '".$t."',
-				record_date = '".$d."',
 				remarks = '".$remarks."'
 				where record_id = '".$record_id."'";
 				$result = mysqli_query($link, $query);
@@ -1446,7 +1449,7 @@
 			    }
 			    return $data;
 		}
-		public function addMedName($mname, $mtype)
+		public function addMedName($mname, $mtype,$user)
 		{
 				$link = $this->connect();
 				$q = "SELECT max(med_id)
@@ -1459,6 +1462,7 @@
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 		                    "newId"=> $link->insert_id);
+		      		$this->userTransactionEdit($user,$max,"medication name",0,$mname,1,0);
 			    }else {
 			      $data = array("success"=>"false",
 			                      "error"=>mysqli_error($link));
@@ -1694,7 +1698,7 @@
 			    }
 			    return $data;
 		}
-		public function addFeedName($fname, $ftype)
+		public function addFeedName($fname, $ftype,$user)
 		{
 				$link = $this->connect();
 				$q = "SELECT max(feed_id)
@@ -1707,6 +1711,7 @@
 				if ($result = mysqli_query( $link, $query )) {
 		      	$data = array("success"=>"true",
 		                    "newId"=> $link->insert_id);
+		      		$this->userTransactionEdit($user,$max,"feed name",0,$fname,1,0);
 			    }else {
 			      $data = array("success"=>"false",
 			                      "error"=>mysqli_error($link));
@@ -1921,7 +1926,7 @@
 						);
 				}
 		}
-		public function updateFeed($feedid, $feedName, $feedType)
+		public function updateFeedName($feedid, $feedName, $feedType)
 		{
 				$link = $this->connect();
 				$query = "UPDATE feeds

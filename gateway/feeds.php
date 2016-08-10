@@ -53,7 +53,8 @@
 	if(isset($_POST['addFeedName'])){
 		$fname = $_POST['fname'];
 		$ftype = $_POST['ftype'];
-		echo json_encode($db->addFeedName($fname,$ftype)); 
+		$user = $_POST['user'];
+		echo json_encode($db->addFeedName($fname,$ftype,$user)); 
 		//localhost/phpork/gateway/feeds.php?addFeedName=1&fname=feed&ftype=feedtype
 	} 
 	if(isset($_POST['getFeedsDetails'])){

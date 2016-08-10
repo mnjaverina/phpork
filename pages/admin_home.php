@@ -16,7 +16,7 @@
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <title>Pork Traceability System</title> 
-   <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.css">
     <link rel="stylesheet" href="<?php echo HOST;?>/phpork/css/bootstrap-theme.min.css">
@@ -190,6 +190,8 @@
                 </div>
                 <br/>
                 <div class="input-group" id="editPWORD">
+                  <span class="input-group-addon" id="basic-addon3">Previous Password: </span>
+                  <input type="password" class="form-control" id="passwordEditPrev" data-trigger= "hover" data-toggle="tooltip" title="Edit or change password." aria-describedby="basic-addon3" required>
                   <span class="input-group-addon" id="basic-addon3">Password: </span>
                   <input type="password" class="form-control" id="passwordEdit" data-trigger= "hover" data-toggle="tooltip" title="Edit or change password." aria-describedby="basic-addon3" required>
                 </div>
@@ -304,12 +306,12 @@
               <br/>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">House Number: </span>
-                <input type="text" class="form-control" id="hnum" data-trigger= "hover" data-toggle="tooltip" title="Input the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
+                <input type="text" class="form-control" id="hnum" data-trigger= "hover" data-toggle="tooltip" title="Input the house number of the new house. Ex: 4A" aria-describedby="basic-addon3" required>
               </div>
               <br/>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">House Name: </span>
-                <input type="text" class="form-control" id="hname" data-trigger= "hover" data-toggle="tooltip" title="Input the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
+                <input type="text" class="form-control" id="hname" data-trigger= "hover" data-toggle="tooltip" title="Input the house name of the new house. Ex: House 3" aria-describedby="basic-addon3" required>
               </div>
               <br/>
               <div class="input-group">
@@ -356,29 +358,31 @@
                 </select>
               </div> -->
               <br/>
-              <div class="input-group" id="EDITHOUSENUM">
-                <span class="input-group-addon" id="basic-addon3">House Number: </span>
-                <input type="text" class="form-control" id="edithnum" data-trigger= "hover" data-toggle="tooltip" title="Edit the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
-              </div>
-              <br/>
-              <div class="input-group" id="editHOUSENAME">
-                <span class="input-group-addon" id="basic-addon3">House Name: </span>
-                <input type="text" class="form-control" id="edithname" data-trigger= "hover" data-toggle="tooltip" title="Edit the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
-              </div>
-              <br/>
-              <div class="input-group" id="editHOUSEFXN">
-                <span class="input-group-addon" id="basic-addon3">Function: </span>
-                <select  class="form-control" id="editfunc" name="selStat" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit the function of the new house. Ex: Weaning" required> 
-                  <option value="" disabled selected>Select function</option>
-                  <option value="Weaning">Weaning</option> 
-                  <option value="Growing">Growing</option> 
-                  <option value="Slaughter">Slaughter</option> 
-                </select> 
-              </div>
+              
+                <div class="input-group" id="EDITHOUSENUM">
+                  <span class="input-group-addon required" id="basic-addon3">House Number: </span>
+                  <input type="text" class="form-control" id="edithnum" data-trigger= "hover" data-toggle="tooltip" title="Edit the house number of the new house. Ex: 4A" aria-describedby="basic-addon3">
+                </div>
+                <br/>
+                <div class="input-group" id="editHOUSENAME">
+                  <span class="input-group-addon" id="basic-addon3">House Name: </span>
+                  <input type="text" class="form-control required" id="edithname" data-trigger= "hover" data-toggle="tooltip" title="Edit the house name of the new house. Ex: House 3" aria-describedby="basic-addon3">
+                </div>
+                <br/>
+                <div class="input-group" id="editHOUSEFXN">
+                  <span class="input-group-addon" id="basic-addon3">Function: </span>
+                  <select  class="form-control required" id="editfunc" name="selStat" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Edit the function of the new house. Ex: Weaning" required> 
+                    <option value="" disabled selected>Select function</option>
+                    <option value="Weaning">Weaning</option> 
+                    <option value="Growing">Growing</option> 
+                    <option value="Slaughter">Slaughter</option> 
+                  </select> 
+                </div>
 
-              <div class="modal-footer" >
-                <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to edit house's details." id="saveEditHouse">Edit</button>
-              </div>
+                <div class="modal-footer" >
+                  <button type="button" class="btn btn-default" data-dismiss="modal" data-trigger= "hover" data-toggle="tooltip" title="Click to edit house's details." id="saveEditHouse">Edit</button>
+                </div>
+              
             </div>
           </div>
         </div>
@@ -408,26 +412,26 @@
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Location: </span>
-                <select class="form-control" id="farm" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
+                <select class="form-control" id="f_addpen" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
                   <option value="" disabled selected>Select farm location...</option> 
                 </select>
               </div>
               <br/>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">House Number: </span>
-                <select class='form-control'  id='house' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
-                  <option value='' disabled selected>Select house...</option> 
+                <select class="form-control"  id="h_addpen" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
+                  <option value="" disabled selected>Select house...</option> 
                 </select> 
               </div>
               <br/>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
-                <input type="text" class="form-control" id="pennum" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
+                <input type="text" class="form-control" id="pno_addpen" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
               </div>
               <br/>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Function: </span>
-                <select  class="form-control" id="func2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
+                <select  class="form-control" id="fxn_addpen" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
                   <option value="" disabled selected>Select function</option>
                   <option value="Weaning">Weaning</option> 
                   <option value="Growing">Growing</option> 
@@ -447,15 +451,15 @@
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Location: </span>
-                <select class="form-control" id="farm1" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
+                <select class="form-control" id="f_editpen" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
                   <option value="" disabled selected>Select farm location...</option> 
                 </select>
               </div>
               <br/>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">House Number: </span>
-                <select class='form-control'  id='house1' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
-                  <option value='' disabled selected>Select house...</option> 
+                <select class="form-control"  id="h_editpen" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
+                  <option value="" disabled selected>Select house...</option> 
                 </select> 
               </div>
               <br/>
@@ -471,27 +475,25 @@
             <div id="editPenDetails" style="display: none;">
                <hr/>
               <div class="input-group" id="editPENLOC">
-                <span class="input-group-addon" id="basic-addon3">Location: </span>
-                <select class="form-control" id="editfarm2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
+                <!-- <span class="input-group-addon" id="basic-addon3">Location: </span>
+                <select class="form-control" id="loc_editpen" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the location/farm of the new pen. Ex: Farm 1" required> 
                   <option value="" disabled selected>Select farm location...</option> 
-                </select>
+                </select> -->
               </div>
-              <br/>
               <div class="input-group" id="editPENHOUSE">
-                <span class="input-group-addon" id="basic-addon3">House Number: </span>
-                <select class='form-control'  id='edithouse2' style='color:black;' data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
-                  <option value='' disabled selected>Select house...</option> 
-                </select> 
+                <!-- <span class="input-group-addon" id="basic-addon3">House Number: </span>
+                <select class="form-control"  id="hno_editpen" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the house number where the pen will be added. Ex: House 2" required> 
+                  <option value="" disabled selected>Select house...</option> 
+                </select>  -->
               </div>
-              <br/>
               <div class="input-group" id="editPENNUM">
                 <span class="input-group-addon" id="basic-addon3">Pen Number: </span>
-                <input type="text" class="form-control" id="editpennum" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
+                <input type="text" class="form-control" id="pno_editpen" data-trigger= "hover" data-toggle="tooltip" title="Input the pen number of the new pen. Ex: 29" aria-describedby="basic-addon3">
               </div>
               <br/>
               <div class="input-group" id="editPENFXN">
                 <span class="input-group-addon" id="basic-addon3">Function: </span>
-                <select  class="form-control" id="editfunc2" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
+                <select  class="form-control" id="fxn_editpen" style="color:black;" data-trigger= "hover" data-toggle="tooltip" title="Select the function of the new pen. Ex: Weaning" required> 
                   <option value="" disabled selected>Select function</option>
                   <option value="Weaning">Weaning</option> 
                   <option value="Growing">Growing</option> 
@@ -810,8 +812,8 @@
        $(document).ready(function () {
 
          $('#close').on("click",function(){
-            window.location = "/phpork/admin/home"; 
-           });
+          window.location = "/phpork/admin/home"; 
+         });
 
         $('#addUser').on("click",function() {
           e.preventDefault(); 
@@ -862,7 +864,7 @@
             var uName = $('#uname').val();
             var user_Type = $('#utype').val();
             var pword = $('#password').val();
-            
+            var user = $('#userId').val();
             
           if((uName != '') && (password != '') ){
               var uType;
@@ -871,20 +873,21 @@
               }else{
                 uType = 2;
               }
-                 $.ajax({
-                    url: '/phpork/gateway/auth.php',
-                    type: 'post',
-                    data : {
-                      signup: '1',
-                      username: uName,
-                      password: pword,
-                      usertype: uType
-                    },
-                    success: function (data) {
-                        alert("User added");
-                        window.location = "/phpork/admin/home"; 
-                    }    
-                  });
+             $.ajax({
+                url: '/phpork/gateway/auth.php',
+                type: 'post',
+                data : {
+                  signup: '1',
+                  username: uName,
+                  password: pword,
+                  usertype: uType,
+                  user: user
+                },
+                success: function (data) {
+                    alert("User added");
+                    location.reload();
+                }    
+              });
           }else{
             if(uName == ''){
               alert("Please input username.");
@@ -893,45 +896,49 @@
             }
           }
 
-          });
+        });
 
         $('#saveEditUser').on("click",function(){
             var user = $('#userId').val();
+             var edit_uid = $('#edit_uid').val();
             var prev_uname = $('#prev_uname').val();
             var user_name = $('#unameEdit').val();
             var prev_utype = $('#prev_utype').val();
             var user_Type = $('#uTypeEdit').val();
             var prev_pword = $('#prev_pword').val();
+
             var password = $('#passwordEdit').val();
-            
-              if((user_name != '') || (password != '')){
-                
-                var uType;
-              if(user_Type === "admin"){
+            var pw_prev_input = $('#passwordEditPrev').val();
+            if((user_name != '') || (password != '') || (user_Type != '')){
+              
+              var uType;
+              if(user_Type == "admin"){
                 uType = 1;
-              }else{
+              }else if(user_Type=="encoder"){
                 uType = 2;
               }
-             
-                 $.ajax({
-                    url: '/phpork/gateway/admin.php',
-                    type: 'post',
-                    data : {
-                      editUser: '1',
-                      user: user,
-                      prev_uname: prev_uname,
-                      username: user_name,
-                      prev_pword: prev_pword,
-                      password: password,
-                      prev_utype: prev_utype,
-                      usertype: uType
-                    },
-                    success: function (data) {
-                        alert("User edited");
-                       // window.location = "/phpork/admin/home"; 
-                    }    
-                  });
-                }
+             $.ajax({
+                url: '/phpork/gateway/admin.php',
+                type: 'post',
+                data : {
+                  editUser: '1',
+                  user: user,
+                  prev_uname: prev_uname,
+                  username: user_name,
+                  prev_pword: prev_pword,
+                  password: password,
+                  prev_utype: prev_utype,
+                  usertype: uType,
+                  user_id: edit_uid,
+                  pw_prev_input: pw_prev_input
+                },
+                success: function (data) {
+                    // alert(pw_prev_input+prev_pword+"lala"+password);
+                   // window.location = "/phpork/admin/home"; 
+                   location.reload();
+                }    
+              });
+            }
          
 
           });
@@ -983,36 +990,37 @@
         });
 
          
-         $('#saveFarm').on("click",function(){
-          var locName = $("#farmname").val(); 
-          var locAdd = $("#fadd").val(); 
-
-          console.log("Loc Name: "+locName);
-          if((locAdd != '') && (locName != '') ){
-            $.ajax({
-              url: '/phpork/gateway/location.php',
-              type: 'post',
-              data : {
-                addLocationName: '1',
-                lname: locName,
-                addr: locAdd
-              },
-              success: function (data) { 
-                var data = jQuery.parseJSON(data); 
-                  alert("Farm added");
-                  window.location = "/phpork/admin/home";
-                }
-            });
-          }else{
-            if(locAdd == ''){
-              alert("Please input the address.");
-            }else if(locName == ''){
-              alert("Please input location's name.");              
-            }
+      $('#saveFarm').on("click",function(){
+        var locName = $("#farmname").val(); 
+        var locAdd = $("#fadd").val(); 
+        var user = $('#userId').val();
+       
+        if((locAdd != '') && (locName != '') ){
+          $.ajax({
+            url: '/phpork/gateway/admin.php',
+            type: 'post',
+            data : {
+              addLocationName: '1',
+              lname: locName,
+              addr: locAdd,
+              user: user
+            },
+            success: function (data) { 
+              var data = jQuery.parseJSON(data); 
+                alert("Farm added");
+                 location.reload();
+              }
+          });
+        }else{
+          if(locAdd == ''){
+            alert("Please input the address.");
+          }else if(locName == ''){
+            alert("Please input location's name.");              
           }
+        }
             
          
-       });
+      });
 
          $('#saveEditFarm').on("click",function(){
             var user = $('#userId').val();
@@ -1038,7 +1046,7 @@
                     },
                     success: function (data) {
                         alert("Farm edited");
-                       // window.location = "/phpork/admin/home"; 
+                        location.reload();
                     }    
                   });
                 }
@@ -1103,29 +1111,31 @@
           var hNum = $('#hnum').val();
           var hName = $('#hname').val();  
           var func = $('#func').val();
-          if((hNum != '') && (hName != '') && (func != '') ){
+          var user = $('#userId').val();
+          if((hNum) && (hName) && (func) ){
             $.ajax({
-              url: '/phpork/gateway/house.php',
+              url: '/phpork/gateway/admin.php',
               type: 'post',
               data : {
                 addHouseName: '1',
                 hno: hNum,
                 hname: hName,
                 fxn: func,
-                loc: location
+                loc: location,
+                user: user
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("House added"); 
-                   window.location = "/phpork/admin/home"; 
+                   location.reload();
                 }
             });
           }else{
-            if(hNum == ''){
+            if(!hNum ){
               alert("Please input house number.");
-            }else if(hName == ''){
+            }else if(!hName){
               alert("Please input house name.");              
-            }else if(func == ''){
+            }else if(!func){
               alert("Please input house's function.");              
             }
           }
@@ -1134,7 +1144,7 @@
 
         $('#saveEditHouse').on("click",function(){
             var user = $('#userId').val();
-            //var prev_loc = $('#prev_loc').val();
+            var prev_loc = $('#prev_loc').val();
             var editLoc = $('#loc1').val();
             var prev_h_no = $('#prev_h_no').val();
             var edithnum = $('#edithnum').val();
@@ -1142,42 +1152,90 @@
             var edithname = $('#edithname').val();
             var prev_fxn = $('#prev_fxn').val();
             var editfunc = $('#editfunc').val();
-            var h_id = $('#h_id').val();
+            var h_id = $('#prev_h_id').val();
            
-            
-              if((edithnum != '') || (edithname != '') ||(editfunc != '') ){
+           
+              if(edithnum === "" && edithname === ""){
+                alert(editLoc);
+                location.reload(); 
+              }else{
                  $.ajax({
-                    url: '/phpork/gateway/admin.php',
-                    type: 'post',
-                    data : {
-                      editHouseName: '1',
-                      user: user,
-                      prev_hno: '33',
-                      hno: edithnum, 
-                      prev_hname: 'house',
-                      hname: edithname,
-                      prev_fxn: 'weaning',
-                      fxn: editfunc,
-                      prev_loc: '1',
-                      loc: editLoc,
-                      house_id: h_id
-                    },
-                    success: function (data) {
-                        alert("House edited");
-                        //window.location = "/phpork/admin/home"; 
-                    }    
-                  });
-                }
-         
+                  url: '/phpork/gateway/admin.php',
+                  type: 'post',
+                  data : {
+                    editHouseName: '1',
+                    user: user,
+                    prev_hno: prev_h_no,
+                    hno: edithnum, 
+                    prev_hname: prev_h_name,
+                    hname: edithname,
+                    prev_fxn: prev_fxn,
+                    fxn: editfunc,
+                    house_id: h_id,
+                    loc: editLoc
+                  },
+                  success: function (data) {
+                      alert("House edited");
+                      //window.location = "/phpork/admin/home"; 
+                      location.reload(); 
+                  }    
+                });
+              }
+              
 
           });
         /*End of Add House*/
 
 
         /*Add Pen */
-        $('#farm').on("change", function(e) {
+        $('#f_addpen').on("change", function(e) {
             e.preventDefault(); 
-              var location = $('#farm1').val();
+            var location = $('#f_addpen').val();
+
+            $.ajax({
+              url: '/phpork/gateway/house.php',
+              type: 'post',
+              data : {
+                getHouseByLoc: '1',
+                loc: location
+              },
+              success: function (data) { 
+                 var data = jQuery.parseJSON(data); 
+                    for(i=0;i<data.length;i++){
+                      $("#h_addpen").append($("<option></option>").attr("value",data[i].h_id)
+                        .attr("name","house")
+                        .text("House " +data[i].h_no)); 
+                    }
+
+                  } 
+            });
+        });
+        $('#h_addpen').on("change", function(e) {
+            e.preventDefault(); 
+            var house = $('#h_addpen').val();
+
+            $.ajax({
+              url: '/phpork/gateway/pen.php',
+              type: 'post',
+              data : {
+                getPenByHouse: '1',
+                house: house
+              },
+              success: function (data) { 
+                 var data = jQuery.parseJSON(data); 
+                    for(i=0;i<data.length;i++){
+                      $("#pno_addpen").append($("<option></option>").attr("value",data[i].pen_id)
+                        .attr("name","pen")
+                        .text("Pen " +data[i].pen_no)); 
+                    }
+
+                  } 
+            });
+           });
+
+        $('#f_editpen').on("change", function(e) {
+            e.preventDefault(); 
+              var location = $('#f_editpen').val();
 
               $.ajax({
                 url: '/phpork/gateway/house.php',
@@ -1189,52 +1247,7 @@
                 success: function (data) { 
                    var data = jQuery.parseJSON(data); 
                       for(i=0;i<data.length;i++){
-                        $("#house").append($("<option></option>").attr("value",data[i].h_id)
-                          .attr("name","house")
-                          .text("House " +data[i].h_no)); 
-                      }
-
-                    } 
-              });
-           });
-        $('#house').on("change", function(e) {
-            e.preventDefault(); 
-              var house = $('#house1').val();
-
-              $.ajax({
-                url: '/phpork/gateway/pen.php',
-                type: 'post',
-                data : {
-                  getPenByHouse: '1',
-                  house: house
-                },
-                success: function (data) { 
-                   var data = jQuery.parseJSON(data); 
-                      for(i=0;i<data.length;i++){
-                        $("#pennum").append($("<option></option>").attr("value",data[i].pen_id)
-                          .attr("name","pen")
-                          .text("Pen " +data[i].pen_no)); 
-                      }
-
-                    } 
-              });
-           });
-
-        $('#farm1').on("change", function(e) {
-            e.preventDefault(); 
-              var location = $('#farm1').val();
-
-              $.ajax({
-                url: '/phpork/gateway/house.php',
-                type: 'post',
-                data : {
-                  getHouseByLoc: '1',
-                  loc: location
-                },
-                success: function (data) { 
-                   var data = jQuery.parseJSON(data); 
-                      for(i=0;i<data.length;i++){
-                        $("#house1").append($("<option></option>").attr("value",data[i].h_id)
+                        $("#h_editpen").append($("<option></option>").attr("value",data[i].h_id)
                           .attr("name","house")
                           .text("House " +data[i].h_no)); 
                       }
@@ -1243,9 +1256,9 @@
               });
            });
 
-        $('#house1').on("change", function(e) {
+        $('#h_editpen').on("change", function(e) {
             e.preventDefault(); 
-              var house = $('#house1').val();
+              var house = $('#h_editpen').val();
 
               $.ajax({
                 url: '/phpork/gateway/pen.php',
@@ -1267,28 +1280,28 @@
               });
            });
 
-        $('#editfarm2').on("change", function(e) {
-            e.preventDefault(); 
-              var location = $('#editfarm2').val();
+        // $('#loc_editpen').on("change", function(e) {
+        //     e.preventDefault(); 
+        //       var location = $('#loc_editpen').val();
 
-              $.ajax({
-                url: '/phpork/gateway/house.php',
-                type: 'post',
-                data : {
-                  getHouseByLoc: '1',
-                  loc: location
-                },
-                success: function (data) { 
-                   var data = jQuery.parseJSON(data); 
-                      for(i=0;i<data.length;i++){
-                        $("#edithouse2").append($("<option></option>").attr("value",data[i].h_id)
-                          .attr("name","house")
-                          .text("House " +data[i].h_no)); 
-                      }
+        //       $.ajax({
+        //         url: '/phpork/gateway/house.php',
+        //         type: 'post',
+        //         data : {
+        //           getHouseByLoc: '1',
+        //           loc: location
+        //         },
+        //         success: function (data) { 
+        //            var data = jQuery.parseJSON(data); 
+        //               for(i=0;i<data.length;i++){
+        //                 $("#hno_editpen").append($("<option></option>").attr("value",data[i].h_id)
+        //                   .attr("name","house")
+        //                   .text("House " +data[i].h_no)); 
+        //               }
 
-                    } 
-              });
-           });
+        //             } 
+        //       });
+        //    });
 
          $('#addPen').on("click",function() {
            e.preventDefault(); 
@@ -1339,12 +1352,12 @@
           
         });
 
-         $('#savePen').on("click",function(){
-          var houseno = $("#house").val();
-          var location = $('#farm').val();
-          var penNum = $("#pennum").val(); 
-          var func = $("#func2").val(); 
-
+        $('#savePen').on("click",function(){
+          var houseno = $("#h_addpen").val();
+          var loc = $('#f_addpen').val();
+          var penNum = $("#pno_addpen").val(); 
+          var func = $("#fxn_addpen").val(); 
+          var user = $('#userId').val();
           if((penNum != '') && (func != '') ){
             $.ajax({
               url: '/phpork/gateway/pen.php',
@@ -1353,12 +1366,13 @@
                 addPenName: '1',
                 penno: penNum,
                 fxn:  func,
-                h_id: houseno
+                h_id: houseno,
+                user:user
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("Pen added");
-                   window.location = "/phpork/admin/home";
+                   location.reload();
                 } 
             });
           }else{
@@ -1373,37 +1387,32 @@
 
          $('#saveEditPen').on("click",function(){
             var user = $('#userId').val();
-            var prev_pen_loc = $('#prev_pen_loc').val();
-            var editfarm = $('#editfarm2').val();
-            var prev_pen_house = $('#prev_pen_house').val();
-            var edithouse2 = $('#edithouse2').val();
+            // var editfarm = $('#loc_editpen').val();
+            // var edithouse2 = $('#hno_editpen').val();
             var prev_pen_no = $('#prev_pen_no').val();
-            var editpennum = $('#editpennum').val();
+            var editpenno = $('#pno_editpen').val();
             var prev_pen_fxn = $('#prev_pen_fxn').val();
-            var editfunc2 = $('#editfunc2').val();
+            var editfunc2 = $('#fxn_editpen').val();
             var prev_pen_id = $('#prev_pen_id').val();
            
             
-             if((editpennum != '') || (editfunc2 != '') ){
+             if((editpenno != '') || (editfunc2 != '') ){
                  $.ajax({
                     url: '/phpork/gateway/admin.php',
                     type: 'post',
                     data : {
-                      editHouseName: '1',
+                      editPenName: '1',
                       user: user,
                       prev_penno: prev_pen_no,
-                      penno: editpennum,
+                      penno: editpenno,
                       prev_fxn: prev_pen_fxn,
                       fxn: editfunc2,
-                      prev_h_id: prev_pen_house,
-                      h_id: edithouse2,
-                      prev_loc_id: prev_pen_loc,
-                      loc_id: prev_pen_loc,
                       pen_id: prev_pen_id
                     },
                     success: function (data) {
                         alert("Pen edited");
-                        window.location = "/phpork/admin/home"; 
+                        // window.location = "/phpork/admin/home"; 
+                        location.reload();
                     }    
                   });
                 }
@@ -1464,7 +1473,7 @@
          $('#saveParent').on("click",function(){
           var label = $("#parentLabel").val();
           var label_id = $('#label_id').val();
-         
+          var user = $('#userId').val();
           if((label != '') && (label_id != '') ){
             $.ajax({
               url: '/phpork/gateway/pig.php',
@@ -1472,12 +1481,13 @@
               data : {
                 addParent: '1',
                 label: label,
-                label_id:  label_id
+                label_id:  label_id,
+                user: user
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("Parent added");
-                  window.location = "/phpork/admin/home";
+                  location.reload();
                 } 
             });
           }else{
@@ -1486,6 +1496,7 @@
             }else if(label_id == ''){
               alert("Please input label id.");              
             }
+            location.reload();
           }
            
         });
@@ -1493,31 +1504,34 @@
           $('#saveEditParent').on("click",function(){
             var user = $('#userId').val();
             var prev_label_id = $('#prev_label_id').val();
-            var editlabel_id = $('#editlabel_id').val();
-            var prev_parent_label = $('#prev_parent_label').val();
-            var editparentLabel = $('#editparentLabel').val();
-            var prev_parent_id = $('#prev_parent_id').val();
+            var newlabel_id = $('#editlabel_id').val();
+            var prev_prnt_label = $('#prev_parent_label').val();
+            var newparentLabel = $('#editparentLabel').val();
+            var prev_prnt_id = $('#prev_parent_id').val();
            
             
-             if((editlabel_id != '') || (editparentLabel != '') ){
+             if(newlabel_id != '' || newparentLabel != '' ){
                  $.ajax({
                     url: '/phpork/gateway/admin.php',
                     type: 'post',
                     data : {
                       editParent: '1',
                       user: user,
-                      prev_parent: prev_parent_label,
-                      parent: editparentLabel,
+                      prev_parent: prev_prnt_label,
+                      parent: newparentLabel,
                       prev_id: prev_label_id,
-                      id: editlabel_id,
-                      parent_id: prev_parent_id
+                      id: newlabel_id,
+                      parent_id: prev_prnt_id
                     },
                     success: function (data) {
-                        alert("Parent edited");
-                        window.location = "/phpork/admin/home"; 
+                        alert(newlabel_id);
+                        location.reload();
                     }    
                   });
-                }
+              }else{
+                alert("Please input parent label/label id.");
+                location.reload();
+              }
          
 
           });
@@ -1569,7 +1583,7 @@
 
          $('#saveBreed').on("click",function(){
           var breed_name = $("#breed_name").val();
-          
+          var user = $('#userId').val();
          
           if((breed_name != '') ){
             $.ajax({
@@ -1577,12 +1591,13 @@
               type: 'post',
               data : {
                 addBreed: '1',
-                breed_name: breed_name
+                breed_name: breed_name,
+                user: user
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("Breed added");
-                  window.location = "/phpork/admin/home";
+                  location.reload();
                 } 
             });
           }else{
@@ -1611,10 +1626,13 @@
                     },
                     success: function (data) {
                         alert("Breed edited");
-                        window.location = "/phpork/admin/home"; 
+                        location.reload();
                     }    
                   });
-                }
+              }else{
+                alert("Please input breed name.");
+                location.reload();
+              }
          
 
           });
@@ -1673,8 +1691,8 @@
 
          $('#saveFeed').on("click",function(){
           var feed_name = $("#feed_name").val();
-           var feed_type = $("#feed_type").val();
-          
+          var feed_type = $("#feed_type").val();
+          var user = $('#userId').val();
          
           if((feed_name != '') && (feed_type != '') ){
             $.ajax({
@@ -1683,12 +1701,13 @@
               data : {
                addFeedName: '1',
                 fname: feed_name,
-                ftype: feed_type
+                ftype: feed_type,
+                user: user
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("Feeds added");
-                  window.location = "/phpork/admin/home";
+                  location.reload();
                 } 
             });
           }else{
@@ -1720,15 +1739,18 @@
                       prev_fname: prev_feed_name,
                       fname: edit_feed_name,
                       prev_ftype: prev_feed_type,
-                      ftype: prev_feed_type,
+                      ftype: edit_feed_type,
                       feed_id: prev_feed_id
                     },
                     success: function (data) {
-                        alert("Feed edited");
-                        window.location = "/phpork/admin/home"; 
+                        alert("Feed details edited!");
+                        location.reload();
                     }    
                   });
-                }
+              }else{
+                alert("Please input either feed name/feed type.");
+                location.reload();
+              }
          
 
           });
@@ -1746,7 +1768,6 @@
         });
 
           $('#addMedsBtn').on("click",function() {
-          console.log("add");
             $('#addMedsDetails').attr("style", "display: inline-block");
              $('#editMeds').attr("style", "display: none");
              $('#editMedsSearch').attr("style", "display: none");
@@ -1788,7 +1809,8 @@
 
          $('#saveMeds').on("click",function(){
           var med_name = $("#med_name").val();
-           var med_type = $("#med_type").val();
+          var med_type = $("#med_type").val();
+          var user = $('#userId').val();
           
          
           if((med_name != '') && (med_type != '') ){
@@ -1798,18 +1820,19 @@
               data : {
                addMedName: '1',
                 mname: med_name,
-                mtype: med_type
+                mtype: med_type,
+                user: user
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data); 
                   alert("Medication added");
-                  window.location = "/phpork/admin/home";
+                  location.reload();
                 } 
             });
           }else{
-            if(med_name == ''){
+            if(med_name === ''){
               alert("Please input medication name.");
-            }else if(med_type == ''){
+            }else if(med_type === ''){
               alert("Please input medication type.");              
             }
           }
@@ -1841,10 +1864,14 @@
                     },
                     success: function (data) {
                         alert("Medication edited");
-                        //window.location = "/phpork/admin/home"; 
+                        //window.location = "/phpork/admin/home";
+                        location.reload();
                     }    
                   });
-                }
+              }else{
+                alert("Please input either medication name/medication type.");
+                location.reload();
+              }
          
 
           });
@@ -1881,15 +1908,15 @@
              var data = jQuery.parseJSON(data);
 
                 for(i=0;i<data.length;i++){
-                  $("#farm").append($("<option></option>").attr("value",data[i].loc_id)
+                  $("#f_addpen").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
                     .text(data[i].loc_name)); 
-                   $("#farm1").append($("<option></option>").attr("value",data[i].loc_id)
+                   $("#f_editpen").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
                     .text(data[i].loc_name)); 
-                   $("#editfarm2").append($("<option></option>").attr("value",data[i].loc_id)
-                    .attr("name","location")
-                    .text(data[i].loc_name)); 
+                   // $("#loc_editpen").append($("<option></option>").attr("value",data[i].loc_id)
+                   //  .attr("name","location")
+                   //  .text(data[i].loc_name)); 
                    
                    $("#farmOptions").append($("<option></option>").attr("value",data[i].loc_id)
                     .attr("name","location")
@@ -2035,10 +2062,10 @@
         /* Add pen's tooltip*/
         $('.penDiv').tooltip({trigger: "hover"});
         $('#savePen').tooltip({trigger: "hover"});
-        $('#farm').tooltip({trigger: "hover"});
-        $('#house').tooltip({trigger: "hover"});
-        $('#pennum').tooltip({trigger: "hover"});
-        $('#func2').tooltip({trigger: "hover"});
+        $('#f_addpen').tooltip({trigger: "hover"});
+        $('#h_addpen').tooltip({trigger: "hover"});
+        $('#pno_addpen').tooltip({trigger: "hover"});
+        $('#fxn_addpen').tooltip({trigger: "hover"});
 
         /* Add parent's tooltip*/
         $('.parentDiv').tooltip({trigger: "hover"});
@@ -2078,14 +2105,13 @@
                 var data = jQuery.parseJSON(data);
                   $('#unameEdit').attr("placeholder", data[0].user_name);
                   $('#uTypeEdit').attr("placeholder", data[0].user_type);
-                  $('#passwordEdit').attr("placeholder", data[0].password);
-
+                  // $('#passwordEdit').attr("placeholder", data[0].password);
+                  $('#editUNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "edit_uid")
+                                                              .attr("value", data[0].user_id));
                   $('#editUNAME').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_uname")
                                                               .attr("value", data[0].user_name));
-                  $('#editUNAME').append($("<input></input>").attr("type", "hidden")
-                                                              .attr("id", "user_id")
-                                                              .attr("value", data[0].user_id));
 
                    $('#editUTYPE').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_utype")
@@ -2136,48 +2162,48 @@
   }
 
       function viewDetailsHouse(id){
-        console.log("HOUSE");
-     $.ajax({
-              url: '/phpork/gateway/house.php',
-              type: 'post',
-              data : {
-               getHouseDetails: '1',
-               house: id
-              },
-              success: function (data) { 
-                var data = jQuery.parseJSON(data);
-                  // $('#editloc2').attr("placeholder", data[0].loc_id);
-                   $('#edithnum').attr("placeholder", data[0].h_no);
-                    $('#editfunc').attr("placeholder", data[0].fxn);
-                   $('#edithname').attr("placeholder", data[0].h_name);
+        
+         $.ajax({
+                  url: '/phpork/gateway/house.php',
+                  type: 'post',
+                  data : {
+                   getHouseDetails: '1',
+                   house: id
+                  },
+                  success: function (data) { 
+                    var data = jQuery.parseJSON(data);
+                      // $('#editloc2').attr("placeholder", data[0].loc_id);
+                       $('#edithnum').attr("placeholder", data[0].h_no);
+                        $('#editfunc').attr("placeholder", data[0].fxn);
+                       $('#edithname').attr("placeholder", data[0].h_name);
 
-                  
+                      
 
 
-                //  $('#editHOUSELOC').append($("<input></input>").attr("type", "hidden")
-                //                                              .attr("id", "prev_loc")
-                 //                                             .attr("value", data[0].loc_id));
-                  $('#editHOUSENUM').append($("<input></input>").attr("type", "hidden")
-                                                              .attr("id", "prev_h_no")
-                                                              .attr("value", data[0].h_no));
-                  $('#editHOUSENUM').append($("<input></input>").attr("type", "hidden")
-                                                              .attr("id", "prev_h_id")
-                                                              .attr("value", data[0].h_id));
-                  $('#editHOUSENAME').append($("<input></input>").attr("type", "hidden")
-                                                              .attr("id", "prev_hname")
-                                                              .attr("value", data[0].h_name));
-                   $('#editHOUSEFXN').append($("<input></input>").attr("type", "hidden")
-                                                              .attr("id", "prev_fxn")
-                                                              .attr("value", data[0].fxn));
-                  $('#editHouseDetails').attr("style", "display: inline-block");
-                   
-                }  
-            });
+                     $('#editHOUSELOC').append($("<input></input>").attr("type", "hidden")
+                                                                 .attr("id", "prev_loc")
+                                                                 .attr("value", data[0].loc_id));
+                      $('#EDITHOUSENUM').append($("<input></input>").attr("type", "hidden")
+                                                                  .attr("id", "prev_h_no")
+                                                                  .attr("value", data[0].h_no));
+                      $('#EDITHOUSENUM').append($("<input></input>").attr("type", "hidden")
+                                                                  .attr("id", "prev_h_id")
+                                                                  .attr("value", data[0].h_id));
+                      $('#editHOUSENAME').append($("<input></input>").attr("type", "hidden")
+                                                                  .attr("id", "prev_h_name")
+                                                                  .attr("value", data[0].h_name));
+                       $('#editHOUSEFXN').append($("<input></input>").attr("type", "hidden")
+                                                                  .attr("id", "prev_fxn")
+                                                                  .attr("value", data[0].fxn));
+                      $('#editHouseDetails').attr("style", "display: inline-block");
+                       
+                    }  
+                });
       }
 
        function viewDetailsPen(id){
         console.log("PEN");
-     $.ajax({
+        $.ajax({
               url: '/phpork/gateway/pen.php',
               type: 'post',
               data : {
@@ -2186,10 +2212,10 @@
               },
               success: function (data) { 
                 var data = jQuery.parseJSON(data);
-                  $('#editfarm2').attr("placeholder", data[0].loc_id);
-                   $('#edithouse2').attr("placeholder", data[0].h_id);
-                  $('#editpennum').attr("placeholder", data[0].pen_no);
-                  $('#editfunc2').attr("placeholder", data[0].fxn);
+                  // $('#loc_editpen').attr("placeholder", data[0].loc_id);
+                   // $('#hno_editpen').attr("placeholder", data[0].h_id);
+                  $('#pno_editpen').attr("placeholder", data[0].pen_no);
+                  $('#fxn_editpen').attr("placeholder", data[0].fxn);
 
 
                   $('#editPENLOC').append($("<input></input>").attr("type", "hidden")
@@ -2213,7 +2239,7 @@
       }
 
       function viewDetailsParent(id){
-     $.ajax({
+          $.ajax({
               url: '/phpork/gateway/pig.php',
               type: 'post',
               data : {
@@ -2284,10 +2310,13 @@
 
                   $('#editFEEDNAME').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_feed_name")
-                                                              .attr("value", data.fname));
+                                                              .attr("value", data[0].fname));
+                  $('#editFEEDNAME').append($("<input></input>").attr("type", "hidden")
+                                                              .attr("id", "prev_feed_id")
+                                                              .attr("value", data[0].fid));
                   $('#editFEEDNAME').append($("<input></input>").attr("type", "hidden")
                                                               .attr("id", "prev_feed_type")
-                                                              .attr("value", data.ftype));
+                                                              .attr("value", data[0].ftype));
                   
                    $('#editFeedSearch').attr("style", "display: none");
                   $('#editFeedDetails').attr("style", "display: inline-block");

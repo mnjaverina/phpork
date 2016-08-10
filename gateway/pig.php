@@ -144,12 +144,14 @@
 	if(isset($_POST['addParent'])){
 		$lbl = $_POST['label'];
 		$lbl_id = $_POST['label_id'];
-		echo json_encode($db->addParent($lbl,$lbl_id)); 
+		$user = $_POST['user'];
+		echo json_encode($db->addParent($lbl,$lbl_id,$user)); 
 		//localhost/phpork2/gateway/pig.php?addParent=1&lbl=sow&lbl_id=2345
 	} 
 	if(isset($_POST['addBreed'])){
 		$br_name = $_POST['breed_name'];
-		echo json_encode($db->addBreed($br_name)); 
+		$user = $_POST['user'];
+		echo json_encode($db->addBreed($br_name,$user)); 
 		//localhost/phpork2/gateway/pig.php?addBreed=1&breed_name=Galore-White
 	} 
 	if(isset($_POST['ddl_sow'])){
