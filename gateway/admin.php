@@ -61,53 +61,56 @@
 		$prev_uname = $_POST['prev_uname'];
 		$new_uname = $_POST['username'];
 		$user_id = $_POST['user_id'];
-		
-		$password = base64_encode($_POST['password']);
+		$pw = $_POST['password'];
+		$password = base64_encode($pw);
 		$prev_pword =  $_POST['prev_pword'];
 		$user_type = $_POST['usertype'];
 		$prev_utype = $_POST['prev_utype'];
 		$user_id = $_POST['user_id'];
 		$prev_pw_input = $_POST['pw_prev_input'];
-		$dec_prev_input_pw = base64_decode($prev_pword);
+		$enc_prev_input_pw = base64_encode($prev_pw_input);
 		
 			
-			
-			if($prev_pword!=$password && $password != '' && $prev_pw_input === $dec_prev_input_pw){
-				echo json_encode($db->userTransactionEdit($user,$user_id, 'password', $prev_pword, $password, 2,0));
-				
-			}
-			if(!empty($new_uname) && !empty($user_type) && !empty($password) && $prev_pw_input === $dec_prev_input_pw){
-				echo json_encode($db->updateUser($new_uname,$password,$user_type, $user_id));
-			}else if(empty($new_uname) && empty($user_type) && !empty($password) && $prev_pw_input === $dec_prev_input_pw){
+			echo json_encode($db->userTransactionEdit($user,$user_id, 'password', $prev_pword, $password, 2,0));
 				echo json_encode($db->updateUser($prev_uname,$password,$prev_utype, $user_id));
-			}else if(!empty($new_uname) && empty($user_type) && empty($password)){
-				echo json_encode($db->updateUser($new_uname,$prev_pword,$prev_utype, $user_id));
-			}else if(empty($new_uname) && !empty($user_type) && empty($password)){
-				echo json_encode($db->updateUser($prev_uname,$prev_pword,$user_type, $user_id));
-			}else if(!empty($new_uname) && !empty($user_type) && empty($password)){
-				echo json_encode($db->updateUser($new_uname,$prev_pword,$user_type, $user_id));
-			}else if(!empty($new_uname) && empty($user_type) && !empty($password) && $prev_pw_input === $dec_prev_input_pw){
-				echo json_encode($db->updateUser($new_uname,$password,$prev_utype, $user_id));
-			}else if(empty($new_uname) && !empty($user_type) && !empty($password) && $prev_pw_input === $dec_prev_input_pw){
-				echo json_encode($db->updateUser($prev_uname,$password,$user_type, $user_id));
-			}
+			
+			// if(!empty($new_uname) && !empty($user_type) && !empty($password) && $prev_pword == $enc_prev_input_pw){
+			// 	echo json_encode($db->updateUser($new_uname,$password,$user_type, $user_id));
+			// }elseif(!empty($pw)){
+			// 	echo json_encode($db->userTransactionEdit($user,$user_id, 'password', $prev_pword, $password, 2,0));
+			// 	echo json_encode($db->updateUser($prev_uname,$password,$prev_utype, $user_id));
+			// }elseif(!empty($new_uname) && empty($user_type) && empty($password)){
+			// 	echo json_encode($db->updateUser($new_uname,$prev_pword,$prev_utype, $user_id));
+			// }elseif(empty($new_uname) && !empty($user_type) && empty($password)){
+			// 	echo json_encode($db->updateUser($prev_uname,$prev_pword,$user_type, $user_id));
+			// }elseif(!empty($new_uname) && !empty($user_type) && empty($password)){
+			// 	echo json_encode($db->updateUser($new_uname,$prev_pword,$user_type, $user_id));
+			// }elseif(!empty($new_uname) && empty($user_type) && !empty($password) && $prev_pword == $enc_prev_input_pw){
+			// 	echo json_encode($db->updateUser($new_uname,$password,$prev_utype, $user_id));
+			// }elseif(empty($new_uname) && !empty($user_type) && !empty($password) && $prev_pword == $enc_prev_input_pw){
+			// 	echo json_encode($db->updateUser($prev_uname,$password,$user_type, $user_id));
+			// }
 		// }else{
 		// 	print '<script type="text/javascript"> alert("Invalid!"); </script>';
 
 		// }
 		
-		if($prev_uname!=$new_uname && $new_uname != ''){
-			echo json_encode($db->userTransactionEdit($user,$user_id, 'username', $prev_uname, $new_uname, 2,0));
-			// echo json_encode($db->updateUser($new_uname,$prev_pword,$prev_utype, $user_id));
+		// if($prev_uname!=$new_uname && $new_uname != ''){
+		// 	echo json_encode($db->userTransactionEdit($user,$user_id, 'username', $prev_uname, $new_uname, 2,0));
+		// 	// echo json_encode($db->updateUser($new_uname,$prev_pword,$prev_utype, $user_id));
 			
 				
 			
-		}
-		if($prev_utype!=$user_type && $user_type != ''){
-			echo json_encode($db->userTransactionEdit($user,$user_id, 'usertype', $prev_utype, $user_type, 2,0));
-			// echo json_encode($db->updateUser($prev_uname,$prev_pword,$user_type, $user_id));
-		}
+		// }
+		// if($prev_utype!=$user_type && $user_type != ''){
+		// 	echo json_encode($db->userTransactionEdit($user,$user_id, 'usertype', $prev_utype, $user_type, 2,0));
+		// 	// echo json_encode($db->updateUser($prev_uname,$prev_pword,$user_type, $user_id));
+		// }
 		
+		// if($prev_pword!=$password && $password != '' && $prev_pword === $enc_prev_input_pw){
+			
+			
+		// }
 		
 	//localhost/phpork/gateway/admin.php?addBreed=1&breed_name=Breed1
 	}

@@ -862,7 +862,7 @@
 
         $('#saveUser').on("click",function(){
             var uName = $('#uname').val();
-            var user_Type = $('#utype').val();
+            var user_Type = $('#uType').val();
             var pword = $('#password').val();
             var user = $('#userId').val();
             
@@ -884,7 +884,7 @@
                   user: user
                 },
                 success: function (data) {
-                    alert("User added");
+                    alert(user_Type);
                     location.reload();
                 }    
               });
@@ -933,7 +933,7 @@
                   pw_prev_input: pw_prev_input
                 },
                 success: function (data) {
-                    // alert(pw_prev_input+prev_pword+"lala"+password);
+                     alert(edit_uid+user_name+"lala"+password);
                    // window.location = "/phpork/admin/home"; 
                    location.reload();
                 }    
