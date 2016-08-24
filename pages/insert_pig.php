@@ -65,7 +65,7 @@
             <!--<div class="t1">-->
               <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Pig id: </span>
-                <input type="text" class="form-control" id="pigId" name="new_pid" aria-describedby="basic-addon3" value="" required>
+                <input type="text" class="form-control" id="pigId" name="new_pid" aria-describedby="basic-addon3" value="" pattern="[0-9]+" required>
               </div>
               <br/>
               <div class="input-group gro">
@@ -81,7 +81,7 @@
               <br/>
               <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Week farrowed: </span>
-                <input type="text"  class="form-control" name="weekFarrowed" value="" id = "weekFarrowed"> 
+                <input type="text"  class="form-control" name="weekFarrowed" value="" id = "weekFarrowed" pattern="[A-z,a-z]+[0-9]+"> 
               </div>
               <br/>
               <div class="input-group gro">
@@ -103,7 +103,7 @@
               <br/>
               <div class="input-group gro">
                 <span class="input-group-addon" id="basic-addon3">Weight Type: </span>
-                <input type="text" class="form-control" id="weightType" value="" aria-describedby="basic-addon3">
+                <input type="text" class="form-control" id="weightType" value="" aria-describedby="basic-addon3" pattern="[A-za-z]+" required>
               </div>
           </div>
           <div class="btnpos">
@@ -222,18 +222,18 @@
             <br/>
             <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Production date of feed: </span>
-              <input type="date" class="form-control" id="prodDateOfFeed" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy">
+              <input type="date" class="form-control" id="prodDateOfFeed" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy" value="">
             </div>
             <br/>
             <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Date and time given: </span>
-              <input type="date" class="form-control" id="dateFeedGiven" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy">
-              <input type="time" class="form-control" id="timeFeedGiven" aria-describedby="basic-addon3">
+              <input type="date" class="form-control" id="dateFeedGiven" aria-describedby="basic-addon3" placeholder="mm/dd/yyyy" value="">
+              <input type="time" class="form-control" id="timeFeedGiven" aria-describedby="basic-addon3" value="">
             </div>
             <br/>
             <div class="input-group gro">
               <span class="input-group-addon" id="basic-addon3">Quantity: </span>
-              <input type="number" min="1" step="0.01" class="form-control" id="feedQty" aria-describedby="basic-addon3" style="width: 90%;">
+              <input type="number" min="1" step="0.01" class="form-control" id="feedQty" aria-describedby="basic-addon3" style="width: 90%;" value="">
               <span class="kg">kg</span>
             </div>
           </div>
@@ -337,18 +337,42 @@
         }); 
 
          $('#feedDetails').on("click", function() {
-              $('#pig1').attr("style", "display: none");
-              $('#pig2').attr("style", "display: none");
-              $('#feeds').attr("style", "display: inline-block");
-              $('#meds').attr("style", "display: none");
+		          var farm = $('#farm').val();
+                var house = $('#house').val();
+                var pen = $('#pen').val();
+                var gender = $('#gender').val();
+                var breed = $('#breed').val();  
+                var boarParent = $('#boarParent').val();
+                var sowParent = $('#sowParent').val();
+                var fosterParent = $('#fosterParent').val();
+		
+		if(farm == null || house == null || pen == null || gender == null || breed == null || boarParent == null || sowParent == null || fosterParent == null){
+			alert("Please fill up all fields");
+		}else{
+              		$('#pig1').attr("style", "display: none");
+              		$('#pig2').attr("style", "display: none");
+              		$('#feeds').attr("style", "display: inline-block");
+              		$('#meds').attr("style", "display: none");
+		}
           });
           
 
          $('#medDetails').on("click", function() {
-             $('#pig1').attr("style", "display: none");
-             $('#pig2').attr("style", "display: none");
-              $('#feeds').attr("style", "display: none");
-              $('#meds').attr("style", "display: inline-block");
+                var lastFeed = $('#lastFeed').val();
+                var prodDateOfFeed = $('#prodDateOfFeed').val();
+                var dateFeedGiven = $('#dateFeedGiven').val();
+                var timeFeedGiven = $('#timeFeedGiven').val();
+                var feedQty = $('#feedQty').val();
+
+                if(lastFeed == "" || prodDateOfFeed == "" || dateFeedGiven == "" || timeFeedGiven == "" || feedQty == ""){
+                   alert("Please fill up all fields!");
+                }else{
+                    
+                    $('#pig1').attr("style", "display: none");
+                   $('#pig2').attr("style", "display: none");
+                    $('#feeds').attr("style", "display: none");
+                    $('#meds').attr("style", "display: inline-block");
+                }
            });
 
          $('#backToPig1').on("click", function() {
@@ -360,11 +384,26 @@
           });
 
          $('#pigDetails2').on("click", function() {
-            $('#pig1').attr("style", "display: none");
-            $('#pig2').attr("style", "display: inline-block");
-            $('#feeds').attr("style", "display: none");
-            $('#meds').attr("style", "display: none");
+		            var pigId = $('#pigId').val();
+                var farrowingDate = $('#farrowingDate').val();
+                var weekFarrowed = $('#weekFarrowed').val();
+                var pigStatus= $('#pigStatus').val();
+                var weight = $('#weight').val();
+                var weightType = $('#weightType').val();
+                var rfid = $('#tag_id').val();
 
+                var matchWeight = weightType.match(/[0-9]+/g);
+
+        		if(pigId == "" || farrowingDate == "" || weekFarrowed == "" || pigStatus == "" || rfid == "" || weight == "" || weightType == ""){
+        			alert("Please fill up all fields");
+        		}else if(matchWeight != null ){
+                alert("invalid weight type input")
+            }else{
+                    		$('#pig1').attr("style", "display: none");
+                    		$('#pig2').attr("style", "display: inline-block");
+                    		$('#feeds').attr("style", "display: none");
+                    		$('#meds').attr("style", "display: none");
+        		}
            });
 
         $('#backToFeeds').on("click", function() {
@@ -504,7 +543,9 @@
                 var user = $('#userId').val();
 
                // alert(pigId);
-       
+                if(lastMedGiven == "" || dateMedGiven == "" || timeMedGiven == "" || medQty == "" || unit == ""){
+                   alert("Please fill up all fields!");
+                }else{
 
                  $.ajax({
                     url: '/phpork/gateway/pig.php',
@@ -545,7 +586,9 @@
                      
                      }
                   });
+            
                   window.location = "/phpork/view/farm/house/pen/pig/" +farm+ "/" +house+ "/" +pen+ "/" +pigId;
+                }
             });
          
       });
